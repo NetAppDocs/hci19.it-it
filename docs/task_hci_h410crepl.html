@@ -1,0 +1,4547 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head class="at-element-marker">
+  <title>Sostituire i nodi H410C</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Sostituire i nodi H410C" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/hci19/docs/task_hci_h410crepl.html" />
+	<meta property="og:description" content="È necessario sostituire un nodo di calcolo in caso di guasto della CPU, altri problemi della scheda madre o in caso di mancata accensione. Le istruzioni si a..." />
+  <meta property="og:image" content="https://docs.netapp.com/it-it/hci19/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="È necessario sostituire un nodo di calcolo in caso di guasto della CPU, altri problemi della scheda madre o in caso di mancata accensione. Le istruzioni si a...">
+  <meta name="keywords" content=" netapp, hci, H410C nodes, replacement, node replacement"><!-- Icons -->
+  <link rel="icon" href="/it-it/hci19/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/it-it/hci19/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/it-it/hci19/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/it-it/hci19/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/it-it/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/hci19/docs/task_hci_h410crepl.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/hci19/docs/task_hci_h410crepl.html" />
+  <link rel='stylesheet' href='/it-it/hci19/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/hci19/js/na-search.js'></script><script src='/it-it/hci19/js/na-pagenav.js'></script><script src='/it-it/hci19/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/it-it/hci19/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/it-it/hci19/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/it-it/hci19/js/na-utility.js'></script> -->
+  <script src='/it-it/hci19/js/clouddocs.js'></script>
+  <script src='/it-it/hci19/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src='/it-it/hci19/js/toc.js'></script> -->
+  <!-- <script src='/it-it/hci19/js/customscripts.js'></script> --><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/it-it/hci19"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/it-it/hci19/js/custom-dropdown.js'></script>
+  <script src='/it-it/hci19/js/FileSaver.min.js'></script>
+  <script src='/it-it/hci19/js/jszip-utils.min.js'></script>
+  <script src='/it-it/hci19/js/jszip.min.js'></script>
+  <!-- <script src='/it-it/hci19/js/pdf-ux.js'></script> -->
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/hci19.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/hci19/docs/task_hci_h410crepl.html&page-title=Sostituire i nodi H410C" class="page-nav-contribute-link" role="button"><img src="/it-it/hci19/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/hci19/blob/main/docs/task_hci_h410crepl.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/hci19/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/hci19/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Prodotto e soluzioni</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Supporto e training</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Testimonianze dei clienti</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contatto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/it-it/hci19/images/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/it-it/hci19/images/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/it-it/hci19/images/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/hci19/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/hci19/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Italiano</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/hci19/images/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/it-it/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/es-es/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/hci19/docs/task_hci_h410crepl.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div>
+    <!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/hci19/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>PDF disponibili<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/it-it/hci19/pdfs/fullsite-sidebar/Documentazione_NetApp_HCI.pdf" >
+          <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>PDF del sito di questa documentazione</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Note_di_rilascio.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Note di rilascio
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Concetti.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Concetti
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Storage.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Storage
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Requisiti_e_attività_di_pre_implementazione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Requisiti e attività di pre-implementazione
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Configurazione_di_rete.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Configurazione di rete
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Inizia_a_utilizzare_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Inizia a utilizzare NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Implementare_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Implementare NetApp HCI
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Accedi_al_NetApp_Deployment_Engine.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Accedi al NetApp Deployment Engine
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Configurare_VMware_vSphere.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Configurare VMware vSphere
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Selezione_dell_inventario.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Selezione dell'inventario
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Attività_post_implementazione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Attività post-implementazione
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Gestire_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Gestire NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Gestire_lo_storage_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Gestire lo storage NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Lavorare_con_il_nodo_di_gestione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Lavorare con il nodo di gestione
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Installare_o_ripristinare_un_nodo_di_gestione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Installare o ripristinare un nodo di gestione
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Utilizzare_l_interfaccia_utente_del_nodo_di_gestione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Utilizzare l'interfaccia utente del nodo di gestione
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Utilizzare_l_API_REST_del_nodo_di_gestione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Utilizzare l'API REST del nodo di gestione
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Gestire_le_connessioni_di_supporto.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Gestire le connessioni di supporto
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Spegnere_e_riaccendere_il_sistema_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Spegnere e riaccendere il sistema NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Monitorate_il_vostro_sistema_NetApp_HCI_con_il_controllo_del_cloud_ibrido_NetApp.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Monitorate il vostro sistema NetApp HCI con il controllo del cloud ibrido NetApp
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Aggiornare_il_sistema_NetApp_HCI_versione_1_9_o_1_9P1.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Aggiornare il sistema NetApp HCI versione 1.9 o 1.9P1
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Procedure_di_aggiornamento_del_sistema.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Procedure di aggiornamento del sistema
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Espandere_il_sistema_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Espandere il sistema NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/USA_Rancher_su_NetApp_HCI.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            USA Rancher su NetApp HCI
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Attività_post_implementazione.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Attività post-implementazione
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/hci19/pdfs/sidebar/Manutenzione_dell_hardware_della_serie_H_.pdf" 
+            
+          >
+            <img src="/it-it/hci19/images/pdf.png" alt="" width="16" height="16"/>
+            Manutenzione dell'hardware della serie H.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/it-it/hci19/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Raccolta di documenti PDF separati<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentazione di NetApp HCI 1.9"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/index.html">
+        Documentazione di NetApp HCI 1.9
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni NetApp HCI"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_solutions_index.html">
+        Soluzioni NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Note di rilascio"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Note di rilascio</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Novità di NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/rn_whatsnew.html">
+        Novità di NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ulteriori informazioni sulla release"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/rn_relatedrn.html">
+        Ulteriori informazioni sulla release
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Concetti"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Concetti</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica del prodotto"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_product_overview.html">
+        Panoramica del prodotto
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Account"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_cg_hci_accounts.html">
+        Account
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Protezione dei dati"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_dataprotection.html">
+        Protezione dei dati
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cluster"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_clusters.html">
+        Cluster
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nodi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_nodes.html">
+        Nodi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Storage</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modalità di manutenzione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_storage_maintenance_mode.html">
+        Modalità di manutenzione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Volumi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_volumes.html">
+        Volumi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gruppi di accesso ai volumi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_volume_access_groups.html">
+        Gruppi di accesso ai volumi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Iniziatori"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_initiators.html">
+        Iniziatori
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Domini di protezione personalizzati"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hcc_custom_protection_domains.html">
+        Domini di protezione personalizzati
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Licensing"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_cg_hci_licensing.html">
+        Licensing
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurazioni massime di NetApp Hybrid Cloud Control"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/reference_hcc_config_maximums.html">
+        Configurazioni massime di NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sicurezza"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_cg_hci_security.html">
+        Sicurezza
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Performance"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_performance.html">
+        Performance
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti e attività di pre-implementazione"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Requisiti e attività di pre-implementazione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti per l'implementazione di NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_overview.html">
+        Requisiti per l'implementazione di NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti dei nodi di gestione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_management_node.html">
+        Requisiti dei nodi di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti delle porte di rete"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_required_network_ports.html">
+        Requisiti delle porte di rete
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti di rete e switch"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_switch.html">
+        Requisiti di rete e switch
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti dei cavi di rete"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_cables.html">
+        Requisiti dei cavi di rete
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti dell'indirizzo IP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_ip_address.html">
+        Requisiti dell'indirizzo IP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurazione di rete"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurazione di rete</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica delle opzioni di configurazione di rete"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_configuration.html">
+        Panoramica delle opzioni di configurazione di rete
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Opzione Di configurazione di rete A"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_configuration_option_A.html">
+        Opzione Di configurazione di rete A
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Opzione di configurazione di rete B"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_configuration_option_B.html">
+        Opzione di configurazione di rete B
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Opzione di configurazione di rete C"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_network_configuration_option_C.html">
+        Opzione di configurazione di rete C
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="DNS e requisiti di conservazione dei tempi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_timekeeping.html">
+        DNS e requisiti di conservazione dei tempi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti ambientali"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_environmental.html">
+        Requisiti ambientali
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Domini di protezione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_protection_domains.html">
+        Domini di protezione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti di risorse di Witness Node per cluster di storage a due nodi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_witness_nodes.html">
+        Requisiti di risorse di Witness Node per cluster di storage a due nodi
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inizia a utilizzare NetApp HCI"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Inizia a utilizzare NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica dell'installazione e dell'implementazione di NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_getstarted.html">
+        Panoramica dell'installazione e dell'implementazione di NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare l'hardware della serie H."
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_installhw.html">
+        Installare l'hardware della serie H.
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare LACP per ottenere performance di storage ottimali"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_LACP_configuration.html">
+        Configurare LACP per ottenere performance di storage ottimali
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Validate il vostro ambiente con Active IQ Config Advisor"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_task_validate_config_advisor.html">
+        Validate il vostro ambiente con Active IQ Config Advisor
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare IPMI per ciascun nodo"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/hci_prereqs_final_prep.html">
+        Configurare IPMI per ciascun nodo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Implementare NetApp HCI"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Implementare NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accedi al NetApp Deployment Engine"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Accedi al NetApp Deployment Engine</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica delle opzioni di accesso al NetApp Deployment Engine"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_nde_access_overview.html">
+        Panoramica delle opzioni di accesso al NetApp Deployment Engine
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accesso al NetApp Deployment Engine in ambienti senza DHCP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_access_no_dhcp.html">
+        Accesso al NetApp Deployment Engine in ambienti senza DHCP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accedi al NetApp Deployment Engine negli ambienti con DHCP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_access_dhcp.html">
+        Accedi al NetApp Deployment Engine negli ambienti con DHCP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Assegnare manualmente gli indirizzi IP per accedere al NetApp Deployment Engine"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_access_manual_ip.html">
+        Assegnare manualmente gli indirizzi IP per accedere al NetApp Deployment Engine
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avviare l'implementazione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_start_deployment.html">
+        Avviare l'implementazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Importare un profilo di installazione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_import_installation_profile.html">
+        Importare un profilo di installazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare VMware vSphere"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurare VMware vSphere</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica della configurazione di vSphere"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_nde_config_vsphere_overview.html">
+        Panoramica della configurazione di vSphere
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare un nuovo ambiente VMware vSphere"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_configure_new_vsphere.html">
+        Configurare un nuovo ambiente VMware vSphere
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Partecipa a un'implementazione VMware vSphere esistente"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_join_existing_vsphere.html">
+        Partecipa a un'implementazione VMware vSphere esistente
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare le credenziali NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_configure_credentials.html">
+        Configurare le credenziali NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Selezionare una topologia di rete"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_select_net_topology.html">
+        Selezionare una topologia di rete
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Selezione dell'inventario"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Selezione dell'inventario</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Selezione dell'inventario e compatibilità dei nodi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_nde_node_compatibility.html">
+        Selezione dell'inventario e compatibilità dei nodi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Selezionare l'inventario"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_select_inventory.html">
+        Selezionare l'inventario
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare le impostazioni di rete"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_configure_net_settings.html">
+        Configurare le impostazioni di rete
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Revisione e implementazione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_review_deploy.html">
+        Revisione e implementazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Attività post-implementazione"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Attività post-implementazione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica delle attività post-implementazione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_nde_post_deployment_overview.html">
+        Panoramica delle attività post-implementazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modifiche di rete supportate"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_supported_net_changes.html">
+        Modifiche di rete supportate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Disattiva il servizio smartd sui nodi di calcolo NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_disable_smartd.html">
+        Disattiva il servizio smartd sui nodi di calcolo NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Disattivare il comando "lacp-Individual" sugli switch configurati"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_disable_lacp_individual.html">
+        Disattivare il comando "lacp-Individual" sugli switch configurati
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un ruolo NetApp HCC in vCenter"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_create_netapp_hcc_role_vcenter.html">
+        Creare un ruolo NetApp HCC in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornamento di VMware vSphere"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_update_vsphere.html">
+        Aggiornamento di VMware vSphere
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare i driver della GPU per i nodi di calcolo abilitati alla GPU"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_install_GPU_drivers.html">
+        Installare i driver della GPU per i nodi di calcolo abilitati alla GPU
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accedi a NetApp Hybrid Cloud Control"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_access_hcc.html">
+        Accedi a NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Riduci l'usura dei supporti di boot su un nodo di calcolo NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_reduce_boot_media_wear.html">
+        Riduci l'usura dei supporti di boot su un nodo di calcolo NetApp HCI
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire NetApp HCI"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestire NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica di Manage NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_manage_overview.html">
+        Panoramica di Manage NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare l'accesso completo all'interfaccia utente Web Domain Name"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_access_ui_fqdn.html">
+        Configurare l'accesso completo all'interfaccia utente Web Domain Name
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificare le credenziali in NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_post_deploy_credentials.html">
+        Modificare le credenziali in NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare le credenziali vCenter ed ESXi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_credentials_vcenter_esxi.html">
+        Aggiornare le credenziali vCenter ed ESXi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire lo storage NetApp HCI"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestire lo storage NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica sullo storage Manage NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_storage_overview.html">
+        Panoramica sullo storage Manage NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire gli account utente"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_accounts.html">
+        Creare e gestire gli account utente
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere e gestire cluster di storage"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_storage_clusters.html">
+        Aggiungere e gestire cluster di storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire i volumi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_vol_management.html">
+        Creare e gestire i volumi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire i gruppi di accesso ai volumi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_vol_access_groups.html">
+        Creare e gestire i gruppi di accesso ai volumi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire gli iniziatori"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_manage_initiators.html">
+        Creare e gestire gli iniziatori
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire policy di QoS per volumi"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_qos_policies.html">
+        Creare e gestire policy di QoS per volumi
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Lavorare con il nodo di gestione"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Lavorare con il nodo di gestione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica del nodo di gestione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_work_overview.html">
+        Panoramica del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare o ripristinare un nodo di gestione"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Installare o ripristinare un nodo di gestione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare un nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_install.html">
+        Installare un nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurazione di un NIC (Network Interface Controller) per lo storage"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_install_add_storage_NIC.html">
+        Configurazione di un NIC (Network Interface Controller) per lo storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ripristinare un nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_recover.html">
+        Ripristinare un nodo di gestione
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accedere al nodo di gestione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_access_ui.html">
+        Accedere al nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificare il certificato SSL predefinito del nodo di gestione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/reference_change_mnode_default_ssl_certificate.html">
+        Modificare il certificato SSL predefinito del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare l'interfaccia utente del nodo di gestione"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Utilizzare l'interfaccia utente del nodo di gestione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica dell'interfaccia utente del nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_work_overview_UI.html">
+        Panoramica dell'interfaccia utente del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il monitoraggio degli avvisi su NetApp HCI"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_enable_alerts.html">
+        Configurare il monitoraggio degli avvisi su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modificare e verificare le impostazioni di rete, cluster e sistema del nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_settings.html">
+        Modificare e verificare le impostazioni di rete, cluster e sistema del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eseguire le utility di sistema dal nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_run_system_utilities.html">
+        Eseguire le utility di sistema dal nodo di gestione
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare l'API REST del nodo di gestione"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Utilizzare l'API REST del nodo di gestione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica dell'interfaccia utente REST API del nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_work_overview_API.html">
+        Panoramica dell'interfaccia utente REST API del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ottenere l'autorizzazione per utilizzare le API REST"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_api_get_authorizationtouse.html">
+        Ottenere l'autorizzazione per utilizzare le API REST
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Abilitare il monitoraggio Active IQ e NetApp HCI"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_enable_activeIQ.html">
+        Abilitare il monitoraggio Active IQ e NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare NetApp Hybrid Cloud Control per più vCenter"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_multi_vcenter_config.html">
+        Configurare NetApp Hybrid Cloud Control per più vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere risorse di calcolo e controller al nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_add_assets.html">
+        Aggiungere risorse di calcolo e controller al nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come individuare un tag hardware per il nodo di calcolo"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_locate_hardware_tag.html">
+        Come individuare un tag hardware per il nodo di calcolo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare e gestire le risorse del cluster di storage"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_manage_storage_cluster_assets.html">
+        Creare e gestire le risorse del cluster di storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Visualizzare o modificare le risorse dei controller esistenti"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_edit_vcenter_assets.html">
+        Visualizzare o modificare le risorse dei controller esistenti
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rimuovere una risorsa dal nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_remove_assets.html">
+        Rimuovere una risorsa dal nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare un server proxy per il nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_configure_proxy_server.html">
+        Configurare un server proxy per il nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Verificare le versioni dei sistemi operativi e dei servizi del nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_api_find_mgmt_svcs_version.html">
+        Verificare le versioni dei sistemi operativi e dei servizi del nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Recupero dei log dai servizi di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_logs.html">
+        Recupero dei log dai servizi di gestione
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire le connessioni di supporto"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestire le connessioni di supporto</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avviare una sessione remota di NetApp Support"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_enable_remote_support_connections.html">
+        Avviare una sessione remota di NetApp Support
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire la funzionalità SSH sul nodo di gestione"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_mnode_ssh_management.html">
+        Gestire la funzionalità SSH sul nodo di gestione
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Spegnere e riaccendere il sistema NetApp HCI"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Spegnere e riaccendere il sistema NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica sull'alimentazione NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_nde_hci_power_off_on.html">
+        Panoramica sull'alimentazione NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Spegnere le risorse di calcolo per un sistema NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_hci_power_off_compute.html">
+        Spegnere le risorse di calcolo per un sistema NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Spegnere le risorse di storage per un sistema NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_hci_power_off_storage.html">
+        Spegnere le risorse di storage per un sistema NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accendere le risorse di storage per un sistema NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_hci_power_on_storage.html">
+        Accendere le risorse di storage per un sistema NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accendere le risorse di calcolo per un sistema NetApp HCI"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_nde_hci_power_on_compute.html">
+        Accendere le risorse di calcolo per un sistema NetApp HCI
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Monitorate il vostro sistema NetApp HCI con il controllo del cloud ibrido NetApp"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Monitorate il vostro sistema NetApp HCI con il controllo del cloud ibrido NetApp</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Visualizzate le risorse sulla dashboard di NetApp Hybrid Cloud Control"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_dashboard.html">
+        Visualizzate le risorse sulla dashboard di NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Visualizza il tuo inventario nella pagina nodi di NetApp Hybrid Cloud Control"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_nodes.html">
+        Visualizza il tuo inventario nella pagina nodi di NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Modifica le informazioni di connessione BMC con NetApp Hybrid Cloud Control"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_edit_bmc_info.html">
+        Modifica le informazioni di connessione BMC con NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Monitorate i volumi sul vostro cluster di storage con NetApp Hybrid Cloud Control"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_volumes.html">
+        Monitorate i volumi sul vostro cluster di storage con NetApp Hybrid Cloud Control
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Monitorate performance, capacità e stato dei cluster con le connessioni di controllo del cloud ibrido NetApp a Active IQ"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_activeiq.html">
+        Monitorate performance, capacità e stato dei cluster con le connessioni di controllo del cloud ibrido NetApp a Active IQ
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Raccogliere i registri per la risoluzione dei problemi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_collectlogs.html">
+        Raccogliere i registri per la risoluzione dei problemi
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare il sistema NetApp HCI versione 1.9 o 1.9P1"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Aggiornare il sistema NetApp HCI versione 1.9 o 1.9P1</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica della sequenza di aggiornamento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hci_upgrade_overview.html">
+        Panoramica della sequenza di aggiornamento
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Procedure di aggiornamento del sistema"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Procedure di aggiornamento del sistema</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Servizi di gestione degli aggiornamenti"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_update_management_services.html">
+        Servizi di gestione degli aggiornamenti
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Effettua l'aggiornamento alla versione più recente di HealthTools"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_upgrade_element_latest_healthtools.html">
+        Effettua l'aggiornamento alla versione più recente di HealthTools
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eseguire i controlli dello stato dello storage Element prima di aggiornare lo storage"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_element_prechecks.html">
+        Eseguire i controlli dello stato dello storage Element prima di aggiornare lo storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare il software Element"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_element_software.html">
+        Aggiornare il software Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare il firmware dello storage"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_storage_firmware.html">
+        Aggiornare il firmware dello storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare un nodo di gestione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_management_node.html">
+        Aggiornare un nodo di gestione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare il plug-in NetApp Element per vCenter Server"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_vcp_upgrade_plugin.html">
+        Aggiornare il plug-in NetApp Element per vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eseguire i controlli dello stato dei nodi di calcolo prima di aggiornare il firmware di calcolo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_upgrade_compute_prechecks.html">
+        Eseguire i controlli dello stato dei nodi di calcolo prima di aggiornare il firmware di calcolo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare i driver dei nodi di calcolo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_compute_node_drivers.html">
+        Aggiornare i driver dei nodi di calcolo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiornare il firmware del nodo di calcolo"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_compute_node_firmware.html">
+        Aggiornare il firmware del nodo di calcolo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Automatizza gli aggiornamenti del firmware dei nodi di calcolo con Ansible"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_upgrade_compute_firmware_ansible.html">
+        Automatizza gli aggiornamenti del firmware dei nodi di calcolo con Ansible
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiorna i componenti vSphere per un sistema NetApp HCI con il plug-in Element per vCenter Server"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_upgrade_all_vsphere.html">
+        Aggiorna i componenti vSphere per un sistema NetApp HCI con il plug-in Element per vCenter Server
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Espandere il sistema NetApp HCI"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Espandere il sistema NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Espandere la panoramica"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_hcc_expandoverview.html">
+        Espandere la panoramica
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Espandere le risorse di storage NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_expand_storage.html">
+        Espandere le risorse di storage NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Espandere le risorse di calcolo di NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_expand_compute.html">
+        Espandere le risorse di calcolo di NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Espandere le risorse di calcolo e storage NetApp"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hcc_expand_compute_and_storage.html">
+        Espandere le risorse di calcolo e storage NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rimuovere i nodi di controllo dopo l'espansione del cluster"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_removewn.html">
+        Rimuovere i nodi di controllo dopo l'espansione del cluster
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="USA Rancher su NetApp HCI"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> USA Rancher su NetApp HCI</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica di Rancher on NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_rancher_product_overview.html">
+        Panoramica di Rancher on NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Concetti"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_rancher_concepts.html">
+        Concetti
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisiti per Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/rancher_prereqs_overview.html">
+        Requisiti per Rancher su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Implementare Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_deploy.html">
+        Implementare Rancher su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Attività post-implementazione"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Attività post-implementazione</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica delle attività post-implementazione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/concept_rancher_post_deployment_overview.html">
+        Panoramica delle attività post-implementazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Garantire la parità del supporto Rancher"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_ensure_rancher_support_parity.html">
+        Garantire la parità del supporto Rancher
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migliorare la resilienza delle macchine virtuali Rancher"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_config_anti_affinity.html">
+        Migliorare la resilienza delle macchine virtuali Rancher
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il monitoraggio"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_enable_monitoring.html">
+        Configurare il monitoraggio
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare Trident"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_trident.html">
+        Installare Trident
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Abilitare il supporto Trident per i cluster di utenti"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_trident_configure_networking.html">
+        Abilitare il supporto Trident per i cluster di utenti
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Implementare cluster di utenti e applicazioni"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_deploy_user_clusters.html">
+        Implementare cluster di utenti e applicazioni
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestire Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_manage.html">
+        Gestire Rancher su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Monitor Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_monitor.html">
+        Monitor Rancher su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Upgrade Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_upgrades.html">
+        Upgrade Rancher su NetApp HCI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Rimuovere un'installazione di Rancher su NetApp HCI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_rancher_remove_deployment.html">
+        Rimuovere un'installazione di Rancher su NetApp HCI
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manutenzione dell'hardware della serie H."
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manutenzione dell'hardware della serie H.</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Panoramica sulla manutenzione dell'hardware della serie H."
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_hwmainoverview.html">
+        Panoramica sulla manutenzione dell'hardware della serie H.
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire lo chassis 2U serie H."
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_hserieschassisrepl.html">
+        Sostituire lo chassis 2U serie H.
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire le unità di alimentazione CC nei nodi H615C e H610S"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_dcpsurepl.html">
+        Sostituire le unità di alimentazione CC nei nodi H615C e H610S
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i DIMM nei nodi di calcolo"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_dimmcomputerepl.html">
+        Sostituire i DIMM nei nodi di calcolo
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire le unità per i nodi di storage"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_driverepl.html">
+        Sostituire le unità per i nodi di storage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i nodi H410C"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_h410crepl.html">
+        Sostituire i nodi H410C
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i nodi H410S"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_h410srepl.html">
+        Sostituire i nodi H410S
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i nodi H610C e H615C"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_h610ch615crepl.html">
+        Sostituire i nodi H610C e H615C
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire i nodi H610S"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_h610srepl.html">
+        Sostituire i nodi H610S
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire le unità di alimentazione"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_psurepl.html">
+        Sostituire le unità di alimentazione
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire gli switch SN2010, SN2100 e SN2700"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_snswitches.html">
+        Sostituire gli switch SN2010, SN2100 e SN2700
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Sostituire il nodo di storage in un cluster a due nodi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/task_hci_2noderepl.html">
+        Sostituire il nodo di storage in un cluster a due nodi
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Versioni precedenti"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/reference_earlier_versions.html">
+        Versioni precedenti
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Note legali"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/hci19/docs/reference_notices_hci.html">
+        Note legali
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/it-it/hci19/images/expand.png" alt="Espandi pannello di navigazione"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/it-it/hci19/">HCI</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/it-it/hci19/images/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Sostituire i nodi H410C</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-05-23 17:11:22 +0000">05/23/2023</time>
+    
+  
+
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>È necessario sostituire un nodo di calcolo in caso di guasto della CPU, altri problemi della scheda madre o in caso di mancata accensione. Le istruzioni si applicano ai nodi H410C. Se si dispone di un nodo di calcolo H410C che esegue il sistema operativo Bootstrap NetApp HCI versione 1.6P1 o successiva, non è necessario sostituire il nodo in caso di guasto del DIMM di memoria; è necessario sostituire solo il DIMM guasto. Se i DIMM nel nodo non presentano guasti, è possibile utilizzarli nel nodo sostitutivo.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Il nodo sostitutivo deve avere la stessa versione del sistema operativo NetApp HCI Bootstrap degli altri nodi di calcolo nell&#8217;installazione di NetApp HCI.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Di cosa hai bisogno</div>
+<ul>
+<li>
+<p>Hai determinato che il nodo di calcolo deve essere sostituito.</p>
+</li>
+<li>
+<p>Si dispone di un nodo di calcolo sostitutivo. Per ordinare un nodo sostitutivo, contattare il supporto NetApp. Il nodo di calcolo viene spedito con il sistema operativo Bootstrap installato. I nodi vengono spediti dalla fabbrica con la versione più recente del sistema operativo Bootstrap. Potrebbe essere necessario eseguire il processo di ripristino dell&#8217;immagine di fabbrica (RTFI) sul nodo nei seguenti scenari:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;installazione corrente di NetApp HCI esegue una versione del sistema operativo Bootstrap precedente alla versione più recente. In questo caso, il processo RTFI esegue il downgrade del nuovo nodo alla versione del sistema operativo in esecuzione nell&#8217;installazione di NetApp HCI.</p>
+</li>
+<li>
+<p>Il nodo sostitutivo fornito esegue una versione del sistema operativo di bootstrap precedente alla versione più recente e l&#8217;installazione di NetApp HCI in cui viene sostituito il nodo esegue già la versione più recente. In questo caso, il processo RTFI aggiornerà la versione del sistema operativo sul nuovo nodo alla versione più recente. Vedere <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/HCI_-_How_to_RTFI_using_a_USB_key" target="_blank" rel="noopener">"Come utilizzare RTFI con una chiave USB (accesso richiesto)"</a> e. <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_RTFI_an_HCI_Compute_Node_via_BMC" target="_blank" rel="noopener">"Come RTFI utilizzando BMC (accesso richiesto)"</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si dispone di un braccialetto per le scariche elettrostatiche (ESD) o si sono prese altre precauzioni antistatiche.</p>
+</li>
+<li>
+<p>Ciascun cavo collegato al nodo di calcolo è etichettato.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">A proposito di questa attività</div>
+<p>Gli allarmi di VMware vSphere Web Client avvisano l&#8217;utente in caso di guasto di un nodo. Il numero di serie del nodo guasto di VMware vSphere Web Client deve corrispondere al numero di serie riportato sull&#8217;etichetta sul retro del nodo.</p>
+</div>
+<div class="paragraph">
+<p>Quando si sostituisce un nodo di calcolo H410C, considerare quanto segue:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>È possibile combinare il nodo di calcolo H410C con i nodi di calcolo e storage NetApp HCI esistenti nello stesso chassis e cluster.</p>
+</li>
+<li>
+<p>Il nodo di calcolo H410C funziona solo con tensione di linea elevata (200-240 VCA). Quando si aggiungono nodi H410C a un sistema NetApp HCI esistente, è necessario assicurarsi che i requisiti di alimentazione siano soddisfatti.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Panoramica dei passaggi</div>
+<p>Di seguito viene riportata una panoramica generale delle fasi di questa procedura:<a href="#prepararsi-a-sostituire-il-nodo-di-calcolo">Prepararsi a sostituire il nodo di calcolo</a><br>
+<a href="#sostituire-il-nodo-di-calcolo-nello-chassis">Sostituire il nodo di calcolo nello chassis</a><br>
+<a href="#rimuovere-la-risorsa-del-nodo-di-calcolo-in-netapp-hci-1-7-e-versioni-successive">Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1.7 e versioni successive</a><br>
+<a href="#aggiungere-il-nodo-di-calcolo-al-cluster">Aggiungere il nodo di calcolo al cluster</a><br>
+<a href="#ridistribuire-i-nodi-di-controllo-per-cluster-di-storage-a-due-e-tre-nodi">Ridistribuire i nodi di controllo per cluster di storage a due e tre nodi</a></p>
+</div>
+<div class="paragraph">
+<p>Di seguito sono riportate alcune attività aggiuntive che potrebbero essere necessarie se il sistema dispone delle condizioni specifiche a cui sono applicabili:<a href="task_hci_removewn.html">"Rimuovere i nodi di controllo per liberare le risorse di calcolo"</a><br>
+<a href="#modificare-la-password-se-si-riceve-un-nodo-sostitutivo-con-una-password-bmc-non-standard">Modificare la password se si riceve un nodo sostitutivo con una password BMC non standard</a><br>
+<a href="#aggiornare-il-firmware-bmc-sul-nodo">Aggiornare il firmware BMC sul nodo</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prepararsi-a-sostituire-il-nodo-di-calcolo">Prepararsi a sostituire il nodo di calcolo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>È necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo guasto dal cluster. Si dovrebbero ottenere dettagli sul nodo guasto, come il numero di serie e le informazioni di rete.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>In VMware vSphere Web Client, eseguire la procedura per migrare le macchine virtuali su un altro host disponibile.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Consultare la documentazione VMware per le fasi della migrazione.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Eseguire la procedura per rimuovere il nodo dall&#8217;inventario. La procedura dipende dalla versione di NetApp HCI installata:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Numero di versione di NetApp HCI</th>
+<th class="tableblock halign-left valign-top">Fasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp HCI 1.3 e versioni successive</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Selezionare il nodo guasto e selezionare <strong>Monitor &gt; hardware Status &gt; Sensors</strong>.</p>
+</li>
+<li>
+<p>Annotare il numero di serie del nodo guasto. In questo modo, è possibile identificare il nodo nello chassis facendo corrispondere il numero di serie riportato sull&#8217;etichetta sul retro del nodo con il numero di serie annotato.</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul nodo guasto e selezionare <strong>connessione &gt; Disconnetti</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Sì</strong> per confermare l&#8217;azione.</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul nodo guasto e selezionare <strong>Rimuovi dall&#8217;inventario</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Sì</strong> per confermare l&#8217;azione.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Versioni di NetApp HCI precedenti alla 1.3</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Fare clic con il pulsante destro del mouse sul nodo e selezionare <strong>Rimuovi dall&#8217;inventario</strong>.</p>
+</li>
+<li>
+<p>Selezionare il nodo guasto e selezionare <strong>Monitor &gt; hardware Status &gt; Sensors</strong>.</p>
+</li>
+<li>
+<p>Notare il numero di serie del nodo 0, che è il numero di serie del nodo guasto. In questo modo, è possibile identificare il nodo nello chassis facendo corrispondere il numero di serie riportato sull&#8217;etichetta sul retro del nodo con il numero di serie annotato.</p>
+</li>
+<li>
+<p>Con il nodo guasto selezionato, selezionare <strong>Manage &gt; Networking &gt; VMkernel adapter</strong> (Gestisci &gt; rete &gt; adattatori VMkernel) e copiare i quattro indirizzi IP elencati. È possibile riutilizzare queste informazioni quando si eseguono le fasi iniziali della configurazione di rete in VMware ESXi.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sostituire-il-nodo-di-calcolo-nello-chassis">Sostituire il nodo di calcolo nello chassis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dopo aver rimosso il nodo guasto dal cluster, è possibile rimuovere il nodo dallo chassis e installare il nodo sostitutivo.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Assicurarsi di disporre di una protezione antistatica prima di eseguire la procedura riportata di seguito.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Protezione antistatica.</p>
+</li>
+<li>
+<p>Disimballare il nuovo nodo e impostarlo su una superficie piana vicino allo chassis. Conservare il materiale di imballaggio per quando si restituisce il nodo guasto a NetApp.</p>
+</li>
+<li>
+<p>Etichettare ciascun cavo inserito nella parte posteriore del nodo che si desidera rimuovere. Dopo aver installato il nuovo nodo, inserire nuovamente i cavi nelle porte originali.</p>
+</li>
+<li>
+<p>Scollegare tutti i cavi dal nodo.</p>
+</li>
+<li>
+<p>Se si desidera riutilizzare i DIMM, rimuoverli.</p>
+</li>
+<li>
+<p>Tirare verso il basso la maniglia della camma sul lato destro del nodo ed estrarre il nodo utilizzando entrambe le maniglie della camma. La maniglia della camma da tirare verso il basso è dotata di una freccia che indica la direzione di spostamento. L&#8217;altra maniglia CAM non si sposta ed è lì per aiutare a estrarre il nodo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Supportare il nodo con entrambe le mani quando lo si tira fuori dallo chassis.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Posizionare il nodo su una superficie piana. È necessario imballare il nodo e restituirlo a NetApp.</p>
+</li>
+<li>
+<p>Installare il nodo sostitutivo.</p>
+</li>
+<li>
+<p>Spingere il nodo fino a quando non si sente uno scatto.</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/caution.svg" alt="Avvertenza">
+</td>
+<td class="content">
+Assicurarsi di non esercitare una forza eccessiva quando si fa scorrere il nodo nel telaio.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Assicurarsi che il nodo si accenda. Se non si accende automaticamente, premere il pulsante di accensione nella parte anteriore del nodo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Se in precedenza sono stati rimossi i DIMM dal nodo guasto, inserirli nel nodo sostitutivo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+È necessario sostituire i DIMM negli stessi slot da cui sono stati rimossi nel nodo guasto.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Ricollegare i cavi alle porte da cui sono stati precedentemente scollegati. Le etichette applicate ai cavi quando sono stati scollegati sono di aiuto.</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/caution.svg" alt="Avvertenza">
+</td>
+<td class="content">
+Se le prese d&#8217;aria sul retro del telaio sono bloccate da cavi o etichette, possono verificarsi guasti prematuri dei componenti dovuti al surriscaldamento. Non forzare i cavi nelle porte, poiché si potrebbero danneggiare i cavi, le porte o entrambe.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="Suggerimento">
+</td>
+<td class="content">
+Assicurarsi che il nodo sostitutivo sia cablato nello stesso modo degli altri nodi nello chassis.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rimuovere-la-risorsa-del-nodo-di-calcolo-in-netapp-hci-1-7-e-versioni-successive">Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1.7 e versioni successive</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In NetApp HCI 1.7 e versioni successive, dopo aver sostituito fisicamente il nodo, è necessario rimuovere la risorsa del nodo di calcolo utilizzando le API del nodo di gestione. Per utilizzare le API REST, il cluster di storage deve eseguire il software NetApp Element 11.5 o versione successiva e dovrebbe essere stato implementato un nodo di gestione con versione 11.5 o successiva.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Inserire l&#8217;indirizzo IP del nodo di gestione seguito da /mnode:<br>
+<code>https://[IP address]/mnode</code></p>
+</li>
+<li>
+<p>Selezionare <strong>autorizzare</strong> o qualsiasi icona a forma di lucchetto e immettere le credenziali di amministratore del cluster per le autorizzazioni per l&#8217;utilizzo delle API.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Inserire il nome utente e la password del cluster.</p>
+</li>
+<li>
+<p>Selezionare corpo richiesta dall&#8217;elenco a discesa tipo se il valore non è già selezionato.</p>
+</li>
+<li>
+<p>Inserire l&#8217;ID client come mnode-client se il valore non è già stato compilato. Non inserire un valore per il client secret.</p>
+</li>
+<li>
+<p>Selezionare <strong>autorizzare</strong> per avviare una sessione.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se si ottiene il <code>Auth Error TypeError: Failed to fetch</code> Messaggio di errore dopo aver tentato di autorizzare, potrebbe essere necessario accettare il certificato SSL per l&#8217;MVIP del cluster. Copiare l&#8217;indirizzo IP nell&#8217;URL token, incollarlo in un&#8217;altra scheda del browser e autorizzare di nuovo. Se si tenta di eseguire un comando dopo la scadenza del token, viene visualizzato <code>Error: UNAUTHORIZED</code> errore. Se ricevi questa risposta, autorizzi di nuovo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Chiudere la finestra di dialogo Available Authorization (autorizzazioni disponibili).</p>
+</li>
+<li>
+<p>Selezionare <strong>GET/Assets</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Provalo</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Esegui</strong>. Scorrere verso il basso nel corpo della risposta fino alla sezione Compute (calcolo) e copiare i valori padre e id per il nodo di calcolo guasto.</p>
+</li>
+<li>
+<p>Selezionare <strong>DELETE/assets/{asset_id}/compute-nodes/{compute_id}</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Provalo</strong>. Inserire i valori di origine e id ottenuti al punto 7.</p>
+</li>
+<li>
+<p>Selezionare <strong>Esegui</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aggiungere-il-nodo-di-calcolo-al-cluster">Aggiungere il nodo di calcolo al cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>È necessario aggiungere nuovamente il nodo di calcolo al cluster. La procedura varia a seconda della versione di NetApp HCI in esecuzione.</p>
+</div>
+<div class="sect2">
+<h3 id="netapp-hci-1-6p1-e-versioni-successive">NetApp HCI 1.6P1 e versioni successive</h3>
+<div class="paragraph">
+<p>È possibile utilizzare NetApp Hybrid Cloud Control solo se l&#8217;installazione di NetApp HCI viene eseguita sulla versione 1.6P1 o successiva.</p>
+</div>
+<div class="ulist">
+<div class="title">Di cosa hai bisogno</div>
+<ul>
+<li>
+<p>Assicurarsi che l&#8217;istanza di vSphere utilizzata da NetApp HCI disponga di licenze vSphere Enterprise Plus se si sta espandendo un&#8217;implementazione con Virtual Distributed Switch.</p>
+</li>
+<li>
+<p>Assicurarsi che nessuna delle istanze vCenter o vSphere in uso con NetApp HCI disponga di licenze scadute.</p>
+</li>
+<li>
+<p>Assicurarsi di disporre di indirizzi IPv4 liberi e inutilizzati sullo stesso segmento di rete dei nodi esistenti (ciascun nuovo nodo deve essere installato sulla stessa rete dei nodi esistenti del suo tipo).</p>
+</li>
+<li>
+<p>Assicurarsi di disporre delle credenziali dell&#8217;account amministratore vCenter.</p>
+</li>
+<li>
+<p>Assicurarsi che ogni nuovo nodo utilizzi la stessa topologia di rete e lo stesso cablaggio dei cluster di calcolo o di storage esistenti.</p>
+</li>
+<li>
+<p><a href="task_hcc_manage_vol_access_groups.html">"Gestire gli iniziatori e i gruppi di accesso ai volumi"</a> per il nuovo nodo di calcolo.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Aprire l&#8217;indirizzo IP del nodo di gestione in un browser Web. Ad esempio:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;ManagementNodeIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.</p>
+</li>
+<li>
+<p>Nel riquadro di espansione dell&#8217;installazione, selezionare <strong>Espandi</strong>.</p>
+</li>
+<li>
+<p>Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.</p>
+</li>
+<li>
+<p>Nella pagina di benvenuto, selezionare <strong>Sì</strong>.</p>
+</li>
+<li>
+<p>Nella pagina End User License (licenza per l&#8217;utente finale), eseguire le seguenti operazioni:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Leggi il contratto di licenza con l&#8217;utente finale di VMware.</p>
+</li>
+<li>
+<p>Se si accettano i termini, selezionare <strong>Accetto</strong> alla fine del testo del contratto.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Nella pagina vCenter, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere un indirizzo FQDN o IP e le credenziali di amministratore per l&#8217;istanza di vCenter associata all&#8217;installazione di NetApp HCI.</p>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Selezionare un data center vSphere esistente a cui aggiungere il nuovo nodo di calcolo oppure selezionare <strong>Create New Datacenter</strong> (Crea nuovo data center) per aggiungere i nuovi nodi di calcolo a un nuovo data center.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se si seleziona Create New Datacenter (Crea nuovo data center), il campo Cluster viene compilato automaticamente.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Se è stato selezionato un data center esistente, selezionare un cluster vSphere a cui associare i nuovi nodi di calcolo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se NetApp HCI non riconosce le impostazioni di rete del cluster selezionato, assicurarsi che il mapping vmkernel e vmnic per le reti di gestione, storage e vMotion sia impostato sui valori predefiniti di implementazione.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella pagina delle credenziali ESXi, immettere una password radice ESXi per il nodo di calcolo o i nodi che si desidera aggiungere. Utilizzare la stessa password creata durante la distribuzione iniziale di NetApp HCI.</p>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Se è stato creato un nuovo cluster di data center vSphere, nella pagina topologia di rete, selezionare una topologia di rete che corrisponda ai nuovi nodi di calcolo che si stanno aggiungendo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+È possibile selezionare l&#8217;opzione a due cavi solo se i nodi di calcolo utilizzano la topologia a due cavi e l&#8217;implementazione NetApp HCI esistente è configurata con ID VLAN.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Nella pagina inventario disponibile, selezionare il nodo che si desidera aggiungere all&#8217;installazione di NetApp HCI esistente.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="Suggerimento">
+</td>
+<td class="content">
+Per alcuni nodi di calcolo, potrebbe essere necessario abilitare EVC al livello più elevato supportato dalla versione di vCenter prima di poterli aggiungere all&#8217;installazione. Utilizzare il client vSphere per abilitare EVC per questi nodi di calcolo. Una volta attivata, aggiornare la pagina <strong>Inventory</strong> e provare ad aggiungere nuovamente i nodi di calcolo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Facoltativo: Se è stato creato un nuovo cluster di data center vSphere, nella pagina Impostazioni di rete, importare le informazioni di rete da un&#8217;implementazione NetApp HCI esistente selezionando la casella di controllo <strong>Copia impostazione da un cluster esistente</strong>. In questo modo vengono inserite le informazioni predefinite relative al gateway e alla subnet per ciascuna rete.</p>
+</li>
+<li>
+<p>Nella pagina Network Settings (Impostazioni di rete), alcune informazioni di rete sono state rilevate dalla distribuzione iniziale. Il nuovo nodo di calcolo è elencato in base al numero di serie e si consiglia di assegnarvi nuove informazioni di rete. Per il nuovo nodo di calcolo, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Se NetApp HCI ha rilevato un prefisso di denominazione, copiarlo dal campo prefisso di denominazione rilevato e inserirlo come prefisso per il nuovo nome host univoco aggiunto nel campo <strong>Nome host</strong>.</p>
+</li>
+<li>
+<p>Nel campo <strong>Management IP Address</strong> (Indirizzo IP di gestione), immettere un indirizzo IP di gestione per il nodo di calcolo all&#8217;interno della subnet della rete di gestione.</p>
+</li>
+<li>
+<p>Nel campo vMotion IP Address (Indirizzo IP vMotion), immettere un indirizzo IP vMotion per il nodo di calcolo che si trova all&#8217;interno della subnet di rete vMotion.</p>
+</li>
+<li>
+<p>Nel campo iSCSI A - IP Address (Indirizzo IP iSCSI A), immettere un indirizzo IP per la prima porta iSCSI del nodo di calcolo che si trova nella subnet di rete iSCSI.</p>
+</li>
+<li>
+<p>Nel campo iSCSI B - IP Address (Indirizzo IP - iSCSI B), immettere un indirizzo IP per la seconda porta iSCSI del nodo di calcolo che si trova all&#8217;interno della subnet di rete iSCSI.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Nella pagina Review della sezione Network Settings (Impostazioni di rete), il nuovo nodo viene visualizzato in grassetto. Se è necessario apportare modifiche alle informazioni contenute in una qualsiasi sezione, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Selezionare <strong>Modifica</strong> per la sezione.</p>
+</li>
+<li>
+<p>Al termine delle modifiche, fare clic su Continue (continua) nelle pagine successive per tornare alla pagina Review (esamina).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Facoltativo: Se non si desidera inviare statistiche del cluster e informazioni di supporto ai server SolidFire Active IQ ospitati da NetApp, deselezionare la casella di controllo finale. In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute in tempo reale per NetApp HCI. La disattivazione di questa funzione elimina la possibilità per NetApp di supportare e monitorare in modo proattivo NetApp HCI per rilevare e risolvere i problemi prima che la produzione venga compromessa.</p>
+</li>
+<li>
+<p>Selezionare <strong>Aggiungi nodi</strong>. È possibile monitorare l&#8217;avanzamento mentre NetApp HCI aggiunge e configura le risorse.</p>
+</li>
+<li>
+<p>Facoltativo: Verificare che il nuovo nodo di calcolo sia visibile in vCenter.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="netapp-hci-1-4-p2-1-4-e-1-3">NetApp HCI 1.4 P2, 1.4 e 1.3</h3>
+<div class="paragraph">
+<p>Se l&#8217;installazione di NetApp HCI esegue la versione 1.4P2, 1.4 o 1.3, è possibile utilizzare il motore di implementazione NetApp per aggiungere il nodo al cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Di cosa hai bisogno</div>
+<ul>
+<li>
+<p>Assicurarsi che l&#8217;istanza di vSphere utilizzata da NetApp HCI disponga di licenze vSphere Enterprise Plus se si sta espandendo un&#8217;implementazione con Virtual Distributed Switch.</p>
+</li>
+<li>
+<p>Assicurarsi che nessuna delle istanze vCenter o vSphere in uso con NetApp HCI disponga di licenze scadute.</p>
+</li>
+<li>
+<p>Assicurarsi di disporre di indirizzi IPv4 liberi e inutilizzati sullo stesso segmento di rete dei nodi esistenti (ciascun nuovo nodo deve essere installato sulla stessa rete dei nodi esistenti del suo tipo).</p>
+</li>
+<li>
+<p>Assicurarsi di disporre delle credenziali dell&#8217;account amministratore vCenter.</p>
+</li>
+<li>
+<p>Assicurarsi che ogni nuovo nodo utilizzi la stessa topologia di rete e lo stesso cablaggio dei cluster di calcolo o di storage esistenti.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Individuare l&#8217;indirizzo IP di gestione di uno dei nodi di storage esistenti:<br>
+<code><a href="http://&lt;storage_node_management_IP_address&gt;/" class="bare">http://&lt;storage_node_management_IP_address&gt;/</a></code></p>
+</li>
+<li>
+<p>Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.</p>
+</li>
+<li>
+<p>Selezionare <strong>espandere l&#8217;installazione</strong>.</p>
+</li>
+<li>
+<p>Nella pagina di benvenuto, selezionare <strong>Sì</strong>.</p>
+</li>
+<li>
+<p>Nella pagina End User License (licenza per l&#8217;utente finale), eseguire le seguenti operazioni:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Leggi il contratto di licenza con l&#8217;utente finale di VMware.</p>
+</li>
+<li>
+<p>Se si accettano i termini, selezionare <strong>Accetto</strong> alla fine del testo del contratto.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Nella pagina vCenter, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere un indirizzo FQDN o IP e le credenziali di amministratore per l&#8217;istanza di vCenter associata all&#8217;installazione di NetApp HCI.</p>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Selezionare un data center vSphere esistente al quale aggiungere il nuovo nodo di calcolo.</p>
+</li>
+<li>
+<p>Selezionare un cluster vSphere a cui associare il nuovo nodo di calcolo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se si aggiunge un nodo di calcolo con una generazione di CPU diversa dalla generazione di CPU dei nodi di calcolo esistenti e la compatibilità vMotion avanzata (EVC) è disattivata sull&#8217;istanza vCenter di controllo, è necessario attivare EVC prima di procedere. Ciò garantisce la funzionalità vMotion al termine dell&#8217;espansione.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella pagina credenziali ESXi, creare le credenziali di amministratore ESXi per il nodo di calcolo che si desidera aggiungere. Utilizzare le stesse credenziali master create durante la distribuzione iniziale di NetApp HCI.</p>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Nella pagina inventario disponibile, selezionare il nodo che si desidera aggiungere all&#8217;installazione di NetApp HCI esistente.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/tip.svg" alt="Suggerimento">
+</td>
+<td class="content">
+Per alcuni nodi di calcolo, potrebbe essere necessario abilitare EVC al livello più elevato supportato dalla versione di vCenter prima di poterli aggiungere all&#8217;installazione. Utilizzare il client vSphere per abilitare EVC per questi nodi di calcolo. Una volta attivata, aggiornare la pagina Inventory e provare ad aggiungere nuovamente i nodi di calcolo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+<li>
+<p>Nella pagina Impostazioni di rete, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Verificare le informazioni rilevate dall&#8217;implementazione iniziale.</p>
+</li>
+<li>
+<p>Ogni nuovo nodo di calcolo viene elencato in base al numero di serie e si devono assegnare nuove informazioni di rete. Per ogni nuovo nodo di storage, attenersi alla seguente procedura:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Se NetApp HCI ha rilevato un prefisso di denominazione, copiarlo dal campo prefisso di denominazione rilevato e inserirlo come prefisso per il nuovo nome host univoco aggiunto nel campo Nome host.</p>
+</li>
+<li>
+<p>Nel campo Management IP Address (Indirizzo IP di gestione), immettere un indirizzo IP di gestione per il nodo di calcolo all&#8217;interno della subnet della rete di gestione.</p>
+</li>
+<li>
+<p>Nel campo vMotion IP Address (Indirizzo IP vMotion), immettere un indirizzo IP vMotion per il nodo di calcolo che si trova all&#8217;interno della subnet di rete vMotion.</p>
+</li>
+<li>
+<p>Nel campo iSCSI A - IP Address (Indirizzo IP iSCSI A), immettere un indirizzo IP per la prima porta iSCSI del nodo di calcolo che si trova nella subnet di rete iSCSI.</p>
+</li>
+<li>
+<p>Nel campo iSCSI B - IP Address (Indirizzo IP - iSCSI B), immettere un indirizzo IP per la seconda porta iSCSI del nodo di calcolo che si trova all&#8217;interno della subnet di rete iSCSI.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>continua</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella pagina Review della sezione Network Settings (Impostazioni di rete), il nuovo nodo viene visualizzato in grassetto. Se si desidera apportare modifiche alle informazioni di qualsiasi sezione, attenersi alla seguente procedura:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Selezionare <strong>Modifica</strong> per la sezione.</p>
+</li>
+<li>
+<p>Una volta apportate le modifiche, selezionare <strong>continua</strong> nelle pagine successive per tornare alla pagina di revisione.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Facoltativo: Se non si desidera inviare statistiche del cluster e informazioni di supporto ai server Active IQ ospitati da NetApp, deselezionare la casella di controllo finale. In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute in tempo reale per NetApp HCI. La disattivazione di questa funzione elimina la possibilità per NetApp di supportare e monitorare in modo proattivo NetApp HCI per rilevare e risolvere i problemi prima che la produzione venga compromessa.</p>
+</li>
+<li>
+<p>Selezionare <strong>Aggiungi nodi</strong>. È possibile monitorare l&#8217;avanzamento mentre NetApp HCI aggiunge e configura le risorse.</p>
+</li>
+<li>
+<p>Facoltativo: Verificare che il nuovo nodo di calcolo sia visibile in vCenter.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="netapp-hci-1-2-1-1-e-1-0">NetApp HCI 1.2, 1.1 e 1.0</h3>
+<div class="paragraph">
+<p>Dopo aver sostituito fisicamente il nodo, è necessario aggiungerlo nuovamente al cluster VMware ESXi ed eseguire diverse configurazioni di rete in modo da poter utilizzare tutte le funzionalità disponibili.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per eseguire questa procedura, è necessario disporre di una console o di una tastiera, di un video o di un mouse (KVM).
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Installare e configurare VMware ESXi versione 6.0.0 come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sulla console remota o sullo schermo KVM, selezionare <strong>Power Control &gt; Set Power Reset</strong> (controllo alimentazione &gt; Imposta ripristino alimentazione). In questo modo il nodo viene riavviato.</p>
+</li>
+<li>
+<p>Nella finestra del menu di avvio visualizzata, selezionare <strong>Installazione ESXi</strong> premendo il tasto freccia giù.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Questa finestra rimane aperta per soli cinque secondi. Se non si effettua la selezione entro cinque secondi, riavviare nuovamente il nodo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Premere <strong>Invio</strong> per avviare il processo di installazione.</p>
+</li>
+<li>
+<p>Completare la procedura di installazione guidata.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Quando viene richiesto di selezionare il disco su cui installare ESXi, selezionare il secondo disco nell&#8217;elenco selezionando il tasto freccia giù. Quando viene richiesto di inserire una password root, è necessario inserire la stessa password configurata nel motore di implementazione NetApp quando si configura NetApp HCI.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Al termine dell&#8217;installazione, premere <strong>Invio</strong> per riavviare il nodo.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per impostazione predefinita, il nodo viene riavviato con il sistema operativo NetApp HCI Bootstrap. Per utilizzare VMware ESXi, è necessario eseguire una configurazione unica sul nodo.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurare VMware ESXi sul nodo come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Nella finestra di accesso dell&#8217;interfaccia utente del terminale del sistema operativo NetApp HCI Bootstrap, immettere le seguenti informazioni:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Nome utente: Elemento</p>
+</li>
+<li>
+<p>Password: CatchTheFire!</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Premere il tasto freccia giù per selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Premere <strong>Invio</strong> per accedere.</p>
+</li>
+<li>
+<p>Nel menu principale, utilizzare il tasto freccia giù per selezionare <strong>tunnel di supporto &gt; Apri tunnel di supporto</strong>.</p>
+</li>
+<li>
+<p>Nella finestra visualizzata, inserire le informazioni sulla porta.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per queste informazioni, contatta il supporto NetApp. Il supporto NetApp effettua l&#8217;accesso al nodo per impostare il file di configurazione di avvio e completare l&#8217;attività di configurazione.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Riavviare il nodo.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurare la rete di gestione come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Accedere a VMware ESXi inserendo le seguenti credenziali:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Nome utente: Root</p>
+</li>
+<li>
+<p>Password: La password impostata al momento dell&#8217;installazione di VMware ESXi.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La password deve corrispondere a quella configurata nel motore di implementazione NetApp al momento della configurazione di NetApp HCI.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Configure Management Network</strong> (Configura rete di gestione) e premere <strong>Invio</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>schede di rete</strong> e premere <strong>Invio</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>vmnic2</strong> e <strong>vmnic3</strong>, quindi premere <strong>Invio</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>IPv4 Configuration</strong> (Configurazione IPv4) e premere la barra spaziatrice sulla tastiera per selezionare l&#8217;opzione di configurazione statica.</p>
+</li>
+<li>
+<p>Inserire l&#8217;indirizzo IP, la subnet mask e le informazioni del gateway predefinito, quindi premere <strong>Invio</strong>. È possibile riutilizzare le informazioni copiate prima di rimuovere il nodo. L&#8217;indirizzo IP immesso corrisponde all&#8217;indirizzo IP della rete di gestione precedentemente copiato.</p>
+</li>
+<li>
+<p>Premere <strong>Esc</strong> per uscire dalla sezione Configure Management Network (Configura rete di gestione).</p>
+</li>
+<li>
+<p>Selezionare <strong>Sì</strong> per applicare le modifiche.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Aggiungere il nodo (host) al cluster e configurare la rete in modo che il nodo sia sincronizzato con gli altri nodi del cluster come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In VMware vSphere Web Client, selezionare <strong>host e cluster</strong>.</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul cluster a cui si desidera aggiungere il nodo e selezionare <strong>Add host</strong> (Aggiungi host). La procedura guidata consente di aggiungere l&#8217;host.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Quando viene richiesto di inserire il nome utente e la password, utilizzare le seguenti credenziali: Nome utente: Password root: La password configurata nel motore di implementazione NetApp al momento della configurazione di NetApp HCI
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>L&#8217;aggiunta del nodo al cluster potrebbe richiedere alcuni minuti. Al termine del processo, il nodo appena aggiunto viene elencato nel cluster.</p>
+</div>
+</li>
+<li>
+<p>Selezionare il nodo, quindi selezionare <strong>Manage &gt; Networking &gt; Virtual switches</strong> (Gestisci &gt; rete &gt; Switch virtuali) ed eseguire la seguente procedura:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>vSwitch0</strong>. Nella tabella visualizzata dovrebbe essere visualizzato solo vSwitch0.</p>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare <strong>VM Network</strong> e fare clic su <strong>X</strong> per rimuovere il gruppo di porte di rete della macchina virtuale.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-esxi-1.gif" alt="Mostra la schermata per rimuovere il gruppo di porte di rete della macchina virtuale.">
+</div>
+</div>
+</li>
+<li>
+<p>Confermare l&#8217;azione.</p>
+</li>
+<li>
+<p>Selezionare <strong>vSwitch0</strong>, quindi selezionare l&#8217;icona a forma di matita per modificare le impostazioni.</p>
+</li>
+<li>
+<p>Nella finestra vSwitch0 - Modifica impostazioni, selezionare <strong>Teaming and failover</strong>.</p>
+</li>
+<li>
+<p>Assicurarsi che vmnic3 sia elencato sotto Standby adapter (adattatori di standby) e selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare <strong>Management Network</strong> (rete di gestione) e selezionare l&#8217;icona a forma di matita per modificare le impostazioni.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-mgmtnetwork.gif" alt="Mostra la schermata in cui si modifica la rete di gestione.">
+</div>
+</div>
+</li>
+<li>
+<p>Nella finestra Management Network - Edit settings (rete di gestione - Modifica impostazioni), selezionare <strong>Teaming and failover</strong> (raggruppamento e failover).</p>
+</li>
+<li>
+<p>Spostare vmnic3 su Standby Adapter utilizzando l&#8217;icona a forma di freccia e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dal menu a discesa Actions (azioni), selezionare <strong>Add Networking</strong> (Aggiungi rete) e immettere i seguenti dettagli nella finestra visualizzata:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>Virtual Machine Port Group for a Standard Switch</strong> (Gruppo di porte macchina virtuale per uno switch standard) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per aggiungere un nuovo switch standard e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>+</strong>.</p>
+</li>
+<li>
+<p>Nella finestra Add Physical Adapters to Switch (Aggiungi adattatori fisici allo switch), selezionare vmnic0 e vmnic4, quindi selezionare <strong>OK</strong>. Vmnic0 e vmnic4 sono ora elencati in Active adapter.</p>
+</li>
+<li>
+<p>Selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Connection settings (Impostazioni di connessione), verificare che VM Network sia l&#8217;etichetta di rete e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>. VSwitch1 viene visualizzato nell&#8217;elenco degli switch virtuali.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>vSwitch1</strong> e selezionare l&#8217;icona a forma di matita per modificare le impostazioni come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In Proprietà, impostare MTU su 9000 e selezionare <strong>OK</strong>. Nella figura visualizzata, selezionare <strong>VM Network</strong>, quindi fare clic sull&#8217;icona a forma di matita per modificare le impostazioni come segue:</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vswitch1.gif" alt="Mostra le selezioni di sicurezza da effettuare per la rete della macchina virtuale.">
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic0 su Standby Adapter utilizzando l&#8217;icona a forma di freccia.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Con vSwitch1 selezionato, dal menu a discesa Actions (azioni), selezionare <strong>Add Networking</strong> (Aggiungi rete) e inserire i seguenti dettagli nella finestra visualizzata:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per utilizzare uno switch standard esistente, selezionare vSwitch1 e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in vMotion, selezionare la casella di controllo per il traffico vMotion in Enable Services (attiva servizi) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti). L&#8217;indirizzo IP immesso corrisponde all&#8217;indirizzo IP vMotion copiato in precedenza.</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare vMotion e selezionare l&#8217;icona a forma di matita per modificare le impostazioni nel modo seguente:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vmotion.gif" alt="Mostra le selezioni di sicurezza per vMotion.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic4 su Standby Adapter utilizzando l&#8217;icona a forma di freccia.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Con vSwitch1 selezionato, dal menu a discesa Actions (azioni), selezionare <strong>Add Networking</strong> (Aggiungi rete) e inserire i seguenti dettagli nella finestra visualizzata:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per aggiungere un nuovo switch standard e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>+</strong>.</p>
+</li>
+<li>
+<p>Nella finestra Add Physical Adapters to Switch (Aggiungi adattatori fisici allo switch), selezionare vmnic1 e vmnic5, quindi selezionare <strong>OK</strong>. Vmnic1 e vmnic5 sono ora elencati in Active adapter.</p>
+</li>
+<li>
+<p>Selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in iSCSI-B e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti). L&#8217;indirizzo IP immesso corrisponde all&#8217;indirizzo IP iSCSI-B copiato in precedenza.</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>. VSwitch2 viene visualizzato nell&#8217;elenco degli switch virtuali.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>vSwitch2</strong> e selezionare l&#8217;icona a forma di matita per modificare le impostazioni come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In Proprietà, impostare MTU su 9000 e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare <strong>iSCSI-B</strong> e selezionare l&#8217;icona a forma di matita per modificare le impostazioni come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi-b.gif" alt="Mostra le selezioni di sicurezza per la rete iSCSI-B.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic1 sugli adattatori inutilizzati utilizzando l&#8217;icona a forma di freccia.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dal menu a discesa Actions (azioni), selezionare <strong>Add Networking</strong> (Aggiungi rete) e immettere i seguenti dettagli nella finestra visualizzata:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per utilizzare uno switch standard esistente, selezionare vSwitch2 e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in iSCSI-A e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti). L&#8217;indirizzo IP immesso corrisponde all&#8217;indirizzo IP iSCSI-A copiato in precedenza.</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare <strong>iSCSI-A</strong> e selezionare l&#8217;icona a forma di matita per modificare le impostazioni come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi-a.gif" alt="Mostra le selezioni di sicurezza per la rete iSCSI-A.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic5 sugli adattatori inutilizzati utilizzando l&#8217;icona a forma di freccia.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Con il nodo appena aggiunto selezionato e la scheda Manage (Gestisci) aperta, selezionare <strong>Storage &gt; Storage Adapter</strong> (Storage &gt; Storage Adapter) ed eseguire la seguente procedura:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>+</strong> e selezionare <strong>Software iSCSI Adapter</strong>.</p>
+</li>
+<li>
+<p>Per aggiungere l&#8217;adattatore iSCSI, selezionare <strong>OK</strong> nella finestra di dialogo.</p>
+</li>
+<li>
+<p>In Storage Adapter (adattatori storage), selezionare iSCSI Adapter (adattatore iSCSI) e, nella scheda Properties (Proprietà), copiare iSCSI Name (Nome iSCSI).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi%20adapter%20name.gif" alt="Mostra la stringa IQN dell&#8217;adattatore iSCSI.">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Il nome iSCSI è necessario quando si crea l&#8217;iniziatore.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Eseguire le seguenti operazioni nel plug-in NetApp SolidFire vCenter:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Gestione &gt; iniziatori &gt; Crea</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Crea un singolo iniziatore</strong>.</p>
+</li>
+<li>
+<p>Inserire l&#8217;indirizzo IQN copiato in precedenza nel campo IQN/WWPN.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>azioni in blocco</strong> e selezionare <strong>Aggiungi a gruppo di accesso al volume</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>NetApp HCI</strong>, quindi <strong>Aggiungi</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In VMware vSphere Web Client, in Storage Adapter, selezionare l&#8217;adattatore iSCSI ed eseguire le seguenti operazioni:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In Dettagli adattatore, selezionare <strong>destinazioni &gt; rilevamento dinamico &gt; Aggiungi</strong>.</p>
+</li>
+<li>
+<p>Inserire l&#8217;indirizzo IP SVIP nel campo Server iSCSI.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per ottenere l&#8217;indirizzo IP SVIP, selezionare <strong>Gestione NetApp Element</strong> e copiare l&#8217;indirizzo IP SVIP. Lasciare il numero di porta predefinito così com&#8217;è. Dovrebbe essere 3260.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>. Viene visualizzato un messaggio che consiglia di eseguire una nuova scansione dell&#8217;adattatore di storage.</p>
+</li>
+<li>
+<p>Selezionare l&#8217;icona di riscan (scansione).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/rescan.gif" alt="Mostra l&#8217;icona di nuova scansione degli adattatori di storage.">
+</div>
+</div>
+</li>
+<li>
+<p>In Dettagli scheda di rete, selezionare <strong>Network Port Binding</strong> e selezionare <strong>+</strong>.</p>
+</li>
+<li>
+<p>Selezionare le caselle di controllo iSCSI-B e iSCSI-A, quindi fare clic su OK. Viene visualizzato un messaggio che consiglia di eseguire una nuova scansione dell&#8217;adattatore di storage.</p>
+</li>
+<li>
+<p>Selezionare l&#8217;icona di riscan (scansione). Una volta completata la riscan, verificare se i volumi nel cluster sono visibili sul nuovo nodo di calcolo (host).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ridistribuire-i-nodi-di-controllo-per-cluster-di-storage-a-due-e-tre-nodi">Ridistribuire i nodi di controllo per cluster di storage a due e tre nodi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dopo aver sostituito fisicamente il nodo di calcolo guasto, è necessario ridistribuire la VM del nodo di controllo NetApp HCI se il nodo di calcolo guasto ospitava il nodo di controllo. Queste istruzioni si applicano solo ai nodi di calcolo che fanno parte di un&#8217;installazione NetApp HCI con cluster di storage a due o tre nodi.</p>
+</div>
+<div class="ulist">
+<div class="title">Di cosa hai bisogno</div>
+<ul>
+<li>
+<p>Raccogliere le seguenti informazioni:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Nome del cluster di storage</p>
+</li>
+<li>
+<p>Subnet mask, indirizzo IP del gateway, server DNS e informazioni di dominio per la rete di gestione</p>
+</li>
+<li>
+<p>Subnet mask per la rete di storage</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Assicurarsi di disporre dell&#8217;accesso al cluster di storage per poter aggiungere i nodi di controllo al cluster.</p>
+</li>
+<li>
+<p>Considerare le seguenti condizioni per decidere se rimuovere il nodo di controllo esistente da VMware vSphere Web Client o dal cluster di storage:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se si desidera utilizzare lo stesso nome della macchina virtuale per il nuovo nodo di controllo, eliminare tutti i riferimenti al nodo di controllo precedente da vSphere.</p>
+</li>
+<li>
+<p>Se si desidera utilizzare lo stesso nome host sul nuovo nodo di controllo, rimuovere prima il nodo di controllo precedente dal cluster di storage.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Non è possibile rimuovere il nodo di controllo precedente se il cluster non dispone di due soli nodi di storage fisici (e nessun nodo di controllo). In questo scenario, aggiungere il nuovo nodo di controllo al cluster prima di rimuovere quello precedente. È possibile rimuovere il nodo di controllo dal cluster utilizzando il punto di estensione Gestione NetApp Element.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Quando è necessario ridistribuire i nodi di controllo?</div>
+<p>È necessario ridistribuire i nodi di controllo nei seguenti scenari:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>È stato sostituito un nodo di calcolo guasto che fa parte di un&#8217;installazione di NetApp HCI, che ha un cluster di storage a due o tre nodi e il nodo di calcolo guasto ospitava una macchina virtuale del nodo di controllo.</p>
+</li>
+<li>
+<p>È stata eseguita la procedura di ripristino dell&#8217;immagine di fabbrica (RTFI) sul nodo di calcolo.</p>
+</li>
+<li>
+<p>La VM del nodo di controllo è danneggiata.</p>
+</li>
+<li>
+<p>La VM del nodo di controllo è stata accidentalmente rimossa da ESXi. La macchina virtuale viene configurata utilizzando il modello creato come parte dell&#8217;implementazione iniziale utilizzando NetApp Deployment Engine. Ecco un esempio dell&#8217;aspetto di una macchina virtuale Witness Node:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vm-template.png" alt="Mostra una schermata del modello VM Witness Node.">
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se il modello di macchina virtuale è stato eliminato, contattare il supporto NetApp per ottenere l&#8217;immagine Witness Node .ova e ridistribuirla. È possibile scaricare il modello da <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/WN_12.0/downloads" target="_blank" rel="noopener">"qui (accesso richiesto)"</a>. Tuttavia, è necessario coinvolgere il supporto per ottenere indicazioni sulla configurazione.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>In VMware vSphere Web Client, selezionare <strong>host e cluster</strong>.</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul nodo di calcolo che ospiterà la macchina virtuale del nodo di controllo e selezionare <strong>Nuova macchina virtuale</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Deploy from template</strong> (implementa dal modello) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Seguire i passaggi della procedura guidata:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Selezionare <strong>Data Center</strong>, individuare il modello di macchina virtuale e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Immettere un nome per la macchina virtuale nel seguente formato: NetApp-Witness-Node- n.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+il numero deve essere sostituito con un numero.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Lasciare la selezione predefinita per la posizione della macchina virtuale così com&#8217;è e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Lasciare la selezione predefinita per la risorsa di calcolo di destinazione così com&#8217;è e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Selezionare l&#8217;archivio dati locale e selezionare <strong>Avanti</strong>. Lo spazio libero nell&#8217;archivio dati locale varia a seconda della piattaforma di calcolo.</p>
+</li>
+<li>
+<p>Selezionare <strong>Power on virtual machine after creation</strong> (accensione macchina virtuale dopo la creazione) dall&#8217;elenco delle opzioni di implementazione e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Rivedere le selezioni e selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurare la rete di gestione e storage e le impostazioni del cluster per il nodo di controllo come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In VMware vSphere Web Client, selezionare <strong>host e cluster</strong>.</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul nodo di controllo e accenderlo se non è già acceso.</p>
+</li>
+<li>
+<p>Nella vista Summary (Riepilogo) del nodo di controllo, selezionare <strong>Launch Web Console</strong> (Avvia console Web).</p>
+</li>
+<li>
+<p>Attendere che il nodo di controllo del mirroring avvii il menu con lo sfondo blu.</p>
+</li>
+<li>
+<p>Selezionare un punto qualsiasi all&#8217;interno della console per accedere al menu.</p>
+</li>
+<li>
+<p>Configurare la rete di gestione come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Premere il tasto freccia giù per selezionare Network (rete), quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Selezionare <strong>Network config</strong>, quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Selezionare <strong>net0</strong>, quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> fino a visualizzare il campo IPv4, quindi, se applicabile, eliminare l&#8217;IP esistente nel campo e immettere le informazioni IP di gestione per il nodo di controllo. Controllare anche la subnet mask e il gateway.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Non verrà applicato alcun tag VLAN a livello di host della macchina virtuale; il tagging verrà gestito in vSwitch.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> per selezionare OK, quindi premere <strong>Invio</strong> per salvare le modifiche. Dopo la configurazione della rete di gestione, viene visualizzata nuovamente la schermata Network (rete).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurare la rete di storage come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Premere il tasto freccia giù per selezionare Network (rete), quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Selezionare <strong>Network config</strong>, quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Selezionare <strong>net1</strong>, quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> fino a visualizzare il campo IPv4, quindi, se applicabile, eliminare l&#8217;IP esistente nel campo e immettere le informazioni IP di storage per il nodo di controllo.</p>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> per selezionare OK, quindi premere <strong>Invio</strong> per salvare le modifiche.</p>
+</li>
+<li>
+<p>Impostare MTU su 9000.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Se MTU non viene impostato prima di aggiungere il nodo di controllo del mirroring al cluster, vengono visualizzati avvisi del cluster per le impostazioni MTU non coerenti. Questo può impedire l&#8217;esecuzione della garbage collection e causare problemi di performance.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> per selezionare OK, quindi premere <strong>Invio</strong> per salvare le modifiche. Dopo la configurazione della rete di storage, viene visualizzata nuovamente la schermata Network (rete).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configurare le impostazioni del cluster come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Premere <strong>Tab</strong> per selezionare Annulla, quindi premere <strong>Invio</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Cluster Settings</strong> (Impostazioni cluster), quindi premere <strong>Invio</strong> per OK.</p>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> per selezionare Change Settings (Modifica impostazioni), quindi premere <strong>Invio</strong> per Change Settings (Modifica impostazioni).</p>
+</li>
+<li>
+<p>Premere <strong>Tab</strong> per accedere al campo Nome host e immettere il nome host.</p>
+</li>
+<li>
+<p>Premere il tasto freccia giù per accedere al campo Cluster (cluster) e immettere il nome del cluster di storage.</p>
+</li>
+<li>
+<p>Premere il tasto <strong>Tab</strong> per selezionare il pulsante OK, quindi premere <strong>Invio</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Aggiungere il nodo di controllo al cluster di storage come segue:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dal client Web vSphere, accedere al punto di estensione della gestione NetApp Element dalla scheda <strong>Collegamenti</strong> o dal pannello laterale.</p>
+</li>
+<li>
+<p>Selezionare <strong>Gestione NetApp Element &gt; cluster</strong>.</p>
+</li>
+<li>
+<p>Selezionare la sottoscheda <strong>Nodes</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Pending</strong> dall&#8217;elenco a discesa per visualizzare l&#8217;elenco dei nodi. Il nodo di controllo deve essere visualizzato nell&#8217;elenco dei nodi in sospeso.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo del nodo da aggiungere e selezionare <strong>Aggiungi nodo</strong>. Una volta completata l&#8217;azione, il nodo viene visualizzato nell&#8217;elenco dei nodi attivi per il cluster.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="modificare-la-password-se-si-riceve-un-nodo-sostitutivo-con-una-password-bmc-non-standard">Modificare la password se si riceve un nodo sostitutivo con una password BMC non standard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Alcuni nodi sostitutivi potrebbero essere forniti con password non standard per l&#8217;interfaccia utente del BMC (Baseboard Management Controller). Se si riceve un nodo sostitutivo con una password BMC non standard, è necessario modificare la password predefinita, ADMIN.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Identificare se è stato ricevuto un nodo sostitutivo con una password BMC non standard:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Cercare un adesivo sotto la porta IPMI sul retro del nodo sostitutivo ricevuto. Se si individua un adesivo sotto la porta IPMI, significa che è stato ricevuto un nodo con una password BMC non standard. Vedere la seguente immagine di esempio:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/bmc%20pw%20sticker.png" alt="Mostra il retro del nodo con l&#8217;adesivo sotto la porta IPMI.">
+</div>
+</div>
+</li>
+<li>
+<p>Annotare la password.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Accedere all&#8217;interfaccia utente BMC utilizzando la password univoca riportata sull&#8217;adesivo.</p>
+</li>
+<li>
+<p>Selezionare <strong>Factory Default</strong>, quindi selezionare il pulsante di opzione <strong>Remove current settings and set the user defaults to ADMIN/ADMIN</strong> (Rimuovi impostazioni correnti e imposta le impostazioni utente predefinite su ADMIN/ADMIN*):</p>
+</li>
+<li>
+<p>Selezionare <strong>Restore</strong> (Ripristina).</p>
+</li>
+<li>
+<p>Disconnettersi e quindi effettuare nuovamente l&#8217;accesso per confermare che le credenziali sono state modificate.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aggiornare-il-firmware-bmc-sul-nodo">Aggiornare il firmware BMC sul nodo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dopo aver sostituito il nodo di calcolo, potrebbe essere necessario aggiornare la versione del firmware. È possibile scaricare il file del firmware più recente dal menu a discesa di <a href="https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab" target="_blank" rel="noopener">"Sito di supporto NetApp (accesso richiesto)"</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Accedere all&#8217;interfaccia utente del BMC (Baseboard Management Controller).</p>
+</li>
+<li>
+<p>Selezionare <strong>manutenzione &gt; aggiornamento firmware</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-bmc1.png" alt="Mostra la navigazione nell&#8217;interfaccia utente BMC per gli aggiornamenti del firmware.">
+</div>
+</div>
+</li>
+<li>
+<p>Dalla console BMC, selezionare <strong>manutenzione</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-bmc2.png" alt="Mostra la schermata di manutenzione nell&#8217;interfaccia utente BMC.">
+</div>
+</div>
+</li>
+<li>
+<p>Dalla scheda Maintenance (manutenzione), selezionare <strong>firmware Update</strong> (aggiornamento firmware) dalla barra di navigazione a sinistra dell&#8217;interfaccia utente e selezionare <strong>Enter Update Mode</strong> (Immetti modalità di aggiornamento).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-bmc3.png" alt="Mostra la schermata di aggiornamento del firmware nell&#8217;interfaccia utente BMC.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Sì</strong> nella finestra di dialogo di conferma.</p>
+</li>
+<li>
+<p>Selezionare <strong>Sfoglia</strong> per selezionare l&#8217;immagine del firmware da caricare, quindi selezionare <strong>carica firmware</strong>. Il caricamento del firmware da una posizione esterna alla diretta vicinanza del nodo potrebbe causare tempi di caricamento prolungati e possibili timeout.</p>
+</li>
+<li>
+<p>Consentire i controlli di preservazione della configurazione e selezionare <strong>Avvia aggiornamento</strong>. L&#8217;aggiornamento richiede circa 5 minuti. Se il tempo di caricamento supera i 60 minuti, annullare il caricamento e trasferire il file su una macchina locale nelle vicinanze del nodo. In caso di timeout della sessione, è possibile che vengano visualizzati diversi avvisi durante il tentativo di accesso all&#8217;area di aggiornamento del firmware dell&#8217;interfaccia utente BMC. Se si annulla l&#8217;aggiornamento, si viene reindirizzati alla pagina di accesso.</p>
+</li>
+<li>
+<p>Al termine dell&#8217;aggiornamento, selezionare <strong>OK</strong> e attendere il riavvio del nodo. Effettuare l&#8217;accesso dopo l&#8217;aggiornamento e selezionare <strong>sistema</strong> per verificare che la versione di <strong>Revisione firmware</strong> corrisponda alla versione caricata.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trova-ulteriori-informazioni">Trova ulteriori informazioni</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.netapp.com/us/documentation/hci.aspx" target="_blank" rel="noopener">"Pagina delle risorse NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="http://docs.netapp.com/sfe-122/index.jsp" target="_blank" rel="noopener">"Centro di documentazione software SolidFire ed Element"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Condizioni per l'utilizzo</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Direttiva sulla privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Direttiva sui Cookie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Impostazioni cookie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Invia feedback su questa pagina</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/hci19/images/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/it-it/hci19/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/it-it/hci19/js/prism.js'></script>
+      <script type="text/javascript" src='/it-it/hci19/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/it-it/hci19/js/tabbed-blocks.js'></script>
+    <script src='/it-it/hci19/js/sidebar.js'></script>
+  </body></html>

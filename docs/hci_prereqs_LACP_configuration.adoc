@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_LACP_configuration.html 
+summary: Scopri come configurare NetApp HCI per ottenere le migliori performance di storage. 
+keywords: netapp, hci, storage, performance, LACP 
+---
+= Configurare LACP per ottenere performance di storage ottimali
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, storage, performance, LACP
+
+
+[role="lead"]
+Per ottenere prestazioni ottimali del cluster di storage NetApp HCI, è necessario configurare il protocollo LACP (link Aggregation Control Protocol) sulle porte dello switch utilizzate per ciascuno dei nodi di storage.
+
+.Prima di iniziare
+* Le porte dello switch collegate alle interfacce 10/25GbE dei nodi di storage NetApp HCI sono state configurate come canali di porta LACP.
+* I timer LACP sugli switch che gestiscono il traffico di storage sono stati impostati su "fast mode (1s)" per un tempo di rilevamento del failover ottimale. Durante l'implementazione, le interfacce Bond1G su tutti i nodi di storage vengono configurate automaticamente per la modalità attiva/passiva.
+* Cisco Virtual PortChannel (VPC) è stato configurato o la tecnologia di stacking dello switch equivalente per gli switch che gestiscono la rete di storage. La tecnologia di stacking dello switch semplifica la configurazione dei canali LACP e delle porte e offre una topologia senza loop tra gli switch e le porte 10/25GbE sui nodi di storage.
+
+
+.Fasi
+. Segui le raccomandazioni del vendor dello switch per abilitare LACP sulle porte dello switch utilizzate per i nodi di storage NetApp serie H.
+. Modificare la modalità bond su tutti i nodi di storage in LACP nell'interfaccia utente on-node (nota anche come interfaccia utente terminale o TUI) prima di implementare NetApp HCI.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

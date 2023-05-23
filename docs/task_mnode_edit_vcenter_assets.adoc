@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_edit_vcenter_assets.html 
+summary: 'È possibile modificare i controller dei nodi di gestione vCenter utilizzando l"interfaccia utente REST API.' 
+keywords: netapp, mnode, management node, rest api, hci 
+---
+= Visualizzare o modificare le risorse dei controller esistenti
+:allow-uri-read: 
+
+
+[role="lead"]
+È possibile visualizzare informazioni sui controller VMware vCenter esistenti e modificarli nella configurazione del nodo di gestione utilizzando l'API REST. I controller sono istanze di VMware vCenter registrate nel nodo di gestione per l'installazione di NetApp HCI.
+
+.Prima di iniziare
+* Assicurarsi che la versione del cluster in uso utilizzi il software NetApp Element 11.3 o versione successiva.
+* Assicurarsi di aver implementato un nodo di gestione con versione 11.3 o successiva.
+
+
+
+
+== Accedere all'API REST dei servizi di gestione
+
+.Fasi
+. Accedere all'interfaccia utente API REST per i servizi di gestione immettendo l'indirizzo IP del nodo di gestione seguito da `/vcenter/1/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+. Fare clic su *autorizzare* o su un'icona a forma di lucchetto e completare le seguenti operazioni:
++
+.. Inserire il nome utente e la password del cluster.
+.. Immettere l'ID client come `mnode-client`.
+.. Fare clic su *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+
+
+
+
+
+
+== Visualizzare le informazioni memorizzate sui controller esistenti
+
+È possibile elencare i controller vCenter esistenti registrati con il nodo di gestione e visualizzare le informazioni memorizzate utilizzando l'API REST.
+
+.Fasi
+. Fare clic su *GET /compute/controller*.
+. Fare clic su *Provalo*.
+. Fare clic su *Execute* (Esegui).
++
+L'API restituisce un elenco di tutti i controller vCenter conosciuti, insieme all'indirizzo IP, all'ID del controller, al nome host e all'ID utente utilizzati per comunicare con ciascun controller.
+
+. Se si desidera lo stato di connessione di un controller specifico, copiare l'ID del controller da `id` del controller negli appunti e vedere <<Visualizzare lo stato di un controller esistente>>.
+
+
+
+
+== Visualizzare lo stato di un controller esistente
+
+È possibile visualizzare lo stato di uno dei controller vCenter esistenti registrati con il nodo di gestione. L'API restituisce uno stato che indica se NetApp Hybrid Cloud Control è in grado di connettersi al controller vCenter e il motivo di tale stato.
+
+.Fasi
+. Fare clic su *GET /compute/controllers/{controller_id}/status*.
+. Fare clic su *Provalo*.
+. Inserire l'ID controller copiato in precedenza in `controller_id` parametro.
+. Fare clic su *Execute* (Esegui).
++
+L'API restituisce uno stato di questo particolare controller vCenter, insieme a un motivo per tale stato.
+
+
+
+
+
+== Modificare le proprietà memorizzate di un controller
+
+È possibile modificare il nome utente o la password memorizzati per qualsiasi controller vCenter esistente registrato con il nodo di gestione. Non è possibile modificare l'indirizzo IP memorizzato di un controller vCenter esistente.
+
+.Fasi
+. Fare clic su *PUT /compute/controllers/{controller_id}*.
+. Inserire l'ID del controller di un controller vCenter in `controller_id` parametro.
+. Fare clic su *Provalo*.
+. Modificare uno dei seguenti parametri nel campo *corpo della richiesta*:
++
+|===
+| Parametro | Tipo | Descrizione 
+
+
+| `userId` | stringa | Modificare l'ID utente utilizzato per comunicare con il controller vCenter (l'utente deve disporre dei privilegi di amministratore). 
+
+
+| `password` | stringa | Modificare la password utilizzata per comunicare con il controller vCenter. 
+|===
+. Fare clic su *Execute* (Esegui).
++
+L'API restituisce informazioni aggiornate sul controller.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:task_mnode_add_assets.html["Aggiungere risorse di calcolo e controller al nodo di gestione"]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

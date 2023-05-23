@@ -1,0 +1,289 @@
+---
+sidebar: sidebar 
+permalink: docs/task_upgrade_compute_prechecks.html 
+summary: Come parte di un aggiornamento del sistema NetApp HCI, è necessario eseguire controlli dello stato dei nodi di calcolo prima di eseguire gli aggiornamenti firwamre. 
+keywords: netapp, compute prechecks, compute node upgrade, netapp hci 
+---
+= Eseguire i controlli dello stato dei nodi di calcolo prima di aggiornare il firmware di calcolo
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di aggiornare il firmware di calcolo, è necessario eseguire i controlli dello stato di salute per assicurarsi che tutti i nodi di calcolo del cluster siano pronti per l'aggiornamento. I controlli dello stato dei nodi di calcolo possono essere eseguiti solo su cluster di calcolo di uno o più nodi di calcolo NetApp HCI gestiti.
+
+.Di cosa hai bisogno
+* *Servizi di gestione*: È stato eseguito l'aggiornamento al bundle di servizi di gestione più recente (2.11 o versione successiva).
+* *Nodo di gestione*: Si sta eseguendo il nodo di gestione 11.3 o successivo.
+* *Software Element*: Il cluster di storage esegue il software NetApp Element 11.3 o versione successiva.
+* *Contratto di licenza con l'utente finale (EULA)*: A partire dai servizi di gestione 2.20.69, è necessario accettare e salvare l'EULA prima di utilizzare l'interfaccia utente o l'API di NetApp Hybrid Cloud Control per eseguire i controlli dello stato dei nodi di calcolo:
++
+.. Aprire l'indirizzo IP del nodo di gestione in un browser Web:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. Accedere a NetApp Hybrid Cloud Control fornendo le credenziali di amministratore del cluster di storage.
+.. Selezionare *Upgrade* (Aggiorna) nella parte superiore destra dell'interfaccia.
+.. Viene visualizzato il EULA. Scorrere verso il basso, selezionare *Accetto per aggiornamenti correnti e futuri* e selezionare *Salva*.
+
+
+
+
+.Opzioni di controllo dello stato di salute
+Puoi eseguire controlli di integrità utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control o l'API di NetApp Hybrid Cloud Control:
+
+* <<Utilizzare NetApp Hybrid Cloud Control per eseguire controlli dello stato dei nodi di calcolo prima di aggiornare il firmware>> (Metodo preferito)
+* <<Utilizzare l'API per eseguire i controlli dello stato dei nodi di calcolo prima di aggiornare il firmware>>
+
+
+Ulteriori informazioni sui controlli dello stato dei nodi di calcolo eseguiti dal servizio sono disponibili:
+
+* <<Verifiche dello stato dei nodi di calcolo effettuate dal servizio>>
+
+
+
+
+== Utilizzare NetApp Hybrid Cloud Control per eseguire controlli dello stato dei nodi di calcolo prima di aggiornare il firmware
+
+Utilizzando NetApp Hybrid Cloud Control, è possibile verificare che un nodo di calcolo sia pronto per l'aggiornamento del firmware.
+
+
+NOTE: Se si dispone di più configurazioni di cluster di storage a due nodi, ciascuna all'interno del proprio vCenter, i controlli di stato dei nodi di controllo potrebbero non generare report accurati. Pertanto, quando si è pronti per aggiornare gli host ESXi, è necessario arrestare solo il nodo di controllo dell'host ESXi da aggiornare. È necessario assicurarsi di avere sempre un nodo di controllo in esecuzione nell'installazione di NetApp HCI spegnendo i nodi di controllo in modo alternativo.
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web:
++
+[listing]
+----
+https://<ManagementNodeIP>/hcc
+----
+. Accedere a NetApp Hybrid Cloud Control fornendo le credenziali di amministratore del cluster di storage.
+. Selezionare *Upgrade* (Aggiorna) nella parte superiore destra dell'interfaccia.
+. Nella pagina *Upgrades*, selezionare la scheda *Compute firmware* (calcolo firmware).
+. Selezionare il controllo dello stato di salute image:hcc_healthcheck_icon.png["icona"] per il cluster che si desidera controllare per verificare la disponibilità all'aggiornamento.
+. Nella pagina *Compute Health Check*, selezionare *Run Health Check*.
+. In caso di problemi, la pagina fornisce un report. Effettuare le seguenti operazioni:
++
+.. Consultare l'articolo della Knowledge base specifico elencato per ciascun problema o eseguire la riparazione specificata.
+.. Se viene specificato un KB, completare la procedura descritta nel relativo articolo della Knowledge base.
+.. Una volta risolti i problemi del cluster, selezionare *Riesegui controllo stato di salute*.
+
+
+
+
+Una volta completato il controllo dello stato di salute senza errori, i nodi di calcolo nel cluster sono pronti per l'aggiornamento. Vedere link:task_hcc_upgrade_compute_node_firmware.html["Aggiornare il firmware del nodo di calcolo"] per procedere.
+
+
+
+== Utilizzare l'API per eseguire i controlli dello stato dei nodi di calcolo prima di aggiornare il firmware
+
+È possibile utilizzare REST API per verificare che i nodi di calcolo di un cluster siano pronti per l'aggiornamento. Il controllo dello stato di salute verifica che non vi siano ostacoli all'aggiornamento, ad esempio problemi dell'host ESXi o altri problemi di vSphere. Sarà necessario eseguire controlli dello stato dei nodi di calcolo per ciascun cluster di calcolo dell'ambiente.
+
+.Fasi
+. Individuare l'ID del controller e l'ID del cluster:
++
+.. Aprire l'interfaccia utente REST API del servizio di inventario sul nodo di gestione:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Selezionare *autorizzare* e completare le seguenti operazioni:
++
+... Inserire il nome utente e la password del cluster.
+... Immettere l'ID client come `mnode-client` se il valore non è già compilato.
+... Selezionare *autorizzare* per avviare una sessione.
+
+
+.. Dall'interfaccia utente API REST, selezionare *GET ​/Installations*.
+.. Selezionare *Provalo*.
+.. Selezionare *Esegui*.
+.. Dal corpo della risposta del codice 200, copiare il `"id"` per l'installazione che si intende utilizzare per i controlli di integrità.
+.. Dall'interfaccia utente API REST, selezionare *GET ​/installations​/{id}*.
+.. Selezionare *Provalo*.
+.. Inserire l'ID di installazione.
+.. Selezionare *Esegui*.
+.. Dal corpo della risposta del codice 200, copiare gli ID per ciascuno dei seguenti elementi:
++
+... L'ID del cluster (`"clusterID"`)
+... Un ID del controller (`"controllerId"`)
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://10.117.187.199/inventory/1/installations",
+    "self": "https://10.117.187.199/inventory/1/installations/xx94f6f0-12a6-412f-8b5e-4cf2z58329x0"
+  },
+  "compute": {
+    "errors": [],
+    "inventory": {
+      "clusters": [
+        {
+          "clusterId": "domain-1",
+          "controllerId": "abc12c3a-aa87-4e33-9f94-xx588c2cdcf6",
+          "datacenterName": "NetApp-HCI-Datacenter-01",
+          "installationId": "xx94f6f0-12a6-412f-8b5e-4cf2z58329x0",
+          "installationName": "test-nde-mnode",
+          "inventoryType": "managed",
+          "name": "NetApp-HCI-Cluster-01",
+          "summary": {
+            "nodeCount": 2,
+            "virtualMachineCount": 2
+          }
+        }
+      ],
+----
+
+
+
+
+. Eseguire controlli di integrità sui nodi di calcolo nel cluster:
++
+.. Aprire l'interfaccia utente REST API del servizio di calcolo sul nodo di gestione:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. Selezionare *autorizzare* e completare le seguenti operazioni:
++
+... Inserire il nome utente e la password del cluster.
+... Immettere l'ID client come `mnode-client` se il valore non è già compilato.
+... Selezionare *autorizzare* per avviare una sessione.
+
+
+.. Selezionare *POST /compute​/{CONTROLLER_ID}​/Health-checks*.
+.. Selezionare *Provalo*.
+.. Inserire il `"controllerId"` È stata copiata dalla fase precedente nel campo del parametro *Controller_ID*.
+.. Nel payload, inserire `"clusterId"` che è stato copiato dal passaggio precedente come `"cluster"` valutare e rimuovere il valore `"nodes"` parametro.
++
+[listing]
+----
+{
+  "cluster": "domain-1"
+}
+----
+.. Selezionare *Esegui* per eseguire un controllo dello stato di salute sul cluster.
++
+La risposta del codice 200 fornisce un `"resourceLink"` URL con l'ID attività aggiunto, necessario per confermare i risultati del controllo di integrità.
+
++
+[listing]
+----
+{
+  "resourceLink": "https://10.117.150.84/vcenter/1/compute/tasks/[This is the task ID for health check task results]",
+  "serviceName": "vcenter-v2-svc",
+  "taskId": "ab12c345-06f7-42d7-b87c-7x64x56x321x",
+  "taskName": "VCenter service health checks"
+}
+----
+.. Copiare la parte dell'ID attività di `"resourceLink"` URL per verificare il risultato dell'attività.
+
+
+. Verificare il risultato dei controlli di integrità:
++
+.. Tornare all'interfaccia utente REST API del servizio di calcolo sul nodo di gestione:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. Selezionare *GET /compute​/tasks/{task_id}*.
+.. Selezionare *Provalo*.
+.. Inserire l'ID attività di `"resourceLink"` URL della risposta *POST /compute​/{CONTROLLER_ID}​/Health-checks* codice 200 in `task_id` campo del parametro.
+.. Selezionare *Esegui*.
+.. Se il `status` il messaggio restituito indica che si sono verificati problemi relativi allo stato del nodo di calcolo, procedere come segue:
++
+... Consultare l'articolo specifico della Knowledge base (`KbLink`) elencati per ciascun problema o eseguire il rimedio specificato.
+... Se viene specificato un KB, completare la procedura descritta nel relativo articolo della Knowledge base.
+... Dopo aver risolto i problemi del cluster, eseguire di nuovo *POST /compute​/{CONTROLLER_ID}​/Health-checks* (vedere il passaggio 2).
+
+
+
+
+
+
+Se i controlli di integrità vengono completati senza problemi, il codice di risposta 200 indica un risultato positivo.
+
+
+
+== Verifiche dello stato dei nodi di calcolo effettuate dal servizio
+
+I controlli di stato del calcolo, eseguiti con i metodi API o con NetApp Hybrid Cloud Control, eseguono i seguenti controlli per nodo. A seconda dell'ambiente in uso, alcuni di questi controlli potrebbero essere ignorati. È necessario eseguire nuovamente i controlli di integrità dopo aver risolto eventuali problemi rilevati.
+
+|===
+| Controllare la descrizione | Nodo/cluster | Azione necessaria per risolvere il problema | Articolo della Knowledge base con procedura 
+
+
+| DRS è abilitato e completamente automatizzato? | Cluster | Attivare DRS e assicurarsi che sia completamente automatizzato. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/How_to_enable_DRS_in_vSphere["Consulta questa KB"^]. NOTA: Se si dispone di licenze standard, impostare l'host ESXi in modalità di manutenzione e ignorare questo avviso di errore del controllo dello stato di salute. 
+
+
+| DPM è disattivato in vSphere? | Cluster | Disattivare Distributed Power Management. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/How_to_disable_DPM_in_VMware_vCenter["Consulta questa KB"^]. 
+
+
+| Il controllo di ammissione ha è disattivato in vSphere? | Cluster | Disattivare il controllo di ammissione ha. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_control_enable_HA_admission_in_vSphere["Consulta questa KB"^]. 
+
+
+| FT è abilitato per una macchina virtuale su un host nel cluster? | Nodo | Sospendere Fault Tolerance su tutte le macchine virtuali interessate. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_suspend_fault_tolerance_on_virtual_machines_in_a_vSphere_cluster["Consulta questa KB"^]. 
+
+
+| Vi sono allarmi critici in vCenter per il cluster? | Cluster | Avviare vSphere e risolvere e/o riconoscere eventuali avvisi prima di procedere. | Nessun KB necessario per risolvere il problema. 
+
+
+| Sono presenti avvisi informativi generici/globali in vCenter? | Cluster | Avviare vSphere e risolvere e/o riconoscere eventuali avvisi prima di procedere. | Nessun KB necessario per risolvere il problema. 
+
+
+| I servizi di gestione sono aggiornati? | Sistema HCI | È necessario aggiornare i servizi di gestione prima di eseguire un aggiornamento o un controllo dello stato di salute prima dell'aggiornamento. | Nessun KB necessario per risolvere il problema. Vedere link:task_hcc_update_management_services.html["questo articolo"] per ulteriori informazioni. 
+
+
+| Ci sono errori sul nodo ESXi corrente in vSphere? | Nodo | Avviare vSphere e risolvere e/o riconoscere eventuali avvisi prima di procedere. | Nessun KB necessario per risolvere il problema. 
+
+
+| I supporti virtuali sono montati su una macchina virtuale su un host nel cluster? | Nodo | Smontare tutti i dischi di supporti virtuali (CD/DVD/floppy) dalle macchine virtuali. | Nessun KB necessario per risolvere il problema. 
+
+
+| La versione di BMC è la versione minima richiesta con supporto per redfish? | Nodo | Aggiornare manualmente il firmware BMC. | Nessun KB necessario per risolvere il problema. 
+
+
+| L'host ESXi è attivo e in esecuzione? | Nodo | Avviare l'host ESXi. | Nessun KB necessario per risolvere il problema. 
+
+
+| Alcune macchine virtuali risiedono nello storage ESXi locale? | Nodo/VM | Rimuovere o migrare lo storage locale collegato alle macchine virtuali. | Nessun KB necessario per risolvere il problema. 
+
+
+| BMC è attivo? | Nodo | Accendere il BMC e assicurarsi che sia connesso a una rete raggiungibile da questo nodo di gestione. | Nessun KB necessario per risolvere il problema. 
+
+
+| Sono disponibili host ESXi partner? | Nodo | Rendere disponibili uno o più host ESXi nel cluster (non in modalità di manutenzione) per la migrazione delle macchine virtuali. | Nessun KB necessario per risolvere il problema. 
+
+
+| Sei in grado di connetterti a BMC tramite il protocollo IPMI? | Nodo | Abilitare il protocollo IPMI su Baseboard Management Controller (BMC). | Nessun KB necessario per risolvere il problema. 
+
+
+| L'host ESXi è mappato correttamente all'host hardware (BMC)? | Nodo | L'host ESXi non è mappato correttamente al Baseboard Management Controller (BMC). Correggere la mappatura tra host ESXi e host hardware. | Nessun KB necessario per risolvere il problema. Vedere link:task_hcc_edit_bmc_info.html["questo articolo"] per ulteriori informazioni. 
+
+
+| Qual è lo stato dei nodi di controllo nel cluster? Nessuno dei nodi di controllo identificati è attivo e in esecuzione. | Nodo | Un nodo di controllo non è in esecuzione su un host ESXi alternativo. Accendere il nodo di controllo su un host ESXi alternativo ed eseguire nuovamente il controllo dello stato di salute. *Un nodo di controllo deve essere sempre in esecuzione nell'installazione HCI*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Consulta questa KB"^] 
+
+
+| Qual è lo stato dei nodi di controllo nel cluster? Il nodo testimone è attivo e in esecuzione su questo host ESXi e il nodo testimone alternativo non è attivo e in esecuzione. | Nodo | Un nodo di controllo non è in esecuzione su un host ESXi alternativo. Accendere il nodo di controllo su un host ESXi alternativo. Quando si è pronti ad aggiornare questo host ESXi, arrestare il nodo di controllo in esecuzione su questo host ESXi ed eseguire nuovamente il controllo dello stato di salute. *Un nodo di controllo deve essere sempre in esecuzione nell'installazione HCI*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Consulta questa KB"^] 
+
+
+| Qual è lo stato dei nodi di controllo nel cluster? Il nodo testimone è attivo e in esecuzione su questo host ESXi e il nodo alternativo è attivo ma è in esecuzione sullo stesso host ESXi. | Nodo | Entrambi i nodi di controllo sono in esecuzione su questo host ESXi. Spostare un nodo di controllo su un host ESXi alternativo. Quando si è pronti ad aggiornare questo host ESXi, arrestare il nodo di controllo rimanente su questo host ESXi ed eseguire nuovamente il controllo dello stato di salute. *Un nodo di controllo deve essere sempre in esecuzione nell'installazione HCI*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Consulta questa KB"^] 
+
+
+| Qual è lo stato dei nodi di controllo nel cluster? Il nodo testimone è attivo e in esecuzione su questo host ESXi e il nodo testimone alternativo è attivo e in esecuzione su un altro host ESXi. | Nodo | Un nodo di controllo è in esecuzione localmente su questo host ESXi. Quando si è pronti ad aggiornare questo host ESXi, arrestare il nodo di controllo solo su questo host ESXi ed eseguire nuovamente il controllo dello stato di salute. *Un nodo di controllo deve essere sempre in esecuzione nell'installazione HCI*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Consulta questa KB"^] 
+|===
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

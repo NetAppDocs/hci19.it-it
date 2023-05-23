@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_nodes.html 
+summary: 'I nodi sono l"hardware raggruppato in un cluster a cui si accede come storage a blocchi o risorse di calcolo.' 
+keywords: netapp, hci, storage nodes, volumes, compute nodes, witness nodes, management node 
+---
+= Nodi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi sono risorse hardware o virtuali raggruppate in un cluster per fornire funzionalità di calcolo e storage a blocchi.
+
+NetApp HCI e il software Element definiscono diversi ruoli di nodo per un cluster. I quattro tipi di ruoli dei nodi sono *nodo di gestione*, *nodo di storage*, *nodo di calcolo* e *nodi di controllo NetApp HCI*.
+
+
+
+== Nodo di gestione
+
+Il nodo di gestione (talvolta abbreviato come mNode) interagisce con un cluster di storage per eseguire azioni di gestione, ma non fa parte del cluster di storage. I nodi di gestione raccolgono periodicamente informazioni sul cluster tramite chiamate API e inviano tali informazioni a Active IQ per il monitoraggio remoto (se abilitato). I nodi di gestione sono inoltre responsabili del coordinamento degli aggiornamenti software dei nodi del cluster.
+
+Il nodo di gestione è una macchina virtuale (VM) che viene eseguita in parallelo con uno o più cluster di storage basati su software Element. Oltre agli aggiornamenti, viene utilizzato per fornire servizi di sistema come monitoraggio e telemetria, gestire le risorse e le impostazioni del cluster, eseguire test e utility di sistema e abilitare l'accesso al supporto NetApp per la risoluzione dei problemi. A partire dalla release Element 11.3, il nodo di gestione funziona come un host microservice, consentendo aggiornamenti più rapidi di servizi software selezionati al di fuori delle release principali. Questi microservizi o servizi di gestione, come Active IQ Collector, QoSSIOC per il plug-in vCenter e il servizio del nodo di gestione, vengono aggiornati frequentemente come bundle di servizi.
+
+
+
+== Nodi di storage
+
+I nodi di storage NetApp HCI sono hardware che forniscono le risorse di storage per un sistema NetApp HCI. I dischi nel nodo contengono spazio di blocchi e metadati per lo storage e la gestione dei dati. Ogni nodo contiene un'immagine di fabbrica del software NetApp Element. I nodi di storage NetApp HCI possono essere gestiti utilizzando il punto di estensione per la gestione NetApp Element.
+
+
+
+== Nodi di calcolo
+
+I nodi di calcolo NetApp HCI sono hardware che fornisce risorse di calcolo, come CPU, memoria e rete, necessarie per la virtualizzazione nell'installazione di NetApp HCI. Poiché ogni server esegue VMware ESXi, la gestione dei nodi di calcolo NetApp HCI (aggiunta o rimozione di host) deve essere eseguita al di fuori del plug-in all'interno del menu host e cluster di vSphere. Indipendentemente dal fatto che si tratti di un cluster di storage a quattro nodi o di un cluster di storage a due nodi, il numero minimo di nodi di calcolo rimane due per un'implementazione NetApp HCI.
+
+
+
+== Nodi di controllo
+
+I nodi di controllo NetApp HCI sono macchine virtuali eseguite su nodi di calcolo in parallelo con un cluster di storage basato su software Element. I nodi di controllo non ospitano servizi di sezioni o blocchi. Un nodo di controllo abilita la disponibilità del cluster di storage in caso di guasto di un nodo di storage. È possibile gestire e aggiornare i nodi di controllo allo stesso modo degli altri nodi di storage. Un cluster di storage può avere fino a quattro nodi di controllo. Il loro scopo principale è quello di garantire che esista un numero sufficiente di nodi del cluster per formare un quorum di ensemble valido.
+
+|===
+
+
+ a| 
+*Best practice:* configurare le macchine virtuali del nodo di controllo per utilizzare il datastore locale del nodo di calcolo (impostazione predefinita NDE), non configurarle sullo storage condiviso, ad esempio i volumi di storage SolidFire. Per impedire la migrazione automatica delle macchine virtuali, impostare il livello di automazione DRS (Distributed Resource Scheduler) della macchina virtuale del nodo di controllo su *Disabled*. Ciò impedisce l'esecuzione di entrambi i nodi di controllo sullo stesso nodo di calcolo e la creazione di una configurazione di coppia non ad alta disponibilità (ha).
+
+|===
+
+TIP: Scopri di più link:hci_prereqs_witness_nodes.html["Requisiti di risorse del nodo di controllo"] e. link:hci_prereqs_ip_address.html["Requisiti dell'indirizzo IP del nodo di controllo"].
+
+
+NOTE: In un cluster di storage a due nodi, vengono implementati almeno due nodi di controllo per la ridondanza in caso di guasto di un nodo di controllo. Quando il processo di installazione di NetApp HCI installa i nodi di controllo, in VMware vCenter viene memorizzato un modello di macchina virtuale che è possibile utilizzare per ridistribuire un nodo di controllo nel caso in cui venga accidentalmente rimosso, perso o danneggiato. È inoltre possibile utilizzare il modello per ridistribuire un nodo di controllo se è necessario sostituire un nodo di calcolo guasto che ospitava il nodo di controllo. Per istruzioni, vedere la sezione *ridistribuire i nodi di controllo per cluster di storage a due e tre nodi* link:task_hci_h410crepl.html["qui"].
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/media/tr-4823.pdf["Cluster di storage a due nodi NetApp HCI | TR-4823"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

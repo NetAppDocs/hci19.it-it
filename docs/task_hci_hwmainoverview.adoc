@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_hwmainoverview.html 
+summary: 'È possibile eseguire attività di manutenzione dell"hardware, come la sostituzione dei nodi, la sostituzione dei dischi nei nodi di storage, la sostituzione delle unità di alimentazione e così via.' 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
+---
+= Panoramica sulla manutenzione dell'hardware della serie H.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per garantire il funzionamento ottimale del sistema, è necessario eseguire attività di manutenzione dell'hardware, come la sostituzione di nodi difettosi, la sostituzione di dischi guasti nei nodi di storage e così via.
+
+Di seguito sono riportati i collegamenti alle attività di manutenzione dell'hardware:
+
+* link:task_hci_hserieschassisrepl.html["Sostituire lo chassis 2U serie H."]
+* link:task_hci_dcpsurepl.html["Sostituire le unità di alimentazione CC nei nodi H615C e H610S"]
+* link:task_hci_dimmcomputerepl.html["Sostituire i DIMM nei nodi di calcolo"]
+* link:task_hci_driverepl.html["Sostituire le unità per i nodi di storage"]
+* link:task_hci_h410crepl.html["Sostituire i nodi H410C"]
+* link:task_hci_h410srepl.html["Sostituire i nodi H410S"]
+* link:task_hci_h610ch615crepl.html["Sostituire i nodi H610C e H615C"]
+* link:task_hci_h610srepl.html["Sostituire i nodi H610S"]
+* link:task_hci_psurepl.html["Sostituire le unità di alimentazione"]
+* link:task_hci_snswitches.html["Sostituire gli switch SN2010, SN2100 e SN2700"]
+* link:task_hci_2noderepl.html["Sostituire il nodo di storage in un cluster a due nodi"]
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_"^]
+* https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 o successivo tool di convalida della rete
+

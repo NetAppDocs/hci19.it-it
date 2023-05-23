@@ -1,0 +1,170 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_qos_policies.html 
+summary: È possibile impostare e modificare le policy QoS da applicare ai volumi nel cluster di storage. 
+keywords: netapp, qos policy, quality of service, qos policies, volumes, element 
+---
+= Creare e gestire policy di QoS per volumi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una policy QoS (Quality of Service) consente di creare e salvare un'impostazione di qualità del servizio standardizzata che può essere applicata a molti volumi. Il cluster selezionato deve essere l'elemento 10.0 o successivo per utilizzare i criteri QoS; in caso contrario, le funzioni dei criteri QoS non sono disponibili.
+
+
+NOTE: Per ulteriori informazioni sull'utilizzo, consulta il contenuto dei concetti di NetApp HCI link:concept_hci_performance.html#qos-policies["Policy di QoS"] invece di un singolo volume link:concept_hci_performance.html["QoS"].
+
+Utilizzando NetApp Hybrid Cloud Control, è possibile creare e gestire policy QoS completando le seguenti attività:
+
+* <<Creare una policy QoS>>
+* <<Applicare un criterio QoS a un volume>>
+* <<Modificare l'assegnazione del criterio QoS di un volume>>
+* <<Modificare un criterio QoS>>
+* <<Eliminare una policy QoS>>
+
+
+
+
+== Creare una policy QoS
+
+È possibile creare policy QoS e applicarle a volumi che devono avere performance equivalenti.
+
+
+NOTE: Se si utilizzano criteri QoS, non utilizzare QoS personalizzati su un volume. La QoS personalizzata sovrascrive e regola i valori dei criteri QoS per le impostazioni QoS del volume.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, espandere il menu del cluster di storage.
+. Selezionare *Storage > Volumes* (Storage > volumi).
+. Fare clic sulla scheda *QoS Policies* (Criteri QoS).
+. Fare clic su *Crea policy*.
+. Inserire il nome * Policy Name*.
++
+
+TIP: Utilizzare le Best practice di denominazione descrittive. Ciò è particolarmente importante se nell'ambiente vengono utilizzati più cluster o server vCenter.
+
+. Inserire i valori minimo IOPS, massimo IOPS e burst IOPS.
+. Fare clic su *Crea policy QoS*.
++
+Viene generato un ID di sistema per il criterio e il criterio viene visualizzato nella pagina QoS Policies (Criteri QoS) con i relativi valori QoS assegnati.
+
+
+
+
+
+== Applicare un criterio QoS a un volume
+
+È possibile assegnare una policy QoS esistente a un volume utilizzando NetApp Hybrid Cloud Control.
+
+.Di cosa hai bisogno
+Il criterio QoS che si desidera assegnare è stato <<Creare una policy QoS,creato>>.
+
+.A proposito di questa attività
+Questa attività descrive come assegnare un criterio QoS a un singolo volume modificandone le impostazioni. La versione più recente di NetApp Hybrid Cloud Control non dispone di un'opzione di assegnazione in blocco per più di un volume. Fino a quando la funzionalità di assegnazione in blocco non sarà fornita in una release futura, è possibile utilizzare l'interfaccia utente Web Element o l'interfaccia utente del plug-in vCenter per assegnare in blocco i criteri QoS.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, espandere il menu del cluster di storage.
+. Selezionare *Storage > Volumes* (Storage > volumi).
+. Fare clic sul menu *azioni* accanto al volume che si desidera modificare.
+. Nel menu visualizzato, selezionare *Edit* (Modifica).
+. Nella finestra di dialogo, attivare *Assign QoS Policy* (Assegna policy QoS) e selezionare il criterio QoS dall'elenco a discesa da applicare al volume selezionato.
++
+
+NOTE: L'assegnazione di QoS sovrascriverà i valori di QoS dei singoli volumi precedentemente applicati.
+
+. Fare clic su *Save* (Salva).
++
+Il volume aggiornato con il criterio QoS assegnato viene visualizzato nella pagina Panoramica.
+
+
+
+
+
+== Modificare l'assegnazione del criterio QoS di un volume
+
+È possibile rimuovere l'assegnazione di una policy QoS da un volume o selezionare una policy QoS diversa o una QoS personalizzata.
+
+.Di cosa hai bisogno
+Il volume che si desidera modificare è <<Applicare un criterio QoS a un volume,assegnato>> Una policy QoS.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, espandere il menu del cluster di storage.
+. Selezionare *Storage > Volumes* (Storage > volumi).
+. Fare clic sul menu *azioni* accanto al volume che si desidera modificare.
+. Nel menu visualizzato, selezionare *Edit* (Modifica).
+. Nella finestra di dialogo, eseguire una delle seguenti operazioni:
++
+** Disattivare *Assign QoS Policy* e modificare i valori *min IOPS*, *Max IOPS* e *Burst IOPS* per la QoS dei singoli volumi.
++
+
+NOTE: Quando i criteri QoS sono disattivati, il volume utilizza i valori IOPS QoS predefiniti, a meno che non vengano modificati diversamente.
+
+** Selezionare un criterio QoS diverso dall'elenco a discesa da applicare al volume selezionato.
+
+
+. Fare clic su *Save* (Salva).
++
+Il volume aggiornato viene visualizzato nella pagina Panoramica.
+
+
+
+
+
+== Modificare un criterio QoS
+
+È possibile modificare il nome di un criterio QoS esistente o i valori associati al criterio. La modifica dei valori delle performance dei criteri QoS influisce sulla QoS per tutti i volumi associati al criterio.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, espandere il menu del cluster di storage.
+. Selezionare *Storage > Volumes* (Storage > volumi).
+. Fare clic sulla scheda *QoS Policies* (Criteri QoS).
+. Fare clic sul menu *azioni* accanto al criterio QoS che si desidera modificare.
+. Fare clic su *Edit* (Modifica).
+. Nella finestra di dialogo *Edit QoS Policy* (Modifica policy QoS), modificare una o più delle seguenti opzioni:
++
+** *Name*: Il nome definito dall'utente per la policy QoS.
+** *IOPS min*: Il numero minimo di IOPS garantito per il volume. Impostazione predefinita = 50.
+** *IOPS max*: Il numero massimo di IOPS consentito per il volume. Impostazione predefinita = 15,000.
+** *Burst IOPS*: Il numero massimo di IOPS consentito per un breve periodo di tempo per il volume. Impostazione predefinita = 15,000.
+
+
+. Fare clic su *Save* (Salva).
++
+Il criterio QoS aggiornato viene visualizzato nella pagina QoS Policies (Criteri QoS).
+
++
+
+TIP: È possibile fare clic sul collegamento nella colonna *volumi attivi* per visualizzare un elenco filtrato dei volumi assegnati a tale criterio.
+
+
+
+
+
+== Eliminare una policy QoS
+
+È possibile eliminare una policy QoS se non è più necessaria. Quando si elimina un criterio QoS, tutti i volumi assegnati con il criterio mantengono i valori QoS precedentemente definiti dal criterio, ma come QoS dei singoli volumi. Qualsiasi associazione con la policy QoS eliminata viene rimossa.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, espandere il menu del cluster di storage.
+. Selezionare *Storage > Volumes* (Storage > volumi).
+. Fare clic sulla scheda *QoS Policies* (Criteri QoS).
+. Fare clic sul menu *azioni* accanto al criterio QoS che si desidera modificare.
+. Fare clic su *Delete* (Elimina).
+. Confermare l'azione.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

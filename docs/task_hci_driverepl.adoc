@@ -1,0 +1,176 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_driverepl.html 
+summary: Se un disco si guasta o se il livello di usura scende al di sotto di una soglia, è necessario sostituirlo. È possibile sostituire a caldo un disco guasto. 
+keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S 
+---
+= Sostituire le unità per i nodi di storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se un disco è difettoso o se il livello di usura del disco scende al di sotto di una soglia, sostituirlo. Gli allarmi nell'interfaccia utente del software Element e nel client Web VMware vSphere avvisano l'utente quando un disco si guasta o sta per guastarsi. È possibile sostituire a caldo un disco guasto.
+
+.A proposito di questa attività
+Questa procedura serve per sostituire i dischi nei nodi di storage H410S e H610S. La rimozione di un disco porta il disco offline. Tutti i dati presenti sul disco vengono rimossi e migrati su altri dischi del cluster. La migrazione dei dati ad altri dischi attivi nel sistema può richiedere da alcuni minuti a un'ora, a seconda dell'utilizzo della capacità e dell'i/o attivo nel cluster.
+
+
+
+== Best practice per la gestione dei dischi
+
+Attenersi alle seguenti Best practice per la gestione dei dischi:
+
+* Tenere l'unità nella busta ESD fino a quando non si è pronti per l'installazione.
+* Aprire il sacchetto ESD manualmente o tagliare la parte superiore con un paio di forbici.
+* Indossare sempre un braccialetto antistatico collegato a terra su una superficie non verniciata dello chassis.
+* Utilizzare sempre entrambe le mani durante la rimozione, l'installazione o il trasporto di un disco.
+* Non forzare mai un disco nello chassis.
+* Utilizzare sempre imballaggi approvati per la spedizione delle unità.
+* Non impilare i dischi l'uno sull'altro.
+
+
+
+
+== Best practice per l'aggiunta e la rimozione di dischi
+
+Attenersi alle seguenti Best practice per aggiungere dischi al cluster e rimuovere dischi dal cluster:
+
+* Aggiungi tutti i dischi a blocchi e assicurati che la sincronizzazione dei blocchi sia completa prima di aggiungere i dischi slice.
+* Per il software Element 10.x e versioni successive, aggiungere tutti i dischi a blocchi contemporaneamente. Assicurarsi di non eseguire questa operazione per più di tre nodi alla volta.
+* Per il software Element 9.x e versioni precedenti, aggiungere tre dischi alla volta per sincronizzarli completamente prima di aggiungere il gruppo successivo di tre.
+* Rimuovere il disco slice e assicurarsi che la sincronizzazione slice sia completa prima di rimuovere i dischi a blocchi.
+* Rimuovere tutti i dischi a blocchi da un singolo nodo alla volta. Assicurarsi che la sincronizzazione di tutti i blocchi sia completa prima di passare al nodo successivo.
+
+
+.Fasi
+. Rimuovere l'unità dal cluster utilizzando l'interfaccia utente del software NetApp Element o il punto di estensione della gestione NetApp Element nel plug-in Element per il server vCenter.
++
+[cols="2*"]
+|===
+| Opzione | Fasi 
+
+
+| Utilizzo dell'interfaccia utente di Element  a| 
+.. Dall'interfaccia utente di Element, selezionare *Cluster > Drives*.
+.. Fare clic su *Failed* (guasto) per visualizzare l'elenco dei dischi guasti.
+.. Annotare il numero di slot del disco guasto. Queste informazioni sono necessarie per individuare il disco guasto nello chassis.
+.. Fare clic su *azioni* per l'unità che si desidera rimuovere.
+.. Fare clic su *Rimuovi*.
+
+
+È ora possibile rimuovere fisicamente il disco dallo chassis.
+
+
+
+| Utilizzo del plug-in Element per l'interfaccia utente del server vCenter  a| 
+.. Dal punto di estensione della gestione NetApp Element del client Web vSphere, selezionare *Gestione NetApp Element > cluster*.
+.. Se vengono aggiunti due o più cluster, assicurarsi che il cluster che si intende utilizzare per l'attività sia selezionato nella barra di navigazione.
+.. Selezionare *All* dall'elenco a discesa per visualizzare l'elenco completo dei dischi.
+.. Selezionare la casella di controllo per ciascun disco che si desidera rimuovere.
+.. Selezionare *Rimuovi unità*.
+.. Confermare l'azione.
++
+
+NOTE: Se la capacità non è sufficiente per rimuovere i dischi attivi prima di rimuovere un nodo, viene visualizzato un messaggio di errore quando si conferma la rimozione del disco. Dopo aver risolto l'errore, è possibile rimuovere fisicamente il disco dal telaio.
+
+
+
+|===
+. Sostituire l'unità dal telaio:
++
+.. Disimballare l'unità sostitutiva e posizionarla su una superficie piana e priva di scariche elettrostatiche vicino al rack. Conservare il materiale di imballaggio per quando si restituisce il disco guasto a NetApp. Di seguito è riportato il punto di vista frontale dei nodi di storage H610S e H410S con i dischi:
++
+image::h610s_h410s.png[Mostra la vista frontale dei nodi di storage H610S e H410S.]
+
+.. Eseguire le operazioni in base al modello di nodo:
++
+[cols="2*"]
+|===
+| Modello di nodo | Fasi 
+
+
+| H410S  a| 
+... Identificare il nodo facendo corrispondere il numero di serie (codice di matricola) con il numero annotato dall'interfaccia utente dell'elemento. Il numero di serie è riportato su un adesivo sul retro di ciascun nodo. Una volta identificato il nodo, è possibile utilizzare le informazioni relative agli slot per identificare lo slot in cui si trova l'unità guasta. I dischi sono disposti in ordine alfabetico da A a D e da 0 a 5.
+... Rimuovere il pannello.
+... Premere il pulsante di rilascio sul disco guasto:
++
+image::h410s_drive.png[Mostra il pulsante di rilascio sul disco per i nodi di storage H410S.]
+
++
+Quando si preme il pulsante di rilascio, la maniglia della camma sulle molle dell'unità si apre parzialmente e l'unità si rilascia dalla scheda intermedia.
+
+... Aprire la maniglia della camma ed estrarre con cautela l'unità con entrambe le mani.
+... Posizionare l'unità su una superficie piana antistatica.
+... Inserire l'unità sostitutiva nello slot completamente nello chassis con entrambe le mani.
+... Premere la maniglia della camma fino a farla scattare in posizione.
+... Reinstallare il pannello.
+... Informare il supporto NetApp in merito alla sostituzione del disco. Il supporto NetApp fornirà istruzioni per la restituzione del disco guasto.
+
+
+
+
+| H610S  a| 
+... Far corrispondere il numero di slot del disco guasto dell'interfaccia utente Element con il numero sullo chassis. Il LED sul disco guasto è acceso in ambra.
+... Rimuovere il pannello.
+... Premere il pulsante di rilascio e rimuovere il disco guasto come mostrato nell'illustrazione seguente:
++
+image::h610s_driveremove.png[Mostra il disco rimosso dal nodo H610S.]
+
++
+
+NOTE: Assicurarsi che la maniglia del vassoio sia completamente aperta prima di provare a far scorrere l'unità fuori dal telaio.
+
+... Estrarre l'unità e posizionarla su una superficie piana e priva di elettricità statica.
+... Premere il pulsante di rilascio sull'unità sostitutiva prima di inserirla nell'alloggiamento. Le molle della maniglia del vassoio dell'unità si aprono.
++
+image::H600S_driveinstall.png[Mostra il disco installato nel nodo H610S.]
+
+... Inserire l'unità sostitutiva senza esercitare una forza eccessiva. Quando l'unità è inserita completamente, si sente uno scatto.
+... Chiudere con cautela la maniglia del vassoio dell'unità.
+... Reinstallare il pannello.
+... Informare il supporto NetApp in merito alla sostituzione del disco. Il supporto NetApp fornirà istruzioni per la restituzione del disco guasto.
+
+
+|===
+
+
+. Aggiungere nuovamente il disco al cluster utilizzando l'interfaccia utente Element o il punto di estensione di gestione NetApp Element nel plug-in Element per il server vCenter.
++
+
+NOTE: Quando si installa un nuovo disco in un nodo esistente, il disco viene automaticamente registrato come *Available* nell'interfaccia utente Element. È necessario aggiungere l'unità al cluster prima che possa partecipare al cluster.
+
++
+[cols="2*"]
+|===
+| Opzione | Fasi 
+
+
+| Utilizzo dell'interfaccia utente di Element  a| 
+.. Dall'interfaccia utente di Element, selezionare *Cluster > Drives*.
+.. Selezionare *Available* per visualizzare l'elenco dei dischi disponibili.
+.. Selezionare l'icona Actions (azioni) per l'unità che si desidera aggiungere e selezionare *Add* (Aggiungi).
+
+
+
+
+| Utilizzo del plug-in Element per l'interfaccia utente del server vCenter  a| 
+.. Dal punto di estensione della gestione NetApp Element del client Web vSphere, selezionare *Gestione NetApp Element > cluster > unità*.
+.. Dall'elenco a discesa Available (disponibile), selezionare l'unità e scegliere *Add* (Aggiungi).
+.. Confermare l'azione.
+
+
+|===
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

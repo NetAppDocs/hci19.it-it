@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_switch.html 
+summary: Scopri le novità di questa versione di NetApp HCI. 
+keywords: netapp, hci, network, switch, requirements 
+---
+= Requisiti di rete e switch
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, switch, requirements
+
+
+[role="lead"]
+Gli switch utilizzati per NetApp HCI richiedono una configurazione specifica per garantire una corretta implementazione. Consultare la documentazione dello switch per istruzioni specifiche sull'implementazione di ciascuno dei seguenti requisiti per il proprio ambiente.
+
+Un'implementazione NetApp HCI richiede almeno tre segmenti di rete, uno per ciascuno dei seguenti tipi di traffico:
+
+* Gestione
+* VMware vMotion
+* Storage/dati
+
+
+A seconda dei modelli di nodi di calcolo e storage NetApp H-Series e della configurazione di cablaggio pianificata, è possibile separare fisicamente queste reti utilizzando switch separati o separarle logicamente utilizzando VLAN. Per la maggior parte delle implementazioni, tuttavia, è necessario separare logicamente queste reti (e qualsiasi altra rete di macchine virtuali aggiuntiva) utilizzando VLAN.
+
+I nodi di calcolo e storage devono essere in grado di comunicare prima, durante e dopo l'implementazione. Se si stanno implementando reti di gestione separate per i nodi di storage e di calcolo, assicurarsi che tali reti di gestione dispongano di percorsi di rete tra di esse. A queste reti devono essere assegnati gateway e deve essere presente un percorso tra i gateway. Assicurarsi che ogni nuovo nodo disponga di un gateway assegnato per facilitare la comunicazione tra i nodi e le reti di gestione.
+
+NetApp HCI ha i seguenti requisiti di switch:
+
+* Tutte le porte dello switch collegate ai nodi NetApp HCI devono essere configurate come porte edge spanning tree.
++
+** Sugli switch Cisco, a seconda del modello dello switch, della versione del software e del tipo di porta, è possibile eseguire questa operazione con uno dei seguenti comandi:
++
+*** `spanning-tree port type edge`
+*** `spanning-tree port type edge trunk`
+*** `spanning-tree portfast`
+*** `spanning-tree portfast trunk`
+
+
+** Sui centralini Mellanox, è possibile eseguire questa operazione con `spanning-tree port type edge` comando.
+
+
+* I nodi NetApp HCI dispongono di porte ridondanti per tutte le funzioni di rete, ad eccezione della gestione fuori banda. Per ottenere la massima resilienza, dividere queste porte su due switch con uplink ridondanti in un'architettura gerarchica tradizionale o in un'architettura di livello 2.
+* Gli switch che gestiscono lo storage, la macchina virtuale e il traffico vMotion devono supportare velocità di almeno 10 GbE per porta (sono supportati fino a 25 GbE per porta).
+* Gli switch che gestiscono il traffico di gestione devono supportare velocità di almeno 1 GbE per porta.
+* È necessario configurare i frame jumbo sulle porte dello switch che gestiscono lo storage e il traffico vMotion. Gli host devono essere in grado di inviare pacchetti da 9000 byte end-to-end per una corretta installazione.
+* È necessario configurare le porte dello switch di rete di gestione in modo da consentire a MTU di qualsiasi dimensione le porte NIC di gestione su ciascun host siano configurate. Ad esempio, se le porte della rete di gestione degli host utilizzano una dimensione MTU di 1750 byte, le porte dello switch della rete di gestione devono essere configurate in modo da consentire almeno un MTU di 1750 byte (la rete di gestione non richiede un MTU di 9000 byte). Le impostazioni MTU devono essere coerenti end-to-end
+* La latenza di rete di andata e ritorno tra tutti i nodi di storage e di calcolo non deve superare i 2 ms.
+
+
+Tutti i nodi NetApp HCI offrono funzionalità di gestione out-of-band aggiuntive tramite una porta di gestione dedicata. NETAPP H300S, H300E, H500S, H500E, H700S, I nodi H700E e H410C consentono anche l'accesso IPMI tramite la porta A. Come Best practice, dovresti semplificare la gestione remota di NetApp HCI configurando la gestione out-of-band per tutti i nodi del tuo ambiente.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

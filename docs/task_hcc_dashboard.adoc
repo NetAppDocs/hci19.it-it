@@ -1,0 +1,190 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_dashboard.html 
+summary: 'È possibile visualizzare le risorse di storage e di calcolo nella dashboard di controllo del cloud ibrido di NetApp. Inoltre, è possibile monitorare la capacità dello storage, le performance dello storage e l"utilizzo del calcolo.' 
+keywords: netapp, hci, on premise, hcc, hybrid cloud control, storage, compute, storage performance, utilization, capacity 
+---
+= Monitorate le risorse di storage e di calcolo sulla dashboard di controllo del cloud ibrido
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con la dashboard di controllo del cloud ibrido di NetApp, puoi visualizzare tutte le risorse di storage e di calcolo in un colpo d'occhio. Inoltre, è possibile monitorare la capacità dello storage, le performance dello storage e l'utilizzo del calcolo.
+
+
+NOTE: Quando avvii una nuova sessione di NetApp Hybrid Cloud Control per la prima volta, potrebbe verificarsi un ritardo nel caricamento della vista di NetApp Hybrid Cloud Control Dashboard quando il nodo di gestione gestisce molti cluster. Il tempo di caricamento varia in base al numero di cluster gestiti attivamente dal nodo di gestione. Per i lanci successivi, si verificheranno tempi di caricamento più rapidi.
+
+Solo i nodi di calcolo gestiti e i cluster con almeno un nodo gestito nell'hardware serie H vengono visualizzati sul dashboard di controllo del cloud ibrido.
+
+* <<Accedere al dashboard di NetApp HCC>>
+* <<Monitorare le risorse di storage>>
+* <<Monitorare le risorse di calcolo>>
+* <<Monitorare la capacità dello storage>>
+* <<Monitorare le performance dello storage>>
+* <<Monitorare l'utilizzo del calcolo>>
+
+
+
+
+== Accedere al dashboard di NetApp HCC
+
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web. Ad esempio:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Visualizza la dashboard di controllo del cloud ibrido.
++
+image::hcc_dashboard_all.png[Dashboard HCC]
+
+
+
+
+TIP: A seconda dell'installazione, potrebbero essere visualizzati alcuni o tutti questi riquadri. Ad esempio, per le installazioni solo storage, la dashboard di controllo del cloud ibrido mostra solo il riquadro Storage, il riquadro Storage Capacity e il riquadro Storage Performance.
+
+
+
+== Monitorare le risorse di storage
+
+Utilizzare il riquadro *Storage* per visualizzare l'intero ambiente di storage. È possibile monitorare il numero di cluster di storage, nodi di storage e volumi totali.
+
+Per visualizzare i dettagli, nel riquadro Storage (archiviazione), selezionare *Show Details* (Mostra dettagli).
+
+image::hcc_dashboard_storage_node_number.PNG[Vista dello storage]
+
+
+NOTE: Il numero dei nodi di storage totali non include i nodi di controllo dei cluster di storage a due nodi. I nodi di controllo sono inclusi nel numero dei nodi nella sezione dei dettagli del cluster.
+
+
+TIP: Per visualizzare i dati più recenti del cluster di storage, utilizzare la pagina Storage Clusters, in cui il polling viene eseguito con maggiore frequenza rispetto alla dashboard.
+
+
+
+== Monitorare le risorse di calcolo
+
+Utilizza il riquadro *Compute* per visualizzare il tuo ambiente di calcolo NetApp H-Series. È possibile monitorare il numero di cluster di calcolo e i nodi di calcolo totali.
+
+Per visualizzare i dettagli, nei riquadri calcolo, selezionare *Mostra dettagli*.
+
+
+NOTE: Le istanze di vCenter vengono visualizzate nel riquadro di calcolo solo quando almeno un nodo di calcolo NetApp HCI è associato a tale istanza. Per elencare le istanze di vCenter collegate in NetApp Hybrid Cloud Control, è possibile utilizzare link:task_mnode_edit_vcenter_assets.html["API"].
+
+
+NOTE: Per gestire un nodo di calcolo in NetApp Hybrid Cloud Control, è necessario https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Aggiungere il nodo di calcolo a un cluster host vCenter"^].
+
+
+
+== Monitorare la capacità dello storage
+
+Il monitoraggio della capacità di storage del tuo ambiente è fondamentale. Il riquadro Storage Capacity (capacità storage) consente di determinare i vantaggi in termini di efficienza della capacità dello storage con o senza funzionalità di compressione, deduplica e thin provisioning abilitate.
+
+È possibile visualizzare lo spazio fisico di storage totale disponibile nel cluster nella scheda *RAW* e le informazioni sullo storage fornito nella scheda *EFFETTIVO*.
+
+image::hcc_dashboard_storage_capacity_effective.png[HCC Dashboard > Storage Capacity pane (pannello capacità di storage)]
+
+
+TIP: Per visualizzare lo stato del cluster, consultare anche la dashboard di SolidFire Active IQ. Vedere link:task_hcc_activeiq.html["Monitorate performance, capacità e stato dei cluster in NetApp SolidFire Active IQ"].
+
+.Fasi
+. Selezionare la scheda *RAW* per visualizzare lo spazio di storage fisico totale utilizzato e disponibile nel cluster.
++
+Esaminare le linee verticali per determinare se la capacità utilizzata è inferiore al totale o inferiore alle soglie di avviso, errore o critico. Passare il mouse sulle linee per visualizzare i dettagli.
+
++
+
+NOTE: È possibile impostare la soglia di avviso, che per impostazione predefinita è inferiore del 3% alla soglia di errore. Le soglie di errore e critico sono preimpostate e non configurabili in base alla progettazione. La soglia di errore indica che nel cluster rimane meno di un nodo di capacità. Per informazioni sull'impostazione della soglia, vedere https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_set_the_cluster_full_threshold.html["Impostazione della soglia cluster full"^].
+
++
+
+TIP: Per ulteriori informazioni sull'API degli elementi delle soglie del cluster correlati, vedere https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterfullthreshold.html[""GetClusterFullThreshold""^] Nella _documentazione API del software Element_. Per ulteriori informazioni sulla capacità di blocchi e metadati, vedere https://docs.netapp.com/us-en/element-software/storage/concept_monitor_understand_cluster_fullness_levels.html["Comprensione dei livelli di completezza del cluster"^] Nella _documentazione software Element_.
+
+. Selezionare la scheda *EFFETTIVO* per visualizzare le informazioni sullo storage totale fornito agli host connessi e le valutazioni di efficienza.
++
+.. Facoltativamente, selezionare *Includi thin provisioning* per visualizzare i tassi di efficienza del thin provisioning nel grafico a barre capacità effettiva.
+.. *Grafico a barre capacità effettiva*: Esaminare le linee verticali per determinare se la capacità utilizzata è inferiore al totale o inferiore alle soglie di avviso, errore o critico. Analogamente alla scheda Raw, è possibile passare il mouse sulle linee verticali per visualizzare i dettagli.
+.. *Efficienze*: Guarda queste valutazioni per determinare i tuoi guadagni in termini di efficienza della capacità dello storage con le funzionalità di compressione, deduplica e thin provisioning abilitate. Ad esempio, se la compressione viene visualizzata come "1.3x", significa che l'efficienza dello storage con compressione abilitata è 1.3 volte più efficiente che senza di essa.
++
+
+NOTE: Efficienze totali pari a (fattore di efficienza maxUsedSpace *) / 2, dove EfficiencyFactor = (thinProvisioningFactor * deDuplicationFactor * compressionFactor). Quando il thin provisioning non è selezionato, non viene incluso nel Total Efficiency.
+
+.. Se la capacità di storage effettiva si avvicina a una soglia di errore o critica, considerare l'eliminazione dei dati nel sistema. In alternativa, è possibile espandere il sistema.
++
+Vedere link:concept_hcc_expandoverview.html["Panoramica dell'espansione"].
+
+
+
+. Per ulteriori analisi e contesto storico, vedere https://activeiq.solidfire.com/["Dettagli di NetApp SolidFire Active IQ"^].
+
+
+
+
+== Monitorare le performance dello storage
+
+È possibile osservare la quantità di IOPS o di throughput che è possibile ottenere da un cluster senza superare le utili performance di tale risorsa utilizzando il riquadro Storage Performance (prestazioni dello storage). Le performance dello storage sono il punto in cui si ottiene il massimo utilizzo prima che la latenza diventi un problema.
+
+Il pannello delle performance dello storage ti aiuta a identificare se le performance stanno raggiungendo il punto in cui le performance potrebbero degradarsi se i carichi di lavoro aumentano.
+
+Le informazioni di questo riquadro vengono aggiornate ogni 10 secondi e vengono visualizzate in media tutti i punti del grafico.
+
+Per ulteriori informazioni sul metodo API Element associato, vedere https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterstats.html["GetClusterStats"^] Metodo nella _documentazione API del software Element_.
+
+.Fasi
+. Visualizzare il riquadro Storage Performance (prestazioni storage). Per i dettagli, passare il mouse sui punti del grafico.
++
+.. Scheda *IOPS*: Visualizza le operazioni correnti al secondo. Cerca tendenze in termini di dati o picchi. Ad esempio, se si nota che il numero massimo di IOPS è pari a 160.000 e 100.000 di IOPS gratuiti o disponibili, si potrebbe prendere in considerazione l'aggiunta di più carichi di lavoro a questo cluster. D'altra parte, se si vede che sono disponibili solo 140K, si potrebbe prendere in considerazione l'offload dei carichi di lavoro o l'espansione del sistema.
++
+image::hcc_dashboard_storage_perform_iops.png[Scheda Storage Performance (prestazioni storage) > IOPS (IOPS)]
+
+.. Scheda *throughput*: Monitorare gli schemi o i picchi di throughput. Inoltre, è possibile monitorare i valori di throughput costantemente elevati, che potrebbero indicare che si stanno avvicinando alle massime prestazioni utili della risorsa.
++
+image::hcc_dashboard_storage_perform_throughput.png[Scheda Storage Performance > throughput (prestazioni dello storage > throughput)]
+
+.. Scheda *Utilization* (utilizzo): Consente di monitorare l'utilizzo degli IOPS in relazione al totale degli IOPS disponibili sommato a livello di cluster.
++
+image::hcc_dashboard_storage_perform_utlization.png[Scheda Storage Performance > Utilization (prestazioni storage > utilizzo)]
+
+
+
+. Per ulteriori analisi, esaminare le performance dello storage utilizzando il plug-in NetApp Element per vCenter Server.
++
+https://docs.netapp.com/us-en/vcp/vcp_task_reports_volume_performance.html["Le performance mostrate nel plug-in NetApp Element per vCenter Server"^].
+
+
+
+
+
+== Monitorare l'utilizzo del calcolo
+
+Oltre al monitoraggio degli IOPS e del throughput delle risorse di storage, è possibile visualizzare l'utilizzo della CPU e della memoria delle risorse di calcolo. Gli IOPS totali che un nodo può fornire si basano sulle caratteristiche fisiche del nodo, ad esempio il numero di CPU, la velocità della CPU e la quantità di RAM.
+
+.Fasi
+. Visualizzare il riquadro *Compute Utilization* (utilizzo calcolo). Utilizzando le schede CPU e memoria, cercare modelli o picchi di utilizzo. Inoltre, è necessario verificare un utilizzo costantemente elevato, a indicare che si sta avvicinando all'utilizzo massimo per i cluster di calcolo.
++
+
+NOTE: Questo pannello mostra i dati solo per i cluster di calcolo gestiti da questa installazione.
+
++
+image::hcc_dashboard_compute_util_cpu.png[Riquadri di utilizzo del calcolo]
+
++
+.. Scheda *CPU*: Visualizza la media corrente dell'utilizzo della CPU nel cluster di calcolo.
+.. Scheda *Memory* (memoria): Consente di visualizzare l'utilizzo medio corrente della memoria nel cluster di calcolo.
+
+
+. Per ulteriori analisi sulle informazioni di calcolo, vedere https://activeiq.solidfire.com["NetApp SolidFire Active IQ per i dati storici"^].
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione di NetApp SolidFire Active IQ"^]
+

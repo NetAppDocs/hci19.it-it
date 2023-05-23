@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_resiliency.html 
+summary: 'Scopri come configurare il posizionamento delle macchine virtuali per una resilienza ottimale dopo l"installazione di Rancher su NetApp HCI.' 
+keywords: netapp, hci, Rancher, install, resiliency, vm, affinity 
+---
+= Configurare la resilienza
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come configurare il posizionamento delle macchine virtuali per una resilienza ottimale dopo l'installazione di Rancher su NetApp HCI.
+
+Si potrebbe considerare la resilienza per questi aspetti:
+
+* I cluster di gestione sono resilienti se si configura il bilanciamento del carico o il proxy round robin.
+* Per i cluster di utenti, è possibile impostare la resilienza a seconda di come si desidera configurare tali cluster di utenti.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Documentazione del rancher sull'architettura"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["La terminologia di Kubernetes per Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

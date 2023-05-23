@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_compute.html 
+summary: Scopri come spegnere i nodi di calcolo NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Spegnere le risorse di calcolo per un sistema NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Per spegnere le risorse di calcolo NetApp HCI, è necessario spegnere i singoli host VMware ESXi e l'appliance server VMware vCenter in un determinato ordine.
+
+.Fasi
+. Accedere all'istanza di vCenter che controlla il sistema NetApp HCI e determinare la macchina ESXi che ospita l'appliance virtuale vCenter Server (vCSA).
+. Dopo aver determinato l'host ESXi che esegue vCSA, spegnere tutte le altre macchine virtuali diverse da vCSA come segue:
++
+.. Selezionare una macchina virtuale.
+.. Fare clic con il pulsante destro del mouse e selezionare *alimentazione > Arresta il sistema operativo guest*.
+
+
+. Spegnere tutti gli host ESXi che non sono l'host ESXi che esegue vCSA.
+. Spegnere vCSA.
++
+In questo modo, la sessione vCenter si interrompe perché vCSA si disconnette durante il processo di spegnimento. Tutte le macchine virtuali devono ora essere spese con un solo host ESXi acceso.
+
+. Accedere all'host ESXi in esecuzione.
+. Verificare che tutte le macchine virtuali sull'host siano spente.
+. Arrestare l'host ESXi.
++
+In questo modo, tutte le sessioni iSCSI aperte al cluster di storage NetApp HCI vengono disconnesse.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

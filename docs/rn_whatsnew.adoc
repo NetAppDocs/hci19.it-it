@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_whatsnew.html 
+summary: Scopri le novità di questa versione di NetApp HCI. 
+keywords: netapp, hci, element, new, whatsnew 
+---
+= Novità di NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, cloud, onprem, documentation, help, element
+
+
+[role="lead"]
+NetApp aggiorna periodicamente NetApp HCI per offrire nuove funzionalità, miglioramenti e correzioni di bug. NetApp HCI 1.9P1 include il software NetApp Element 12.3.1 per i cluster di storage.
+
+[NOTE]
+====
+L'elemento 12.3.2 contiene la mitigazione che chiude l'esposizione del software Element alla vulnerabilità di Apache Log4j. I cluster di storage NetApp SolidFire con la funzione volumi virtuali (VVol) attivata sono esposti a questa vulnerabilità.
+
+Se il cluster di storage si trova all'elemento 12.3.1 e la funzione VVol è attivata, è necessario eseguire l'aggiornamento al software Element 12.3.2.
+
+Se il cluster di storage si trova su Element 12.3.1 e la funzione VVols è disattivata, l'aggiornamento al software Element 12.3.2 è facoltativo.
+
+NetApp sconsiglia l'esecuzione di versioni a elementi misti in un cluster, ad eccezione della durata dell'aggiornamento.
+
+====
+* Il <<NetApp HCI 1.9P1>> La sezione descrive le nuove funzioni e gli aggiornamenti di NetApp HCI versione 1.9P1.
+* Il <<Elemento 12.3.1>> La sezione descrive le nuove funzionalità e gli aggiornamenti di NetApp Element 12.3.1.
+
+
+
+
+== NetApp HCI 1.9P1
+
+NetApp HCI 1.9P1 include miglioramenti di sicurezza e stabilità.
+
+
+
+== Elemento 12.3.1
+
+NetApp HCI 1.9P1 include Element 12.3.1 per cluster di storage.
+
+
+
+=== Bundle firmware per lo storage 2.99.2
+
+La release Element 12.3.1 include la versione 2.99.2 del bundle firmware di storage. Se il cluster di storage è già in Element 12.3, è possibile installare semplicemente il nuovo bundle firmware 2.99.2.
+
+
+
+=== NetApp Bugs Online contiene problemi noti e risolti
+
+I problemi noti e risolti sono elencati nel tool NetApp Bugs Online. È possibile consultare questi problemi per Element e altri prodotti all'indirizzo https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab["NetApp Bugs Online"^].
+
+.Fasi
+. Passare a. https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab["NetApp Bugs Online"^].
+. Nel campo *Cerca per parola chiave*, digitare il nome del prodotto, ad esempio "elemento".
+. Selezionare image:icon_plus.PNG["icona più"], Selezionare il filtro *Fixed in Versions* e selezionare *OK*.
++
+image:bol_filters.PNG["BOL filters align=\"center\""]
+
+. Selezionare *Nuova ricerca*.
+. Digitare la versione della release nel campo *fixed in Versions*.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Note sulla versione di NetApp Hybrid Cloud Control and Management Services"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

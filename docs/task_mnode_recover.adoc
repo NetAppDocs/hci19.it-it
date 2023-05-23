@@ -1,0 +1,260 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_recover.html 
+summary: 'È possibile ripristinare e ridistribuire un nodo di gestione per il cluster che esegue il software NetApp Element. A seconda della configurazione, potrebbe essere necessario riconfigurare l"autenticazione per il nodo di gestione.' 
+keywords: netapp, element, management node, mnode, disaster recovery, redeploy, VM 
+---
+= Ripristinare un nodo di gestione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile ripristinare e ridistribuire manualmente il nodo di gestione per il cluster che esegue il software NetApp Element se il nodo di gestione precedente utilizzava volumi persistenti.
+
+È possibile implementare un nuovo OVA ed eseguire uno script di ridistribuzione per estrarre i dati di configurazione da un nodo di gestione precedentemente installato che esegue la versione 11.3 e successive.
+
+.Di cosa hai bisogno
+* Il nodo di gestione precedente eseguiva il software NetApp Element versione 11.3 o successiva con link:concept_hci_volumes.html#persistent-volumes["volumi persistenti"] funzionalità attivata.
+* Conosci MVIP e SVIP del cluster contenente i volumi persistenti.
+* La versione del cluster in uso esegue il software NetApp Element 11.3 o versione successiva.
+* L'installazione utilizza IPv4. Il nodo di gestione 11.3 non supporta IPv6.
+* Hai il permesso di scaricare il software dal NetApp Support Site.
+* Hai identificato il tipo di immagine del nodo di gestione corretto per la tua piattaforma:
++
+[cols="30,30"]
+|===
+| Piattaforma | Tipo di immagine di installazione 
+
+
+| Microsoft Hyper-V. | iso 
+
+
+| KVM | iso 
+
+
+| VMware vSphere | iso, .ova 
+
+
+| Citrix XenServer | iso 
+
+
+| OpenStack | iso 
+|===
+
+
+.Fasi
+. <<Scarica ISO o OVA e implementa la macchina virtuale>>
+. <<Configurare la rete>>
+. <<Configurare la sincronizzazione dell'ora>>
+. <<Configurare il nodo di gestione>>
+
+
+
+
+== Scarica ISO o OVA e implementa la macchina virtuale
+
+. Scaricare l'OVA o l'ISO per l'installazione dal https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI"^] Pagina sul sito di supporto NetApp:
++
+.. Fare clic su *Download Latest Release* (Scarica ultima versione) e accettare il contratto di licenza con l'utente finale.
+.. Selezionare l'immagine del nodo di gestione che si desidera scaricare.
+
+
+. Se l'OVA è stato scaricato, attenersi alla seguente procedura:
++
+.. Implementare OVA.
+.. Se il cluster di storage si trova su una subnet separata dal nodo di gestione (eth0) e si desidera utilizzare volumi persistenti, aggiungere un secondo controller di interfaccia di rete (NIC) alla VM sulla subnet di storage (ad esempio eth1) o assicurarsi che la rete di gestione possa instradare verso la rete di storage.
+
+
+. Se è stato scaricato l'ISO, attenersi alla seguente procedura:
++
+.. Creare una nuova macchina virtuale a 64 bit dall'hypervisor con la seguente configurazione:
++
+*** Sei CPU virtuali
+*** 24 GB DI RAM
+*** Disco virtuale da 400 GB, con thin provisioning
+*** Un'interfaccia di rete virtuale con accesso a Internet e accesso allo storage MVIP.
+*** Un'interfaccia di rete virtuale con accesso alla rete di gestione al cluster di storage. Se il cluster di storage si trova su una subnet separata dal nodo di gestione (eth0) e si desidera utilizzare volumi persistenti, aggiungere un secondo controller di interfaccia di rete (NIC) alla macchina virtuale sulla subnet di storage (eth1) o assicurarsi che la rete di gestione possa essere instradata alla rete di storage.
++
+
+IMPORTANT: Non accendere la macchina virtuale prima della fase indicata in questa procedura.
+
+
+
+.. Collegare l'ISO alla macchina virtuale e avviare l'immagine di installazione .iso.
++
+
+NOTE: L'installazione di un nodo di gestione mediante l'immagine potrebbe causare un ritardo di 30 secondi prima della visualizzazione della schermata iniziale.
+
+
+
+. Al termine dell'installazione, accendere la macchina virtuale per il nodo di gestione.
+
+
+
+
+== Configurare la rete
+
+. Utilizzando l'interfaccia utente del terminale (TUI), creare un utente admin del nodo di gestione.
++
+
+TIP: Per spostarsi tra le opzioni di menu, premere i tasti freccia su o giù. Per spostarsi tra i pulsanti, premere Tab. Per spostarsi dai pulsanti ai campi, premere Tab. Per spostarsi tra i campi, premere i tasti freccia su o giù.
+
+. Configurare la rete dei nodi di gestione (eth0).
++
+
+NOTE: Se è necessaria una scheda di rete aggiuntiva per isolare il traffico di storage, consultare le istruzioni per la configurazione di un'altra scheda di rete: link:task_mnode_install_add_storage_NIC.html["Configurazione di un NIC (Network Interface Controller) per lo storage"].
+
+
+
+
+
+== Configurare la sincronizzazione dell'ora
+
+. Assicurarsi che il tempo sia sincronizzato tra il nodo di gestione e il cluster di storage utilizzando NTP:
+
+
+
+NOTE: A partire dall'elemento 12.3.1, i passaggi da (a) a (e) vengono eseguiti automaticamente. Per il nodo di gestione 12.3.1, passare a. <<substep_f_recover_config_time_sync,sottopase (f)>> per completare la configurazione di time sync.
+
+. Accedere al nodo di gestione utilizzando SSH o la console fornita dall'hypervisor.
+. Stop NTPD:
++
+[listing]
+----
+sudo service ntpd stop
+----
+. Modificare il file di configurazione NTP `/etc/ntp.conf`:
++
+.. Commentare i server predefiniti (`server 0.gentoo.pool.ntp.org`) aggiungendo un `#` davanti a ciascuno.
+.. Aggiungere una nuova riga per ciascun server di riferimento orario predefinito che si desidera aggiungere. I server di riferimento orario predefiniti devono essere gli stessi server NTP utilizzati nel cluster di storage in link:task_mnode_recover.html#configure-the-management-node["passo successivo"].
++
+[listing]
+----
+vi /etc/ntp.conf
+
+#server 0.gentoo.pool.ntp.org
+#server 1.gentoo.pool.ntp.org
+#server 2.gentoo.pool.ntp.org
+#server 3.gentoo.pool.ntp.org
+server <insert the hostname or IP address of the default time server>
+----
+.. Al termine, salvare il file di configurazione.
+
+
+. Forzare una sincronizzazione NTP con il server appena aggiunto.
++
+[listing]
+----
+sudo ntpd -gq
+----
+. Riavviare NTPD.
++
+[listing]
+----
+sudo service ntpd start
+----
+. [[substep_f_recover_config_time_Sync]]Disattiva la sincronizzazione dell'ora con l'host tramite l'hypervisor (il seguente è un esempio VMware):
++
+
+NOTE: Se si implementa mNode in un ambiente hypervisor diverso da VMware, ad esempio dall'immagine .iso in un ambiente OpenStack, fare riferimento alla documentazione dell'hypervisor per i comandi equivalenti.
+
++
+.. Disattivare la sincronizzazione periodica dell'ora:
++
+[listing]
+----
+vmware-toolbox-cmd timesync disable
+----
+.. Visualizzare e confermare lo stato corrente del servizio:
++
+[listing]
+----
+vmware-toolbox-cmd timesync status
+----
+.. In vSphere, verificare che `Synchronize guest time with host` Nelle opzioni della macchina virtuale, la casella di controllo non è selezionata.
++
+
+NOTE: Non attivare questa opzione se si apportano modifiche future alla macchina virtuale.
+
+
+
+
+
+
+NOTE: Non modificare l'NTP dopo aver completato la configurazione di Time Sync, in quanto influisce sull'NTP quando si esegue <<step_6_recover_mnode_redeploy,comando di ridistribuzione>> sul nodo di gestione.
+
+
+
+== Configurare il nodo di gestione
+
+. Creare una directory di destinazione temporanea per il contenuto del bundle di servizi di gestione:
++
+[listing]
+----
+mkdir -p /sf/etc/mnode/mnode-archive
+----
+. Scaricare il bundle di servizi di gestione (versione 2.15.28 o successiva) precedentemente installato sul nodo di gestione esistente e salvarlo in `/sf/etc/mnode/` directory.
+. Estrarre il bundle scaricato utilizzando il seguente comando, sostituendo il valore tra parentesi quadre [ ] (comprese le parentesi quadre) con il nome del file bundle:
++
+[listing]
+----
+tar -C /sf/etc/mnode -xvf /sf/etc/mnode/[management services bundle file]
+----
+. Estrarre il file risultante in `/sf/etc/mnode-archive` directory:
++
+[listing]
+----
+tar -C /sf/etc/mnode/mnode-archive -xvf /sf/etc/mnode/services_deploy_bundle.tar.gz
+----
+. Creare un file di configurazione per account e volumi:
++
+[listing]
+----
+echo '{"trident": true, "mvip": "[mvip IP address]", "account_name": "[persistent volume account name]"}' | sudo tee /sf/etc/mnode/mnode-archive/management-services-metadata.json
+----
++
+.. Sostituire il valore tra parentesi [ ] (comprese le parentesi) per ciascuno dei seguenti parametri richiesti:
++
+*** *[mvip IP address]*: L'indirizzo IP virtuale di gestione del cluster di storage. Configurare il nodo di gestione con lo stesso cluster di storage utilizzato durante link:task_mnode_recover.html#configure-time-sync["Configurazione dei server NTP"].
+*** *[nome account volume persistente]*: Il nome dell'account associato a tutti i volumi persistenti in questo cluster di storage.
+
+
+
+
+. Configurare ed eseguire il comando di ridistribuzione del nodo di gestione per connettersi ai volumi persistenti ospitati sul cluster e avviare i servizi con i dati di configurazione del nodo di gestione precedenti:
++
+
+NOTE: Viene richiesto di inserire le password in un prompt sicuro. Se il cluster si trova dietro un server proxy, è necessario configurare le impostazioni del proxy in modo da poter accedere a una rete pubblica.
+
++
+[listing]
+----
+sudo /sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
+----
++
+.. Sostituire il valore tra parentesi quadre [ ] (comprese le parentesi quadre) con il nome utente dell'account amministratore del nodo di gestione. Probabilmente si tratta del nome utente dell'account utente utilizzato per accedere al nodo di gestione.
++
+
+NOTE: È possibile aggiungere il nome utente o consentire allo script di richiedere le informazioni.
+
+.. Eseguire `redeploy-mnode` comando. Al termine della ridistribuzione, lo script visualizza un messaggio di esito positivo.
+.. Se si accede alle interfacce web Element o NetApp HCI (come il nodo di gestione o il controllo cloud ibrido NetApp) utilizzando il nome di dominio completo (FQDN) del sistema, link:task_hcc_upgrade_management_node.html#reconfigure-authentication-using-the-management-node-rest-api["riconfigurare l'autenticazione per il nodo di gestione"].
+
+
+
+
+
+IMPORTANT: Funzionalità SSH che offre link:task_mnode_enable_remote_support_connections.html["Accesso alla sessione del NetApp Support Remote Support Tunnel (RST)"] è disattivato per impostazione predefinita sui nodi di gestione che eseguono i servizi di gestione 2.18 e versioni successive. Se in precedenza era stata attivata la funzionalità SSH sul nodo di gestione, potrebbe essere necessario link:task_mnode_ssh_management.html["Disattivare nuovamente SSH"] sul nodo di gestione ripristinato.
+
+[discrete]
+== Ulteriori informazioni
+
+* link:concept_hci_volumes.html#persistent-volumes["Volumi persistenti"]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

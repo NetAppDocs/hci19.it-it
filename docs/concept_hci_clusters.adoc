@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_clusters.html 
+summary: Un cluster è costituito da un insieme di nodi di storage. Un cluster di storage NetApp HCI deve avere almeno due nodi di storage. Un cluster viene visualizzato sulla rete come singolo gruppo logico ed è quindi possibile accedervi come storage a blocchi. 
+keywords: netapp, hci, storage nodes, clusters, two-node cluster, three-node cluster, 2-node cluster, 3-node cluster 
+---
+= Cluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un cluster è un gruppo di nodi, che funzionano come un insieme collettivo, che forniscono risorse di storage o di calcolo. A partire da NetApp HCI 1.8, è possibile disporre di un cluster di storage con due nodi. Un cluster di storage viene visualizzato sulla rete come un singolo gruppo logico ed è quindi possibile accedervi come storage a blocchi.
+
+Il livello di storage in NetApp HCI è fornito dal software NetApp Element e il livello di gestione è fornito dal plug-in NetApp Element per vCenter Server. Un nodo di storage è un server che contiene una raccolta di dischi che comunicano tra loro attraverso l'interfaccia di rete Bond10G. Ciascun nodo di storage è collegato a due reti, storage e gestione, ciascuna con due collegamenti indipendenti per ridondanza e performance. Ciascun nodo richiede un indirizzo IP su ciascuna rete. È possibile creare un cluster con nuovi nodi di storage o aggiungere nodi di storage a un cluster esistente per aumentare la capacità e le performance dello storage.
+
+
+
+== Cluster di storage autorevoli
+
+Il cluster di storage autorevole è il cluster di storage utilizzato da NetApp Hybrid Cloud Control per autenticare gli utenti.
+
+Se il nodo di gestione dispone di un solo cluster di storage, si tratta del cluster autorevole. Se il nodo di gestione dispone di due o più cluster di storage, uno di questi viene assegnato come cluster autorevole e solo gli utenti di quel cluster possono accedere a NetApp Hybrid Cloud Control. Per scoprire quale cluster è il cluster autorevole, è possibile utilizzare `GET /mnode/about` API. Nella risposta, l'indirizzo IP in `token_url` Il campo è l'indirizzo IP virtuale di gestione (MVIP) del cluster di storage autorevole. Se si tenta di accedere a NetApp Hybrid Cloud Control come utente che non si trova nel cluster autorevole, il tentativo di accesso non avrà esito positivo.
+
+Molte funzionalità di NetApp Hybrid Cloud Control sono progettate per funzionare con più cluster di storage, ma l'autenticazione e l'autorizzazione hanno dei limiti. Il limite dell'autenticazione e dell'autorizzazione è che l'utente del cluster autorevole può eseguire azioni su altri cluster legati a NetApp Hybrid Cloud Control anche se non è un utente degli altri cluster di storage. Prima di procedere con la gestione di più cluster di storage, è necessario assicurarsi che gli utenti definiti nei cluster autorevoli siano definiti in tutti gli altri cluster di storage con le stesse autorizzazioni.
+
+Puoi gestire gli utenti con NetApp Hybrid Cloud Control.
+
+Prima di procedere con la gestione di più cluster di storage, è necessario assicurarsi che gli utenti definiti nei cluster autorevoli siano definiti in tutti gli altri cluster di storage con le stesse autorizzazioni. Vedere link:task_mnode_manage_storage_cluster_assets.html["Creare e gestire le risorse del cluster di storage"] per ulteriori informazioni sull'utilizzo delle risorse cluster di storage dei nodi di gestione.
+
+
+
+== Capacità inutilizzata
+
+Se un nodo aggiunto di recente rappresenta oltre il 50% della capacità totale del cluster, una parte della capacità di questo nodo viene resa inutilizzabile ("bloccato"), in modo che sia conforme alla regola di capacità. Questo rimane il caso fino a quando non viene aggiunta una maggiore capacità di storage. Se viene aggiunto un nodo molto grande che disobbedisce anche alla regola di capacità, il nodo precedentemente bloccato non verrà più bloccato, mentre il nodo appena aggiunto viene bloccato. La capacità deve essere sempre aggiunta in coppie per evitare che ciò accada. Quando un nodo viene bloccato, viene generato un guasto appropriato del cluster.
+
+
+
+== Cluster di storage a due nodi
+
+A partire da NetApp HCI 1.8, è possibile configurare un cluster di storage con due nodi di storage.
+
+* È possibile utilizzare alcuni tipi di nodi per formare il cluster di storage a due nodi. Vedere https://library.netapp.com/ecm/ecm_download_file/ECMLP2865021["Note sulla versione di NetApp HCI 1.8"^].
++
+
+NOTE: In un cluster a due nodi, i nodi di storage sono limitati a nodi con dischi da 480 GB e 960 GB e i nodi devono essere dello stesso tipo di modello.
+
+* I cluster di storage a due nodi sono ideali per implementazioni su piccola scala con carichi di lavoro che non dipendono da requisiti di capacità elevata e performance elevate.
+* Oltre a due nodi di storage, un cluster di storage a due nodi include anche due *nodi di controllo NetApp HCI*.
++
+
+NOTE: Scopri di più link:concept_hci_nodes.html["Nodi di controllo."]
+
+* È possibile scalare un cluster di storage a due nodi in un cluster di storage a tre nodi. I cluster a tre nodi aumentano la resilienza offrendo la possibilità di eseguire il ripristino automatico in caso di guasti ai nodi di storage.
+* I cluster di storage a due nodi offrono le stesse funzionalità e caratteristiche di sicurezza dei tradizionali cluster di storage a quattro nodi.
+* I cluster di storage a due nodi utilizzano le stesse reti dei cluster di storage a quattro nodi. Le reti vengono configurate durante l'implementazione di NetApp HCI utilizzando la procedura guidata del motore di implementazione NetApp.
+
+
+
+
+=== Quorum del cluster di storage
+
+Element Software crea un cluster di storage da nodi selezionati, che mantiene un database replicato della configurazione del cluster. Per poter mantenere il quorum per la resilienza del cluster, sono necessari almeno tre nodi per partecipare all'ensemble del cluster. I nodi di controllo in un cluster a due nodi vengono utilizzati per garantire che vi sia un numero di nodi di storage sufficiente per formare un quorum di ensemble valido. Per la creazione dell'ensemble, i nodi di storage sono preferiti rispetto ai nodi di controllo. Per l'insieme minimo di tre nodi che coinvolge un cluster di storage a due nodi, vengono utilizzati due nodi di storage e un nodo di controllo.
+
+
+TIP: In un insieme a tre nodi con due nodi di storage e un nodo di controllo, se un nodo di storage passa offline, il cluster passa in uno stato degradato. Dei due nodi di controllo, solo uno può essere attivo nell'insieme. Il secondo nodo di controllo non può essere aggiunto all'insieme, perché esegue il ruolo di backup. Il cluster rimane in stato degradato fino a quando il nodo di storage offline non ritorna in stato online o un nodo sostitutivo non si unisce al cluster.
+
+Se un nodo di controllo non riesce, il nodo di controllo rimanente si unisce all'ensemble per formare un ensemble a tre nodi. È possibile implementare un nuovo nodo di controllo per sostituire il nodo di controllo non riuscito.
+
+
+
+=== Riparazione automatica e gestione degli errori in cluster di storage a due nodi
+
+Se un componente hardware si guasta in un nodo che fa parte di un cluster tradizionale, il cluster può ribilanciare i dati che si trovavano sul componente che non riusciva ad altri nodi disponibili nel cluster. Questa capacità di risanare automaticamente non è disponibile in un cluster di storage a due nodi, perché un minimo di tre nodi di storage fisici deve essere disponibile per il cluster per la riparazione automatica. Quando un nodo di un cluster a due nodi si guasta, il cluster a due nodi non richiede la rigenerazione di una seconda copia dei dati. Le nuove scritture vengono replicate per i dati del blocco nel nodo di storage attivo rimanente. Quando il nodo guasto viene sostituito e si unisce al cluster, i dati vengono ribilanciati tra i due nodi di storage fisici.
+
+
+
+== Cluster di storage con tre o più nodi
+
+L'espansione da due nodi di storage a tre nodi di storage rende il cluster più resiliente consentendo la riparazione automatica in caso di guasti al nodo e al disco, ma non fornisce capacità aggiuntiva. È possibile espandere utilizzando link:task_hcc_expand_storage.html["Interfaccia utente di NetApp Hybrid Cloud Control"]. Quando si esegue l'espansione da un cluster a due nodi a un cluster a tre nodi, la capacità può essere bloccata (vedere <<Capacità inutilizzata>>). La procedura guidata dell'interfaccia utente mostra avvisi relativi alla capacità inutilizzata prima dell'installazione. Un singolo nodo di controllo è ancora disponibile per mantenere il quorum dell'ensemble in caso di guasto di un nodo di storage, con un secondo nodo di controllo in standby. Quando si espande un cluster di storage a tre nodi in un cluster a quattro nodi, la capacità e le performance aumentano. In un cluster a quattro nodi, i nodi di controllo non sono più necessari per formare il quorum del cluster. Puoi espandere fino a 64 nodi di calcolo e 40 nodi di storage.
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/media/tr-4823.pdf["Cluster di storage a due nodi NetApp HCI | TR-4823"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

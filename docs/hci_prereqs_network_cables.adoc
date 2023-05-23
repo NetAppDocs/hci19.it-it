@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_cables.html 
+summary: Scopri i requisiti dei cavi di rete NetApp HCI. 
+keywords: netapp, hci, network, cable, requirements 
+---
+= Requisiti dei cavi di rete
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, cable, requirements
+
+
+[role="lead"]
+È possibile utilizzare le seguenti linee guida per assicurarsi di disporre di un numero sufficiente di cavi di rete adeguati alle dimensioni dell'implementazione. Per le porte RJ45, è necessario utilizzare cavi con grado di protezione Cat 5e o Cat 6.
+
+* Configurazione del nodo di calcolo a due cavi: Ciascun nodo di calcolo deve essere collegato a una rete 10 GbE tramite due interfacce SFP+/SFP28 (un cavo Cat 5e/6 aggiuntivo è opzionale per la gestione fuori banda).
+* Configurazione del nodo di calcolo a sei cavi: Ciascun nodo di calcolo deve essere collegato a una rete 10/25GbE tramite quattro interfacce SFP+/SFP28 e a una rete 1/10GbE tramite due cavi Cat 5e/6 (un cavo Cat 5e/6 aggiuntivo è opzionale per la gestione fuori banda).
+* Ciascun nodo storage deve essere collegato a una rete 10/25GbE tramite due interfacce SFP+/SFP28 e a una rete 1/10GbE tramite due cavi Cat 5e/6 (un cavo Cat 5e/6 aggiuntivo è opzionale per la gestione fuori banda).
+* Assicurarsi che i cavi di rete utilizzati per collegare il sistema NetApp HCI alla rete siano sufficientemente lunghi per raggiungere comodamente gli switch.
+
+
+Ad esempio, un'implementazione contenente quattro nodi di storage e tre nodi di calcolo (utilizzando la configurazione a sei cavi) richiede il seguente numero di cavi di rete:
+
+* (14) cavi Cat 5e/6 con connettori RJ45 (più sette cavi per traffico IPMI, se necessario)
+* (20) cavi twinax con connettori SFP28/SFP+
+
+
+Ciò è dovuto ai seguenti motivi:
+
+* Quattro nodi storage richiedono otto (8) cavi Cat 5e/6 e otto (8) cavi Twinax.
+* Tre nodi di calcolo che utilizzano la configurazione a sei cavi richiedono sei (6) cavi Cat 5e/6 e dodici (12) cavi Twinax.
+
+
+
+NOTE: In una configurazione a sei cavi, due porte sono riservate per VMware ESXi e configurate e gestite dal NetApp Deployment Engine. Non è possibile accedere o gestire queste porte dedicate a ESXi utilizzando la TUI Element o la GUI web Element.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

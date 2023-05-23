@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_node_compatibility.html 
+summary: 'Scopri i requisiti di compatibilità dei nodi NetApp HCI per l"implementazione.' 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= Selezione dell'inventario e compatibilità dei nodi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si scelgono i nodi per l'implementazione, alcune limitazioni si applicano alle configurazioni dei nodi che è possibile combinare nella stessa implementazione.
+
+
+
+== Compatibilità dei nodi di storage
+
+NetApp HCI supporta i nodi e i dischi di storage con SED (unità con crittografia automatica) e funzionalità di crittografia dei dischi FIPS 140-2. Durante l'implementazione o l'espansione di NetApp HCI, è possibile combinare nodi con diversi livelli di crittografia riportati, ma NetApp HCI supporta solo la forma di crittografia più base in questa situazione. Ad esempio, se si combina un nodo di storage che supporta la crittografia FIPS con nodi che supportano solo la crittografia SED, la crittografia SED è supportata con questa configurazione, ma la crittografia del disco FIPS non lo è.
+
+
+NOTE: L'aggiunta di nodi di storage in grado di crittografare le unità FIPS al cluster di storage non attiva automaticamente la funzione di crittografia delle unità FIPS. Dopo aver implementato o ampliato un'installazione con i nodi compatibili con FIPS, è necessario attivare manualmente la crittografia del disco FIPS. Vedere https://docs.netapp.com/us-en/element-software/index.html["Documentazione software Element"^] per istruzioni.
+
+Tutti i nodi di storage devono eseguire la stessa versione minore del software Element per essere compatibili con la stessa implementazione. Ad esempio, non è possibile combinare un nodo di storage che esegue Element 11.3.1 con altri nodi di storage che eseguono Element 11.5.
+
+
+NOTE: A seconda della configurazione hardware del nodo, i nodi di storage H410S potrebbero essere visualizzati nell'elenco di inventario etichettati come nodi di storage H300S, H500S o H700S.
+
+NetApp HCI supporta solo alcuni modelli di nodi di storage in cluster di storage a due nodi. Per ulteriori informazioni, vedere link:concept_hci_clusters.html#two-node-storage-clusters["cluster di storage a due nodi"] O le Note di rilascio per la versione di NetApp HCI in uso.
+
+
+NOTE: Per le implementazioni di cluster di storage a due nodi, i tipi di nodi di storage sono limitati ai nodi con dischi da 480 GB e 960 GB.
+
+
+
+== Compatibilità dei nodi di calcolo
+
+I nodi di calcolo devono soddisfare i seguenti requisiti per essere selezionabili come inventario:
+
+* Le generazioni di CPU in tutti i nodi di calcolo devono corrispondere per la corretta funzionalità di VMware vMotion. Dopo aver selezionato un nodo di calcolo dall'inventario, non è possibile selezionare nodi di calcolo con diverse generazioni di CPU.
+* Non è possibile combinare nodi di calcolo con nodi di calcolo abilitati alla GPU nello stesso cluster di calcolo. Se si seleziona un nodo di calcolo abilitato alla GPU, i nodi di calcolo solo CPU diventano non selezionabili e viceversa.
+* La versione software in esecuzione sul nodo di calcolo deve corrispondere alla versione principale e minore del NetApp Deployment Engine che ospita l'implementazione. In caso contrario, è necessario eseguire una nuova immagine del nodo di calcolo utilizzando il processo RTFI. Per istruzioni, consulta gli articoli della Knowledge base di NetApp relativi a RTFI.
+* Per poter essere selezionato nell'elenco *Compute Nodes* (nodi di calcolo), il nodo di calcolo deve avere la configurazione del cablaggio selezionata nella pagina Network Topology (topologia di rete).
+* Le configurazioni di cablaggio di rete per i nodi di calcolo dello stesso modello devono corrispondere all'interno di un singolo cluster di calcolo.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

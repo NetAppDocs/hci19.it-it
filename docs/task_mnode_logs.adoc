@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_logs.html 
+summary: 'È possibile recuperare i log dai servizi in esecuzione sull"Ndoe di gestione utilizzando l"API REST.' 
+keywords: netapp, element, management node, management services, mnode, logs 
+---
+= Recupero dei log dai servizi di gestione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile recuperare i log dai servizi in esecuzione sul nodo di gestione utilizzando l'API REST. È possibile estrarre i log da tutti i servizi pubblici o specificare servizi specifici e utilizzare i parametri di query per definire meglio i risultati restituiti.
+
+.Di cosa hai bisogno
+* La versione del cluster in uso esegue il software NetApp Element 11.3 o versione successiva.
+* È stato implementato un nodo di gestione con versione 11.3 o successiva.
+
+
+.Fasi
+. Aprire l'interfaccia utente API REST sul nodo di gestione.
++
+** A partire dai servizi di gestione 2.21.61:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/4/
+----
+** Per i servizi di gestione 2.20.69 o precedenti:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+
+
+. Selezionare *autorizzare* o qualsiasi icona a forma di lucchetto e completare le seguenti operazioni:
++
+.. Inserire il nome utente e la password del cluster.
+.. Inserire l'ID client come mnode-client se il valore non è già stato compilato.
+.. Selezionare *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+
+
+. Selezionare *GET /logs*.
+. Selezionare *Provalo*.
+. Specificare i seguenti parametri:
++
+** `Lines`: Inserire il numero di righe che si desidera restituire al registro. Questo parametro è un numero intero che per impostazione predefinita è 1000.
++
+
+TIP: Evitare di richiedere l'intera cronologia del contenuto del registro impostando le righe su 0.
+
+** `since`: Aggiunge un timestamp ISO-8601 per il punto di inizio dei registri del servizio.
++
+
+TIP: Utilizzare un ragionevole `since` parametro durante la raccolta di log di intervalli di tempo più ampi.
+
+** `service-name`: Inserire un nome di servizio.
++
+
+TIP: Utilizzare `GET /services` comando per elencare i servizi sul nodo di gestione.
+
+** `stopped`: Impostare su `true` per recuperare i log dai servizi interrotti.
+
+
+. Selezionare *Esegui*.
+. Dal corpo della risposta, selezionare *Download* per salvare l'output del log.
+
+
+[discrete]
+== Ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

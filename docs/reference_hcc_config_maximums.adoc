@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: docs/reference_hcc_config_maximums.html 
+summary: NetApp Hybrid Cloud Control dispone di funzionalità specifiche e NetApp consiglia di operare al suo interno. 
+keywords: netapp, hci, HCC, configuration, capabilities, limits, maximums 
+---
+= Configurazioni massime di NetApp Hybrid Cloud Control
+:allow-uri-read: 
+
+
+[role="lead"]
+NetApp HCI include il controllo del cloud ibrido NetApp per semplificare il ciclo di vita del calcolo e la gestione dello storage. Supporta gli aggiornamenti del software Element sui nodi di storage per cluster di storage NetApp HCI e NetApp SolidFire, nonché gli aggiornamenti del firmware per i nodi di calcolo NetApp HCI in NetApp HCI. È disponibile per impostazione predefinita sui nodi di gestione in NetApp HCI.
+
+Oltre a comunicare i componenti hardware e software forniti da NetApp in un'installazione di NetApp HCI, NetApp Hybrid Cloud Control interagisce con componenti di terze parti nell'ambiente del cliente, come VMware vCenter. NetApp qualifica la funzionalità di NetApp Hybrid Cloud Control e la sua interazione con questi componenti di terze parti nell'ambiente del cliente fino a una certa scala. Per un'esperienza ottimale con NetApp Hybrid Cloud Control, NetApp consiglia di non utilizzare limiti massimi di configurazione.
+
+Se si superano questi valori massimi testati, potrebbero verificarsi problemi con NetApp Hybrid Cloud Control, ad esempio un'interfaccia utente più lenta e risposte API o funzionalità non disponibili. Se si impegna NetApp per il supporto dei prodotti con NetApp Hybrid Cloud Control in ambienti configurati oltre i massimi di configurazione, il supporto NetApp chiederà di modificare la configurazione in modo che rientri nei massimi di configurazione documentati.
+
+.Valori massimi di configurazione
+NetApp Hybrid Cloud Control supporta ambienti VMware vSphere con un massimo di 500 nodi di calcolo NetApp. Supporta fino a 20 cluster di storage basati su software NetApp Element con 40 nodi di storage per cluster.

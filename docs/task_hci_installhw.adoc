@@ -1,0 +1,428 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_installhw.html 
+summary: Prima di iniziare a utilizzare NetApp HCI, è necessario installare correttamente i nodi di calcolo e storage. 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
+---
+= Installare l'hardware della serie H.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di iniziare a utilizzare NetApp HCI, è necessario installare correttamente i nodi di calcolo e storage.
+
+
+TIP: Vedere link:../media/hseries-isi.pdf["poster"^] per una rappresentazione visiva delle istruzioni.
+
+* <<Diagrammi del flusso di lavoro>>
+* <<Preparazione per l'installazione>>
+* <<Montare le guide>>
+* <<Installare il nodo/chassis>>
+* <<Installare gli switch>>
+* <<Collegare i nodi>>
+* <<Accendere i nodi>>
+* <<Configurare NetApp HCI>>
+* <<Eseguire attività di post-configurazione>>
+
+
+
+
+== Diagrammi del flusso di lavoro
+
+I diagrammi del flusso di lavoro forniscono una panoramica generale delle fasi di installazione. Le fasi variano leggermente a seconda del modello della serie H.
+
+* <<H410C e H410S>>
+* <<H610C e H615C>>
+* <<H610S>>
+
+
+
+
+=== H410C e H410S
+
+image::workflow_h410c.PNG[Workflow di installazione di H410C e H410S]
+
+
+
+=== H610C e H615C
+
+
+NOTE: I termini "nodo" e "chassis" sono utilizzati in modo intercambiabile nel caso di H610C e H615C, perché nodo e chassis non sono componenti separati, a differenza di quanto avviene nel caso di uno chassis 2U a quattro nodi.
+
+image::workflow_h610c.png[Workflow di installazione di H610C e H615C]
+
+
+
+=== H610S
+
+
+NOTE: I termini "nodo" e "chassis" sono utilizzati in modo intercambiabile nel caso di H610C e H615C, perché nodo e chassis non sono componenti separati, a differenza di quanto avviene nel caso di uno chassis 2U a quattro nodi.
+
+image::workflow_h610s.png[Workflow di installazione di H610S]
+
+
+
+== Preparazione per l'installazione
+
+In preparazione dell'installazione, inventariare l'hardware spedito e contattare il supporto NetApp se alcuni degli elementi sono mancanti.
+
+Assicurarsi di disporre dei seguenti elementi nella posizione di installazione:
+
+* Spazio rack per il sistema.
+
+
+[cols="2*"]
+|===
+| Tipo di nodo | Spazio rack 
+
+
+| Nodi H410C e H410S | Due unità rack (2U) 
+
+
+| Nodo H610C | 2U 
+
+
+| Nodi H615C e H610S | Un'unità rack (1U) 
+|===
+* Cavi o ricetrasmettitori a collegamento diretto SFP28/SFP+
+* Cavi Cat5e o superiori con connettore RJ45
+* Uno switch KVM (Keyboard, Video, mouse) per configurare il sistema
+* Chiavetta USB (opzionale)
+
+
+
+TIP: L'hardware spedito dipende da quello che si ordina. Un nuovo ordine 2U a quattro nodi include chassis, pannello, kit guide di scorrimento, dischi per nodi di storage, nodi di storage e calcolo e cavi di alimentazione (due per chassis). Se si ordinano nodi di storage H610S, i dischi verranno installati nello chassis.
+
+
+CAUTION: Durante l'installazione dell'hardware, assicurarsi di rimuovere tutto il materiale di imballaggio e l'imballaggio dall'unità. In questo modo si eviteranno il surriscaldamento e lo spegnimento dei nodi.
+
+
+
+== Montare le guide
+
+L'ordine hardware fornito include un set di guide di scorrimento. Per completare l'installazione della guida, è necessario un cacciavite. Le fasi di installazione variano leggermente per ciascun modello di nodo.
+
+
+TIP: Installare l'hardware dalla parte inferiore del rack fino alla parte superiore per evitare che l'apparecchiatura si rovescii. Se il rack include dispositivi di stabilizzazione, installarli prima di installare l'hardware.
+
+* <<H410C e H410S>>
+* <<H610C>>
+* <<H610S e H615C>>
+
+
+
+
+=== H410C e H410S
+
+I nodi H410C e H410S sono installati in uno chassis 2U a quattro nodi della serie H, fornito con due set di adattatori. Se si desidera installare lo chassis in un rack con fori rotondi, utilizzare gli adattatori appropriati per un rack con fori rotondi. Le guide per i nodi H410C e H410S si adattano a un rack con una profondità compresa tra 29 e 33.5 pollici. Quando la guida è completamente contratta, è lunga 28 pollici e le sezioni anteriore e posteriore della guida sono tenute insieme da una sola vite.
+
+
+CAUTION: Se si installa il telaio su una guida completamente contratta, le sezioni anteriore e posteriore della guida potrebbero separarsi.
+
+.Fasi
+. Allineare la parte anteriore della guida con i fori sul montante anteriore del rack.
+. Spingere i ganci sulla parte anteriore della guida nei fori sul montante anteriore del rack, quindi abbassarli fino a quando i perni caricati a molla non scattano nei fori del rack.
+. Fissare la guida al rack con le viti. Di seguito viene illustrata la guida sinistra collegata alla parte anteriore del rack:
++
+image::h410c_rail.gif[Installazione su guida per 2U]
+
+. Estendere la sezione posteriore della guida fino al montante posteriore del rack.
+. Allineare i ganci sul retro della guida con i fori appropriati sul montante posteriore, assicurandosi che la parte anteriore e posteriore della guida siano allo stesso livello.
+. Montare la parte posteriore della guida sul rack e fissarla con le viti.
+. Eseguire tutte le operazioni descritte sopra per l'altro lato del rack.
+
+
+
+
+=== H610C
+
+Di seguito viene illustrata l'installazione delle guide per un nodo di calcolo H61OC:
+
+image::h610c_rail.png[Installazione su guida per nodo di calcolo H610C.]
+
+
+
+=== H610S e H615C
+
+Di seguito viene illustrata l'installazione delle guide per un nodo di storage H610S o un nodo di calcolo H615C:
+
+image::h610s_rail.gif[Installazione su guida per nodo di storage H610S e nodo di calcolo H615C.]
+
+
+TIP: I modelli H610S e H615C sono con guide di destra e di sinistra. Posizionare il foro della vite verso il basso in modo che la vite a testa zigrinata H610S/H615C possa fissare il telaio alla guida.
+
+
+
+== Installare il nodo/chassis
+
+Il nodo di calcolo H410C e il nodo di storage H410S vengono installati in uno chassis 2U a quattro nodi. Per H610C, H615C e H610S, installare il telaio/nodo direttamente sulle guide del rack.
+
+
+TIP: A partire da NetApp HCI 1.8, è possibile configurare un cluster di storage con due o tre nodi di storage.
+
+
+CAUTION: Rimuovere tutto il materiale di imballaggio e l'imballaggio dall'unità. In questo modo si evitano il surriscaldamento e lo spegnimento dei nodi.
+
+* <<Nodi H410C e H410S>>
+* <<Nodo/chassis H610C>>
+* <<Nodo/chassis H610S e H615C>>
+
+
+
+
+=== Nodi H410C e H410S
+
+.Fasi
+. Installare i nodi H410C e H410S nello chassis. Ecco un esempio di vista posteriore di uno chassis con quattro nodi installati:
++
+image::hseries_2U_rear.gif[Vista posteriore di 2U]
+
+. Installare le unità per i nodi di storage H410S.
++
+image::h410s_drives.png[Vista frontale del nodo storage H410S con dischi installati.]
+
+
+
+
+
+=== Nodo/chassis H610C
+
+Nel caso di H610C, i termini "nodo" e "chassis" vengono utilizzati in modo intercambiabile perché nodo e chassis non sono componenti separati, a differenza del caso dello chassis 2U a quattro nodi.
+
+Di seguito viene riportata un'illustrazione per l'installazione del nodo/chassis nel rack:
+
+image::h610c_chassis.png[La mostra il nodo/chassis H610C installato nel rack.]
+
+
+
+=== Nodo/chassis H610S e H615C
+
+Nel caso di H615C e H610S, i termini "nodo" e "chassis" sono utilizzati in modo intercambiabile perché nodo e chassis non sono componenti separati, a differenza del caso di chassis 2U a quattro nodi.
+
+Di seguito viene riportata un'illustrazione per l'installazione del nodo/chassis nel rack:
+
+image::h610s_chassis.gif[La mostra il nodo/chassis H615C o H610S installato nel rack.]
+
+
+
+== Installare gli switch
+
+Se si desidera utilizzare gli switch Mellanox SN2010, SN2100 e SN2700 nell'installazione di NetApp HCI, seguire le istruzioni fornite qui per installare e collegare gli switch:
+
+* link:https://docs.mellanox.com/pages/viewpage.action?pageId=6884619["Manuale dell'utente dell'hardware Mellanox"^]
+* link:https://fieldportal.netapp.com/content/1075535?assetComponentId=1077676["TR-4836: Guida al cablaggio dello switch NetApp HCI con Mellanox SN2100 e SN2700 (accesso richiesto)"^]
+
+
+
+
+== Collegare i nodi
+
+Se si aggiungono nodi a un'installazione NetApp HCI esistente, assicurarsi che il cablaggio e la configurazione di rete dei nodi aggiunti siano identici all'installazione esistente.
+
+
+CAUTION: Assicurarsi che le prese d'aria sul retro del telaio non siano ostruite da cavi o etichette. Ciò può causare guasti prematuri dei componenti dovuti al surriscaldamento.
+
+* <<Nodo di calcolo H410C e nodo storage H410S>>
+* <<Nodo di calcolo H610C>>
+* <<Nodo di calcolo H615C>>
+* <<Nodo storage H610S>>
+
+
+
+
+=== Nodo di calcolo H410C e nodo storage H410S
+
+Sono disponibili due opzioni per il cablaggio del nodo H410C: Due cavi o sei cavi.
+
+Ecco la configurazione a due cavi:
+
+image::HCI_ISI_compute_2cable.png[La mostra la configurazione a due cavi per il nodo H410C.]
+
+image:blue circle.png["punto blu"] Per le porte D ed e, collegare due cavi o ricetrasmettitori SFP28/SFP+ per la gestione condivisa, le macchine virtuali e la connettività dello storage.
+
+image:purple circle.png["punto viola"] (Opzionale, consigliato) collegare un cavo CAT5e alla porta IPMI per la connettività di gestione out-of-band.
+
+Ecco la configurazione a sei cavi:
+
+image::HCI_ISI_compute_6cable.png[La mostra la configurazione a sei cavi del nodo H410C.]
+
+image:green circle.png["punto verde"] Per le porte A e B, collegare due cavi CAT5e o superiori nelle porte A e B per la connettività di gestione.
+
+image:orange circle.png["punto arancione"] Per le porte C e F, collegare due cavi SFP28/SFP+ o ricetrasmettitori per la connettività delle macchine virtuali.
+
+image:blue circle.png["punto blu"] Per le porte D ed e, collegare due cavi SFP28/SFP+ o ricetrasmettitori per la connettività dello storage.
+
+image:purple circle.png["punto viola"] (Opzionale, consigliato) collegare un cavo CAT5e alla porta IPMI per la connettività di gestione out-of-band.
+
+Di seguito sono riportati i cavi per il nodo H410S:
+
+image::HCI_ISI_storage_cabling.png[La mostra il cablaggio per il nodo H410S.]
+
+image:green circle.png["punto verde"] Per le porte A e B, collegare due cavi CAT5e o superiori nelle porte A e B per la connettività di gestione.
+
+image:blue circle.png["punto blu"] Per le porte C e D, collegare due cavi SFP28/SFP+ o ricetrasmettitori per la connettività dello storage.
+
+image:purple circle.png["punto viola"] (Opzionale, consigliato) collegare un cavo CAT5e alla porta IPMI per la connettività di gestione out-of-band.
+
+Dopo aver collegato i nodi, collegare i cavi di alimentazione alle due unità di alimentazione per chassis e inserirle nella PDU a 240 V o nella presa di corrente.
+
+
+
+=== Nodo di calcolo H610C
+
+Di seguito sono riportati i cavi per il nodo H610C:
+
+
+NOTE: I nodi H610C vengono implementati solo nella configurazione a due cavi. Assicurarsi che tutte le VLAN siano presenti sulle porte C e D.
+
+image::H610C_node-cabling.png[La mostra il cablaggio per il nodo H610C.]
+
+image:dark green.png["punto verde scuro"] Per le porte C e D, collegare il nodo a una rete 10/25GbE utilizzando due cavi SFP28/SFP+.
+
+image:purple circle.png["punto viola"] (Opzionale, consigliato) collegare il nodo a una rete 1GbE utilizzando un connettore RJ45 nella porta IPMI.
+
+image:light blue circle.png["punto azzurro"] Collegare entrambi i cavi di alimentazione al nodo e collegare i cavi di alimentazione a una presa di alimentazione da 200‐240 V.
+
+
+
+=== Nodo di calcolo H615C
+
+Di seguito sono riportati i cavi per il nodo H615C:
+
+
+NOTE: I nodi H615C vengono implementati solo nella configurazione a due cavi. Assicurarsi che tutte le VLAN siano presenti sulle porte A e B.
+
+image::H615C_node_cabling.png[La mostra il cablaggio per il nodo H615C.]
+
+image:dark green.png["punto verde scuro"] Per le porte A e B, collegare il nodo a una rete 10/25GbE utilizzando due cavi SFP28/SFP+.
+
+image:purple circle.png["punto viola"] (Opzionale, consigliato) collegare il nodo a una rete 1GbE utilizzando un connettore RJ45 nella porta IPMI.
+
+image:light blue circle.png["punto azzurro"] Collegare entrambi i cavi di alimentazione al nodo e collegare i cavi di alimentazione a una presa di alimentazione da 110 V.
+
+
+
+=== Nodo storage H610S
+
+Di seguito sono riportati i cavi per il nodo H610S:
+
+image::H600S_ISI_noderear.png[La mostra il cablaggio per il nodo H610S.]
+
+image:purple circle.png["punto viola"] Collegare il nodo a una rete 1GbE utilizzando due connettori RJ45 nella porta IPMI.
+
+image:dark green.png["punto verde scuro"] Collegare il nodo a una rete 10/25GbE utilizzando due cavi SFP28 o SFP+.
+
+image:orange circle.png["punto arancione"] Collegare il nodo a una rete 1GbE utilizzando un connettore RJ45 nella porta IPMI.
+
+image:light blue circle.png["punto azzurro"] Collegare entrambi i cavi di alimentazione al nodo.
+
+
+
+== Accendere i nodi
+
+L'avvio dei nodi richiede circa sei minuti.
+
+Di seguito è riportata un'illustrazione che mostra il pulsante di accensione sullo chassis NetApp HCI 2U:
+
+image::H410c_poweron_ISG.png[La mostra il pulsante di accensione della serie H 2U]
+
+Di seguito è riportata un'illustrazione che mostra il pulsante di accensione sul nodo H610C:
+
+image::H610C_power-on.png[Mostra il pulsante di accensione sul nodo/chassis H610C.]
+
+Di seguito è riportata un'illustrazione che mostra il pulsante di accensione sui nodi H615C e H610S:
+
+image::H600S_ISI_nodefront.png[La mostra il pulsante di accensione sul nodo/chassis H610S/H615C.]
+
+
+
+== Configurare NetApp HCI
+
+Scegliere una delle seguenti opzioni:
+
+* <<Nuova installazione di NetApp HCI>>
+* <<Espandere un'installazione NetApp HCI esistente>>
+
+
+
+
+=== Nuova installazione di NetApp HCI
+
+.Fasi
+. Configurare un indirizzo IPv4 sulla rete di gestione (Bond1G) su un nodo di storage NetApp HCI.
++
+
+NOTE: Se si utilizza DHCP sulla rete di gestione, è possibile connettersi all'indirizzo IPv4 acquisito da DHCP del sistema di storage.
+
++
+.. Collegare una tastiera, un video o un mouse (KVM) sul retro di un nodo di storage.
+.. Configurare l'indirizzo IP, la subnet mask e l'indirizzo del gateway per Bond1G nell'interfaccia utente. È inoltre possibile configurare un ID VLAN per la rete Bond1G.
+
+
+. Utilizzando un browser Web supportato (Mozilla Firefox, Google Chrome o Microsoft Edge), accedere a NetApp Deployment Engine effettuando la connessione all'indirizzo IPv4 configurato nella fase 1.
+. Utilizzare l'interfaccia utente del motore di implementazione NetApp per configurare NetApp HCI.
++
+
+NOTE: Tutti gli altri nodi NetApp HCI verranno rilevati automaticamente.
+
+
+
+
+
+=== Espandere un'installazione NetApp HCI esistente
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web.
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Seguire i passaggi della procedura guidata per aggiungere nodi di storage e/o di calcolo all'installazione di NetApp HCI.
++
+
+TIP: Per aggiungere nodi di calcolo H410C, l'installazione esistente deve eseguire NetApp HCI 1.4 o versione successiva. Per aggiungere nodi di calcolo H615C, l'installazione esistente deve eseguire NetApp HCI 1.7 o versione successiva.
+
++
+
+NOTE: I nodi NetApp HCI appena installati sulla stessa rete verranno rilevati automaticamente.
+
+
+
+
+
+== Eseguire attività di post-configurazione
+
+A seconda del tipo di nodo in uso, potrebbe essere necessario eseguire ulteriori operazioni dopo aver installato l'hardware e configurato NetApp HCI.
+
+* <<Nodo H610C>>
+* <<Nodi H615C e H610S>>
+
+
+
+
+=== Nodo H610C
+
+Installare i driver GPU in ESXi per ciascun nodo H610C installato e convalidarne la funzionalità.
+
+
+
+=== Nodi H615C e H610S
+
+.Fasi
+. Utilizzare un browser Web e accedere all'indirizzo IP BMC predefinito: `192.168.0.120`
+. Effettuare l'accesso utilizzando il nome utente `root` e password `calvin`.
+. Dalla schermata di gestione dei nodi, accedere a *Impostazioni > Impostazioni di rete* e configurare i parametri di rete per la porta di gestione fuori banda.
+
+
+Se nel nodo H615C sono presenti GPU, installare i driver GPU in ESXi per ciascun nodo H615C installato e validarne la funzionalità.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_"^]
+* https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 o successivo tool di convalida della rete
+

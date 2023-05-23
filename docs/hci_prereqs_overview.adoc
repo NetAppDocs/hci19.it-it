@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_overview.html 
+summary: Scopri i requisiti di implementazione di NetApp HCI. 
+keywords: netapp, hci, deployment, requirements 
+---
+= Panoramica dei requisiti per l'implementazione di NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, environment, requirements
+
+
+[role="lead"]
+NetApp HCI presenta requisiti fisici e di rete specifici per il corretto funzionamento del data center. Assicurarsi di implementare i seguenti requisiti e consigli prima di iniziare l'implementazione.
+
+Prima di ricevere l'hardware NetApp HCI, assicurarsi di completare gli elementi della checklist nel manuale di pre-implementazione dei servizi professionali NetApp. Questo documento contiene un elenco completo delle attività da completare per preparare la rete e l'ambiente per una corretta implementazione di NetApp HCI.
+
+Di seguito sono riportati i collegamenti ai requisiti e alle attività di pre-implementazione:
+
+* link:hci_prereqs_required_network_ports.html["Requisiti delle porte di rete"]
+* link:hci_prereqs_network_switch.html["Requisiti di rete e switch"]
+* link:hci_prereqs_network_cables.html["Requisiti dei cavi di rete"]
+* link:hci_prereqs_ip_address.html["Requisiti dell'indirizzo IP"]
+* link:hci_prereqs_network_configuration.html["Configurazione di rete"]
+* link:hci_prereqs_timekeeping.html["DNS e requisiti di conservazione dei tempi"]
+* link:hci_prereqs_environmental.html["Requisiti ambientali"]
+* link:hci_prereqs_protection_domains.html["Domini di protezione"]
+* link:hci_prereqs_witness_nodes.html["Requisiti di risorse di Witness Node per cluster di storage a due nodi"]
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

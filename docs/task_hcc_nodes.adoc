@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_nodes.html 
+summary: Puoi visualizzare le risorse di storage e di calcolo nel tuo sistema utilizzando la pagina nodi di controllo del cloud ibrido. 
+keywords: netapp, hci, on premise, cluster, inventory, nodes, storage, compute 
+---
+= Visualizzare l'inventario nella pagina nodi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile visualizzare le risorse di storage e di calcolo nel sistema e determinare gli indirizzi IP, i nomi e le versioni software.
+
+È possibile visualizzare le informazioni di storage per i sistemi a più nodi e qualsiasi nodo di controllo NetApp HCI associato a cluster a due o tre nodi. Se link:concept_hcc_custom_protection_domains.html["domini di protezione personalizzati"] è possibile visualizzare i domini di protezione assegnati a nodi specifici.
+
+I nodi di controllo gestiscono il quorum all'interno del cluster e non vengono utilizzati per lo storage. I nodi di controllo sono applicabili solo a NetApp HCI e non agli ambienti di storage all-flash.
+
+Per ulteriori informazioni sui nodi di controllo, vedere link:concept_hci_nodes.html["Definizioni dei nodi"].
+
+Per i nodi SDS aziendali SolidFire, è possibile monitorare l'inventario nella scheda Storage.
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web. Ad esempio:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Nella barra di navigazione a sinistra, fare clic su *Nodes* (nodi).
++
+image::hcc_nodes_storage_2nodes.png[Immagine della pagina nodi di controllo del cloud ibrido]
+
++
+
+NOTE: Quando avvii una nuova sessione di NetApp Hybrid Cloud Control per la prima volta, potrebbe verificarsi un ritardo nel caricamento della pagina dei nodi di NetApp Hybrid Cloud Control quando il nodo di gestione gestisce molti cluster. Il tempo di caricamento varia in base al numero di cluster gestiti attivamente dal nodo di gestione. Per i lanci successivi, si verificheranno tempi di caricamento più rapidi.
+
+. Nella scheda *Storage* della pagina Nodes (nodi), esaminare le seguenti informazioni:
++
+.. Cluster a due nodi: Nella scheda Storage viene visualizzata un'etichetta a due nodi e vengono elencati i nodi di controllo associati.
+.. Cluster a tre nodi: Vengono elencati i nodi di storage e i nodi di controllo associati. I cluster a tre nodi dispongono di un nodo di controllo implementato in standby per mantenere un'elevata disponibilità in caso di guasto del nodo.
+.. Cluster con quattro o più nodi: Vengono visualizzate le informazioni relative ai cluster con quattro o più nodi. I nodi di controllo non sono applicabili. Se si è iniziato con due o tre nodi di storage e sono stati aggiunti altri nodi, i nodi di controllo continuano a essere visualizzati. In caso contrario, la tabella dei nodi di controllo non viene visualizzata.
+.. Versione del bundle firmware: A partire dalla versione 2.14 dei servizi di gestione, se si utilizzano cluster con Element 12.0 o versione successiva, è possibile visualizzare la versione del bundle firmware per questi cluster. Se i nodi di un cluster hanno versioni firmware diverse, nella colonna *firmware Bundle Version* viene visualizzato *multiple*.
+.. Domini di protezione personalizzati: Se nel cluster sono in uso domini di protezione personalizzati, è possibile visualizzare le assegnazioni dei domini di protezione personalizzati per ciascun nodo del cluster. Se i domini di protezione personalizzati non sono abilitati, questa colonna non viene visualizzata.
+
+
+. Per visualizzare le informazioni sull'inventario di calcolo, fare clic su *Calcola*.
+. È possibile modificare le informazioni presenti in queste pagine in diversi modi:
++
+.. Per filtrare l'elenco degli elementi nei risultati, fare clic sull'icona *Filter* (filtro) e selezionare i filtri. È anche possibile inserire il testo per il filtro.
+.. Per visualizzare o nascondere le colonne, fare clic sull'icona *Mostra/Nascondi colonne*.
+.. Per scaricare la tabella, fare clic sull'icona *Download*.
+.. Per aggiungere o modificare le credenziali BMC memorizzate per un nodo di calcolo con errori di connessione BMC, fare clic su *Modifica impostazioni di connessione* nel testo del messaggio di errore nella colonna *Stato connessione BMC*. Solo se il tentativo di connessione non riesce per un nodo di calcolo, in questa colonna viene visualizzato un messaggio di errore per quel nodo.
+
+
+
+
+
+TIP: Per visualizzare il numero di risorse di storage e calcolo, consulta la dashboard di NetApp Hybrid Cloud Control (HCC). Vedere link:task_hcc_dashboard.html["Monitorate le risorse di storage e di calcolo con HCC Dashboard"].
+
+
+NOTE: Per gestire un nodo di calcolo in NetApp Hybrid Cloud Control, è necessario https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Aggiungere il nodo di calcolo a un cluster host vCenter"^].
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_deploy_user_clusters.html 
+summary: Dopo aver implementato Rancher su NetApp HCI, è possibile configurare cluster di utenti e aggiungere applicazioni a tali cluster. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, control plane,  user cluster, workload 
+---
+= Implementare cluster di utenti e applicazioni
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver implementato Rancher su NetApp HCI, è possibile configurare cluster di utenti e aggiungere applicazioni a tali cluster.
+
+
+
+== Implementare cluster di utenti
+
+Dopo l'implementazione, i team Dev e Ops possono quindi implementare i propri cluster utente Kubernetes, in modo simile a qualsiasi implementazione Rancher, su cui possono implementare le applicazioni.
+
+. Accedere all'interfaccia utente di Rancher utilizzando l'URL fornito al termine dell'implementazione di Rancher.
+. Creare cluster di utenti. Consultare la documentazione di Rancher su https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/workload/["implementazione dei carichi di lavoro"^].
+. Eseguire il provisioning dei cluster di utenti in Rancher su NetApp HCI. Consultare la documentazione di Rancher su https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Configurazione dei cluster Kubernetes in Rancher"^].
+
+
+
+
+== Implementare le applicazioni sui cluster di utenti
+
+Analogamente a qualsiasi implementazione di Rancher, è possibile aggiungere applicazioni sui cluster Kubernetes.
+
+Consultare la documentazione di Rancher su https://rancher.com/docs/rancher/v2.x/en/deploy-across-clusters/["implementazione di applicazioni tra cluster"^].
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Documentazione del rancher sull'architettura"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["La terminologia di Kubernetes per Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

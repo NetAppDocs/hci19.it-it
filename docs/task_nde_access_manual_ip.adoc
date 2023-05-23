@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_manual_ip.html 
+summary: Scopri come accedere al motore di implementazione NetApp assegnando manualmente gli indirizzi IP ai nodi NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Assegnare manualmente gli indirizzi IP per accedere al NetApp Deployment Engine
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+È possibile assegnare manualmente indirizzi IPv4 statici alle interfacce Bond1G e Bond10G su tutti i nodi NetApp HCI per accedere al motore di implementazione NetApp e implementare NetApp HCI. Non utilizzare questo metodo a meno che la rete non presenti requisiti speciali.
+
+.Di cosa hai bisogno
+* L'utente o l'amministratore di rete hanno completato le operazioni descritte nel documento istruzioni per l'installazione e l'installazione.
+* Si dispone dell'accesso fisico ai nodi NetApp HCI.
+* Tutti i nodi NetApp HCI sono accesi.
+* DHCP non è abilitato per le reti NetApp HCI e i nodi NetApp HCI non hanno ottenuto indirizzi IP dai server DHCP. NOTA: Tutti gli indirizzi IP assegnati manualmente prima di utilizzare NetApp Deployment Engine per implementare il sistema sono temporanei e non possono essere riutilizzati. Se si sceglie di assegnare manualmente gli indirizzi IP, è necessario mettere da parte un secondo set permanente di indirizzi IP inutilizzati che è possibile assegnare durante l'implementazione finale.
+
+
+.A proposito di questa attività
+In questa configurazione, i nodi di calcolo e storage utilizzeranno indirizzi IPv4 statici per rilevare e comunicare con altri nodi durante l'implementazione. Questa configurazione non è consigliata.
+
+.Fasi
+. Inserire un KVM nella parte posteriore di uno dei nodi di storage NetApp HCI (questo nodo diventerà il nodo di storage di controllo).
+. Configurare l'indirizzo IP, la subnet mask e l'indirizzo del gateway per Bond1G e Bond10G nell'interfaccia utente. È inoltre possibile configurare un ID VLAN per ogni rete, se necessario.
+. Ripetere il passaggio 2 per i nodi di calcolo e storage rimanenti.
+. Aprire un browser Web su un computer in grado di accedere alla rete di gestione NetApp HCI.
+. Individuare l'indirizzo IP Bond1G assegnato al nodo di storage di controllo. Ad esempio:
++
+[listing]
+----
+http://<Bond1G IP address>
+----
++
+In questo modo si passa all'interfaccia utente di NetApp Deployment Engine.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

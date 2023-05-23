@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_on_compute.html 
+summary: Scopri come accendere i nodi di calcolo NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Accendere le risorse di calcolo per un sistema NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+È possibile accendere le risorse di calcolo per un sistema NetApp HCI una volta completata l'interruzione pianificata.
+
+.Fasi
+. Accendere i nodi di calcolo seguendo le stesse procedure eseguite per l'accensione dei nodi di storage.
+. Quando tutti i nodi di calcolo sono operativi, accedere all'host ESXi che esegue vCSA.
+. Accedere all'host di calcolo e verificare che siano presenti tutti gli archivi dati NetApp HCI. Per un sistema NetApp HCI tipico, è necessario visualizzare tutti gli archivi dati locali ESXi e almeno i seguenti archivi dati condivisi:
+
+
+[listing]
+----
+NetApp-HCI-Datastore-[01,02]
+----
+. Supponendo che tutto lo storage sia accessibile, accendere vCSA e tutte le altre macchine virtuali richieste come segue:
++
+.. Selezionare le macchine virtuali nel navigatore, selezionare tutte le macchine virtuali che si desidera accendere e fare clic sul pulsante *Power on* (accensione).
+
+
+. Dopo aver acceso le macchine virtuali, attendere circa 5 minuti, quindi utilizzare un browser Web per accedere all'indirizzo IP o all'FQDN dell'applicazione vCSA.
++
+Se non si attende abbastanza a lungo, viene visualizzato un messaggio che indica che il server Web del client vSphere è in fase di inizializzazione.
+
+. Dopo l'inizializzazione del client vSphere, accedere e verificare che tutti gli host ESXi e le macchine virtuali siano online.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

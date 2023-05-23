@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_psurepl.html 
+summary: Se un alimentatore è difettoso, sostituirlo il prima possibile per assicurarsi che lo chassis disponga di una fonte di alimentazione ridondante. 
+keywords: netapp, hci, psu, replace power supply, H410S, H610S, H410C, H610C, H615C 
+---
+= Sostituire le unità di alimentazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ogni chassis include due alimentatori per la ridondanza dell'alimentazione. Se un alimentatore è difettoso, sostituirlo il prima possibile per assicurarsi che lo chassis disponga di una fonte di alimentazione ridondante.
+
+.Di cosa hai bisogno
+* L'alimentatore è guasto.
+* Si dispone di un alimentatore sostitutivo.
+* Hai verificato che il secondo alimentatore funziona.
+* Si dispone di un braccialetto per le scariche elettrostatiche (ESD) o si sono prese altre precauzioni antistatiche.
+
+
+.A proposito di questa attività
+La procedura di sostituzione si applica ai seguenti modelli di nodi:
+
+* Due unità rack (2U), chassis NetApp HCI a quattro nodi
+* Chassis di calcolo 2U H610C
+* Uno chassis di calcolo H615C per unità rack (1U)
+* Chassis storage 1U H610S
++
+
+NOTE: Nel caso di H610C, H615C e H610S, i termini "nodo" e "chassis" sono utilizzati in modo intercambiabile perché nodo e chassis non sono componenti separati, a differenza del caso di chassis 2U a quattro nodi.
+
+
+
+Gli allarmi di VMware vSphere Web Client forniscono informazioni sull'unità di alimentazione guasta, riferendosi a PS1 o PS2. In uno chassis NetApp HCI 2U a quattro nodi, PS1 si riferisce all'unità nella riga superiore dello chassis e PS2 all'unità nella riga inferiore dello chassis. È possibile sostituire l'unità di alimentazione difettosa mentre lo chassis è acceso e funzionante, purché l'unità di alimentazione ridondante funzioni.
+
+.Fasi
+. Individuare l'unità di alimentazione difettosa nel telaio. Il LED sull'unità guasta è di colore ambra.
++
+
+NOTE: Le unità di alimentazione si trovano in modo diverso a seconda del tipo di chassis.
+
++
+Vedere le immagini riportate di seguito per le posizioni degli alimentatori:
+
++
+[cols="2*"]
+|===
+| Modello | Ubicazione delle unità di alimentazione 
+
+
+| Chassis storage NetApp HCI 2U a quattro nodi  a| 
+image::storage_chassis_psu.png[Mostra le unità di alimentazione in una 2U]
+
+
+NOTE: I nodi nello chassis potrebbero essere diversi a seconda del tipo di nodi (storage o calcolo) in uso.
+
+
+
+| Chassis H610C  a| 
+image::h610c_psu.png[Mostra le unità di alimentazione in uno chassis H610C.]
+
+
+
+| Chassis H615C  a| 
+image::h615c_psu.png[La mostra le unità di alimentazione in uno chassis H615C.]
+
+
+
+| Chassis H610S  a| 
+image::h610s_psu.png[Mostra le unità di alimentazione in uno chassis H610S.]
+
+|===
+. Scollegare il cavo di alimentazione dall'unità di alimentazione.
+. Sollevare la maniglia della camma e premere il fermo blu per estrarre l'alimentatore.
++
+image::psu-remove.gif[Mostra la maniglia della camma sollevata e l'unità di alimentazione estratta dal telaio.]
+
++
+
+NOTE: L'illustrazione è un esempio. La posizione dell'alimentatore nello chassis e il colore del pulsante di rilascio variano a seconda del tipo di chassis in uso.
+
++
+
+IMPORTANT: Assicurarsi di utilizzare entrambe le mani per sostenere il peso dell'alimentatore.
+
+. Allineare con entrambe le mani i bordi dell'alimentatore con l'apertura del telaio, spingere delicatamente l'unità nel telaio utilizzando la maniglia della camma fino a bloccarla in posizione e riportare la maniglia della camma in posizione verticale.
++
+image::psu-install.gif[Mostra l'unità di alimentazione installata nel telaio.]
+
+. Collegare il cavo di alimentazione.
+. Restituire l'unità difettosa a NetApp seguendo le istruzioni riportate nella confezione.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

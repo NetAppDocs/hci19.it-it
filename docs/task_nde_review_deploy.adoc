@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_review_deploy.html 
+summary: Scopri come rivedere la tua configurazione finale e implementare NetApp HCI con queste impostazioni. 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= Esaminare e implementare la configurazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile rivedere le informazioni fornite prima di iniziare la distribuzione. È inoltre possibile correggere eventuali informazioni errate o incomplete prima di procedere.
+
+
+NOTE: Durante l'implementazione, il processo di installazione del nodo di gestione crea volumi con nomi che iniziano con `NetApp-HCI-` Nel cluster di storage Element e un account SolidFire che inizia con il nome `tenant_`. Non eliminare questi volumi o account; in questo modo si verificherà una perdita delle funzionalità di gestione.
+
+.Fasi
+. Facoltativo: Selezionare l'icona *Download* per scaricare le informazioni di installazione in formato CSV. È possibile salvare questo file e consultarlo in seguito per informazioni sulla configurazione.
++
+
+NOTE: È possibile importare il file CSV come profilo di installazione nella pagina *Installation Profile* di NetApp Deployment Engine (NDE), se necessario durante un'installazione futura.
+
+. Espandere ciascuna sezione e rivedere le informazioni. Per espandere tutte le sezioni contemporaneamente, selezionare *Espandi tutto*.
+. Facoltativo: Per apportare modifiche alle informazioni in qualsiasi sezione visualizzata:
++
+.. Selezionare *Modifica* nella sezione corrispondente.
+.. Apportare le modifiche necessarie.
+.. Selezionare *continua* fino a visualizzare la pagina *Rivedi*. Le impostazioni precedenti vengono salvate in ogni pagina.
+.. Ripetere i passaggi 2 e 3 per apportare le altre modifiche necessarie.
+
+
+. Se non si desidera inviare statistiche del cluster e informazioni di supporto ai server SolidFire Active IQ ospitati da NetApp, deselezionare la casella di controllo finale.
++
+In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute in tempo reale per NetApp HCI. La disattivazione di questa funzione elimina la possibilità per NetApp di supportare e monitorare in modo proattivo NetApp HCI per rilevare e risolvere i problemi prima che la produzione venga compromessa.
+
+. Se tutte le informazioni sono corrette, selezionare *Avvia implementazione*.
++
+Viene visualizzata una finestra di dialogo. In caso di problemi di connettività di rete o di interruzione dell'alimentazione durante il processo di configurazione finale, o in caso di perdita della sessione del browser, è possibile copiare l'URL visualizzato nella finestra di dialogo e utilizzarlo per accedere alla pagina di avanzamento dell'installazione finale.
+
+. Esaminare le informazioni nella finestra di dialogo e selezionare *Copia negli Appunti* per copiare l'URL negli Appunti.
+. Salvare l'URL in un file di testo sul computer.
+. Quando si è pronti per procedere con l'implementazione, selezionare *OK*.
++
+Viene avviata l'implementazione e viene visualizzata una pagina di avanzamento. Non chiudere la finestra del browser né allontanarsi dalla pagina di avanzamento fino al completamento dell'implementazione. Se la sessione del browser viene persa per qualsiasi motivo, è possibile accedere all'URL copiato in precedenza (e accettare eventuali avvisi di sicurezza visualizzati) per accedere nuovamente alla pagina di avanzamento dell'installazione finale.
+
++
+
+NOTE: Se l'implementazione non riesce, salvare il testo del messaggio di errore e contattare il supporto NetApp.
+
++
+Una volta completata l'implementazione, i nodi di calcolo potrebbero riavviarsi più di una volta prima di essere pronti per l'assistenza.
+
+
+
+.Al termine
+Iniziare a utilizzare NetApp HCI selezionando *Avvia vSphere*.
+
+[NOTE]
+====
+* Per le installazioni NetApp HCI che utilizzano vSphere 6.7, questo collegamento avvia l'interfaccia Web di HTML5 vSphere. Per le installazioni che utilizzano vSphere 6.5, questo collegamento avvia l'interfaccia Web di Adobe Flash vSphere.
+* Nelle configurazioni a due o tre nodi di storage, NDE configura i nodi di controllo per l'utilizzo del datastore locale sui nodi di calcolo. Di conseguenza, il client vSphere visualizza due avvisi *utilizzo del datastore su disco*. Per continuare, selezionare il collegamento *Ripristina verde* in ogni avviso.
+
+
+====
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

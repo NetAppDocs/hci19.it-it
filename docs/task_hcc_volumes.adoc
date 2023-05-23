@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_volumes.html 
+summary: 'È possibile monitorare i volumi nel sistema utilizzando la pagina Hybrid Cloud Control Volumes (volumi di controllo cloud ibrido).' 
+keywords: netapp, hci, on premise, volumes, storage, access groups, initiators, capacity, data protection, QoS 
+---
+= Monitorare i volumi nel cluster di storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il sistema SolidFire esegue il provisioning dello storage utilizzando i volumi. I volumi sono dispositivi a blocchi a cui si accede in rete dai client iSCSI o Fibre Channel. È possibile monitorare i dettagli relativi a gruppi di accesso, account, iniziatori, capacità utilizzata, stato di protezione dei dati Snapshot, numero di sessioni iSCSI e policy di qualità del servizio (QoS) associate al volume.
+
+È inoltre possibile visualizzare i dettagli sui volumi attivi ed eliminati.
+
+Con questa visualizzazione, è possibile monitorare prima la colonna capacità utilizzata.
+
+Puoi accedere a queste informazioni solo se disponi dei privilegi amministrativi di NetApp Hybrid Cloud Control.
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web. Ad esempio:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Nella casella blu di navigazione a sinistra, selezionare l'installazione di NetApp HCI.
++
+Viene visualizzata la dashboard di controllo del cloud ibrido.
+
+. Nella barra di navigazione a sinistra, selezionare il cluster e scegliere *Storage* > *Volumes*.
++
+image::hcc_volumes_overview_active.png[Pagina volumi HCC > immagine della scheda Panoramica]
+
+. Nella pagina Volumes (volumi), utilizzare le seguenti opzioni:
++
+image::hcc_volumes_icons.png[Icone della pagina volumi HCC]
+
++
+.. Filtrare i risultati facendo clic sull'icona *Filter* (filtro).
+.. Per nascondere o visualizzare le colonne, fare clic sull'icona *Nascondi/Mostra*.
+.. Aggiornare i dati facendo clic sull'icona *Refresh* (Aggiorna).
+.. Scaricare un file CSV facendo clic sull'icona *Download*.
+
+
+. Monitorare la colonna capacità utilizzata. Se vengono raggiunte le soglie di avviso, errore o critico, il colore rappresenta lo stato della capacità utilizzata:
++
+.. Avvertenza - giallo
+.. Errore - arancione
+.. Critico - Rosso
+
+
+. Dalla vista Volumes (volumi), fare clic sulle schede per visualizzare ulteriori dettagli sui volumi:
++
+.. *Gruppi di accesso*: È possibile visualizzare i gruppi di accesso al volume mappati dagli iniziatori a un insieme di volumi per un accesso protetto.
++
+Vedere le informazioni su link:concept_hci_volume_access_groups.html["gruppi di accesso ai volumi"].
+
+.. *Account*: È possibile visualizzare gli account utente, che consentono ai client di connettersi ai volumi su un nodo. Quando si crea un volume, questo viene assegnato a un account utente specifico.
++
+Vedere le informazioni su link:concept_cg_hci_accounts.html["Account utente NetApp HCI"].
+
+.. *Initiator*: È possibile visualizzare le WWPN iSCSI Initiator IQN o Fibre Channel per il volume. Ogni IQN aggiunto a un gruppo di accesso può accedere a ciascun volume del gruppo senza richiedere l'autenticazione CHAP. Ogni WWPN aggiunto a un gruppo di accesso abilita l'accesso alla rete Fibre Channel ai volumi del gruppo di accesso.
+.. *QoS Policies* (Criteri QoS): È possibile visualizzare il criterio QoS applicato al volume. Una policy di QoS applica impostazioni standardizzate per IOPS minimi, IOPS massimi e IOPS burst a più volumi.
++
+Vedere le informazioni su link:concept_hci_performance#qos-performance.html["Policy di performance e QoS"].
+
+
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/element-software/index.html["SolidFire e documentazione degli elementi"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

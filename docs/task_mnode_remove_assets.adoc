@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_remove_assets.html 
+summary: 'Scopri come rimuovere le risorse dei nodi di calcolo dal tuo sistema utilizzando l"API REST.' 
+keywords: netapp, hci, api, REST, remove, compute, asset 
+---
+= Rimuovere una risorsa dal nodo di gestione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se si sostituisce fisicamente un nodo di calcolo o si desidera rimuoverlo dal cluster NetApp HCI, è necessario rimuovere la risorsa del nodo di calcolo utilizzando le API del nodo di gestione.
+
+.Di cosa hai bisogno
+* Il cluster di storage esegue il software NetApp Element 11.3 o versione successiva.
+* È stato implementato un nodo di gestione con versione 11.3 o successiva.
+
+
+.Fasi
+. Inserire l'indirizzo IP del nodo di gestione seguito da `/mnode/1/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/1/
+----
+. Fare clic su *autorizzare* o su un'icona a forma di lucchetto e immettere le credenziali di amministratore del cluster per le autorizzazioni per l'utilizzo delle API.
++
+.. Inserire il nome utente e la password del cluster.
+.. Selezionare *corpo richiesta* dall'elenco a discesa tipo se il valore non è già selezionato.
+.. Immettere l'ID client come `mnode-client` se il valore non è già compilato.
+.. Non inserire un valore per il client secret.
+.. Fare clic su *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+
+
+. Chiudere la finestra di dialogo *Available Authorisations* (autorizzazioni disponibili).
+. Fare clic su *GET/Assets*.
+. Fare clic su *Provalo*.
+. Fare clic su *Execute* (Esegui).
+. Scorrere verso il basso nel corpo della risposta fino alla sezione *calcolo* e copiare `parent` e. `id` valori per il nodo di calcolo guasto.
+. Fare clic su *DELETE/assets/{asset_id}/compute-nodes/{compute_id}*.
+. Fare clic su *Provalo*.
+. Inserire il `parent` e. `id` valori copiati in un passaggio precedente.
+. Fare clic su *Execute* (Esegui).
+

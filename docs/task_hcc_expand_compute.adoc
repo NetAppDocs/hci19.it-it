@@ -1,0 +1,118 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_expand_compute.html 
+summary: 'Al termine dell"implementazione di NetApp HCI, puoi espandere e configurare le risorse di storage NetApp HCI utilizzando il controllo del cloud ibrido NetApp.' 
+keywords: netapp, hci, on premise, expand, compute, cluster 
+---
+= Espandere le risorse di calcolo di NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una volta completata l'implementazione di NetApp HCI, puoi espandere e configurare le risorse di calcolo di NetApp HCI utilizzando il controllo del cloud ibrido NetApp.
+
+.Prima di iniziare
+* Assicurarsi che l'istanza vSphere di NetApp HCI utilizzi la licenza vSphere Enterprise Plus se si sta espandendo un'implementazione con Virtual Distributed Switch.
+* Assicurarsi che nessuna delle istanze vCenter o vSphere in uso con NetApp HCI disponga di licenze scadute.
+* Assicurarsi di disporre di indirizzi IPv4 liberi e inutilizzati sullo stesso segmento di rete dei nodi esistenti (ciascun nuovo nodo deve essere installato sulla stessa rete dei nodi esistenti del suo tipo).
+* Assicurarsi di disporre delle credenziali dell'account amministratore vCenter.
+* Assicurarsi di aver eseguito le seguenti azioni con ogni nuovo nodo:
++
+** Ha installato il nuovo nodo nello chassis NetApp HCI seguendo la link:task_hci_installhw.html["istruzioni per l'installazione"].
+** Collegato e acceso al nuovo nodo
+
+
+* Assicurarsi che ogni nuovo nodo utilizzi la stessa topologia di rete e lo stesso cablaggio dei cluster di calcolo o di storage esistenti.
+
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web. Ad esempio:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Fare clic su *Espandi* nell'angolo in alto a destra dell'interfaccia.
++
+Il browser apre NetApp Deployment Engine.
+
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Nella pagina *Benvenuto*, fare clic su *Sì* e fare clic su *continua*.
+. Nella pagina *licenza per l'utente finale*, leggere il contratto di licenza per l'utente finale VMware e fare clic su *Accetto* per accettare i termini e fare clic su *continua*.
+. Nella pagina *vCenter*, completare la seguente procedura:
++
+.. Immettere un indirizzo FQDN o IP e le credenziali di amministratore per l'istanza di vCenter associata all'installazione di NetApp HCI.
+.. Fare clic su *continua*.
+.. Selezionare un data center vSphere in cui aggiungere i nodi di calcolo oppure fare clic su *Create New Datacenter* (Crea nuovo data center) per aggiungere i nodi di calcolo a un nuovo data center.
++
+
+NOTE: Se si fa clic su Create New Datacenter (Crea nuovo data center), il campo Cluster viene compilato automaticamente.
+
+.. Se è stato selezionato un data center esistente, selezionare un cluster vSphere a cui associare i nuovi nodi di calcolo.
++
+
+NOTE: Se NetApp HCI non riconosce le impostazioni di rete del cluster selezionato per l'espansione, assicurarsi che il mapping vmkernel e vmnic per le reti di gestione, storage e vMotion sia impostato sui valori predefiniti di implementazione. Vedere link:task_nde_supported_net_changes.html["modifiche di rete supportate"] per ulteriori informazioni.
+
+.. Fare clic su *continua*.
+
+
+. Nella pagina *credenziali ESXi*, immettere una password radice ESXi per il nodo di calcolo o i nodi che si desidera aggiungere.
++
+Utilizzare la stessa password creata durante la distribuzione iniziale di NetApp HCI.
+
+. Fare clic su *continua*.
+. Se è stato creato un nuovo cluster di data center vSphere, nella pagina *topologia di rete*, selezionare una topologia di rete che corrisponda ai nuovi nodi di calcolo che si stanno aggiungendo.
++
+
+NOTE: Selezionare l'opzione due cavi solo se i nodi di calcolo utilizzano la topologia a due cavi e l'implementazione NetApp HCI esistente è configurata con ID VLAN.
+
+. Nella pagina *inventario disponibile*, selezionare i nodi che si desidera aggiungere all'installazione di NetApp HCI esistente.
++
+
+IMPORTANT: Per alcuni nodi di calcolo, potrebbe essere necessario abilitare EV al livello più elevato supportato dalla versione di vCenter prima di poterli aggiungere all'installazione. È necessario utilizzare il client vSphere per abilitare EVC per questi nodi di calcolo. Una volta attivata, aggiornare la pagina Inventory e provare ad aggiungere nuovamente i nodi di calcolo.
+
+. Fare clic su *continua*.
+. *Opzionale*: Se è stato creato un nuovo cluster di data center vSphere, nella pagina *Impostazioni di rete*, importare le informazioni di rete da un'implementazione NetApp HCI esistente selezionando la casella di controllo *Copia impostazione da un cluster esistente*.
++
+In questo modo vengono inserite le informazioni predefinite relative al gateway e alla subnet per ciascuna rete.
+
+. Nella pagina *Impostazioni di rete*, alcune informazioni di rete sono state rilevate dalla distribuzione iniziale. Ogni nuovo nodo di calcolo viene elencato in base al numero di serie ed è necessario assegnarvi nuove informazioni di rete. Per ogni nuovo nodo di calcolo, completare i seguenti passaggi:
++
+.. *Nome host*: Se NetApp HCI ha rilevato un prefisso di denominazione, copiarlo dal campo *prefisso di denominazione rilevato* e inserirlo come prefisso per il nuovo nome host.
+.. *Management IP Address* (Indirizzo IP di gestione): Immettere un indirizzo IP di gestione per il nuovo nodo di calcolo che si trova nella subnet della rete di gestione.
+.. *VMotion IP Address* (Indirizzo IP vMotion): Immettere un indirizzo IP vMotion per il nuovo nodo di calcolo all'interno della subnet di rete vMotion.
+.. *ISCSI A - Indirizzo IP*: Inserire un indirizzo IP per la prima porta iSCSI del nodo di calcolo presente nella subnet di rete iSCSI.
+.. *ISCSI B - Indirizzo IP*: Inserire un indirizzo IP per la seconda porta iSCSI del nodo di calcolo che si trova nella subnet di rete iSCSI
+.. Fare clic su *continua*.
+
+
+. Nella pagina *Review* della sezione Network Settings (Impostazioni di rete), i nuovi nodi vengono visualizzati in grassetto. Per apportare modifiche in qualsiasi sezione, procedere come segue:
++
+.. Fare clic su *Edit* (Modifica) per la sezione.
+.. Al termine, fare clic su *continua* nelle pagine successive per tornare alla pagina *Revisione*.
+
+
+. *Opzionale*: Se non si desidera inviare statistiche del cluster e informazioni di supporto ai server SolidFire Active IQ in hosting NetApp, deselezionare la casella di controllo finale.
++
+In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute in tempo reale per NetApp HCI. La disattivazione di questa funzione elimina la possibilità per NetApp di supportare e monitorare in modo proattivo NetApp HCI per rilevare e risolvere i problemi prima che la produzione ne risenta.
+
+. Fare clic su *Aggiungi nodi*.
++
+È possibile monitorare l'avanzamento mentre NetApp HCI aggiunge e configura le risorse.
+
+. *Opzionale*: Verificare che i nuovi nodi di calcolo siano visibili in VMware vSphere Web Client.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["Istruzioni per l'installazione e la configurazione dei nodi di calcolo e storage NetApp HCI"^]
+* https://kb.vmware.com/s/article/1003212["VMware Knowledge base: Supporto avanzato del processore vMotion Compatibility (EVC)"^]
+

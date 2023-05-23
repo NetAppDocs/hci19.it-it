@@ -1,0 +1,283 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_dimmcomputerepl.html 
+summary: 'È possibile sostituire un modulo DIMM (Dual Inline Memory Module) guasto nei nodi di calcolo NetApp HCI invece di sostituire l"intero nodo.' 
+keywords: netapp, hci, dimm, compute nodes 
+---
+= Sostituire i DIMM nei nodi di calcolo
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile sostituire un modulo DIMM (Dual Inline Memory Module) guasto nei nodi di calcolo NetApp HCI invece di sostituire l'intero nodo.
+
+.Di cosa hai bisogno
+* Prima di iniziare questa procedura, dovresti aver contattato il supporto NetApp e aver ricevuto una parte di ricambio. Durante l'installazione della sostituzione verrà fornito supporto. Se non l'hai già fatto, contatta https://www.netapp.com/us/contact-us/support.aspx["Supporto"^].
+* Hai pianificato il downtime del sistema, perché devi spegnere o spegnere e riaccendere il nodo e avviare il nodo in NetApp Safe Mode per accedere all'interfaccia utente del terminale (TUI).
+
+
+.A proposito di questa attività
+Questa procedura si applica ai seguenti modelli di nodi di calcolo:
+
+* Nodi H410C. Un nodo H410C viene inserito in uno chassis NetApp HCI 2U.
+* Nodo H610C. Nel telaio è integrato un nodo H610C.
+* Nodo H615C. Nel telaio è integrato un nodo H615C.
++
+
+IMPORTANT: I nodi H410C e H615C includono DIMM di diversi vendor. Assicurarsi di non combinare DIMM di vendor diversi in un unico chassis.
+
++
+
+NOTE: I termini "chassis" e "nodo" sono utilizzati in modo intercambiabile nel caso di H610C e H615C, perché il nodo e lo chassis non sono componenti separati.
+
+
+
+Di seguito sono riportati i passaggi necessari per sostituire i DIMM nei nodi di calcolo:
+
+* <<Preparare la sostituzione del DIMM>>
+* <<Sostituire il modulo DIMM dal telaio>>
+
+
+
+
+== Preparare la sostituzione del DIMM
+
+Quando si verificano problemi con il DIMM, VMware ESXi visualizza avvisi, ad esempio `Memory Configuration Error`, `Memory Uncorrectable ECC`, `Memory Transition to Critical`, e. `Memory Critical Overtemperature`. Anche se gli avvisi scompaiono dopo qualche istante, il problema hardware potrebbe persistere. Eseguire la diagnosi e risolvere il problema del DIMM guasto. È possibile ottenere informazioni sul DIMM guasto da vCenter Server. Se sono necessarie ulteriori informazioni rispetto a quelle disponibili da vCenter Server, è necessario eseguire il check dell'hardware nell'interfaccia telefonica utente (TUI).
+
+.Fasi
+. Identificare lo slot che ha registrato l'errore come segue:
++
+.. Per H615C, procedere come indicato di seguito:
++
+... Accedere all'interfaccia utente BMC.
+... Selezionare *Log & Report* > *IPMI Event Log*.
+... Nel registro eventi, individuare l'errore di memoria e identificare lo slot in cui viene registrato l'errore.
++
+image::h615c_bmc_memoryerror.png[Mostra l'errore di memoria non correggibile nell'interfaccia utente BMC per i nodi H615C]
+
+
+
+.. Per H410C, procedere come indicato di seguito:
++
+... Accedere all'interfaccia utente BMC.
+... Selezionare *Server Health* > *Health Event Log*.
+... Nel registro eventi, individuare l'errore di memoria e identificare lo slot in cui viene registrato l'errore.
++
+image::dimm_h410c_bmc.png[Mostra l'errore di memoria nell'interfaccia utente BMC per il nodo H410C.]
+
+
+
+
+
+. Eseguire la procedura per identificare il codice del produttore del modulo DIMM.
++
+
+IMPORTANT: I nodi H410C e H615C includono DIMM di diversi produttori. Non utilizzare tipi di DIMM diversi nello stesso chassis. Identificare il produttore del modulo DIMM guasto e ordinare un modulo sostitutivo dello stesso tipo.
+
++
+.. Accedere a BMC per avviare la console sul nodo.
+.. Premere *F2* sulla tastiera per accedere al menu *Customize System/View Logs* (Personalizza sistema/Visualizza registri).
+.. Inserire la password quando richiesto.
++
+
+NOTE: La password deve corrispondere a quella configurata nel motore di implementazione NetApp al momento della configurazione di NetApp HCI.
+
++
+image::node_console_step1.png[Mostra la finestra per inserire la password per accedere alla console sul nodo.]
+
+.. Dal menu System Customization (Personalizzazione sistema), premere la freccia verso il basso per passare a Troubleshooting Options (Opzioni di risoluzione dei problemi), quindi premere *Invio*.
++
+image::node_console_step2.png[Mostra il menu System Customization (Personalizzazione sistema).]
+
+.. Dal menu Troubleshooting Mode Options (Opzioni modalità di risoluzione dei problemi), utilizzare la freccia su o giù per attivare la shell ESXi e SSH, che sono disabilitati per impostazione predefinita.
+.. Premere due volte il tasto <Esc> per uscire dalle opzioni di risoluzione dei problemi.
+.. Eseguire `smbiosDump` utilizzare una delle seguenti opzioni:
++
+[cols="2*"]
+|===
+| Opzione | Fasi 
+
+
+| Opzione A.  a| 
+... Connettersi all'host ESXi (nodo di calcolo) utilizzando l'indirizzo IP dell'host e le credenziali root definite.
+... Eseguire `smbiosDump` comando. Vedere il seguente esempio di output:
+
+
+[listing]
+----
+`Memory Device:#30
+Location: "P1-DIMMA1"
+Bank: "P0_Node0_Channel0_Dimm0"
+Manufacturer:"Samsung"
+Serial: "38EB8380"
+Asset Tag: "P1-DIMMA1_AssetTag (date:18/15)"
+Part Number: "M393A4K40CB2-CTD"
+Memory Array: #29
+Form Factor: 0x09(DIMM)
+Type: 0x1a (DDR4)
+Type Detail: 0x0080 (Synchronous)
+Data Width: 64 bits (+8 ECC bits)
+Size: 32 GB`
+----
+
+
+| Opzione B  a| 
+... Premere *Alt + F1* per inserire la shell e accedere al nodo per eseguire il comando.
+
+
+|===
+
+
+. Contatta il supporto NetApp per ricevere assistenza sui passi successivi. Il supporto NetApp richiede le seguenti informazioni per elaborare la sostituzione di una parte:
++
+** Numero di serie del nodo
+** Nome del cluster
+** Dettagli del registro eventi di sistema dall'interfaccia utente BMC
+** Output da `smbiosDump` comando
+
+
+
+
+
+
+== Sostituire il modulo DIMM dal telaio
+
+Prima di rimuovere e sostituire fisicamente il modulo DIMM guasto nel telaio, assicurarsi di aver eseguito tutte le operazioni link:task_hci_dimmcomputerepl.html#prepare-to-replace-the-dimm["fasi preparatorie"].
+
+
+IMPORTANT: I DIMM devono essere sostituiti negli stessi slot da cui sono stati rimossi.
+
+.Fasi
+. Accedere al nodo accedendo a vCenter Server.
+. Fare clic con il pulsante destro del mouse sul nodo che segnala l'errore e selezionare l'opzione per impostare il nodo in modalità di manutenzione.
+. Migrare le macchine virtuali (VM) su un altro host disponibile.
++
+
+NOTE: Consultare la documentazione VMware per le fasi della migrazione.
+
+. Spegnere lo chassis o il nodo.
++
+
+NOTE: Per uno chassis H610C o H615C, spegnere lo chassis. Per i nodi H410C in uno chassis 2U a quattro nodi, spegnere solo il nodo con il DIMM guasto.
+
+. Rimuovere i cavi di alimentazione e di rete, estrarre con cautela il nodo o lo chassis dal rack e posizionarlo su una superficie piana e antistatica.
++
+
+TIP: Prendere in considerazione l'utilizzo di fascette per cavi.
+
+. Applicare una protezione antistatica prima di aprire il coperchio dello chassis per sostituire il DIMM.
+. Eseguire i passaggi relativi al modello di nodo:
++
+[cols="2*"]
+|===
+| Modello di nodo | Fasi 
+
+
+| H410C  a| 
+.. Individuare il DIMM guasto facendo corrispondere il numero/ID dello slot annotato in precedenza con la numerazione sulla scheda madre. Di seguito sono riportate immagini di esempio che mostrano i numeri degli slot DIMM sulla scheda madre:
++
+image::h410c_dimmslot.png[Mostra i numeri degli slot DIMM sulla scheda madre del nodo H410C.]
+
++
+image::h410c_dimmslot_2.png[La mostra una vista ravvicinata dei numeri degli slot DIMM sulla scheda madre del nodo H410C.]
+
+.. Spingere i due fermi verso l'esterno ed estrarre con cautela il modulo DIMM. Ecco un'immagine di esempio che mostra i fermi di fissaggio:
++
+image::h410c_dimm_clips.png[La mostra i fermi di fissaggio dei DIMM nel nodo H410C.]
+
+.. Installare correttamente il modulo DIMM sostitutivo. Quando si inserisce correttamente il DIMM nello slot, i due fermi si bloccano in posizione.
++
+
+IMPORTANT: Assicurarsi di toccare solo le estremità posteriori del DIMM. Se si premono altre parti del DIMM, l'hardware potrebbe danneggiarsi.
+
+.. Installare il nodo nello chassis NetApp HCI, assicurandosi che il nodo scatti quando lo si inserisce in posizione.
+
+
+
+
+| H610C  a| 
+.. Sollevare il coperchio come mostrato nell'immagine seguente:
++
+image::h610c_airflowcover.png[Mostra il coperchio sollevato sul nodo H610C.]
+
+.. Allentare le quattro viti di bloccaggio blu sul retro del nodo. Di seguito è riportato un esempio di immagine che mostra la posizione delle due viti di bloccaggio; le altre due si trovano sull'altro lato del nodo:
++
+image::h610c_lockscrews.png[La mostra le viti di bloccaggio sul retro del nodo H610C.]
+
+.. Rimuovere entrambi gli spazi vuoti della scheda PCI.
+.. Rimuovere la GPU e il coperchio del flusso d'aria.
+.. Individuare il DIMM guasto facendo corrispondere il numero/ID dello slot annotato in precedenza con la numerazione sulla scheda madre. Di seguito è riportato un esempio di immagine che mostra la posizione dei numeri degli slot DIMM sulla scheda madre:
++
+image::h610c_dimmslot.png[Mostra i numeri degli slot DIMM sulla scheda madre H610C.]
+
+.. Spingere i due fermi verso l'esterno ed estrarre con cautela il modulo DIMM.
+.. Installare correttamente il modulo DIMM sostitutivo. Quando si inserisce correttamente il DIMM nello slot, i due fermi si bloccano in posizione.
++
+
+IMPORTANT: Assicurarsi di toccare solo le estremità posteriori del DIMM. Se si premono altre parti del DIMM, l'hardware potrebbe danneggiarsi.
+
+.. Sostituire tutti i componenti rimossi: GPU, coperchio del flusso d'aria e protezioni PCI.
+.. Serrare le viti di bloccaggio.
+.. Rimettere il coperchio sul nodo.
+.. Installare lo chassis H610C nel rack, assicurandosi che scatti quando lo si inserisce in posizione.
+
+
+
+
+| H615C  a| 
+.. Sollevare il coperchio come mostrato nell'immagine seguente:
++
+image::h615c_airflowcover.png[La mostra il coperchio sollevato sul nodo H615C.]
+
+.. Rimuovere la GPU (se nel nodo H615C è installata la GPU) e il coperchio del flusso d'aria.
++
+image::h615c_gpu.png[La mostra il coperchio del flusso d'aria rimosso sul nodo H615C.]
+
+.. Individuare il DIMM guasto facendo corrispondere il numero/ID dello slot annotato in precedenza con la numerazione sulla scheda madre. Di seguito è riportato un esempio di immagine che mostra la posizione dei numeri degli slot DIMM sulla scheda madre:
++
+image::h615c_dimmslot.png[Mostra i numeri degli slot DIMM sulla scheda madre H615C.]
+
+.. Spingere i due fermi verso l'esterno ed estrarre con cautela il modulo DIMM.
+.. Installare correttamente il modulo DIMM sostitutivo. Quando si inserisce correttamente il DIMM nello slot, i due fermi si bloccano in posizione.
++
+
+IMPORTANT: Assicurarsi di toccare solo le estremità posteriori del DIMM. Se si premono altre parti del DIMM, l'hardware potrebbe danneggiarsi.
+
+.. Riposizionare il coperchio del flusso d'aria.
+.. Rimettere il coperchio sul nodo.
+.. Installare lo chassis H610C nel rack, assicurandosi che scatti quando lo si inserisce in posizione.
+
+
+|===
+. Inserire i cavi di alimentazione e di rete. Assicurarsi che tutti i LED delle porte si accendano.
+. Premere il pulsante di accensione nella parte anteriore del nodo se non si accende automaticamente quando viene installato.
+. Una volta visualizzato il nodo in vSphere, fare clic con il pulsante destro del mouse sul nome e uscire dalla modalità di manutenzione.
+. Verificare le informazioni sull'hardware come indicato di seguito:
++
+.. Accedere all'interfaccia utente del BMC (Baseboard Management Controller).
+.. Selezionare *sistema > informazioni hardware* e controllare i DIMM elencati.
+
+
+
+
+.Cosa succederà
+Una volta ripristinato il normale funzionamento del nodo, in vCenter, selezionare la scheda Summary (Riepilogo) per verificare che la capacità di memoria sia quella prevista.
+
+
+NOTE: Se il DIMM non è installato correttamente, il nodo funziona normalmente ma con una capacità di memoria inferiore al previsto.
+
+
+TIP: Dopo la procedura di sostituzione del modulo DIMM, è possibile eliminare gli avvisi e gli errori nella scheda hardware Status (Stato hardware) di vCenter. È possibile eseguire questa operazione se si desidera cancellare la cronologia degli errori relativi all'hardware sostituito. https://kb.vmware.com/s/article/2011531["Scopri di più"^].
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

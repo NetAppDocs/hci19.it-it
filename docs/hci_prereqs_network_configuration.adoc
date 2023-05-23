@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_configuration.html 
+summary: Scopri le opzioni di configurazione di rete per NetApp HCI. 
+keywords: netapp, hci, cabling, network configuration 
+---
+= Configurazione di rete
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, cabling, network configuration
+
+
+[role="lead"]
+NetApp HCI può utilizzare diversi cablaggi di rete e configurazioni VLAN. È importante pianificare la configurazione di rete per garantire un'implementazione corretta.
+
+
+
+== Segmenti di rete richiesti
+
+NetApp HCI richiede un minimo di tre segmenti di rete: Traffico di gestione, storage e virtualizzazione (che include macchine virtuali e traffico VMware vMotion). È inoltre possibile separare la macchina virtuale e il traffico vMotion. Questi segmenti di rete solitamente esistono come VLAN separate logicamente nell'infrastruttura di rete NetApp HCI.
+
+Il modo in cui i nodi di calcolo e storage si connettono a queste reti dipende dal modo in cui si progetta la rete e si cablano i nodi. Le illustrazioni di esempio di rete di questa guida presuppongono le seguenti reti:
+
+|===
+| Nome di rete | ID VLAN 
+
+
+| Gestione | 100 
+
+
+| Storage | 105 
+
+
+| VMotion | 107 
+
+
+| Macchine virtuali | 200, 201 
+|===
+Per il rilevamento e la configurazione automatici dei nodi NetApp HCI nel motore di implementazione NetApp, è necessario disporre di un segmento di rete disponibile come VLAN nativa o senza tag su tutte le porte switch utilizzate per le interfacce SFP+/SFP28 sui nodi. In questo modo si otterrà una comunicazione di livello 2 tra tutti i nodi per il rilevamento e l'implementazione. Senza una VLAN nativa, è necessario configurare manualmente le interfacce SFP+/SFP28 di tutti i nodi con un indirizzo VLAN e IPv4 da individuare. Negli esempi di configurazione di rete riportati in questo documento, viene utilizzata la rete di gestione (ID VLAN 100).
+
+NetApp Deployment Engine consente di configurare rapidamente le reti per i nodi di calcolo e storage durante l'implementazione iniziale. È possibile posizionare alcuni componenti di gestione integrati come vCenter e il nodo di gestione sul proprio segmento di rete. Questi segmenti di rete richiedono il routing per consentire a vCenter e al nodo di gestione di comunicare con le reti di gestione dello storage e del calcolo. Nella maggior parte delle implementazioni, questi componenti utilizzano la stessa rete di gestione (ID VLAN 100 in questo esempio).
+
+
+NOTE: È possibile configurare le reti di macchine virtuali utilizzando vCenter. La rete della macchina virtuale predefinita (gruppo di porte "VM_Network") nelle implementazioni NetApp HCI è configurata senza un ID VLAN. Se si prevede di utilizzare più reti di macchine virtuali con tag (ID VLAN 200 e 201 nell'esempio precedente), assicurarsi di includerle nella pianificazione iniziale della rete.
+
+
+
+== Configurazione di rete e opzioni di cablaggio
+
+È possibile utilizzare una configurazione di rete a due cavi per i nodi di calcolo H410C, semplificando il routing dei cavi. Questa configurazione utilizza due interfacce SFP+/SFP28 più un'interfaccia RJ45 opzionale (ma consigliata) per la comunicazione IPMI. Questi nodi possono anche utilizzare una configurazione a sei cavi con due interfacce RJ45 e quattro interfacce SFP28/SFP+.
+
+I nodi di storage H410S e H610S supportano una topologia di rete che utilizza quattro porte di rete (porte Da A a D).
+
+I nodi di calcolo supportano tre topologie di rete, a seconda della piattaforma hardware:
+
+|===
+| Opzione di configurazione | Cablaggio per nodi H410C | Cablaggio per nodi H610C | Cablaggio per nodi H615C 
+
+
+| Opzione A. | Due cavi che utilizzano le porte D ed e | Due cavi che utilizzano le porte C e D. | Due cavi che utilizzano le porte A e B. 
+
+
+| Opzione B | Sei cavi che utilizzano le porte Da A a F. | Non disponibile | Non disponibile 
+
+
+| Opzione C 3+| Simile all'opzione B, ma con VLAN native (o "porte di accesso") sullo switch per le reti di gestione, storage e vMotion 
+|===
+I nodi che non dispongono del numero corretto di cavi collegati non possono partecipare all'implementazione. Ad esempio, non è possibile implementare un nodo di calcolo in una configurazione a sei cavi se ha solo porte D ed e connesse.
+
+
+NOTE: È possibile regolare la configurazione di rete NetApp HCI dopo l'implementazione per soddisfare le esigenze dell'infrastruttura. Tuttavia, quando si espandono le risorse NetApp HCI, tenere presente che i nuovi nodi devono avere la stessa configurazione via cavo dei nodi di calcolo e storage esistenti.
+
+[NOTE]
+====
+Se il NetApp Deployment Engine si guasta perché la rete non supporta i frame jumbo, è possibile eseguire una delle seguenti soluzioni alternative:
+
+* Utilizzare un indirizzo IP statico e impostare manualmente una MTU (Maximum Transmission Unit) di 9000 byte sulla rete Bond10G.
+* Configurare il Dynamic host Configuration Protocol in modo che annunci un MTU di interfaccia di 9000 byte sulla rete Bond10G.
+
+
+====
+.Opzioni di configurazione di rete
+* link:hci_prereqs_network_configuration_option_A.html["Opzione Di configurazione di rete A"]
+* link:hci_prereqs_network_configuration_option_B.html["Opzione di configurazione di rete B"]
+* link:hci_prereqs_network_configuration_option_C.html["Opzione di configurazione di rete C"]
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

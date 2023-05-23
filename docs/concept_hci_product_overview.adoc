@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_product_overview.html 
+summary:  
+keywords: netapp, hci, on premise, cloud, 
+---
+= Panoramica del prodotto NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, cloud, onprem, documentation, help
+
+
+[role="lead"]
+NetApp HCI è un'infrastruttura di cloud ibrido di livello Enterprise che combina storage, calcolo, networking e hypervisor e aggiunge funzionalità che abbracciano cloud pubblici e privati.
+
+L'infrastruttura di cloud ibrido disaggregato di NetApp consente una scalabilità indipendente di calcolo e storage, adattandosi ai carichi di lavoro con performance garantite.
+
+* Soddisfa la domanda di multicloud ibrido
+* Scalabilità indipendente di calcolo e storage
+* Semplifica l'orchestrazione dei servizi dati nei multicloud ibridi
+
+
+
+
+== Componenti di NetApp HCI
+
+Ecco una panoramica dei vari componenti dell'ambiente NetApp HCI:
+
+image::hci_prodoverview.png[L'immagine mostra i vari componenti dell'ambiente NetApp HCI,such as the NetApp Deployment Engine,the storage and compute nodes]
+
+* NetApp HCI offre risorse di storage e di calcolo. Utilizza la procedura guidata *motore di implementazione NetApp* per implementare NetApp HCI. Una volta completata l'implementazione, i nodi di calcolo vengono visualizzati come host ESXi ed è possibile gestirli in VMware vSphere Web Client.
+* *I servizi di gestione* o i microservizi includono Active IQ Collector, QoSSIOC per il plug-in vCenter e il servizio mNode; vengono aggiornati frequentemente come bundle di servizi. A partire dalla release Element 11.3, i *servizi di gestione* sono ospitati sul nodo di gestione, consentendo aggiornamenti più rapidi dei servizi software selezionati al di fuori delle release principali. Il nodo di gestione * (mNode) è una macchina virtuale che viene eseguita in parallelo con uno o più cluster di storage basati su software Element. Viene utilizzato per aggiornare e fornire servizi di sistema, tra cui monitoraggio e telemetria, gestire le risorse e le impostazioni del cluster, eseguire test e utility di sistema e abilitare l'accesso al supporto NetApp per la risoluzione dei problemi.
++
+
+TIP: Scopri di più link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["release di servizi di gestione"^].
+
+* *NetApp Hybrid Cloud Control* ti consente di gestire NetApp HCI. Con NetApp SolidFire Active IQ è possibile aggiornare i servizi di gestione, espandere il sistema, raccogliere i registri e monitorare l'installazione. Per accedere a NetApp Hybrid Cloud Control, accedere all'indirizzo IP del nodo di gestione.
+* Il plug-in *NetApp Element per vCenter Server* è un tool basato sul web integrato con l'interfaccia utente vSphere. Il plug-in è un'estensione e un'interfaccia intuitiva e scalabile per VMware vSphere, in grado di gestire e monitorare cluster di storage che eseguono il software *NetApp Element*. Il plug-in fornisce un'alternativa all'interfaccia utente di Element. È possibile utilizzare l'interfaccia utente del plug-in per rilevare e configurare i cluster e gestire, monitorare e allocare lo storage dalla capacità del cluster per configurare datastore e datastore virtuali (per volumi virtuali). Un cluster viene visualizzato sulla rete come un singolo gruppo locale rappresentato agli host e agli amministratori da indirizzi IP virtuali. È inoltre possibile monitorare l'attività del cluster con report in tempo reale, inclusi messaggi di errore e di avviso per qualsiasi evento che potrebbe verificarsi durante l'esecuzione di varie operazioni.
++
+
+TIP: Scopri di più https://docs.netapp.com/us-en/vcp/concept_vcp_product_overview.html["Plug-in NetApp Element per server vCenter"^].
+
+* Per impostazione predefinita, NetApp HCI invia le statistiche relative alle performance e agli avvisi al servizio *NetApp SolidFire Active IQ*. Come parte del tuo normale contratto di supporto, il supporto NetApp monitora questi dati e ti avvisa in caso di colli di bottiglia delle performance o potenziali problemi di sistema. Se non si dispone già di un account per il supporto NetApp (anche se si dispone di un account SolidFire Active IQ esistente), è necessario creare un account per poter usufruire di questo servizio.
++
+
+TIP: Scopri di più link:https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ"^].
+
+
+
+
+
+== URL NetApp HCI
+
+Di seguito sono riportati gli URL comuni utilizzati con NetApp HCI:
+
+[cols="2*"]
+|===
+| URL | Descrizione 
+
+
+| `https://[IPv4 address of Bond1G interface on a storage node]` | Accedere alla procedura guidata del motore di implementazione NetApp per installare e configurare NetApp HCI. link:concept_nde_access_overview.html["Scopri di più."] 
+
+
+| `https://<ManagementNodeIP>` | Accedi a NetApp Hybrid Cloud Control per aggiornare, espandere e monitorare l'installazione di NetApp HCI e aggiornare i servizi di gestione. link:task_nde_access_hcc.html["Scopri di più."] 
+
+
+| `https://[IP address]:442` | Dall'interfaccia utente per nodo, accedere alle impostazioni di rete e cluster e utilizzare le utility e i test di sistema. link:task_mnode_access_ui.html#access-the-management-node-per-node-ui["Scopri di più."] 
+
+
+| `https://[management node IP address]:9443` | Registrare il pacchetto vCenter Plug-in in vSphere Web Client. 
+
+
+| `https://activeiq.solidfire.com` | Monitorare i dati e ricevere avvisi in caso di colli di bottiglia delle performance o potenziali problemi del sistema. 
+
+
+| `https://<ManagementNodeIP>/mnode` | Aggiornare manualmente i servizi di gestione utilizzando l'interfaccia utente REST API dal nodo di gestione. 
+
+
+| `https://[storage cluster MVIP address]` | Accedere all'interfaccia utente del software NetApp Element. 
+|===
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

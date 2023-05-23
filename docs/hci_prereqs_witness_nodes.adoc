@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_witness_nodes.html 
+summary: Scopri i requisiti dei nodi di NetApp HCI Witness. 
+keywords: netapp, hci, element, Witness Node 
+---
+= Requisiti di risorse di Witness Node per cluster di storage a due nodi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, element, Witness Node
+
+
+[role="lead"]
+NetApp HCI supporta una dimensione minima di installazione di due nodi di storage e due nodi di calcolo. Quando si installa NetApp HCI utilizzando un cluster di storage a due o tre nodi, è necessario conoscere i nodi di controllo NetApp HCI e i requisiti delle risorse delle macchine virtuali (VM).
+
+Quando un cluster di storage utilizza due o tre nodi, implementa anche una coppia di nodi di controllo accanto a ciascun cluster di storage. I nodi di controllo hanno i seguenti requisiti relativi alle risorse delle macchine virtuali:
+
+|===
+| Risorsa | Requisito 
+
+
+| VCPU | 4 
+
+
+| Memoria | 12 GB 
+
+
+| Dimensioni del disco | 67 GB 
+|===
+NetApp HCI supporta solo alcuni modelli di nodi di storage in cluster di storage a due o tre nodi. Per ulteriori informazioni, consultare le note di rilascio relative alla versione di NetApp HCI in uso.
+
+|===
+
+
+ a| 
+*Best practice:* configurare le macchine virtuali del nodo di controllo per utilizzare il datastore locale del nodo di calcolo (impostazione predefinita NDE), non configurarle sullo storage condiviso, ad esempio i volumi di storage SolidFire. Per impedire la migrazione automatica delle macchine virtuali, impostare il livello di automazione DRS (Distributed Resource Scheduler) della macchina virtuale del nodo di controllo su *Disabled*. Ciò impedisce l'esecuzione di entrambi i nodi di controllo sullo stesso nodo di calcolo e la creazione di una configurazione di coppia non ad alta disponibilità (ha).
+
+|===
+
+NOTE: Quando il processo di installazione di NetApp HCI installa i nodi di controllo, in VMware vCenter viene memorizzato un modello di macchina virtuale che è possibile utilizzare per ridistribuire un nodo di controllo nel caso in cui venga accidentalmente rimosso, perso o danneggiato. È inoltre possibile utilizzare il modello per ridistribuire un nodo di controllo se è necessario sostituire un nodo di calcolo guasto che ospitava il nodo di controllo. Per istruzioni, vedere la sezione *ridistribuire i nodi di controllo per cluster di storage a due e tre nodi* link:task_hci_h410crepl.html["qui"^].
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

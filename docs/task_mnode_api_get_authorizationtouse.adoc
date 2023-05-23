@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_api_get_authorizationtouse.html 
+summary: 'È necessario autorizzare prima di poter utilizzare le API per i servizi di gestione nell"interfaccia utente REST API.' 
+keywords: netapp, hci, management node, mnode, api, token 
+---
+= Ottenere l'autorizzazione per utilizzare le API REST
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario autorizzare prima di poter utilizzare le API per i servizi di gestione nell'interfaccia utente REST API. A tale scopo, è necessario ottenere un token di accesso.
+
+Per ottenere un token, fornire le credenziali di amministratore del cluster e un ID client. Ogni token dura circa dieci minuti. Dopo la scadenza di un token, puoi autorizzare di nuovo per un nuovo token di accesso.
+
+La funzionalità di autorizzazione viene impostata durante l'installazione e l'implementazione del nodo di gestione. Il servizio token si basa sul cluster di storage definito durante l'installazione.
+
+.Prima di iniziare
+* La versione del cluster in uso deve disporre del software NetApp Element 11.3 o versione successiva.
+* Si dovrebbe aver implementato un nodo di gestione con versione 11.3 o successiva.
+
+
+.Comando API
+[listing]
+----
+TOKEN=`curl -k -X POST https://MVIP/auth/connect/token -F client_id=mnode-client -F grant_type=password -F username=CLUSTER_ADMIN -F password=CLUSTER_PASSWORD|awk -F':' '{print $2}'|awk -F',' '{print $1}'|sed s/\"//g`
+----
+.FASI DELL'INTERFACCIA UTENTE API REST
+. Accedere all'interfaccia utente API REST per il servizio immettendo, ad esempio, l'indirizzo IP del nodo di gestione seguito dal nome del servizio `/mnode/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. Fare clic su *autorizzare*.
++
+
+NOTE: In alternativa, è possibile fare clic su un'icona a forma di lucchetto accanto a qualsiasi API del servizio.
+
+. Completare le seguenti operazioni:
++
+.. Inserire il nome utente e la password del cluster.
+.. Immettere l'ID client come `mnode-client`.
+.. Non inserire un valore per il client secret.
+.. Fare clic su *autorizzare* per avviare una sessione.
+
+
+. Chiudere la finestra di dialogo *Available Authorisations* (autorizzazioni disponibili).
++
+
+NOTE: Se si tenta di eseguire un comando dopo la scadenza del token, viene visualizzato un `401 Error: UNAUTHORIZED` viene visualizzato il messaggio. Se compare questo, autorizzare di nuovo.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

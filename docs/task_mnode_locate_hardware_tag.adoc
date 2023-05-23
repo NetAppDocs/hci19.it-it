@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_locate_hardware_tag.html 
+summary: 'È necessario il tag hardware per aggiungere le risorse del nodo di calcolo alla configurazione del nodo di gestione utilizzando l"interfaccia utente REST API.' 
+keywords: netapp, management node, rest api, hci, hardware tag 
+---
+= Come individuare un tag hardware per un nodo di calcolo
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È necessario il tag hardware per aggiungere le risorse del nodo di calcolo alla configurazione del nodo di gestione utilizzando l'interfaccia utente REST API.
+
+[role="tabbed-block"]
+====
+.VMware vSphere 8.0 e 7.0
+--
+Individuare il tag hardware per un nodo di calcolo in VMware vSphere Web Client 8.0 e 7.0.
+
+.Fasi
+. Selezionare l'host in vSphere Web Client Navigator.
+. Selezionare la scheda *Configura*.
+. Dalla barra laterale, selezionare *hardware* > *Panoramica*. Controllare se il tag hardware è elencato in `System` tabella.
++
+image:../media/hw_tag_70.PNG["Schermata della tabella System (sistema)"]
+
+. Copiare e salvare il valore per *Tag*.
+. xref:task_mnode_add_assets.adoc[Aggiungi le risorse di calcolo e controller al nodo di gestione].
+
+
+--
+.VMware vSphere 6.7 e 6.5
+--
+Individuare il tag hardware per un nodo di calcolo in VMware vSphere Web Client 6.7 e 6.5.
+
+.Fasi
+. Selezionare l'host in vSphere Web Client Navigator.
+. Selezionare la scheda *Monitor* e selezionare *hardware Health*.
+. Verificare che il tag sia elencato con il produttore e il numero di modello del BIOS.
++
+image:../media/hw_tag_67.PNG["Schermata della tabella System (sistema)"]
+
+. Copiare e salvare il valore per *Tag*.
+. xref:task_mnode_add_assets.adoc[Aggiungi le risorse di calcolo e controller al nodo di gestione].
+
+
+--
+====

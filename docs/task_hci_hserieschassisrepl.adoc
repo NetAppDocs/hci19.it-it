@@ -1,0 +1,302 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_hserieschassisrepl.html 
+summary: 'Se lo chassis presenta un guasto alla ventola o un problema di alimentazione, sostituirlo il prima possibile. Le fasi della procedura di sostituzione dello chassis dipendono dalla configurazione NetApp HCI e dalla capacità del cluster, che richiedono un"attenta considerazione e pianificazione. Contattare il supporto NetApp per ricevere assistenza e per ordinare uno chassis sostitutivo.' 
+keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series 
+---
+= Sostituire lo chassis 2U serie H.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se lo chassis presenta un guasto alla ventola o un problema di alimentazione, sostituirlo il prima possibile. Le fasi della procedura di sostituzione dello chassis dipendono dalla configurazione NetApp HCI e dalla capacità del cluster, che richiedono un'attenta considerazione e pianificazione. Contattare il supporto NetApp per ricevere assistenza e per ordinare uno chassis sostitutivo.
+
+.A proposito di questa attività
+Prima di sostituire il telaio, considerare quanto segue:
+
+* Il rack dispone di spazio aggiuntivo per un nuovo chassis?
+* Uno chassis dell'implementazione dispone di slot di nodo inutilizzati?
+* Se il rack dispone di spazio aggiuntivo, è possibile spostare ciascuno dei nodi dallo chassis guasto al nuovo chassis, uno alla volta? Tenere presente che questo processo potrebbe richiedere tempo.
+* Il cluster di storage può rimanere online quando si rimuovono i nodi che fanno parte dello chassis guasto?
+* Le macchine virtuali (VM) e il cluster ESXi sono in grado di gestire il carico di lavoro quando si rimuovono i nodi di calcolo che fanno parte dello chassis guasto?
+
+
+.Opzioni di sostituzione
+Scegliere una delle seguenti opzioni:<<Sostituire lo chassis quando è disponibile ulteriore spazio inutilizzato nel rack>>
+<<Sostituire lo chassis quando non è disponibile spazio aggiuntivo inutilizzato nel rack>>
+
+
+
+== Sostituire lo chassis quando è disponibile ulteriore spazio inutilizzato nel rack
+
+Se il rack dispone di spazio aggiuntivo, è possibile installare il nuovo chassis e spostare i nodi uno alla volta nel nuovo chassis. Se uno degli chassis installati dispone di slot di nodo inutilizzati, è possibile spostare i nodi dallo chassis guasto agli slot inutilizzati uno alla volta, quindi rimuovere lo chassis guasto. Prima di eseguire la procedura, assicurarsi che le lunghezze dei cavi siano sufficienti e che le porte dello switch siano disponibili.
+
+
+NOTE: I passaggi per lo spostamento dei nodi di calcolo sono diversi dai passaggi per lo spostamento dei nodi di storage. Prima di spostarli, assicurarsi che i nodi siano chiusi correttamente. Dopo aver spostato tutti i nodi dallo chassis guasto, rimuovere lo chassis dal rack e restituirlo a NetApp.
+
+
+
+=== Installare il nuovo telaio
+
+È possibile installare il nuovo chassis nello spazio rack disponibile e spostare i nodi in esso.
+
+.Di cosa hai bisogno
+* Si dispone di un braccialetto per le scariche elettrostatiche (ESD) o di un'altra protezione antistatica.
+* Si dispone del telaio sostitutivo.
+* Si dispone di un ascensore o di due o più persone per eseguire le fasi.
+* Hai un cacciavite Phillips n. 1.
+
+
+.Fasi
+. Protezione antistatica.
+. Disimballare lo chassis sostitutivo. Conservare la confezione per quando si restituisce lo chassis guasto a NetApp.
+. Inserire le guide spedite insieme al telaio.
+. Far scorrere lo chassis sostitutivo nel rack.
++
+
+TIP: Durante l'installazione del telaio, utilizzare sempre personale sufficiente o un sollevatore.
+
+. Fissare lo chassis al rack con le viti a testa zigrinata per il montaggio anteriore e serrare le viti con il cacciavite.
+
+
+
+
+=== Spostare un nodo di calcolo
+
+Prima di spostare un nodo di calcolo sul nuovo chassis o su uno chassis esistente che dispone di slot aggiuntivi inutilizzati, è necessario migrare le macchine virtuali (VM), arrestare correttamente il nodo ed etichettare i cavi inseriti nel nodo.
+
+
+NOTE: Assicurarsi di disporre di una protezione antistatica quando si sposta il nodo.
+
+.Fasi
+. Prendere nota del numero di serie del nodo riportato sull'adesivo sul retro del nodo.
+. In VMware vSphere Web Client, selezionare *host e cluster*, selezionare un nodo (host), quindi selezionare *Monitor > hardware Status > Sensors*.
+. Nella sezione *Sensori*, cercare il numero di serie annotato dall'adesivo sul retro del nodo.
+. Una volta trovato il numero di serie corrispondente, migrare le macchine virtuali su un altro host disponibile.
++
+
+NOTE: Consultare la documentazione VMware per le fasi della migrazione.
+
+. Fare clic con il pulsante destro del mouse sul nodo e selezionare *alimentazione > Arresta il sistema*. A questo punto, è possibile rimuovere fisicamente il nodo dallo chassis.
+. Etichettare il nodo e tutti i cavi sul retro del nodo.
+. Rimuovere il nodo dal telaio tirando verso il basso la maniglia della camma sul lato destro di ciascun nodo ed estraendolo con entrambe le maniglie della camma.
+. Reinstallare il nodo nel nuovo chassis spingendo il nodo fino a quando non si sente uno scatto. Le etichette collegate al nodo prima della rimozione sono la guida per l'utente. Il nodo si accende automaticamente quando viene installato correttamente.
++
+
+CAUTION: Assicurarsi di supportare il nodo da sotto quando lo si installa. Non esercitare una forza eccessiva mentre si spinge il nodo nel telaio.
+
++
+
+NOTE: Se si esegue l'installazione nel nuovo chassis, assicurarsi di installare il nodo nello slot originale dello chassis.
+
+. Ricollegare i cavi alle stesse porte sul retro del nodo. Le etichette presenti sui cavi quando sono stati scollegati sono di aiuto.
++
+
+CAUTION: Assicurarsi di non forzare i cavi nelle porte per evitare di danneggiare i cavi, le porte o entrambi.
+
+. Verificare che il nodo di calcolo (host) sia elencato nel cluster ESXi in VMware vSphere Web Client.
+. Eseguire questi passaggi per tutti i nodi di calcolo nello chassis guasto.
+
+
+
+
+=== Spostare un nodo di storage
+
+Prima di spostare i nodi di storage nel nuovo chassis, è necessario rimuovere i dischi, arrestare correttamente i nodi ed etichettare tutti i componenti.
+
+.Fasi
+. Identificare il nodo che si intende rimuovere come segue:
++
+.. Annotare il numero di serie del nodo dall'etichetta sul retro del nodo.
+.. Nel client Web VMware vSphere, selezionare *Gestione NetApp Element* e copiare l'indirizzo IP MVIP.
+.. Utilizzare l'indirizzo IP MVIP in un browser Web per accedere all'interfaccia utente del software NetApp Element con il nome utente e la password configurati nel motore di implementazione NetApp.
+.. Selezionare *Cluster > Nodes* (cluster > nodi).
+.. Abbinare il numero di serie annotato con il numero di serie (codice di matricola) elencato.
+.. Annotare l'ID del nodo.
+
+
+. Dopo aver identificato il nodo, allontanare le sessioni iSCSI dal nodo utilizzando la seguente chiamata API:
+`wget --no-check-certificate -q --user=<USER> --password=<PASS> -O - --post-data '{ "method":"MovePrimariesAwayFromNode", "params":{"nodeID":<NODEID>} }' https://<MVIP>/json-rpc/8.0`MVIP è l'indirizzo IP MVIP, NODEID è l'ID del nodo, USER è il nome utente configurato nel motore di implementazione NetApp quando si imposta NetApp HCI e PASS è la password configurata nel motore di implementazione NetApp quando si imposta NetApp HCI.
+. Selezionare *Cluster > Drives* per rimuovere i dischi associati al nodo.
++
+
+NOTE: Prima di rimuovere il nodo, attendere che le unità rimosse vengano visualizzate come disponibili.
+
+. Selezionare *Cluster > Nodes > Actions > Remove* (cluster > nodi > azioni > Rimuovi) per rimuovere il nodo.
+. Utilizzare la seguente chiamata API per arrestare il nodo:
+`wget --no-check-certificate -q --user=<USER> --password=<PASS> -O - --post-data '{ "method":"Shutdown", "params":{"option":"halt", "nodes":[ <NODEID>]} }' https://<MVIP>/json-rpc/8.0`MVIP è l'indirizzo IP MVIP, NODEID è l'ID del nodo, USER è il nome utente configurato nel motore di implementazione NetApp quando si imposta NetApp HCI e PASS è la password configurata nel motore di implementazione NetApp quando si imposta NetApp HCI. Una volta spento il nodo, è possibile rimuoverlo fisicamente dallo chassis.
+. Rimuovere le unità dal nodo nello chassis come indicato di seguito:
++
+.. Rimuovere il pannello.
+.. Etichettare i dischi.
+.. Aprire la maniglia della camma ed estrarre con cautela ciascuna unità con entrambe le mani.
+.. Posizionare i dischi su una superficie piana antistatica.
+
+
+. Rimuovere il nodo dal telaio come indicato di seguito:
++
+.. Etichettare il nodo e i cavi ad esso collegati.
+.. Tirare verso il basso la maniglia della camma sul lato destro di ciascun nodo ed estrarre il nodo utilizzando entrambe le maniglie della camma.
+
+
+. Reinstallare il nodo nello chassis spingendo il nodo fino a quando non si sente uno scatto. Le etichette collegate al nodo prima della rimozione sono la guida per l'utente.
++
+
+CAUTION: Assicurarsi di supportare il nodo da sotto quando lo si installa. Non esercitare una forza eccessiva mentre si spinge il nodo nel telaio.
+
++
+
+NOTE: Se si esegue l'installazione nel nuovo chassis, assicurarsi di installare il nodo nello slot originale dello chassis.
+
+. Installare i dischi nei rispettivi slot nel nodo premendo la maniglia della camma su ciascun disco fino a quando non scatta in posizione.
+. Ricollegare i cavi alle stesse porte sul retro del nodo. Le etichette applicate ai cavi quando vengono scollegati saranno di aiuto.
++
+
+CAUTION: Assicurarsi di non forzare i cavi nelle porte per evitare di danneggiare i cavi, le porte o entrambi.
+
+. Una volta acceso il nodo, aggiungerlo al cluster.
++
+
+NOTE: Potrebbero essere necessari fino a 2 minuti per l'aggiunta e la visualizzazione del nodo in *nodi > attivo*.
+
+. Aggiungere i dischi.
+. Eseguire questa procedura per tutti i nodi di storage nello chassis.
+
+
+
+
+== Sostituire lo chassis quando non è disponibile spazio aggiuntivo inutilizzato nel rack
+
+Se il rack non dispone di spazio aggiuntivo e se nessuno degli chassis dell'implementazione dispone di slot di nodo inutilizzati, è necessario determinare quali elementi possono rimanere in linea, se necessario, prima di eseguire la procedura di sostituzione.
+
+.A proposito di questa attività
+Prima di sostituire lo chassis, tenere in considerazione i seguenti punti:
+
+* Il cluster di storage può rimanere online senza i nodi di storage nello chassis guasto? Se la risposta è no, è necessario arrestare tutti i nodi (sia di calcolo che di storage) nell'implementazione di NetApp HCI. Se la risposta è sì, è possibile arrestare solo i nodi di storage nello chassis guasto.
+* Le macchine virtuali e il cluster ESXi possono rimanere online senza i nodi di calcolo nello chassis guasto? Se la risposta è no, è necessario arrestare o migrare le macchine virtuali appropriate per poter arrestare i nodi di calcolo nello chassis guasto. Se la risposta è sì, è possibile arrestare solo i nodi di calcolo nello chassis guasto.
+
+
+
+
+=== Chiudere un nodo di calcolo
+
+Prima di spostare il nodo di calcolo nel nuovo chassis, è necessario migrare le macchine virtuali, spegnerle correttamente ed etichettare i cavi inseriti nel nodo.
+
+.Fasi
+. Prendere nota del numero di serie del nodo riportato sull'adesivo sul retro del nodo.
+. In VMware vSphere Web Client, selezionare *host e cluster*, selezionare un nodo (host), quindi selezionare *Monitor > hardware Status > Sensors*.
+. Nella sezione *Sensori*, cercare il numero di serie annotato dall'adesivo sul retro del nodo.
+. Una volta trovato il numero di serie corrispondente, migrare le macchine virtuali su un altro host disponibile.
++
+
+NOTE: Consultare la documentazione VMware per le fasi della migrazione.
+
+. Fare clic con il pulsante destro del mouse sul nodo e selezionare *alimentazione > Arresta il sistema*. A questo punto, è possibile rimuovere fisicamente il nodo dallo chassis.
+
+
+
+
+=== Chiudere un nodo di storage
+
+Vedere la procedura <<move a storage node,qui>>.
+
+
+
+=== Rimuovere il nodo
+
+Rimuovere con attenzione il nodo dallo chassis ed etichettare tutti i componenti. I passaggi per rimuovere fisicamente il nodo sono gli stessi per i nodi di storage e di calcolo. Per un nodo di storage, rimuovere l'unità prima di rimuovere il nodo.
+
+.Fasi
+. Per un nodo di storage, rimuovere le unità dal nodo nello chassis come segue:
++
+.. Rimuovere il pannello.
+.. Etichettare i dischi.
+.. Aprire la maniglia della camma ed estrarre con cautela ciascuna unità con entrambe le mani.
+.. Posizionare i dischi su una superficie piana antistatica.
+
+
+. Rimuovere il nodo dal telaio come indicato di seguito:
++
+.. Etichettare il nodo e i cavi ad esso collegati.
+.. Tirare verso il basso la maniglia della camma sul lato destro di ciascun nodo ed estrarre il nodo utilizzando entrambe le maniglie della camma.
+
+
+. Eseguire questa procedura per tutti i nodi che si desidera rimuovere. A questo punto, è possibile rimuovere lo chassis guasto.
+
+
+
+
+=== Sostituire il telaio
+
+Se il rack non dispone di spazio aggiuntivo, disinstallare lo chassis guasto e sostituirlo con il nuovo chassis.
+
+.Fasi
+. Protezione antistatica.
+. Disimballare lo chassis sostitutivo e conservarlo su una superficie piana. Conservare la confezione per quando si restituisce l'unità guasta a NetApp.
+. Rimuovere lo chassis guasto dal rack e posizionarlo su una superficie piana.
++
+
+NOTE: Utilizzare una manodopera o un sollevatore sufficienti durante lo spostamento di un telaio.
+
+. Rimuovere le guide.
+. Installare le nuove guide fornite con il telaio sostitutivo.
+. Far scorrere lo chassis sostitutivo nel rack.
+. Fissare lo chassis al rack con le viti a testa zigrinata per il montaggio anteriore e serrare le viti con il cacciavite.
+. Installare i nodi nel nuovo chassis come segue:
++
+.. Reinstallare il nodo nello slot originale dello chassis spingendo il nodo fino a udire uno scatto. Le etichette che hai collegato al nodo prima della rimozione lo aiutano a guidare l'utente.
++
+
+CAUTION: Assicurarsi di supportare il nodo da sotto quando lo si installa. Non esercitare una forza eccessiva mentre si spinge il nodo nel telaio.
+
+.. Per i nodi di storage, installare i dischi nei rispettivi slot nel nodo premendo la maniglia CAM su ciascun disco fino a quando non scatta in posizione.
+.. Ricollegare i cavi alle stesse porte sul retro del nodo. Le etichette applicate ai cavi quando vengono scollegati sono di ausilio.
++
+
+CAUTION: Assicurarsi di non forzare i cavi nelle porte per evitare di danneggiare i cavi, le porte o entrambi.
+
+
+
+. Assicurarsi che i nodi siano online come segue:
++
+[cols="2*"]
+|===
+| Opzione | Fasi 
+
+
+| Se tutti i nodi (storage e calcolo) sono stati reinstallati nell'implementazione di NetApp HCI  a| 
+.. In VMware vSphere Web Client, verificare che i nodi di calcolo (host) siano elencati nel cluster ESXi.
+.. Nel plug-in Element per il server vCenter, verificare che i nodi di storage siano elencati come attivi.
+
+
+
+
+| Se sono stati reinstallati solo i nodi nello chassis guasto  a| 
+.. In VMware vSphere Web Client, verificare che i nodi di calcolo (host) siano elencati nel cluster ESXi.
+.. Nel plug-in Element per il server vCenter, selezionare *Cluster > Nodes > Pending*.
+.. Selezionare il nodo e scegliere *Aggiungi*.
++
+
+NOTE: Potrebbero essere necessari fino a 2 minuti per l'aggiunta e la visualizzazione del nodo in *nodi > attivo*.
+
+.. Selezionare *Drives* (unità).
+.. Dall'elenco Available (disponibili), aggiungere le unità.
+.. Eseguire questa procedura per tutti i nodi di storage reinstallati.
+
+
+|===
+. Verificare che i volumi e gli archivi dati siano disponibili e accessibili.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

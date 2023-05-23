@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage_maintenance_mode.html 
+summary: 'Se è necessario disattivare un nodo di storage per la manutenzione, ad esempio aggiornamenti software o riparazioni host, è possibile ridurre al minimo l"impatto i/o sul resto del cluster di storage attivando la modalità di manutenzione per tale nodo. È possibile utilizzare la modalità di manutenzione sia con i nodi appliance che con i nodi SDS aziendali SolidFire.' 
+keywords: netapp, hci, storage nodes, maintenance, mode 
+---
+= Modalità di manutenzione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se è necessario disattivare un nodo di storage per la manutenzione, ad esempio aggiornamenti software o riparazioni host, è possibile ridurre al minimo l'impatto i/o sul resto del cluster di storage attivando la modalità di manutenzione per tale nodo. È possibile utilizzare la modalità di manutenzione sia con i nodi appliance che con i nodi SDS aziendali SolidFire.
+
+
+NOTE: Quando un nodo di storage viene spento, viene visualizzato come *non disponibile* nella colonna Node Status (Stato nodo) della pagina Storage (archiviazione) in HCC, poiché questa colonna visualizza lo stato del nodo dal punto di vista del cluster. Lo stato di disattivazione del nodo è indicato dall'icona *Offline* accanto al nome host del nodo.
+
+È possibile passare da un nodo di storage alla modalità di manutenzione solo se il nodo è integro (non presenta errori di blocco del cluster) e se il cluster di storage è tollerante a un guasto di un singolo nodo. Una volta attivata la modalità di manutenzione per un nodo integro e tollerante, il nodo non viene immediatamente sottoposto a transizione; viene monitorato fino a quando non si verificano le seguenti condizioni:
+
+* Tutti i volumi ospitati sul nodo hanno eseguito il failover
+* Il nodo non è più in hosting come principale per qualsiasi volume
+* Viene assegnato un nodo di standby temporaneo per ogni volume sottoposto a failover
+
+
+Una volta soddisfatti questi criteri, il nodo passa alla modalità di manutenzione. Se questi criteri non vengono soddisfatti entro 5 minuti, il nodo non entra in modalità di manutenzione.
+
+Quando si disattiva la modalità di manutenzione per un nodo di storage, il nodo viene monitorato fino a quando non si verificano le seguenti condizioni:
+
+* Tutti i dati vengono replicati completamente nel nodo
+* Tutti i guasti del cluster di blocco sono stati risolti
+* Tutte le assegnazioni temporanee dei nodi di standby per i volumi ospitati sul nodo sono state disattivate
+
+
+Una volta soddisfatti questi criteri, il nodo esce dalla modalità di manutenzione. Se questi criteri non vengono soddisfatti entro un'ora, il nodo non riuscirà a uscire dalla modalità di manutenzione.
+
+È possibile visualizzare gli stati delle operazioni della modalità di manutenzione quando si lavora con la modalità di manutenzione utilizzando l'API Element:
+
+* *Disabled*: Non è stata richiesta alcuna manutenzione.
+* *FailedToRecover*: Il nodo non è riuscito a ripristinare la manutenzione.
+* *RecoveringFromMaintenance*: Il nodo è in fase di ripristino dalla manutenzione.
+* *PreparingForMaintenance*: Vengono intraprese azioni per consentire a un nodo di eseguire la manutenzione.
+* *ReadyForMaintenance*: Il nodo è pronto per la manutenzione.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_enablemaintenancemode.html["Abilitare la modalità di manutenzione con l'API Element"^]
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablemaintenancemode.html["Disattivare la modalità di manutenzione con l'API Element"^]
+* https://docs.netapp.com/us-en/element-software/api/concept_element_api_about_the_api.html["Documentazione API NetApp Element"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

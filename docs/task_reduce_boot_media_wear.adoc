@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_reduce_boot_media_wear.html 
+summary: 'Scopri come ridurre l"usura dei supporti di avvio su un nodo di calcolo NetApp HCI.' 
+keywords: netapp, hci, deployment, review, deploy, boot, drive, wear 
+---
+= Riduci l'usura dei supporti di boot su un nodo di calcolo NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza una memoria flash o un supporto di avvio NVDIMM con un nodo di calcolo NetApp HCI, mantenendo i log di sistema su tale supporto si ottengono scritture frequenti su quel supporto. In questo modo, la memoria flash potrebbe essere degradata. Seguire le istruzioni contenute nel seguente articolo della Knowledge base per spostare il file di log dell'host e il file di dump core in una posizione di storage condivisa, in modo da prevenire il degrado del supporto di avvio nel tempo e prevenire errori del disco di avvio completo.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_reduce_wear_on_the_boot_drive_of_a_Netapp_HCI_compute_node["Come ridurre l'usura del disco di avvio di un nodo di calcolo NetApp HCI"^]
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_dhcp.html 
+summary: Scopri come accedere al NetApp Deployment Engine negli ambienti che utilizzano DHCP per assegnare indirizzi IP. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access, dhcp 
+---
+= Accedi al NetApp Deployment Engine negli ambienti con DHCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Negli ambienti in cui i server acquisiscono automaticamente la configurazione IPv4 da DHCP, è possibile accedere a NetApp Deployment Engine utilizzando l'indirizzo IPv4 assegnato all'interfaccia Bond1G su uno dei nodi di storage. È possibile utilizzare una chiavetta USB per recuperare l'indirizzo IPv4 da uno dei nodi di storage. NetApp Deployment Engine rileva automaticamente altri nodi di calcolo e storage che utilizzano indirizzi IPv4 assegnati da DHCP. Non utilizzare questo metodo a meno che la rete non presenti requisiti speciali.
+
+.Di cosa hai bisogno
+* L'utente o l'amministratore di rete hanno completato le operazioni descritte nel documento istruzioni per l'installazione e l'installazione.
+* Si dispone dell'accesso fisico ai nodi NetApp HCI.
+* Tutti i nodi NetApp HCI sono accesi.
+* DHCP è attivato sulle reti di storage e gestione NetApp HCI.
+* Il pool di indirizzi DHCP è abbastanza grande da ospitare due indirizzi IPv4 per nodo NetApp HCI.
+
+
+
+NOTE: Affinché l'implementazione NetApp HCI abbia esito positivo, tutti i nodi dell'implementazione devono disporre di indirizzi IPv4 acquisiti o configurati automaticamente (non è possibile combinare metodi di assegnazione degli indirizzi IPv4).
+
+.A proposito di questa attività
+Se DHCP viene utilizzato solo per la rete di storage (interfacce Bond10G), attenersi alla procedura descritta nel link: link:task_nde_access_no_dhcp.html["Accesso al NetApp Deployment Engine in ambienti senza DHCP"] Per accedere al NetApp Deployment Engine.
+
+.Fasi
+. Attendere alcuni minuti per consentire ai nodi di richiedere gli indirizzi IP.
+. Scegliere un nodo di storage e inserire una chiavetta USB nel nodo. Lasciarlo per almeno cinque secondi.
+. Rimuovere la chiavetta USB e inserirla nel computer.
+. Aprire `readme.html` file. In questo modo si passa all'interfaccia utente di NetApp Deployment Engine.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

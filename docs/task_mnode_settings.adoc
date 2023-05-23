@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_settings.html 
+summary: È possibile modificare e verificare le impostazioni di rete, cluster e sistema del nodo di gestione. 
+keywords: netapp, management node ui, mnode ui, network settings, test network, cluster settings 
+---
+= Modificare e verificare le impostazioni di rete, cluster e sistema del nodo di gestione
+:allow-uri-read: 
+
+
+[role="lead"]
+È possibile modificare e verificare le impostazioni di rete, cluster e sistema del nodo di gestione.
+
+* <<Aggiornare le impostazioni di rete del nodo di gestione>>
+* <<Aggiornare le impostazioni del cluster del nodo di gestione>>
+* <<Verificare le impostazioni del nodo di gestione>>
+
+
+
+
+== Aggiornare le impostazioni di rete del nodo di gestione
+
+Nella scheda Network Settings (Impostazioni di rete) dell'interfaccia utente del nodo di gestione per nodo, è possibile modificare i campi dell'interfaccia di rete del nodo di gestione.
+
+. Aprire l'interfaccia utente del nodo di gestione per nodo.
+. Fare clic sulla scheda *Impostazioni di rete*.
+. Visualizzare o inserire le seguenti informazioni:
++
+.. *Metodo*: Scegliere uno dei seguenti metodi per configurare l'interfaccia:
++
+*** `loopback`: Consente di definire l'interfaccia di loopback IPv4.
+*** `manual`: Consente di definire le interfacce per le quali non viene eseguita alcuna configurazione per impostazione predefinita.
+*** `dhop`Consente di ottenere un indirizzo IP tramite DHCP.
+*** `static`: Consente di definire le interfacce Ethernet con indirizzi IPv4 allocati in modo statico.
+
+
+.. *Velocità di collegamento*: La velocità negoziata dalla NIC virtuale.
+.. *IPv4 Address*: Indirizzo IPv4 per la rete eth0.
+.. *IPv4 Subnet Mask*: Suddivisioni di indirizzi della rete IPv4.
+.. *IPv4 Gateway Address* (Indirizzo gateway IPv4): Indirizzo di rete del router per l'invio dei pacchetti dalla rete locale.
+.. *IPv6 Address*: L'indirizzo IPv6 per la rete eth0.
+.. *IPv6 Gateway Address* (Indirizzo gateway IPv6): Indirizzo di rete del router per l'invio dei pacchetti dalla rete locale.
++
+
+IMPORTANT: Le opzioni IPv6 non sono supportate per la versione 11.3 o successive del nodo di gestione.
+
+.. *MTU*: Dimensione massima dei pacchetti che un protocollo di rete può trasmettere. Deve essere maggiore o uguale a 1500. Se si aggiunge una seconda scheda di rete per lo storage, il valore deve essere 9000.
+.. *Server DNS*: Interfaccia di rete utilizzata per la comunicazione del cluster.
+.. *Search Domains* (Cerca domini): Consente di cercare ulteriori indirizzi MAC disponibili per il sistema.
+.. *Status*: Valori possibili:
++
+*** `UpAndRunning`
+*** `Down`
+*** `Up`
+
+
+.. *Routes*: Route statiche verso host o reti specifici tramite l'interfaccia associata per l'utilizzo da parte dei percorsi.
+
+
+
+
+
+
+== Aggiornare le impostazioni del cluster del nodo di gestione
+
+Nella scheda Cluster Settings (Impostazioni cluster) dell'interfaccia utente per nodo per il nodo di gestione, è possibile modificare i campi dell'interfaccia cluster quando un nodo si trova negli stati Available (disponibile), PendingActive (PendingActive) e Active (attivo).
+
+. Aprire l'interfaccia utente del nodo di gestione per nodo.
+. Fare clic sulla scheda *Cluster Settings* (Impostazioni cluster).
+. Visualizzare o inserire le seguenti informazioni:
++
+** *Ruolo*: Ruolo del nodo di gestione nel cluster. Valore possibile: `Management`.
+** *Version*: Versione del software Element in esecuzione sul cluster.
+** *Default Interface*: Interfaccia di rete predefinita utilizzata per la comunicazione del nodo di gestione con il cluster che esegue il software Element.
+
+
+
+
+
+
+== Verificare le impostazioni del nodo di gestione
+
+Dopo aver modificato le impostazioni di gestione e di rete per il nodo di gestione e aver eseguito le modifiche, è possibile eseguire test per convalidare le modifiche apportate.
+
+. Aprire l'interfaccia utente del nodo di gestione per nodo.
+. Nell'interfaccia utente del nodo di gestione, fare clic su *Test di sistema*.
+. Completare una delle seguenti operazioni:
++
+.. Per verificare che le impostazioni di rete configurate siano valide per il sistema, fare clic su *Test Network Config*.
+.. Per verificare la connettività di rete a tutti i nodi del cluster su entrambe le interfacce 1G e 10G utilizzando pacchetti ICMP, fare clic su *Test Ping*.
+
+
+. Visualizzare o inserire quanto segue:
++
+** *Hosts*: Specificare un elenco separato da virgole di indirizzi o nomi host dei dispositivi da ping.
+** *Tentativi*: Specificare il numero di volte in cui il sistema deve ripetere il test ping. Predefinito: 5.
+** *Packet Size* (dimensione pacchetto): Specificare il numero di byte da inviare nel pacchetto ICMP inviato a ciascun IP. Il numero di byte deve essere inferiore al valore MTU massimo specificato nella configurazione di rete.
+** *Timeout msec*: Specificare il numero di millisecondi da attendere per ogni singola risposta ping. Impostazione predefinita: 500 ms.
+** *Total Timeout sec*: Specificare il tempo in secondi in cui il ping deve attendere una risposta di sistema prima di eseguire il successivo tentativo di ping o terminare il processo. Predefinito: 5.
+** *Proibisci frammentazione*: Attiva il flag DF (do not fragment) per i pacchetti ICMP.
+
+
+
+
+[discrete]
+== Ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

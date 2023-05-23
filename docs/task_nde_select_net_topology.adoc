@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_select_net_topology.html 
+summary: 'Scopri come configurare VMware vSphere durante l"implementazione di NetApp HCI.' 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Selezionare una topologia di rete
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Quando si collegano i nodi NetApp HCI, è possibile utilizzare diverse configurazioni dei cavi di rete in base alle proprie esigenze. Per ciascun nodo di calcolo, è possibile utilizzare tutte e sei le porte di rete, con diversi tipi di traffico assegnati a ciascuna coppia di porte, oppure utilizzare due porte con tutti i tipi di traffico assegnati alle porte. I nodi di storage utilizzano la configurazione standard a quattro cavi. La scelta influisce sui nodi di calcolo selezionabili nell'inventario.
+
+.Di cosa hai bisogno
+Se si sceglie la topologia di rete a due cavi per i nodi di calcolo, considerare i seguenti requisiti:
+
+* Una volta completata l'implementazione, è possibile richiedere una licenza VMware vSphere Enterprise Plus.
+* La configurazione degli switch di rete e di rete è stata verificata correttamente.
+* Il tagging VLAN è necessario per le reti storage e vMotion per tutti i nodi di calcolo e storage.
+
+
+.Fasi
+. Nella pagina *topologia di rete*, selezionare una topologia di nodo di calcolo che si adatti al modo in cui sono stati installati i nodi di calcolo per NetApp HCI:
++
+** *6 opzione cavo*: L'opzione a sei cavi fornisce porte dedicate per ogni tipo di traffico (gestione, macchina virtuale e storage). È possibile attivare vSphere Distributed Switch (VDS) come opzione. L'abilitazione di VDS consente di configurare uno switch distribuito, consentendo una gestione semplificata e centralizzata della configurazione di rete delle macchine virtuali al termine dell'implementazione di NetApp HCI. Se la si attiva, è necessario disporre di una licenza vSphere Enterprise Plus pronta per essere applicata dopo l'implementazione.
+** *2 opzione cavo*: L'opzione a due cavi combina il traffico di gestione, macchina virtuale e storage su due porte collegate. Questa opzione di cablaggio richiede VDS e la attiva automaticamente. È necessario disporre di una licenza vSphere Enterprise Plus pronta per l'applicazione dopo l'implementazione.
+
+
+. Alcune opzioni di cablaggio visualizzano più viste del pannello posteriore di diversi tipi di hardware del nodo. Scorrere le viste del pannello posteriore per vedere come collegare i cavi di rete per il modello di nodo specifico e l'opzione di cablaggio.
+. Al termine, fare clic su *continua*.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_accounts.html 
+summary: Scopri come creare un account utente e associarlo a un volume. 
+keywords: netapp, hci, on premise, cluster, element, account, user, volume, hybrid cloud control, hcc 
+---
+= Creare e gestire gli account utente utilizzando NetApp Hybrid Cloud Control
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nei sistemi storage basati su elementi, è possibile creare utenti di cluster autorevoli per consentire l'accesso a NetApp Hybrid Cloud Control in base alle autorizzazioni che si desidera concedere agli utenti "Administrator" o "Read-only". Oltre agli utenti del cluster, esistono anche account di volume che consentono ai client di connettersi ai volumi su un nodo di storage. 
+
+Gestire i seguenti tipi di account:
+
+* <<Gestire gli account cluster autorevoli>>
+* <<Gestire gli account dei volumi>>
+
+
+
+
+== Attivare LDAP
+
+Per utilizzare LDAP per qualsiasi account utente, è necessario prima attivare LDAP.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, fare clic sull'icona Opzioni in alto a destra e selezionare *Gestione utenti*.
+. Nella pagina utenti, fare clic su *Configura LDAP*.
+. Definire la configurazione LDAP.
+. Selezionare il tipo di autenticazione Search and Bind (Cerca e bind) o Direct Bind (Bind diretto).
+. Prima di salvare le modifiche, fare clic su *Test LDAP Log in* (verifica accesso LDAP) nella parte superiore della pagina, immettere il nome utente e la password di un utente noto esistente e fare clic su *Test*.
+. Fare clic su *Save* (Salva).
+
+
+
+
+== Gestire gli account cluster autorevoli
+
+link:concept_cg_hci_accounts.html#authoritative-user-accounts["Account utente autorevoli"] Sono gestiti dal menu in alto a destra dell'opzione User Management in NetApp Hybrid Cloud Control. Questi tipi di account consentono di eseguire l'autenticazione con qualsiasi risorsa di storage associata a un'istanza di nodi e cluster di NetApp Hybrid Cloud Control. Con questo account, puoi gestire volumi, account, gruppi di accesso e molto altro in tutti i cluster.
+
+
+
+=== Creare un account cluster autorevole
+
+Puoi creare un account utilizzando NetApp Hybrid Cloud Control.
+
+Questo account può essere utilizzato per accedere al controllo del cloud ibrido, all'interfaccia utente per nodo per il cluster e al cluster di storage nel software NetApp Element.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, fare clic sull'icona Opzioni in alto a destra e selezionare *Gestione utenti*.
+. Selezionare *Create User* (Crea utente).
+. Selezionare il tipo di autenticazione del cluster o LDAP.
+. Completare una delle seguenti operazioni:
++
+** Se si seleziona LDAP, inserire il DN.
++
+
+TIP: Per utilizzare LDAP, è necessario prima attivare LDAP o LDAPS. Vedere <<Attivare LDAP>>.
+
+** Se si seleziona Cluster come tipo di autorizzazione, immettere un nome e una password per il nuovo account.
+
+
+. Selezionare le autorizzazioni di amministratore o di sola lettura.
++
+
+TIP: Per visualizzare le autorizzazioni dal software NetApp Element, fare clic su *Mostra permessi legacy*. Se si seleziona un sottoinsieme di queste autorizzazioni, all'account vengono assegnate autorizzazioni di sola lettura. Se si selezionano tutte le autorizzazioni legacy, all'account vengono assegnate le autorizzazioni di amministratore.
+
++
+
+TIP: Per garantire che tutti i figli di un gruppo ereditino le autorizzazioni, creare un gruppo di amministratori dell'organizzazione DN nel server LDAP. Tutti gli account figlio di quel gruppo erediteranno tali autorizzazioni.
+
+. Selezionare la casella "ho letto e accettato il Contratto di licenza con l'utente finale di NetApp".
+. Fare clic su *Create User* (Crea utente).
+
+
+
+
+=== Modificare un account cluster autorevole
+
+È possibile modificare le autorizzazioni o la password di un account utente utilizzando NetApp Hybrid Cloud Control.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, fare clic sull'icona in alto a destra e selezionare *User Management* (Gestione utenti).
+. È possibile filtrare l'elenco degli account utente selezionando *Cluster*, *LDAP* o *IDP*.
++
+Se sono stati configurati utenti sul cluster di storage con LDAP, questi account visualizzano il tipo utente "LDAP". Se sono stati configurati utenti sul cluster di storage con IDP, questi account mostrano un tipo di utente "IDP".
+
+. Nella colonna *azioni* della tabella, espandere il menu dell'account e selezionare *Modifica*.
+. Apportare le modifiche necessarie.
+. Selezionare *Salva*.
+. Disconnettersi da NetApp Hybrid Cloud Control.
+. link:task_mnode_manage_storage_cluster_assets.html#edit-the-stored-credentials-for-a-storage-cluster-asset["Aggiornare le credenziali"] Per la risorsa cluster autorevole che utilizza l'API di controllo del cloud ibrido di NetApp.
++
+
+NOTE: L'aggiornamento dell'inventario potrebbe richiedere fino a 2 minuti dall'interfaccia utente di NetApp Hybrid Cloud Control. Per aggiornare manualmente l'inventario, accedere al servizio di inventario dell'interfaccia utente REST API `https://<ManagementNodeIP>/inventory/1/` ed eseguire `GET /installations​/{id}` per il cluster.
+
+. Accedi a NetApp Hybrid Cloud Control.
+
+
+
+
+=== Eliminare un account utente autorevole
+
+È possibile eliminare uno o più account quando non sono più necessari. È possibile eliminare un account utente LDAP.
+
+Non è possibile eliminare l'account utente amministratore principale per il cluster autorevole.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, fare clic sull'icona in alto a destra e selezionare *User Management* (Gestione utenti).
+. Nella colonna *azioni* della tabella utenti, espandere il menu dell'account e selezionare *Elimina*.
+. Confermare l'eliminazione selezionando *Sì*.
+
+
+
+
+== Gestire gli account dei volumi
+
+link:concept_cg_hci_accounts.html#volume-accounts["Account di volume"] Sono gestiti all'interno della tabella NetApp Hybrid Cloud Control Volumes. Questi account sono specifici solo per il cluster di storage in cui sono stati creati. Questi tipi di account consentono di impostare le autorizzazioni sui volumi in rete, ma non hanno alcun effetto al di fuori di tali volumi.
+
+Un account volume contiene l'autenticazione CHAP richiesta per accedere ai volumi assegnati.
+
+
+
+=== Creare un account volume
+
+Creare un account specifico per questo volume.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, selezionare *Storage* > *Volumes*.
+. Selezionare la scheda *account*.
+. Selezionare il pulsante *Crea account*.
+. Immettere un nome per il nuovo account.
+. Nella sezione CHAP Settings (Impostazioni CHAP), immettere le seguenti informazioni:
++
+** Initiator Secret per l'autenticazione della sessione del nodo CHAP
+** Segreto di destinazione per l'autenticazione della sessione del nodo CHAP
++
+
+NOTE: Per generare automaticamente una password, lasciare vuoti i campi delle credenziali.
+
+
+
+. Selezionare *Crea account*.
+
+
+
+
+=== Modificare un account volume
+
+È possibile modificare le informazioni CHAP e modificare se un account è attivo o bloccato.
+
+
+IMPORTANT: L'eliminazione o il blocco di un account associato al nodo di gestione comporta un nodo di gestione inaccessibile.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, selezionare *Storage* > *Volumes*.
+. Selezionare la scheda *account*.
+. Nella colonna *azioni* della tabella, espandere il menu dell'account e selezionare *Modifica*.
+. Apportare le modifiche necessarie.
+. Confermare le modifiche selezionando *Sì*.
+
+
+
+
+=== Eliminare un account volume
+
+Eliminare un account non più necessario.
+
+Prima di eliminare un account di volume, eliminare e rimuovere i volumi associati all'account.
+
+
+IMPORTANT: L'eliminazione o il blocco di un account associato al nodo di gestione comporta un nodo di gestione inaccessibile.
+
+
+NOTE: I volumi persistenti associati ai servizi di gestione vengono assegnati a un nuovo account durante l'installazione o l'aggiornamento. Se si utilizzano volumi persistenti, non modificare o eliminare i volumi o l'account associato. Se si eliminano questi account, si potrebbe rendere inutilizzabile il nodo di gestione.
+
+.Fasi
+. Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI o Element.
+. Dalla dashboard, selezionare *Storage* > *Volumes*.
+. Selezionare la scheda *account*.
+. Nella colonna *azioni* della tabella, espandere il menu dell'account e selezionare *Elimina*.
+. Confermare l'eliminazione selezionando *Sì*.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:concept_cg_hci_accounts.html["Scopri di più sugli account"]
+* http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-E93D3BAF-5A60-414D-86AF-0C1F86D43F26.html["Utilizzare gli account utente"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

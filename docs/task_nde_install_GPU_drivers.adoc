@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_install_GPU_drivers.html 
+summary: Scopri come installare i driver GPU per i nodi di calcolo abilitati per GPU dopo aver implementato NetApp HCI. 
+keywords: netapp, hci, deployment, review, GPU, install, driver, drivers 
+---
+= Installare i driver della GPU per i nodi di calcolo abilitati alla GPU
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi di calcolo con unità di elaborazione grafica NVIDIA (GPU), come il modello H610C, necessitano di driver software NVIDIA installati in VMware ESXi per poter sfruttare la maggiore potenza di elaborazione. Dopo aver implementato nodi di calcolo con GPU, è necessario eseguire questi passaggi su ogni nodo di calcolo abilitato alla GPU per installare i driver GPU in ESXi.
+
+.Fasi
+. Aprire un browser e accedere al portale delle licenze NVIDIA al seguente URL:
++
+[listing]
+----
+https://nvid.nvidia.com/dashboard/
+----
+. Scaricare uno dei seguenti pacchetti di driver sul computer, a seconda dell'ambiente in uso:
++
+|===
+| Versione di vSphere | Pacchetto di driver 
+
+
+| VSphere 6.5 | `NVIDIA-GRID-vSphere-6.5-410.92-410.91-412.16.zip` 
+
+
+| VSphere 6.7 | `NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip` 
+|===
+. Estrarre il pacchetto di driver sul computer.
++
+Il file .VIB risultante è il file del driver non compresso.
+
+. Copiare il `.VIB` File di driver dal computer a ESXi in esecuzione sul nodo di calcolo. I seguenti comandi di esempio per ciascuna versione presuppongono che il driver si trovi in `$HOME/NVIDIA/ESX6.x/` directory sull'host di gestione. L'utility SCP è facilmente disponibile nella maggior parte delle distribuzioni Linux o è disponibile come utility scaricabile per tutte le versioni di Windows:
++
+|===
+| Versione di ESXi | Descrizione 
+
+
+| ESXi 6.5 | `scp $HOME/NVIDIA/ESX6.5/NVIDIA**.vib root@<ESXi_IP_ADDR>:/.` 
+
+
+| ESXi 6.7 | `scp $HOME/NVIDIA/ESX6.7/NVIDIA**.vib root@<ESXi_IP_ADDR>:/.` 
+|===
+. Attenersi alla seguente procedura per accedere come root all'host ESXi e installare NVIDIA vGPU Manager in ESXi.
++
+.. Eseguire il seguente comando per accedere all'host ESXi come utente root:
++
+[listing]
+----
+ssh root@<ESXi_IP_ADDRESS>
+----
+.. Eseguire il seguente comando per verificare che non siano installati driver NVIDIA GPU:
++
+[listing]
+----
+nvidia-smi
+----
++
+Questo comando dovrebbe restituire il messaggio `nvidia-smi: not found`.
+
+.. Eseguire i seguenti comandi per attivare la modalità di manutenzione sull'host e installare NVIDIA vGPU Manager dal file VIB:
++
+[listing]
+----
+esxcli system maintenanceMode set --enable true
+esxcli software vib install -v /NVIDIA**.vib
+----
++
+Viene visualizzato il messaggio `Operation finished successfully`.
+
+.. Eseguire il seguente comando e verificare che tutti gli otto driver GPU siano elencati nell'output del comando:
++
+[listing]
+----
+nvidia-smi
+----
+.. Eseguire il seguente comando per verificare che il pacchetto NVIDIA vGPU sia stato installato e caricato correttamente:
++
+[listing]
+----
+vmkload_mod -l | grep nvidia
+----
++
+Il comando dovrebbe restituire un output simile al seguente: `nvidia 816 13808`
+
+.. Eseguire il seguente comando per riavviare l'host:
++
+[listing]
+----
+reboot -f
+----
+.. Eseguire il seguente comando per uscire dalla modalità di manutenzione:
++
+[listing]
+----
+esxcli system maintenanceMode set --enable false
+----
+
+
+. Ripetere i passaggi 4-6 per tutti gli altri nodi di calcolo appena implementati con GPU NVIDIA.
+. Eseguire le seguenti operazioni seguendo le istruzioni riportate nel sito della documentazione NVIDIA:
++
+.. Installare il server di licenza NVIDIA.
+.. Configurare le macchine virtuali guest per il software NVIDIA vGPU.
+.. Se si utilizzano desktop compatibili con vGPU in un contesto di infrastruttura di desktop virtuale (VDI), configurare VMware Horizon View per il software NVIDIA vGPU.
+
+
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

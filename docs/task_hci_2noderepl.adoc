@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_2noderepl.html 
+summary: 'Prima di sostituire un nodo che fa parte di un cluster a due nodi, è necessario aggiungere un terzo nodo di storage (che richiede un nuovo set di indirizzi IP), consentire il completamento della sincronizzazione, quindi rimuovere il nodo difettoso. cluster a quattro nodi. Sono necessari un MIP e un SIP aggiuntivi.' 
+keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement 
+---
+= Sostituire il nodo di storage in un cluster a due nodi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di sostituire un nodo di storage che fa parte di un cluster a due nodi, è necessario aggiungere un terzo nodo di storage (che richiede un nuovo set di indirizzi IP), consentire il completamento della sincronizzazione, quindi rimuovere il nodo difettoso. Il cluster rimane in stato degradato fino a quando un nodo sostitutivo non si unisce al cluster.
+
+.Di cosa hai bisogno
+* Si dispone di nuovi indirizzi IP di gestione e IP di storage.
+* È stato verificato che il cluster visualizza `ClusterCannotSync` avvisa dopo che il nodo è offline. Ciò garantisce che il cluster esegua una risincronizzazione completa quando il nuovo nodo viene aggiunto di nuovo al cluster. Questo avviso viene visualizzato circa sei minuti dopo che il nodo di storage non è in linea.
+* Hai contattato il supporto NetApp. Se stai ordinando un prodotto sostitutivo, dovresti avere un caso aperto con il supporto NetApp.
+* Il nodo sostitutivo è stato ottenuto.
+* Si dispone di un braccialetto per le scariche elettrostatiche (ESD) o di un'altra protezione antistatica.
+
+
+.A proposito di questa attività
+Gli allarmi di VMware vSphere Web Client avvisano l'utente in caso di guasto di un host. Il numero di serie dell'host guasto di VMware vSphere Web Client deve corrispondere al numero di serie riportato sull'etichetta sul retro del nodo.
+
+.Fasi
+. Rimuovere fisicamente il nodo difettoso dal rack. I passaggi dipendono dal tipo di nodo di storage in uso. Vedere link:task_hci_h410srepl.html["Sostituire i nodi H410S"] e. link:task_hci_h610srepl.html["Sostituire i nodi H610S"].
++
+
+NOTE: Non rimuovere il nodo dal cluster a questo punto.
+
+. Installare il nodo sostitutivo nello stesso slot.
+. Collegare il nodo.
+. Accendere il nodo.
+. Collegare una tastiera e un monitor al nodo.
+. Eseguire la procedura di configurazione:
++
+.. Configurare l'indirizzo IP IPMI/BMC.
+.. Configurare il nuovo nodo con i nuovi indirizzi IP di gestione e di storage e il nome del cluster.
+
+
+. Una volta aggiunto il nodo al cluster, aggiungere i dischi.
+. Al termine della sincronizzazione, rimuovere i dischi guasti e il nodo guasto dal cluster.
+. Utilizza NetApp Hybrid Cloud Control per configurare il nuovo nodo di storage aggiunto. Vedere link:task_hcc_expand_storage.html["Espandere le risorse di storage NetApp HCI"].
+
+
+
+
+== Trova ulteriori informazioni
+
+* http://docs.netapp.com/hci/index.jsp["Centro di documentazione NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

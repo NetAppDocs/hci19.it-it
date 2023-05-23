@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_accounts.html 
+summary: Ogni sistema NetApp HCI con servizi cloud abilitati è associato a un account NetApp Cloud Central. 
+keywords: netapp, hci, on premise, administrator, user account, cloud services, cluster 
+---
+= Account utente
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per accedere alle risorse di storage del sistema, è necessario configurare gli account utente.
+
+
+
+== Gestione dell'account utente
+
+Gli account utente vengono utilizzati per controllare l'accesso alle risorse di storage su una rete basata su software NetApp Element. È necessario almeno un account utente prima di poter creare un volume.
+
+Quando si crea un volume, questo viene assegnato a un account. Se è stato creato un volume virtuale, l'account è il container di storage.
+
+Di seguito sono riportate alcune considerazioni aggiuntive:
+
+* L'account contiene l'autenticazione CHAP richiesta per accedere ai volumi ad esso assegnati.
+* A un account possono essere assegnati fino a 2000 volumi, ma un volume può appartenere a un solo account.
+* Gli account utente possono essere gestiti dal punto di estensione Gestione NetApp Element.
+
+
+Utilizzando NetApp Hybrid Cloud Control, puoi creare e gestire i seguenti tipi di account:
+
+* Account utente amministratore per il cluster di storage
+* Account utente autorevoli
+* Account di volumi specifici solo per il cluster di storage in cui sono stati creati.
+
+
+
+
+== Account amministratore del cluster di storage
+
+Esistono due tipi di account amministratore in un cluster di storage che esegue il software NetApp Element:
+
+* *Primary cluster Administrator account*: Questo account amministratore viene creato al momento della creazione del cluster. Questo account è l'account amministrativo principale con il livello di accesso più elevato al cluster. Questo account è analogo a un utente root in un sistema Linux. È possibile modificare la password per questo account amministratore.
+* *Account amministratore cluster*: È possibile assegnare a un account amministratore cluster un intervallo limitato di accesso amministrativo per eseguire attività specifiche all'interno di un cluster. Le credenziali assegnate a ciascun account amministratore del cluster vengono utilizzate per autenticare le richieste API ed Element UI all'interno del sistema di storage.
+
+
+
+NOTE: Per accedere ai nodi attivi di un cluster tramite l'interfaccia utente per nodo, è necessario un account amministratore locale (non LDAP). Le credenziali dell'account non sono richieste per accedere a un nodo che non fa ancora parte di un cluster.
+
+È possibile gestire gli account degli amministratori del cluster creando, eliminando e modificando gli account degli amministratori del cluster, modificando la password dell'amministratore del cluster e configurando le impostazioni LDAP per gestire l'accesso al sistema per gli utenti.
+
+
+
+== Account utente autorevoli
+
+Gli account utente autorevoli possono autenticare qualsiasi risorsa storage associata all'istanza di nodi e cluster di NetApp Hybrid Cloud Control. Con questo account, puoi gestire volumi, account, gruppi di accesso e molto altro in tutti i cluster.
+
+Gli account utente autorevoli vengono gestiti dal menu in alto a destra dell'opzione User Management (Gestione utente) in NetApp Hybrid Cloud Control.
+
+Il link:concept_hci_clusters.html#authoritative-storage-clusters["cluster di storage autorevole"] È il cluster di storage utilizzato da NetApp Hybrid Cloud Control per autenticare gli utenti.
+
+Tutti gli utenti creati sul cluster di storage autorevole possono accedere al NetApp Hybrid Cloud Control. Gli utenti creati su altri cluster di storage _non possono_ accedere a Hybrid Cloud Control.
+
+* Se il nodo di gestione dispone di un solo cluster di storage, si tratta del cluster autorevole.
+* Se il nodo di gestione dispone di due o più cluster di storage, uno di questi viene assegnato come cluster autorevole e solo gli utenti di quel cluster possono accedere a NetApp Hybrid Cloud Control.
+
+
+Sebbene molte funzionalità di NetApp Hybrid Cloud Control funzionino con più cluster di storage, l'autenticazione e l'autorizzazione hanno limitazioni necessarie. Il limite dell'autenticazione e dell'autorizzazione è che gli utenti del cluster autorevole possono eseguire azioni su altri cluster legati a NetApp Hybrid Cloud Control anche se non sono utenti degli altri cluster di storage. Prima di procedere con la gestione di più cluster di storage, è necessario assicurarsi che gli utenti definiti nei cluster autorevoli siano definiti in tutti gli altri cluster di storage con le stesse autorizzazioni. Puoi gestire gli utenti da NetApp Hybrid Cloud Control.
+
+
+
+== Account di volume
+
+Gli account specifici del volume sono specifici solo per il cluster di storage in cui sono stati creati. Questi account consentono di impostare autorizzazioni su volumi specifici della rete, ma non hanno alcun effetto al di fuori di tali volumi.
+
+Gli account dei volumi vengono gestiti all'interno della tabella NetApp Hybrid Cloud Control Volumes.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:task_hcc_manage_accounts.html["Gestire gli account utente"]
+* link:concept_hci_clusters.html["Scopri di più sui cluster"]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_post_deployment_overview.html 
+summary: 'Scopri le attività di post-implementazione da eseguire dopo l"implementazione di NetApp HCI.' 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= Attività post-implementazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+A seconda delle scelte effettuate durante il processo di implementazione, è necessario completare alcune attività finali prima che il sistema NetApp HCI sia pronto per l'uso in produzione, ad esempio l'aggiornamento di firmware e driver e l'esecuzione delle modifiche di configurazione finali necessarie.
+
+* link:task_nde_supported_net_changes.html["Modifiche di rete supportate"]
+* link:task_nde_disable_smartd.html["Disattiva il servizio smartd sui nodi di calcolo NetApp HCI"]
+* link:task_nde_disable_lacp_individual.html["Disattivare il comando "lacp-Individual" sugli switch configurati"]
+* link:task_mnode_create_netapp_hcc_role_vcenter.html["Creare un ruolo NetApp HCC in vCenter"]
+* link:task_nde_update_vsphere.html["Aggiornamento di VMware vSphere"]
+* link:task_nde_install_GPU_drivers.html["Installare i driver della GPU per i nodi di calcolo abilitati alla GPU"]
+* link:task_nde_access_hcc.html["Accedi a NetApp Hybrid Cloud Control"]
+* link:task_reduce_boot_media_wear.html["Riduci l'usura dei supporti di boot su un nodo di calcolo NetApp HCI"]
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

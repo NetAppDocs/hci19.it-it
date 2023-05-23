@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_timekeeping.html 
+summary: Scopri i requisiti di DNS e di conservazione dei tempi per NetApp HCI. 
+keywords: netapp, hci, timekeeping, NTP, DNS 
+---
+= DNS e requisiti di conservazione dei tempi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, timekeeping, NTP, DNS
+
+
+[role="lead"]
+Prima dell'implementazione, è necessario preparare i record DNS (Domain Name System) per il sistema NetApp HCI e raccogliere le informazioni sul server NTP. NetApp HCI richiede un server DNS con le voci DNS corrette e un server NTP per una corretta implementazione.
+
+Prima di implementare NetApp HCI, eseguire le seguenti operazioni di preparazione per il server DNS e il timer:
+
+* Creare eventuali voci DNS necessarie per gli host (ad esempio singoli nodi di calcolo o storage) e documentare il modo in cui le voci host vengono associate ai rispettivi indirizzi IP. Durante l'implementazione, sarà necessario assegnare un prefisso al cluster di storage che verrà applicato a ciascun host; per evitare confusione, tenere a mente i piani di denominazione DNS quando si sceglie un prefisso.
+* Se si implementa NetApp HCI con una nuova installazione di VMware vSphere utilizzando un nome di dominio completo, è necessario creare un record di puntatore (PTR) e un record di indirizzo (A) per vCenter Server su qualsiasi server DNS in uso prima dell'implementazione.
+* Se si implementa NetApp HCI con una nuova installazione vSphere utilizzando solo indirizzi IP, non è necessario creare nuovi record DNS per vCenter.
+* NetApp HCI richiede un server NTP valido per la conservazione dei tempi. Se non si dispone di un server di riferimento orario, è possibile utilizzare un server di riferimento orario pubblico.
+* Assicurarsi che tutti i clock dei nodi di calcolo e di storage siano sincronizzati tra loro e che gli orologi dei dispositivi utilizzati per accedere a NetApp HCI siano sincronizzati con i nodi NetApp HCI.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

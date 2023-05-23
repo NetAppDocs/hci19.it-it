@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_on_storage.html 
+summary: Scopri come spegnere i nodi di calcolo NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Accendere le risorse di storage per un sistema NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+È possibile accendere NetApp HCI una volta completata l'interruzione pianificata.
+
+.Fasi
+. Accendere tutti i nodi di storage utilizzando il pulsante di accensione fisico o BMC.
+. Se si utilizza BMC, accedere a ciascun nodo e selezionare *Remote Control > Power Control > Power on Server*.
+. Quando tutti i nodi di storage sono online, accedere al sistema di storage NetApp HCI e verificare che tutti i nodi siano operativi.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

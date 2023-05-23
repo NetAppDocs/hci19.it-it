@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_config_anti_affinity.html 
+summary: Scopri come configurare le regole di anti-affinità per le macchine virtuali Rancher in modo da facilitare la resilienza degli host. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, anti, affinity, resiliency 
+---
+= Migliorare la resilienza delle macchine virtuali Rancher
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver implementato Rancher su NetApp HCI, l'ambiente vSphere conterrà tre nuovi nodi come macchine virtuali per ospitare l'ambiente Rancher. L'interfaccia utente Web di Rancher è disponibile da ciascuno di questi nodi. Per una resilienza completa, ciascuna delle tre macchine virtuali e i dischi virtuali corrispondenti devono risiedere su un host fisico diverso dopo eventi come cicli di alimentazione e failover.
+
+Per garantire che ciascuna macchina virtuale e le relative risorse rimangano su un host fisico diverso, è possibile creare regole di affinità anti-Affinity di VMware vSphere Distributed Resource Scheduler (DRS). Questo non è automatizzato come parte dell'implementazione di Rancher su NetApp HCI.
+
+Per istruzioni su come configurare le regole di affinità DRS, consultare le seguenti risorse di documentazione VMware:
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["Creare regole di affinità per VM"^]
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["VSphere ha e DRS Affinity Rules"^]
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Documentazione del rancher sull'architettura"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["La terminologia di Kubernetes per Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

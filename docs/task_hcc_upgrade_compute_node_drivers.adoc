@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_compute_node_drivers.html 
+summary: Come parte di un upgrade del sistema NetApp HCI, si aggiornano i driver dei nodi di calcolo. 
+keywords: netapp, hci, on premise, cluster, element, compute node 
+---
+= Aggiornare i driver dei nodi di calcolo
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Per qualsiasi nodo di calcolo della serie H, è possibile aggiornare i driver utilizzati sui nodi utilizzando VMware Update Manager.
+
+.Di cosa hai bisogno
+Consultare la matrice del firmware e dei driver per l'hardware all'indirizzo link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate"].
+
+.A proposito di questa attività
+Eseguire una sola di queste operazioni di aggiornamento alla volta.
+
+Prima di tentare di eseguire gli aggiornamenti del firmware di calcolo, controllare la versione corrente del driver ESXi. Se il driver non è aggiornato, aggiornarlo. Quindi, aggiornare il firmware di calcolo per i nodi di calcolo.
+
+.Fasi
+. Accedere a. https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["Download del software NetApp HCI"^] E selezionare il collegamento per scaricare la versione corretta di NetApp HCI.
+. Selezionare *ESXI_drivers* dall'elenco a discesa.
+. Accettare il Contratto di licenza con l'utente finale.
+. Scarica il pacchetto di driver per il tuo tipo di nodo e la versione di ESXi.
+. Estrarre il pacchetto di driver scaricato sul computer locale.
++
+
+NOTE: Il bundle di driver NetApp include uno o più file ZIP VMware Offline Bundle; non estrarre questi file ZIP.
+
+. Accedere a *VMware Update Manager* in VMware vCenter.
+. Importare il file bundle offline del driver per i nodi di calcolo in *Patch Repository*.
++
+** Per VMware ESXi 7.0, tutti i driver necessari per i nodi di calcolo NetApp H610C, H615C, H410C e Hx00E e i relativi componenti di sistema integrati sono inclusi nell'immagine ISO di installazione standard di VMware ESXi 7.0. Non sono necessari driver aggiuntivi o aggiornati per i nodi di calcolo NetApp HCI che eseguono VMware ESXi 7.0 (e aggiornamenti).
+** Per VMware ESXi 6.x, attenersi alla seguente procedura per importare il file bundle offline del driver:
++
+... Selezionare la scheda *aggiornamenti*.
+... SELEZIONARE *UPLOAD FROM FILE* (CARICA DA FILE).
+... Individuare il bundle offline scaricato in precedenza e selezionare *IMPORT*.
+
+
+
+
+. Creare una nuova baseline host per il nodo di calcolo.
+. Scegliere *host Extension* per Nome e tipo e selezionare tutti i pacchetti di driver importati da includere nella nuova linea di base.
+. Nel menu *host and Clusters* di vCenter, selezionare il cluster con i nodi di calcolo che si desidera aggiornare e passare alla scheda *Update Manager*.
+. Selezionare *bonifica* e selezionare la baseline dell'host appena creata. Assicurarsi che siano selezionati i driver inclusi nella linea di base.
+. Passare alla procedura guidata *Opzioni di correzione dell'host* e assicurarsi che l'opzione *Do Not Change VM Power state* (non modificare lo stato di alimentazione della macchina virtuale) sia selezionata per mantenere le macchine virtuali in linea durante l'aggiornamento del driver.
++
+
+NOTE: Se VMware Distributed Resource Scheduler (DRS) è attivato sul cluster (impostazione predefinita nelle installazioni NetApp HCI), le macchine virtuali vengono migrate automaticamente in altri nodi del cluster.
+
+. Passare alla pagina *Pronto per il completamento* della procedura guidata e selezionare *fine*.
++
+I driver per tutti i nodi di calcolo nel cluster vengono aggiornati un nodo alla volta, mentre le macchine virtuali rimangono online.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

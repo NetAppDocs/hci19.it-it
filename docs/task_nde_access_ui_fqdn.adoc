@@ -1,0 +1,226 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_ui_fqdn.html 
+summary: 'Scopri come configurare, rimuovere e risolvere i problemi di accesso all"interfaccia utente Web FQDN del sistema.' 
+keywords: netapp, hci, fqdn, ui, access, web, administration 
+---
+= Configurare l'accesso completo all'interfaccia utente Web Domain Name
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp HCI con software Element 12.2 o versione successiva consente di accedere alle interfacce Web del cluster di storage utilizzando il nome di dominio completo (FQDN). Se si desidera utilizzare l'FQDN per accedere alle interfacce utente Web, ad esempio l'interfaccia utente Web Element, l'interfaccia utente per nodo o l'interfaccia utente del nodo di gestione, è necessario prima aggiungere un'impostazione del cluster di storage per identificare l'FQDN utilizzato dal cluster.
+
+È ora possibile accedere alle interfacce Web del cluster di storage utilizzando il nome di dominio completo (FQDN, Fully Qualified Domain Name). Se si desidera utilizzare l'FQDN per accedere alle interfacce utente Web, ad esempio l'interfaccia utente Web Element, l'interfaccia utente per nodo o l'interfaccia utente del nodo di gestione, è necessario prima aggiungere un'impostazione del cluster di storage per identificare l'FQDN utilizzato dal cluster. Ciò consente al cluster di reindirizzare correttamente una sessione di accesso e di migliorare l'integrazione con servizi esterni come i key manager e i provider di identità per l'autenticazione a più fattori.
+
+.Di cosa hai bisogno
+* Questa funzione richiede Element 12.2 o versione successiva.
+* La configurazione di questa funzionalità utilizzando le API REST di NetApp Hybrid Cloud Control richiede servizi di gestione 2.15 o successivi.
+* La configurazione di questa funzione mediante l'interfaccia utente di NetApp Hybrid Cloud Control richiede servizi di gestione 2.19 o successivi.
+* Per utilizzare le API REST, è necessario aver implementato un nodo di gestione con versione 11.5 o successiva.
+* Sono necessari nomi di dominio completi per il nodo di gestione e ciascun cluster di storage che si risolvono correttamente nell'indirizzo IP del nodo di gestione e in ciascun indirizzo IP del cluster di storage.
+
+
+È possibile configurare o rimuovere l'accesso all'interfaccia utente Web FQDN utilizzando NetApp Hybrid Cloud Control e l'API REST. È inoltre possibile risolvere i problemi relativi a FQDN configurati in modo errato.
+
+* <<Configurare l'accesso all'interfaccia utente Web FQDN utilizzando NetApp Hybrid Cloud Control>>
+* <<Configurare l'accesso all'interfaccia utente Web FQDN utilizzando l'API REST>>
+* <<Rimuovere l'accesso all'interfaccia utente Web FQDN utilizzando NetApp Hybrid Cloud Control>>
+* <<Rimuovere l'accesso all'interfaccia utente Web FQDN utilizzando l'API REST>>
+* <<Risoluzione dei problemi>>
+
+
+
+
+== Configurare l'accesso all'interfaccia utente Web FQDN utilizzando NetApp Hybrid Cloud Control
+
+.Fasi
+. Aprire l'indirizzo IP del nodo di gestione in un browser Web:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Accedere a NetApp Hybrid Cloud Control fornendo le credenziali di amministratore del cluster di storage.
+. Selezionare l'icona del menu nella parte superiore destra della pagina.
+. Selezionare *Configura*.
+. Nel riquadro *Fully Qualified Domain Names*, selezionare *Set Up*.
+. Nella finestra visualizzata, immettere gli FQDN per il nodo di gestione e ciascun cluster di storage.
+. Selezionare *Salva*.
++
+Il riquadro *Fully Qualified Domain Names* elenca ciascun cluster di storage con i relativi MVIP e FQDN associati.
+
++
+
+NOTE: Solo i cluster di storage connessi con il set FQDN sono elencati nel riquadro *Fully Qualified Domain Names*.
+
+
+
+
+
+== Configurare l'accesso all'interfaccia utente Web FQDN utilizzando l'API REST
+
+.Fasi
+. Assicurarsi che i nodi storage Element e il nodo di gestione abbiano il DNS configurato correttamente per l'ambiente di rete in modo che gli FQDN nell'ambiente possano essere risolti. Per impostare il DNS, accedere all'interfaccia utente per nodo per i nodi di storage e al nodo di gestione, quindi selezionare *Impostazioni di rete* > *rete di gestione*.
++
+.. Interfaccia utente per nodo per nodi di storage: `https://<storage_node_management_IP>:442`
+.. Interfaccia utente per nodo per il nodo di gestione: `https://<management_node_IP>:442`
+
+
+. Modificare le impostazioni del cluster di storage utilizzando l'API Element.
++
+.. Accedere all'API Element e creare la seguente preferenza di interfaccia cluster utilizzando `CreateClusterInterfacePreference` API e inserire l'FQDN MVIP del cluster come valore di preferenza:
++
+*** Nome: `mvip_fqdn`
+*** Valore: <Fully Qualified Domain Name for the Cluster MVIP>
++
+Ad esempio, il nome FQDN è `storagecluster.my.org`:
+
++
+[listing]
+----
+https://<Cluster_MVIP>/json-rpc/12.2?method=CreateClusterInterfacePreference&name=mvip_fqdn&value=storagecluster.my.org
+----
+
+
+
+
+. Modificare le impostazioni del nodo di gestione utilizzando l'API REST sul nodo di gestione:
++
+.. Accedere all'interfaccia utente API REST per il nodo di gestione immettendo l'indirizzo IP del nodo di gestione seguito da `/mnode/2/`. Ad esempio:
++
+[listing]
+----
+https://<management_node_IP>/mnode/2/
+----
+.. Selezionare *autorizzare* o un'icona a forma di lucchetto e inserire il nome utente e la password del cluster di elementi.
+.. Immettere l'ID client come `mnode-client`.
+.. Selezionare *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+.. Selezionare *GET /settings*.
+.. Selezionare *Provalo*.
+.. Selezionare *Esegui*.
+.. Si noti se il proxy viene utilizzato o meno come indicato nella `"use_proxy"` di `true` oppure `false`.
+.. Selezionare *PUT /settings*.
+.. Selezionare *Provalo*.
+.. Nell'area del corpo della richiesta, inserire il nodo di gestione FQDN come valore per `mnode_fqdn` parametro. Specificare inoltre se utilizzare il proxy (`true` oppure `false` dalla fase precedente) per `use_proxy` parametro.
++
+[listing]
+----
+{
+  "mnode_fqdn": "mnode.my.org",
+  "use_proxy": false
+}
+----
+.. Selezionare *Esegui*.
+
+
+
+
+
+
+== Rimuovere l'accesso all'interfaccia utente Web FQDN utilizzando NetApp Hybrid Cloud Control
+
+È possibile utilizzare questa procedura per rimuovere l'accesso Web FQDN per il nodo di gestione e i cluster di storage.
+
+.Fasi
+. Nel riquadro *Fully Qualified Domain Names*, selezionare *Edit* (Modifica).
+. Nella finestra visualizzata, eliminare il contenuto del campo di testo *FQDN*.
+. Selezionare *Salva*.
++
+La finestra si chiude e l'FQDN non è più elencato nel riquadro *Fully Qualified Domain Names*.
+
+
+
+
+
+== Rimuovere l'accesso all'interfaccia utente Web FQDN utilizzando l'API REST
+
+.Fasi
+. Modificare le impostazioni del cluster di storage utilizzando l'API Element.
++
+.. Accedere all'API Element ed eliminare la seguente preferenza di interfaccia cluster utilizzando `DeleteClusterInterfacePreference` Metodo API:
++
+*** Nome: `mvip_fqdn`
++
+Ad esempio:
+
++
+[listing]
+----
+https://<Cluster_MVIP>/json-rpc/12.2?method=DeleteClusterInterfacePreference&name=mvip_fqdn
+----
+
+
+
+
+. Modificare le impostazioni del nodo di gestione utilizzando l'API REST sul nodo di gestione:
++
+.. Accedere all'interfaccia utente API REST per il nodo di gestione immettendo l'indirizzo IP del nodo di gestione seguito da `/mnode/2/`. Ad esempio:
++
+[listing]
+----
+https://<management_node_IP>/mnode/2/
+----
+.. Selezionare *autorizzare* o un'icona a forma di lucchetto e inserire il nome utente e la password del cluster di elementi.
+.. Immettere l'ID client come `mnode-client`.
+.. Selezionare *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+.. Selezionare *PUT /settings*.
+.. Selezionare *Provalo*.
+.. Nell'area del corpo della richiesta, non inserire un valore per `mnode_fqdn` parametro. Specificare inoltre se utilizzare il proxy (`true` oppure `false`) per `use_proxy` parametro.
++
+[listing]
+----
+{
+  "mnode_fqdn": "",
+  "use_proxy": false
+}
+----
+.. Selezionare *Esegui*.
+
+
+
+
+
+
+== Risoluzione dei problemi
+
+Se gli FQDN non sono configurati correttamente, potrebbero verificarsi problemi di accesso al nodo di gestione, a un cluster di storage o a entrambi. Utilizzare le seguenti informazioni per risolvere il problema.
+
+|===
+| Problema | Causa | Risoluzione 
+
+
+ a| 
+* Viene visualizzato un errore del browser quando si tenta di accedere al nodo di gestione o al cluster di storage utilizzando l'FQDN.
+* Non è possibile accedere al nodo di gestione o al cluster di storage utilizzando un indirizzo IP.
+
+| L'FQDN del nodo di gestione e l'FQDN del cluster di storage non sono configurati correttamente. | Utilizzare le istruzioni REST API riportate in questa pagina per rimuovere le impostazioni FQDN del nodo di gestione e del cluster di storage e configurarle di nuovo. 
+
+
+ a| 
+* Viene visualizzato un errore del browser quando si tenta di accedere al FQDN del cluster di storage.
+* Non è possibile accedere al nodo di gestione o al cluster di storage utilizzando un indirizzo IP.
+
+| L'FQDN del nodo di gestione è configurato correttamente, ma l'FQDN del cluster di storage non è configurato correttamente. | Utilizzare le istruzioni REST API riportate in questa pagina per rimuovere le impostazioni FQDN del cluster di storage e configurarle di nuovo. 
+
+
+ a| 
+* Si verifica un errore del browser quando si tenta di accedere al nodo di gestione FQDN.
+* È possibile accedere al nodo di gestione e al cluster di storage utilizzando un indirizzo IP.
+
+| L'FQDN del nodo di gestione non è configurato correttamente, ma l'FQDN del cluster di storage è configurato correttamente. | Accedere a NetApp Hybrid Cloud Control per correggere le impostazioni FQDN del nodo di gestione nell'interfaccia utente oppure utilizzare le istruzioni API REST in questa pagina per correggere le impostazioni. 
+|===
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_createclusterinterfacepreference.html["CreateClusterInterfacePerferta le informazioni API nella documentazione SolidFire ed Element"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_access_overview.html 
+summary: 'Accedi al motore di implementazione NetApp prima di implementare NetApp HCI utilizzando uno dei diversi metodi, a seconda dell"ambiente in uso.' 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Panoramica delle opzioni di accesso al NetApp Deployment Engine
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Per implementare NetApp HCI, è necessario accedere al motore di implementazione NetApp su uno dei nodi di storage NetApp H-Series tramite l'indirizzo IPv4 assegnato all'interfaccia Bond1G, che è l'interfaccia logica che combina le porte A e B per i nodi di storage. Questo nodo di storage diventa il nodo di storage di controllo per il processo di implementazione. A seconda dell'ambiente in uso, è necessario configurare l'indirizzo IPv4 o recuperarlo da uno dei nodi di storage.
+
+
+NOTE: È possibile accedere al NetApp Deployment Engine solo utilizzando l'interfaccia Bond1G di un nodo di storage. L'utilizzo dell'interfaccia Bond10G, l'interfaccia logica che combina le porte C e D per i nodi di storage, non è supportata.
+
+Per accedere al NetApp Deployment Engine, utilizza uno dei seguenti metodi che meglio descrivono il tuo ambiente di rete:
+
+|===
+| Scenario | Metodo 
+
+
+| DHCP non è presente nell'ambiente | link:task_nde_access_no_dhcp.html["Accesso al NetApp Deployment Engine in ambienti senza DHCP"] 
+
+
+| Nell'ambiente in uso è presente il protocollo DHCP | link:task_nde_access_dhcp.html["Accedi al NetApp Deployment Engine negli ambienti con DHCP"] 
+
+
+| Si desidera assegnare manualmente tutti gli indirizzi IP | link:task_nde_access_manual_ip.html["Assegnare manualmente gli indirizzi IP per accedere al NetApp Deployment Engine"] 
+|===
+[discrete]
+== Trova ulteriori informazioni
+
+* link:task_nde_access_ui_fqdn.html["Configurare l'accesso completo all'interfaccia utente Web Domain Name"^]
+

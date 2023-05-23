@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_removewn.html 
+summary: 'Dopo aver espanso un cluster di storage a due nodi a quattro o più nodi, è possibile eliminare la coppia di nodi di controllo per liberare risorse di calcolo nell"installazione di NetApp HCI.' 
+keywords: netapp, hci, witness nodes, two-node cluster, four-node cluster, compute nodes, virtual machine, vm 
+---
+= Rimuovere i nodi di controllo dopo l'espansione del cluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver espanso un cluster di storage a due nodi in quattro o più nodi, è possibile eliminare la coppia di nodi di controllo per liberare risorse di calcolo nell'installazione di NetApp HCI. I nodi di controllo utilizzati in precedenza dal cluster di storage sono ancora visibili come macchine virtuali in standby (VM) in vSphere Web Client.
+
+.A proposito di questa attività
+I nodi di controllo non sono richiesti nei cluster con più di quattro nodi di storage. Questa procedura è facoltativa se si desidera liberare CPU e memoria dopo aver espanso il cluster a due nodi a quattro o più nodi.
+
+
+TIP: Verificare che non vengano segnalati errori o guasti del cluster. Per informazioni sugli avvisi di sistema, fare clic su *Reporting > Avvisi* nell'estensione Gestione NetApp Element di vSphere.
+
+.Fasi
+. Da vSphere, accedere al punto di estensione della gestione NetApp Element dalla scheda *Collegamenti* o dal pannello laterale.
+. Selezionare *Gestione NetApp Element > cluster > nodi*.
++
+image::vcp-witnessnode.gif[Mostra la pagina Gestione NetApp Element > Clusters con i nodi elencati.]
+
+. Selezionare la casella di controllo del nodo di controllo che si desidera eliminare e fare clic su *azioni > Rimuovi*.
+. Confermare l'azione nel prompt.
+. Fare clic su *host e cluster*.
+. Accedere alla VM del nodo di controllo rimossa in precedenza.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale e spegnerla.
+. Fare clic con il pulsante destro del mouse sulla macchina virtuale spenta, quindi fare clic su *Delete from Disk* (Elimina da disco).
+. Confermare l'azione nel prompt.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/media/tr-4823.pdf["Cluster di storage a due nodi NetApp HCI | TR-4823"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_storage.html 
+summary: Scopri come spegnere i nodi di calcolo NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Spegnere le risorse di storage per un sistema NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Quando si spengono le risorse di storage per NetApp HCI, è necessario utilizzare `Shutdown` Metodo API Element per arrestare correttamente i nodi di storage.
+
+.Fasi
+Dopo aver spento le risorse di calcolo, utilizzare un browser Web per chiudere tutti i nodi del cluster di storage NetApp HCI.
+
+. Accedere al cluster di storage e verificare di essere connessi all'MVIP corretto.
+. (Facoltativo) verificare che tutte le operazioni di i/o degli host siano state interrotte:
++
+.. Interrompere l'i/o dal lato host utilizzando i comandi appropriati per uno o più hypervisor in uso.
+.. Nell'interfaccia utente del cluster, selezionare *Reporting* > *Overview*. Non dovrebbe essere presente alcuna attività nel grafico "Cluster Input/Output" (Input/Output cluster).
+.. Una volta interrotte tutte le operazioni di i/o, attendere 20 minuti prima di spegnere il cluster.
+
+
+. Verificare che il numero di sessioni iSCSI sia pari a zero.
+. Accedere a *Cluster > Nodes > Active* (cluster > nodi > attivo) e registrare gli ID dei nodi per tutti i nodi attivi nel cluster.
+. Per spegnere il cluster di storage NetApp HCI, aprire un browser Web e utilizzare il seguente URL per richiamare la procedura di spegnimento e arresto, dove `{MVIP}` È l'indirizzo IP di gestione del sistema di storage NetApp HCI e di `nodes=[]` L'array include gli ID dei nodi registrati al punto 4. Ad esempio:
++
+[listing]
+----
+https://{MVIP}/json-rpc/1.0?method=Shutdown&nodes=[1,2,3,4]&option=halt
+----
++
+
+NOTE: È possibile eseguire il comando in una finestra in incognito per evitare di eseguirlo nuovamente in una fase successiva dall'URL salvato.
+
+. Inserire il nome utente e la password dell'amministratore del cluster.
+. Verificare che la chiamata API sia stata restituita correttamente verificando che tutti i nodi del cluster di storage siano inclusi in `successful` Del risultato API.
++
+Tutti i nodi di storage NetApp HCI sono stati spenti correttamente.
+
+. Chiudere il browser o la scheda per evitare di selezionare il pulsante "Indietro" e ripetere la chiamata API.
+
+
+[NOTE]
+====
+Quando si riavvia il cluster, è necessario seguire alcuni passaggi per verificare che tutti i nodi siano in linea:
+
+. Verificare che tutti i livelli critici di severità e. `volumesOffline` i guasti del cluster sono stati risolti.
+. Attendere da 10 a 15 minuti per consentire al cluster di stabilizzarsi.
+. Avviare la creazione degli host per accedere ai dati.
+
+
+Se si desidera dedicare più tempo all'accensione dei nodi e alla verifica dell'integrità dei nodi dopo la manutenzione, contattare il supporto tecnico per ricevere assistenza con il ritardo della sincronizzazione dei dati per evitare una sincronizzazione bin non necessaria.
+
+====
+
+
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

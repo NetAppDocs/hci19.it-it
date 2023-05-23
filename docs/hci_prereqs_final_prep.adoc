@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_final_prep.html 
+summary: Scopri i preparativi finali e la configurazione da completare prima di implementare NetApp HCI. 
+keywords: netapp, hci, final preparations, requirements 
+---
+= Configurare IPMI per ciascun nodo
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, final preparations, IPMI
+
+
+[role="lead"]
+Dopo aver eseguito il racking, il cabling e l'accensione dell'hardware NetApp HCI, è possibile configurare l'accesso all'interfaccia di gestione della piattaforma intelligente (IPMI) per ciascun nodo. Assegnare a ciascuna porta IPMI un indirizzo IP e modificare la password di amministratore IPMI predefinita non appena si dispone dell'accesso remoto IPMI al nodo.
+
+
+
+== Prerequisiti
+
+Dopo aver verificato che l'ambiente è pronto per supportare NetApp HCI e aver risolto eventuali problemi, è necessario completare alcune attività finali prima dell'implementazione.
+
+* Assicurati di avere un report di successo da Active IQ Config Advisor.
+* Raccogliere tutte le informazioni pertinenti relative alla rete, all'infrastruttura VMware corrente o pianificata e alle credenziali utente pianificate.
+* Rack, cavo e alimentazione per l'installazione di NetApp HCI.
+
+
+
+
+== Assegnare manualmente l'indirizzo IP della porta IPMI
+
+Il protocollo DHCP (Dynamic host Configuration Protocol) è attivato per impostazione predefinita per la porta IPMI di ciascun nodo NetApp HCI. Se la rete IPMI non utilizza DHCP, è possibile assegnare manualmente un indirizzo IPv4 statico alla porta IPMI.
+
+.Prima di iniziare
+Assicurarsi di disporre di uno switch per tastiera, video e mouse (KVM) o di un monitor e di una tastiera utilizzabili per accedere al BIOS di ciascun nodo.
+
+.A proposito di questa attività
+Utilizzare i tasti freccia per spostarsi all'interno del BIOS. Selezionare una scheda o un'opzione premendo `Enter`. Per tornare alle schermate precedenti, premere `ESC`.
+
+.Fasi
+. Accendere il nodo.
+. All'avvio, accedere al BIOS premendo il tasto `Del` chiave.
+. Selezionare la scheda IPMI.
+. Selezionare *BMC Network Configuration* e premere `Enter`.
+. Scegliere *Sì* e premere `Enter`.
+. Selezionare *origine indirizzo di configurazione* e premere `Enter`.
+. Scegliere *statico* e premere `Enter`.
+. Selezionare *Station IP address* (Indirizzo IP stazione) e inserire un nuovo indirizzo IP per la porta IPMI. Premere `Enter` al termine dell'operazione.
+. Selezionare *Subnet mask* e inserire una nuova subnet mask per la porta IPMI. Premere `Enter` al termine dell'operazione.
+. Selezionare *Gateway IP address* (Indirizzo IP gateway) e inserire un nuovo indirizzo IP gateway per la porta IPMI. Premere `Enter` al termine dell'operazione.
+. Collegare un'estremità di un cavo Ethernet alla porta IPMI e l'altra estremità a uno switch.
++
+La porta IPMI per questo nodo è pronta per l'uso.
+
+. Ripetere questa procedura per tutti gli altri nodi NetApp HCI con porte IPMI non configurate.
+
+
+
+
+== Modificare la password IPMI predefinita per i nodi H410C e H410S
+
+È necessario modificare la password predefinita per l'account amministratore IPMI su ciascun nodo di calcolo e storage non appena si configura la porta di rete IPMI.
+
+.Prima di iniziare
+L'indirizzo IP IPMI è stato configurato per ciascun nodo di calcolo e storage.
+
+.Fasi
+. Aprire un browser Web su un computer in grado di raggiungere la rete IPMI e individuare l'indirizzo IP IPMI del nodo.
+. Immettere il nome utente `ADMIN` e password `ADMIN` al prompt di login.
+. Una volta effettuato l'accesso, fare clic sulla scheda *Configuration* (Configurazione).
+. Fare clic su *utenti*.
+. Selezionare `ADMIN` E fare clic su *Modify User* (Modifica utente).
+. Selezionare la casella di controllo *Change Password* (Modifica password).
+. Immettere una nuova password nei campi *Password* e *Conferma password*.
+. Fare clic su *Modify*, quindi su *OK*.
+. Ripetere questa procedura per tutti gli altri nodi NetApp HCI H410C e H410S con password IPMI predefinite.
+
+
+
+
+== Modificare la password IPMI predefinita per i nodi H610C, H615C e H610S
+
+È necessario modificare la password predefinita per l'account amministratore IPMI su ciascun nodo di calcolo e storage non appena si configura la porta di rete IPMI.
+
+.Prima di iniziare
+L'indirizzo IP IPMI è stato configurato per ciascun nodo di calcolo e storage.
+
+.Fasi
+. Aprire un browser Web su un computer in grado di raggiungere la rete IPMI e individuare l'indirizzo IP IPMI del nodo.
+. Immettere il nome utente `root` e password `calvin` al prompt di login.
+. Una volta effettuato l'accesso, fare clic sull'icona di navigazione del menu in alto a sinistra della pagina per aprire il cassetto della barra laterale.
+. Fare clic su *Impostazioni*.
+. Fare clic su *Gestione utenti*.
+. Selezionare l'utente *Administrator* dall'elenco.
+. Attivare la casella di controllo *Change Password* (Modifica password).
+. Immettere una nuova password complessa nei campi *Password* e *Conferma password*.
+. Fare clic su *Save* (Salva) nella parte inferiore della pagina.
+. Ripetere questa procedura per tutti gli altri nodi NetApp HCI H610C, H615C o H610S con password IPMI predefinite.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione NetApp SolidFire Active IQ"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

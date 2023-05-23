@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_join_existing_vsphere.html 
+summary: 'Scopri come configurare VMware vSphere durante l"implementazione di NetApp HCI.' 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Partecipa a un'implementazione VMware vSphere esistente
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+È possibile configurare NetApp HCI per sfruttare un'implementazione vSphere esistente fornendo le informazioni e le credenziali di rete di vCenter Server.
+
+.Di cosa hai bisogno
+* Se si sta partecipando a un'implementazione vSphere 6.7 esistente, assicurarsi che vCenter Server esegua la versione 6.7 Update 1.
+* Se si sta partecipando a un'implementazione vSphere 6.5 esistente, assicurarsi che vCenter Server esegua la versione 6.5 Update 2 o successiva.
+* Ottenere i dettagli di rete e le credenziali di amministratore per l'implementazione vSphere esistente.
+* Se il plug-in NetApp Element per vCenter Server è registrato nell'istanza esistente di vCenter, è necessario https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["annulla registrazione"^] prima di continuare. Il plug-in viene registrato nuovamente al termine dell'implementazione di NetApp HCI.
+
+
+.A proposito di questa attività
+Se si uniscono più sistemi vCenter Server connessi tramite la modalità collegata a vCenter, NetApp HCI riconosce solo uno dei sistemi vCenter Server.
+
+[NOTE]
+====
+* A partire da Element Plug-in per vCenter Server 5.0, da utilizzare https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["Modalità collegata vCenter"^], È possibile registrare il plug-in Element da un nodo di gestione separato per ogni server vCenter che gestisce i cluster di storage NetApp SolidFire (consigliato).
+* Utilizzo di Element Plug-in per vCenter Server 4.10 e versioni precedenti per gestire le risorse cluster di altri vCenter Server utilizzando https://docs.netapp.com/us-en/vcp/vcp_concept_linkedmode.html["Modalità collegata vCenter"^] è limitato solo ai cluster di storage locali.
+
+
+====
+.Fasi
+. Fare clic su *partecipa ed estendi un'implementazione vSphere esistente*.
+. Inserire il nome di dominio o l'indirizzo IP nel campo *vCenter Server Domain Name or IP address* (Nome di dominio o indirizzo IP del server vCenter). Se si immette un nome di dominio, è necessario inserire anche l'indirizzo IP di un server DNS attivo nel campo *DNS Server IP Address* (Indirizzo IP server DNS) visualizzato.
+. Immettere le credenziali di un amministratore vSphere nei campi *Nome utente e Password*.
+. Fare clic su *continua*.
+
+
+
+NOTE: Se il plug-in NetApp Element per il server vCenter è stato registrato durante questa fase, viene visualizzato un messaggio di errore che richiede di eseguire questa operazione https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["annulla registrazione"^] il plug-in. Eseguire questa operazione prima di continuare l'implementazione di NetApp HCI. Il plug-in viene registrato nuovamente al termine dell'implementazione.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

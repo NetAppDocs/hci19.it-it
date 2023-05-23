@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_ip_address.html 
+summary: Scopri i requisiti degli indirizzi IP di NetApp HCI. 
+keywords: netapp, hci, IP address, requirements 
+---
+= Requisiti dell'indirizzo IP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, IP address, requirements
+
+
+[role="lead"]
+NetApp HCI presenta requisiti specifici per gli indirizzi IP che dipendono dalle dimensioni dell'implementazione. Per impostazione predefinita, gli indirizzi IP iniziali assegnati a ciascun nodo prima di utilizzare NetApp Deployment Engine per implementare il sistema sono temporanei e non possono essere riutilizzati. È necessario mettere da parte un secondo set permanente di indirizzi IP inutilizzati che è possibile assegnare durante l'implementazione finale.
+
+
+
+== Numero di indirizzi IP necessari per l'implementazione di NetApp HCI
+
+La rete di storage e la rete di gestione NetApp HCI devono utilizzare intervalli contigui di indirizzi IP separati. Utilizzare la seguente tabella per determinare il numero di indirizzi IP necessari per l'implementazione:
+
+|===
+| Componente del sistema | Gestione degli indirizzi IP di rete necessari | Sono necessari gli indirizzi IP della rete di storage | Sono necessari indirizzi IP di rete VMotion | Totale indirizzi IP necessari per componente 
+
+
+| Nodo di calcolo | 1 | 2 | 1 | 4 
+
+
+| Nodo storage | 1 | 1 |  | 2 
+
+
+| Cluster di storage | 1 | 1 |  | 2 
+
+
+| VMware vCenter | 1 |  |  | 1 
+
+
+| Nodo di gestione | 1 | 1 |  | 2 
+
+
+| Nodo di controllo | 1 | 1 |  | 2 per nodo di controllo (due nodi di controllo sono implementati per ogni cluster di storage a due o tre nodi) 
+|===
+
+
+== Indirizzi IP riservati da NetApp HCI
+
+NetApp HCI si riserva i seguenti intervalli di indirizzi IP per i componenti del sistema. Durante la pianificazione della rete, evitare di utilizzare questi indirizzi IP:
+
+|===
+| Intervallo di indirizzi IP | Descrizione 
+
+
+| 10.0.0.0/24 | Rete Docker overlay 
+
+
+| 10.0.1.0/24 | Rete Docker overlay 
+
+
+| 10.255.0.0/16 | Rete di ingresso "swarm" di Docker 
+
+
+| 169.254.100.1/22 | Rete Docker Bridge 
+
+
+| 169.254.104.0/22 | Rete Docker Bridge 
+|===
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

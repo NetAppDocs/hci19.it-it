@@ -1,0 +1,193 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_storage_firmware_2.27.html 
+summary: Collegamenti alle note di rilascio per i pacchetti firmware che è possibile scaricare e applicare ai nodi NetApp HCI. 
+keywords: netapp, hci, storage firmware 
+---
+= Note sulla versione di Storage firmware Bundle 2.27
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+A partire da Element 12.0 e dalla versione 2.14 dei servizi di gestione, è possibile eseguire aggiornamenti solo firmware sui nodi di storage utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control e l'API REST. Questa procedura non aggiorna il software Element e consente di aggiornare il firmware dello storage al di fuori di una release elemento principale.
+
+
+IMPORTANT: Per i nodi di storage H610S che eseguono il software Element versione 12.0, applicare D-patch SUST-909 prima di eseguire l'aggiornamento al bundle firmware di storage 2.27. Contattare il supporto NetApp per ottenere la D-patch prima di eseguire l'aggiornamento.
+
+
+
+== Novità
+
+Il bundle di firmware di storage versione 2.27 contiene varie correzioni di bug e nuove funzionalità, tra cui correzioni delle vulnerabilità di sicurezza. È possibile aggiornare il firmware dello storage seguendo le istruzioni riportate in link:task_hcc_upgrade_storage_firmware.html["Aggiornare il firmware dello storage"].
+
+
+
+=== Componenti del firmware aggiornati
+
+Questo pacchetto firmware contiene le seguenti versioni firmware per i componenti hardware, con le versioni aggiornate in grassetto:
+
+|===
+| Componente | Dell R630 | H410S | H610S 
+
+
+| BIOS | N/A. | NA2.1 | 3B03 
+
+
+| BMC | N/A. | *6.84.00* | *3.84.07* 
+
+
+| NIC/Mellanox | - | 14.21.1000 | 14.22.1002 
+
+
+| RMS200 | ae3b8cc | 7d8422bc | - 
+
+
+| RMS300 | 7d8422bc | 7d8422bc | - 
+
+
+| NVDIMM, Smart | - | - | 3.1 
+
+
+| BPM, intelligente | - | - | 2.16 
+
+
+| NVDIMM, micron Gen1 | - | - | 26,2c 
+
+
+| NVDIMM, micron Gen2 | - | - | 25,3c 
+
+
+| PGEM, micron | - | - | 1.40 
+
+
+| PM863, SED | GXT5404Q | GXT5404Q | - 
+
+
+| PM863, NSED | GXT5103Q | GXT5103Q | - 
+
+
+| PM883, SED | HXT7104Q | HXT7104Q | - 
+
+
+| Hawk-4, SED | 8ITP7101 | 8ITP7101 | - 
+
+
+| Hawk-4, NSED | 8ITP6101 | 8ITP6101 | - 
+
+
+| PM963, SED | - | - | CXV8202Q 
+
+
+| PM963, NSED | - | - | CXV8501Q 
+
+
+| PM983, SED | - | - | *EDA5302Q* 
+
+
+| PM983, NSED | - | - | *EDA5600Q* 
+
+
+| CD5, SED | - | - | 0108 
+
+
+| CD5, NSED | - | - | 0108 
+
+
+| CD5, FIPS | - | - | 0108 
+|===
+
+
+== Nuove funzionalità BMC
+
+Di seguito sono riportate le nuove funzionalità e le modifiche di BMC incluse in questa release:
+
+* (H610S) supporto INITRD abilitato, per il caricamento di un ramdisk iniziale al momento dell'avvio
+* (H610S) aggiornamento del messaggio della guida SSL sui certificati X.509
+* (H610S) supporto TLS 1.0 e 1.1 disattivato per risolvere le vulnerabilità della sicurezza
+* (H610S, H410S) aggiunta la possibilità di montare supporti remoti utilizzando le API Redfish
+* (H610S) aggiunto supporto per la gestione BMC del browser Web HTML5
+* (H610S) aggiunto supporto syslog remoto per il monitoraggio e la gestione del data center remoto
+
+
+
+
+== Problemi risolti
+
+Di seguito sono riportati i problemi risolti in questa versione:
+
+|===
+| Problema | Descrizione 
+
+
+| N/A. | L'utente di debug sysadmin può effettuare l'accesso utilizzando SSH dopo aver reimpostato il BMC. 
+
+
+| N/A. | Quando si utilizza la console per eseguire il ping dell'indirizzo IP BMC, il BMC non risponde. 
+
+
+| N/A. | Durante un test di stress del ciclo di alimentazione CA, le autorizzazioni di accesso del file di configurazione di SOLSSH vengono perse. 
+
+
+| CSESF-116 | Durante un test di stress per il ciclo di alimentazione CA, nei registri BMC vengono visualizzati gli avvisi termici della CPU "PROCHOT". 
+
+
+| CSESF-121 | L'API di creazione e aggiornamento dell'account di servizio richiede più tempo del previsto. 
+
+
+| CSD-3321/CSESF-129 | Il BMC H610S può bloccarsi e diventare inaccessibile con l'errore "BMC Self Test Failed" (Test automatico BMC non riuscito). 
+
+
+| CSESF-197 | L'API di inventario dell'interfaccia utente Web BMC restituisce il formato del numero di serie della memoria errato. 
+|===
+
+
+== Vulnerabilità di sicurezza risolte
+
+Di seguito sono riportate le vulnerabilità di sicurezza risolte in questa versione:
+
+
+
+=== H410S BMC 6.84.00
+
+* CVE-2019-16649
+* CVE-2019-16650
+* CVE-2019-6260
+
+
+
+
+=== H610S BMC 3.84.07
+
+* CVE-2019-1552
+* CVE-2019-1547, CVE-2019-1563
+* CVE-2019-5482
+* CVE-2019-15903
+* CVE-2018-20843
+* CVE-2019-14821, CVE-2019-15916, CVE-2019-16413
+* CVE-2019-10638, CVE-2019-10639
+* CVE-2019-11478, CVE-2019-11479, CVE-2019-11477
+* CVE-2019-12819
+* CVE-2019-14835, CVE-2019-14814, CVE-2019-14816, CVE-2019-16746
+* CVE-2019-19062
+* CVE-2019-19922, CVE-2019-20054
+* CVE-2019-19447, CVE-2019-19767, CVE-2019-10220
+
+
+
+
+== Problemi noti
+
+Non ci sono problemi noti in questa versione.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

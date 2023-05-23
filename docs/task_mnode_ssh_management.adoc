@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_ssh_management.html 
+summary: 'È possibile disattivare e attivare la funzionalità SSH sul nodo di gestione utilizzando l"interfaccia utente NetApp Hybrid Cloud Control o L"interfaccia utente REST API o determinare lo stato della funzionalità di connessione del supporto SSH utilizzando l"interfaccia utente REST API.' 
+keywords: netapp, mnode, management node, ssh, disable, enable, rest api, hybrid, cloud, control, hcc 
+---
+= Gestire la funzionalità SSH sul nodo di gestione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile disattivare, riattivare o determinare lo stato della funzionalità SSH sul nodo di gestione (mNode) utilizzando l'API REST. Funzionalità SSH che offre link:task_mnode_enable_remote_support_connections.html["Accesso alla sessione del NetApp Support Remote Support Tunnel (RST)"] è disattivato per impostazione predefinita sui nodi di gestione che eseguono i servizi di gestione 2.18 o versioni successive.
+
+A partire da Management Services 2.20.69, è possibile attivare e disattivare la funzionalità SSH sul nodo di gestione utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control.
+
+.Di cosa hai bisogno
+* *NetApp Hybrid Cloud Control Permissions*: Hai le autorizzazioni di amministratore.
+* *Cluster Administrator permissions* (autorizzazioni amministratore cluster): Si dispone delle autorizzazioni di amministratore per il cluster di storage.
+* *Software Element*: Il cluster esegue il software NetApp Element 11.3 o versione successiva.
+* *Nodo di gestione*: È stato implementato un nodo di gestione con versione 11.3 o successiva.
+* *Aggiornamenti dei servizi di gestione*:
++
+** Per utilizzare l'interfaccia utente di NetApp Hybrid Cloud Control, è stato aggiornato il https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab["bundle di servizi di gestione"^] alla versione 2.20.69 o successiva.
+** Per utilizzare l'interfaccia utente API REST, è stato aggiornato il https://mysupport.netapp.com/site/products/all/details/mgmtservices/downloads-tab["bundle di servizi di gestione"^] alla versione 2.17.
+
+
+
+
+.Opzioni
+* <<Disattivare o attivare la funzionalità SSH sul nodo di gestione utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control>>
+
+
+Dopo di che, è possibile eseguire una delle seguenti attività link:task_mnode_api_get_authorizationtouse.html["autenticare"]:
+
+* <<Disattivare o attivare la funzionalità SSH sul nodo di gestione utilizzando le API>>
+* <<Determinare lo stato della funzionalità SSH sul nodo di gestione utilizzando le API>>
+
+
+
+
+== Disattivare o attivare la funzionalità SSH sul nodo di gestione utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control
+
+È possibile disattivare o riattivare la funzionalità SSH sul nodo di gestione. Funzionalità SSH che offre link:task_mnode_enable_remote_support_connections.html["Accesso alla sessione del NetApp Support Remote Support Tunnel (RST)"] è disattivato per impostazione predefinita sui nodi di gestione che eseguono i servizi di gestione 2.18 o versioni successive. La disattivazione di SSH non interrompe o disconnette le sessioni client SSH esistenti al nodo di gestione. Se si disattiva SSH e si sceglie di riattivarlo in un secondo momento, è possibile farlo utilizzando l'interfaccia utente di NetApp Hybrid Cloud Control.
+
+
+NOTE: Per attivare o disattivare l'accesso al supporto utilizzando SSH per un cluster di storage, è necessario utilizzare https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_enable_and_disable_support_access.html["Pagina delle impostazioni del cluster dell'interfaccia utente Element"^].
+
+.Fasi
+. Dalla dashboard, selezionare il menu delle opzioni in alto a destra e selezionare *Configura*.
+. Nella schermata *Support Access for Management Node* (accesso supporto per nodo di gestione), attivare lo switch per attivare il nodo di gestione SSH.
+. Una volta completata la risoluzione dei problemi, nella schermata *Support Access for Management Node* (accesso supporto per nodo di gestione), impostare lo switch su Disable Management Node SSH (Disattiva SSH nodo di gestione).
+
+
+
+
+== Disattivare o attivare la funzionalità SSH sul nodo di gestione utilizzando le API
+
+È possibile disattivare o riattivare la funzionalità SSH sul nodo di gestione. Funzionalità SSH che offre link:task_mnode_enable_remote_support_connections.html["Accesso alla sessione del NetApp Support Remote Support Tunnel (RST)"] è disattivato per impostazione predefinita sui nodi di gestione che eseguono i servizi di gestione 2.18 o versioni successive. La disattivazione di SSH non interrompe o disconnette le sessioni client SSH esistenti al nodo di gestione. Se si disattiva SSH e si sceglie di riattivarlo in un secondo momento, è possibile utilizzare la stessa API.
+
+.Comando API
+Per i servizi di gestione 2.18 o versioni successive:
+
+[listing]
+----
+curl -k -X PUT "https://<<ManagementNodeIP>/mnode/2/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+Per i servizi di gestione 2.17 o precedenti:
+
+[listing]
+----
+curl -X PUT "https://<ManagementNodeIP>/mnode/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+
+NOTE: Puoi trovare il portatore `${TOKEN}` Utilizzato dal comando API quando si link:task_mnode_api_get_authorizationtouse.html["autorizzare"]. Il portatore `${TOKEN}` è nella risposta di arricciamento.
+
+.FASI DELL'INTERFACCIA UTENTE API REST
+. Accedere all'interfaccia utente API REST per il servizio API del nodo di gestione immettendo l'indirizzo IP del nodo di gestione seguito da `/mnode/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. Selezionare *autorizzare* e completare le seguenti operazioni:
++
+.. Inserire il nome utente e la password del cluster.
+.. Immettere l'ID client come `mnode-client`.
+.. Selezionare *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+
+
+. Dall'interfaccia utente API REST, selezionare *PUT /settings​/ssh*.
++
+.. Fare clic su *Provalo*.
+.. Impostare il parametro *enabled* su `false` Per disattivare SSH o. `true` Per riattivare la funzionalità SSH precedentemente disattivata.
+.. Fare clic su *Execute* (Esegui).
+
+
+
+
+
+
+== Determinare lo stato della funzionalità SSH sul nodo di gestione utilizzando le API
+
+È possibile determinare se la funzionalità SSH è attivata sul nodo di gestione utilizzando un'API di servizio del nodo di gestione. SSH è disattivato per impostazione predefinita sui nodi di gestione che eseguono i servizi di gestione 2.18 o versioni successive.
+
+.Comando API
+Per i servizi di gestione 2.18 o versioni successive:
+
+[listing]
+----
+curl -k -X PUT "https://<<ManagementNodeIP>/mnode/2/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+Per i servizi di gestione 2.17 o precedenti:
+
+[listing]
+----
+curl -X PUT "https://<ManagementNodeIP>/mnode/settings/ssh?enabled=<false/true>" -H  "accept: application/json" -H  "Authorization: Bearer ${TOKEN}"
+----
+
+NOTE: Puoi trovare il portatore `${TOKEN}` Utilizzato dal comando API quando si link:task_mnode_api_get_authorizationtouse.html["autorizzare"]. Il portatore `${TOKEN}` è nella risposta di arricciamento.
+
+.FASI DELL'INTERFACCIA UTENTE API REST
+. Accedere all'interfaccia utente API REST per il servizio API del nodo di gestione immettendo l'indirizzo IP del nodo di gestione seguito da `/mnode/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. Selezionare *autorizzare* e completare le seguenti operazioni:
++
+.. Inserire il nome utente e la password del cluster.
+.. Immettere l'ID client come `mnode-client`.
+.. Selezionare *autorizzare* per avviare una sessione.
+.. Chiudere la finestra.
+
+
+. Dall'interfaccia utente API REST, selezionare *GET /settings​/ssh*.
++
+.. Fare clic su *Provalo*.
+.. Fare clic su *Execute* (Esegui).
+
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_volume_access_groups.html 
+summary: Scopri i gruppi di accesso ai volumi e come utilizzarli per accedere e gestire i volumi. 
+keywords: netapp, hci, storage volume, solidfire volume, element volume, persistent volume, access group 
+---
+= Gruppi di accesso ai volumi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un gruppo di accesso al volume è un insieme di volumi a cui gli utenti possono accedere utilizzando gli iniziatori iSCSI o Fibre Channel.
+
+Creando e utilizzando i gruppi di accesso ai volumi, è possibile controllare l'accesso a un set di volumi. Quando si associano un set di volumi e un set di iniziatori a un gruppo di accesso al volume, il gruppo di accesso concede agli iniziatori l'accesso a tale set di volumi.
+
+I gruppi di accesso ai volumi hanno i seguenti limiti:
+
+* Un massimo di 128 iniziatori per gruppo di accesso al volume.
+* Un massimo di 64 gruppi di accesso per volume.
+* Un gruppo di accesso può essere costituito da un massimo di 2000 volumi.
+* Un IQN o WWPN può appartenere a un solo gruppo di accesso al volume.
+
+
+
+
+== Trova ulteriori informazioni
+
+* link:task_hcc_manage_vol_access_groups.html["Gestire i gruppi di accesso ai volumi"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

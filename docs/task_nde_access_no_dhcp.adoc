@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_no_dhcp.html 
+summary: Scopri come accedere al NetApp Deployment Engine in ambienti senza DHCP. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Accesso al NetApp Deployment Engine in ambienti senza DHCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Quando DHCP non è in uso sulla rete, è necessario impostare un indirizzo IPv4 statico sull'interfaccia Bond1G di uno dei nodi di storage (noto anche come nodo di storage di controllo) che si utilizzerà per accedere a NetApp Deployment Engine. Il NetApp Deployment Engine sul nodo storage di controllo rileverà e comunicherà con altri nodi di calcolo e storage utilizzando indirizzi IPv4 configurati automaticamente sulle interfacce Bond10G di tutti i nodi. Utilizzare questo metodo a meno che la rete non presenti requisiti speciali.
+
+.Di cosa hai bisogno
+* L'utente o l'amministratore di rete hanno completato le operazioni descritte nel documento istruzioni per l'installazione e l'installazione.
+* Si dispone dell'accesso fisico ai nodi NetApp HCI.
+* Tutti i nodi NetApp HCI sono accesi.
+* DHCP non è abilitato per le reti NetApp HCI e i nodi NetApp HCI non hanno ottenuto indirizzi IP dai server DHCP.
+* La rete di gestione NetApp HCI è configurata come VLAN nativa sulle interfacce Bond1G e Bond10G di tutti i nodi.
+
+
+.Fasi
+. Inserire un KVM nella parte posteriore di uno dei nodi di storage NetApp HCI (questo nodo diventerà il nodo di storage di controllo).
+. Configurare l'indirizzo IP, la subnet mask e l'indirizzo del gateway per Bond1G nell'interfaccia utente. Se necessario, è anche possibile configurare un ID VLAN per la rete Bond1G.
++
+
+NOTE: Non è possibile riutilizzare questo indirizzo IPv4 in un secondo momento durante l'implementazione con NetApp Deployment Engine.
+
+. Aprire un browser Web su un computer in grado di accedere alla rete di gestione NetApp HCI.
+. Individuare l'indirizzo IP assegnato al nodo di storage di controllo. Ad esempio:
++
+[listing]
+----
+http://<Bond1G IP address>
+----
++
+
+NOTE: Assicurarsi di utilizzare HTTP qui.
+
++
+In questo modo si passa all'interfaccia utente di NetApp Deployment Engine.
+
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI"]
+

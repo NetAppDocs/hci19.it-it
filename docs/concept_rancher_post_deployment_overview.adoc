@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_rancher_post_deployment_overview.html 
+summary: 'Scopri le attività che potresti dover eseguire dopo l"installazione di Rancher su NetApp HCI.' 
+keywords: netapp, hci, Rancher, install, post installation, requirements, tasks 
+---
+= Panoramica delle attività post-implementazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver implementato Rancher su NetApp HCI, dovresti continuare con le attività post-implementazione.
+
+* link:task_rancher_ensure_rancher_support_parity.html["Garantire la parità del supporto Rancher"]
+* link:task_rancher_config_anti_affinity.html["Migliorare la resilienza delle macchine virtuali Rancher"]
+* link:task_rancher_enable_monitoring.html["Configurare il monitoraggio"]
+* link:task_rancher_trident.html["Installare Trident"]
+* link:task_trident_configure_networking.html["Abilitare il supporto Trident per i cluster di utenti"]
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Documentazione del rancher sull'architettura"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["La terminologia di Kubernetes per Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

@@ -1,0 +1,39 @@
+---
+permalink: docs/concept_hcc_custom_protection_domains.html 
+sidebar: sidebar 
+keywords: protection domain layout,user-defined,custom layout 
+summary: È possibile definire un layout personalizzato del dominio di protezione, in cui ciascun nodo è associato a un solo dominio di protezione personalizzato. Per impostazione predefinita, ogni nodo viene assegnato allo stesso dominio di protezione personalizzato predefinito. 
+---
+= Domini di protezione personalizzati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+È possibile definire un layout personalizzato del dominio di protezione, in cui ciascun nodo è associato a un solo dominio di protezione personalizzato. Per impostazione predefinita, ogni nodo viene assegnato allo stesso dominio di protezione personalizzato predefinito.
+
+Se non sono assegnati domini di protezione personalizzati:
+
+* Il funzionamento del cluster non viene influenzato.
+* Il livello personalizzato non è tollerante né resiliente.
+
+
+Se viene assegnato più di un dominio di protezione personalizzato, ciascun sottosistema assegna i duplicati a domini di protezione personalizzati separati. Se ciò non è possibile, viene ripristinata l'assegnazione di duplicati a nodi separati. Ogni sottosistema (ad esempio, bin, slice, provider di endpoint del protocollo e gruppo) esegue questa operazione in modo indipendente.
+
+
+NOTE: L'utilizzo di domini di protezione personalizzati presuppone che nessun nodo condivida uno chassis.
+
+I seguenti metodi API Element espongono questi nuovi domini di protezione:
+
+* GetProtectionDomainLayout - Mostra lo chassis e il dominio di protezione personalizzato in cui si trova ciascun nodo.
+* SetProtectionDomainLayout - consente di assegnare un dominio di protezione personalizzato a ciascun nodo.
+
+
+Contatta il supporto NetApp per ulteriori dettagli sull'utilizzo di domini di protezione personalizzati.
+
+
+
+== Trova ulteriori informazioni
+
+https://docs.netapp.com/us-en/element-software/api/index.html["Gestire lo storage con l'API Element"^]

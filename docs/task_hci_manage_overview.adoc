@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_manage_overview.html 
+summary: È possibile configurare FQDM e gestire le credenziali per NetApp HCI, account utente, cluster di storage, volumi, gruppi di accesso ai volumi, Iniziatori, policy di QoS dei volumi e nodo di gestione. 
+keywords: netapp, hci, install, deploy, get started, configure, fqdn, fully qualified domain name 
+---
+= Panoramica sulla gestione di NetApp HCI
+:allow-uri-read: 
+
+
+[role="lead"]
+È possibile configurare il nome di dominio completo e gestire le credenziali per NetApp HCI, account utente, cluster di storage, volumi, gruppi di accesso ai volumi, Iniziatori, policy di QoS dei volumi e nodo di gestione.
+
+Di seguito sono riportati gli elementi che è possibile utilizzare:
+
+* link:task_nde_access_ui_fqdn.html["Configurare l'accesso completo all'interfaccia utente Web Domain Name"]
+* link:task_post_deploy_credentials.html["Modificare le credenziali in NetApp HCI"]
+* link:task_hci_credentials_vcenter_esxi.html["Aggiornare le credenziali vCenter ed ESXi"]
+* link:task_hcc_manage_storage_overview.html["Gestire le risorse di storage NetApp HCI"]
+* link:task_mnode_work_overview.html["Lavorare con il nodo di gestione"]
+* link:concept_nde_hci_power_off_on.html["Spegnere e riaccendere il sistema NetApp HCI"]
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_ensure_rancher_support_parity.html 
+summary: Scopri come garantire che le licenze in uso per Rancher corrispondano a quelle acquistate. 
+keywords: netapp, hci, Rancher, licensing 
+---
+= Garantire la parità del supporto Rancher
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dopo aver implementato Rancher su NetApp HCI, è necessario assicurarsi che il numero di core di supporto Rancher acquistati corrisponda al numero di core CPU utilizzati per le VM di gestione Rancher e i cluster utente.
+
+Se hai acquistato il supporto per rancher solo per una parte delle tue risorse di calcolo NetApp HCI, devi intervenire in VMware vSphere per garantire che Rancher su NetApp HCI e i suoi cluster di utenti gestiti siano eseguiti solo sugli host per i quali hai acquistato il supporto per rancher. Consultare la documentazione di VMware vSphere per informazioni su come garantire questo risultato confinando i carichi di lavoro di calcolo a host specifici.
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["VSphere ha e DRS Affinity Rules"^]
+* https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["Creare regole di affinità per VM"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Documentazione del rancher sull'architettura"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["La terminologia di Kubernetes per Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

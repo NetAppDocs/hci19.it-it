@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_select_inventory.html 
+summary: 'Scopri come selezionare l"inventario dei nodi NetApp HCI durante l"implementazione.' 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= Selezionare l'inventario
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nella pagina *inventario*, il motore di implementazione NetApp rileva automaticamente i nodi di calcolo e storage disponibili, consentendo di selezionare e aggiungere tutte le risorse NetApp HCI all'implementazione. Se un nodo non soddisfa i requisiti per l'implementazione, non è selezionabile e i problemi vengono indicati come errori. È possibile posizionare il cursore sull'errore nella riga del nodo per visualizzare una spiegazione. Quando si sceglie l'inventario dei nodi nella pagina inventario, il nodo storage che ospita NetApp Deployment Engine viene selezionato automaticamente e non è possibile deselezionarlo.
+
+.Di cosa hai bisogno
+I frame jumbo devono essere abilitati per un corretto rilevamento dell'inventario. Se nell'inventario non sono presenti nodi o solo un sottoinsieme di nodi, verificare che le porte dello switch utilizzate per i nodi NetApp HCI (tutte le interfacce SFP+/SFP28) siano configurate con frame jumbo.
+
+.Fasi
+. Nella pagina *Inventory*, visualizzare l'elenco dei nodi disponibili.
++
+Se il sistema non rileva alcun inventario, viene visualizzato un errore. Correggere l'errore prima di continuare. Se il sistema utilizza DHCP per l'assegnazione dell'indirizzo IP, le risorse di storage e di calcolo potrebbero non apparire immediatamente nell'inventario.
+
+. Facoltativo: Se una risorsa non viene visualizzata immediatamente nell'inventario o se si risolve un errore e si desidera aggiornare l'inventario, fare clic su *Refresh Inventory* (Aggiorna inventario). Potrebbe essere necessario aggiornare l'inventario più volte.
+. Facoltativo: Per filtrare l'inventario sugli attributi del nodo, ad esempio il tipo di nodo:
++
+.. Fare clic su *Filter* (filtro) nell'intestazione degli elenchi *Compute Nodes* (nodi di calcolo) o *Storage Nodes* (nodi di storage).
+.. Scegliere i criteri dagli elenchi a discesa.
+.. Sotto gli elenchi a discesa, immettere le informazioni per soddisfare i criteri.
+.. Fare clic su *Aggiungi filtro*.
+.. Eliminare i singoli filtri facendo clic su *X* accanto a un filtro attivo oppure deselezionare tutti i filtri facendo clic su *X* sopra l'elenco dei filtri.
+
+
+. Selezionare tutti i nodi di calcolo forniti con il sistema dall'elenco *nodi di calcolo*.
++
+Per procedere con l'implementazione, è necessario selezionare almeno due nodi di calcolo.
+
+. Selezionare tutti i nodi di storage forniti con il sistema dall'elenco *nodi di storage*.
++
+Per procedere con l'implementazione, è necessario selezionare almeno due nodi di storage.
+
+. Facoltativo: Se viene contrassegnata una casella di selezione del nodo di storage, tale nodo supera il 33% della capacità totale del cluster di storage. Fare delle seguenti operazioni:
++
+** Deselezionare la casella di selezione per il nodo di storage contrassegnato.
+** Selezionare nodi di storage aggiuntivi per distribuire in modo più equo la capacità del cluster di storage tra i nodi.
+
+
+. Fare clic su *continua*.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Documentazione software SolidFire ed Element"^]
+

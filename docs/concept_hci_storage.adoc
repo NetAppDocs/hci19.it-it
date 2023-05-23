@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage.html 
+summary: NetApp HCI è disponibile in una vasta gamma di opzioni di configurazione per calcolo e storage. A partire da NetApp HCI 1.8, è possibile avere una configurazione iniziale minima di due nodi di storage e due nodi di calcolo. Nelle versioni precedenti, la configurazione minima richiesta era quattro nodi di storage e due nodi di calcolo. 
+keywords: netapp, hci, storage nodes, volumes 
+---
+= Storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp HCI è disponibile in una vasta gamma di opzioni di configurazione per calcolo e storage. A partire da NetApp HCI 1.8, è possibile avere una configurazione iniziale minima di due nodi di storage e due nodi di calcolo. Prima di NetApp HCI 1.8, la configurazione minima richiesta era quattro nodi di storage e due nodi di calcolo.
+
+* NetApp HCI supporta diversi modelli di nodi storage della serie H, come H300S, H500S, H700S, H410S e H610S.
++
+Vedere https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx#modelsAndSpecs["Modelli e specifiche NetApp HCI"^]
+
+* Il livello di storage in NetApp HCI è fornito dal software NetApp Element e il livello di gestione è fornito dal plug-in NetApp Element per vCenter Server.
+* Un nodo di storage è un server che contiene una raccolta di dischi che comunicano tra loro attraverso l'interfaccia di rete Bond10G.
+* Ciascun nodo di storage è collegato a due reti, storage e gestione, ciascuna con due collegamenti indipendenti per ridondanza e performance. Ciascun nodo richiede un indirizzo IP su ciascuna rete.
+* È possibile creare un cluster con nuovi nodi di storage o aggiungere nodi di storage a un cluster esistente per aumentare la capacità e le performance dello storage.
+* Nell'ecosistema NetApp HCI e SolidFire, il provisioning dello storage viene eseguito utilizzando i volumi.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

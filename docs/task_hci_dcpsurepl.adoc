@@ -1,0 +1,95 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_dcpsurepl.html 
+summary: 'I nodi H615C e H610S supportano due alimentatori da –48 V a –60 V CC. Queste unità sono disponibili come add-on opzionali quando si ordinano nodi H615C o H610S. È possibile utilizzare la stessa serie di istruzioni per rimuovere le unità di alimentazione CA nello chassis e sostituirle con unità di alimentazione CC oppure per sostituire un"unità di alimentazione CC difettosa con una nuova.' 
+keywords: netapp, hci, psu, replace power supply, H610S, H615C, DC 
+---
+= Sostituire le unità di alimentazione CC nei nodi H615C e H610S
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+I nodi H615C e H610S supportano due alimentatori da –48 V a –60 V CC. Queste unità sono disponibili come add-on opzionali quando si ordinano nodi H615C o H610S. È possibile utilizzare queste istruzioni per rimuovere le unità di alimentazione CA nello chassis e sostituirle con unità di alimentazione CC oppure per sostituire un'unità di alimentazione CC difettosa con una nuova.
+
+.Di cosa hai bisogno
+* Se si sostituisce un alimentatore CC difettoso, è stata fornita un'unità di alimentazione CC sostitutiva.
+* Se si stanno sostituendo le unità di alimentazione CA dello chassis con unità CC, si è preso in considerazione il downtime per la procedura.
+* Si dispone di un braccialetto per le scariche elettrostatiche (ESD) o si sono prese altre precauzioni antistatiche.
+* Hai garantito che i requisiti di alimentazione siano soddisfatti:
++
+** Tensione di alimentazione: –(48-60) V CC
+** Consumo di corrente: 37 a (massimo)
+** Requisiti per l'interruttore: Interruttore da 40 A.
+
+
+* Hai garantito che i materiali nel tuo ambiente siano conformi alle specifiche RoHS.
+* Hai garantito che i requisiti dei cavi siano soddisfatti:
++
+** Un cavo nero UL 10 AWG, massimo 2 m (intrecciato) [–(48-60) V CC]
+** Un cavo rosso UL 10 AWG, massimo 2 m (intrecciato) [ritorno V CC]
+** Un cavo UL 10 AWG, massimo 2 m verde/giallo, verde con striscia gialla, trefolo (messa a terra di sicurezza)
+
+
+
+
+.A proposito di questa attività
+La procedura si applica ai seguenti modelli di nodi:
+
+* Uno chassis di calcolo H615C per unità rack (1U)
+* Chassis storage 1U H610S
++
+
+NOTE: Nel caso di H615C e H610S, i termini "nodo" e "chassis" sono utilizzati in modo intercambiabile perché nodo e chassis non sono componenti separati, a differenza del caso di chassis 2U a quattro nodi.
+
+
+
+
+CAUTION: Non è possibile combinare unità di alimentazione CA e CC nell'installazione.
+
+.Fasi
+. Spegnere le unità di alimentazione e scollegare i cavi di alimentazione. Se si sostituisce un alimentatore CC difettoso, spegnere la fonte di alimentazione e rimuovere tutti i cavi inseriti nel connettore blu.
+. Sollevare la maniglia della camma e premere il fermo blu per estrarre l'alimentatore.
++
+image::psu-remove.gif[Mostra la maniglia della camma sollevata e l'unità di alimentazione estratta dal telaio.]
+
++
+
+NOTE: L'illustrazione è un esempio. La posizione dell'alimentatore nello chassis e il colore del pulsante di rilascio variano a seconda del tipo di chassis in uso.
+
++
+
+IMPORTANT: Assicurarsi di utilizzare entrambe le mani per sostenere il peso dell'alimentatore.
+
+. Allineare con entrambe le mani i bordi dell'alimentatore con l'apertura del telaio, spingere delicatamente l'unità nel telaio utilizzando la maniglia della camma fino a bloccarla in posizione e riportare la maniglia della camma in posizione verticale.
++
+image::psu-install.gif[Mostra l'unità di alimentazione installata nel telaio.]
+
+. Collegare le unità di alimentazione CC. Assicurarsi che la fonte di alimentazione sia spenta durante il cablaggio dell'alimentatore CC e della fonte di alimentazione.
++
+.. Inserire i cavi nero, rosso e verde/giallo nei connettori blu.
+.. Inserire il connettore blu nelle unità di alimentazione CC e nella fonte di alimentazione.
++
+image::dc-psu.png[La mostra i cavi dell'alimentatore CC.]
+
+
+
+. Accendere le unità di alimentazione CC.
++
+
+TIP: I LED dell'alimentatore sono accesi quando l'alimentatore CC è in linea. Le spie LED verdi indicano che le unità di alimentazione funzionano correttamente.
+
+. Restituire l'unità difettosa a NetApp seguendo le istruzioni riportate nella confezione.
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_import_installation_profile.html 
+summary: Scopri come importare un profilo di installazione NetApp HCI che consentirà a NetApp HCI di compilare automaticamente i campi della procedura guidata del motore di implementazione NetApp. 
+keywords: netapp, hci, deployment, compatibility, nodes, installation, profile, import, settings, auto, fill 
+---
+= Importare un profilo di installazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se hai ottenuto NetApp https://configbuilder.netapp.com/["ConfigBuilder"^] Output del profilo per l'installazione, è possibile importarlo durante il processo di installazione di NetApp HCI per compilare automaticamente i campi nel motore di implementazione NetApp. Questo è un passaggio facoltativo.
+
+.A proposito di questa attività
+Se si importa un profilo di installazione, è comunque necessario immettere le credenziali per NetApp HCI da utilizzare nella pagina *credenziali* del motore di implementazione NetApp.
+
+
+NOTE: Se i campi nel profilo di installazione vengono lasciati vuoti o inseriti in modo errato, potrebbe essere necessario inserire o correggere manualmente le informazioni nelle pagine del NetApp Deployment Engine. Se è necessario aggiungere o correggere le informazioni, assicurarsi di aggiornare le informazioni contenute nei record e nel profilo di installazione.
+
+.Importare un profilo
+. Nella pagina *Installation Profile* (Profilo installazione), fare clic su *Browse* (Sfoglia) per cercare e caricare il profilo di installazione.
+. Nella finestra di dialogo del file, selezionare e aprire il file JSON del profilo.
+. Una volta importato il profilo, fare clic su *continua*.
++
+È possibile scorrere ciascuna pagina del NetApp Deployment Engine e verificare le impostazioni importate dal profilo di installazione.
+
+
+
+.Continuare senza importare un profilo
+. Per saltare la fase di importazione, nella pagina *Installation Profile* (Profilo di installazione), fare clic su *Continue* (continua).
+
+
+
+
+== Trova ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Pagina delle risorse NetApp HCI"^]
+

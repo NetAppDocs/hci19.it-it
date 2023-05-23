@@ -1,0 +1,234 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_required_network_ports.html 
+summary: Porte TCP e UDP utilizzate da NetApp HCI. 
+keywords: netapp, hci, ports, tcp, udp 
+---
+= Requisiti delle porte di rete
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, ports, tcp, udp
+
+
+[role="lead"]
+Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema. Tutte le porte sono TCP, se non diversamente specificato.
+
+Nella tabella vengono utilizzate le seguenti abbreviazioni:
+
+* MIP: Indirizzo IP di gestione, un indirizzo per nodo
+* SIP: Indirizzo IP dello storage, un indirizzo per nodo
+* MVIP: Indirizzo IP virtuale di gestione
+* SVIP: Indirizzo IP virtuale dello storage
+
+
+Tutte le porte della tabella sono TCP, salvo diversamente specificato.
+
+|===
+| Origine | Destinazione | Porta | Descrizione 
+
+
+| Nodo di calcolo BMC/IPMI | Nodo di gestione | 111 TCP/UDP | Comunicazione API di NetApp Hybrid Cloud Control 
+
+
+| Nodo di calcolo BMC/IPMI | Nodo di gestione | 137-138 UDP | Comunicazione API di NetApp Hybrid Cloud Control 
+
+
+| Nodo di calcolo BMC/IPMI | Nodo di gestione | 445 | Comunicazione API di NetApp Hybrid Cloud Control 
+
+
+| Nodo di calcolo BMC/IPMI | Nodo di gestione | 623 UDP | Porta RMCP (Remote Management Control Protocol). Richiesto per gli aggiornamenti del firmware di calcolo di NetApp Hybrid Cloud Control. 
+
+
+| Nodo di calcolo BMC/IPMI | Nodo di gestione | 2049 TCP/UDP | Comunicazione API di NetApp Hybrid Cloud Control 
+
+
+| Client iSCSI | Cluster di storage MVIP | 443 | (Facoltativo) accesso all'interfaccia utente e alle API 
+
+
+| Client iSCSI | Cluster di storage SVIP | 3260 | Comunicazioni iSCSI del client 
+
+
+| Client iSCSI | SIP. Nodo storage | 3260 | Comunicazioni iSCSI del client 
+
+
+| Nodo di gestione | `sfsupport.solidfire.com` | 22 | Tunnel SSH inverso per l'accesso al supporto 
+
+
+| Nodo di gestione | MIP nodo storage | 22 | Accesso SSH per il supporto 
+
+
+| Nodo di gestione | Server DNS | 53 TCP/UDP | Ricerca DNS 
+
+
+| Nodo di gestione | Nodo di calcolo BMC/IPMI | 139 | Comunicazione API di NetApp Hybrid Cloud Control 
+
+
+| Nodo di gestione | MIP nodo storage | 442 | Accesso API e UI agli aggiornamenti del software Element e del nodo di storage 
+
+
+| Nodo di gestione | Nodo storage MVIP | 442 | Accesso API e UI agli aggiornamenti del software Element e del nodo di storage 
+
+
+| Nodo di gestione | `23.32.54.122`, `216.240.21.15` | 443 | Aggiornamenti del software Element 
+
+
+| Nodo di gestione | BMC (Baseboard Management Controller) | 443 | Monitoraggio dell'hardware e connessione all'inventario (comandi Redfish e IPMI) 
+
+
+| Nodo di gestione | Nodo di calcolo BMC/IPMI | 443 | Comunicazione HTTPS di NetApp Hybrid Cloud Control 
+
+
+| Nodo di gestione | `monitoring.solidfire.com` | 443 | Report del cluster di storage a Active IQ 
+
+
+| Nodo di gestione | Cluster di storage MVIP | 443 | Accesso API e UI agli aggiornamenti del software Element e del nodo di storage 
+
+
+| Nodo di gestione | VMware vCenter | 443 | Comunicazione HTTPS di NetApp Hybrid Cloud Control 
+
+
+| Nodo di gestione | Nodo di calcolo BMC/IPMI | 623 UDP | Porta RMCP (Remote Management Control Protocol). Richiesto per gli aggiornamenti del firmware di calcolo di NetApp Hybrid Cloud Control. 
+
+
+| Nodo di gestione | Nodo di storage BMC/IPMI | 623 UDP | Porta RMCP. Questo è necessario per gestire i sistemi abilitati IPMI. 
+
+
+| Nodo di gestione | VMware vCenter | 5988-5989 | Comunicazione HTTPS di NetApp Hybrid Cloud Control 
+
+
+| Nodo di gestione | Nodo di controllo | 9442 | Servizio API di configurazione per nodo 
+
+
+| Nodo di gestione | Server vCenter | 9443 | Registrazione del plug-in vCenter. La porta può essere chiusa al termine della registrazione. 
+
+
+| Server SNMP | Cluster di storage MVIP | 161 UDP | Polling SNMP 
+
+
+| Server SNMP | MIP nodo storage | 161 UDP | Polling SNMP 
+
+
+| Nodo di storage BMC/IPMI | Nodo di gestione | 623 UDP | Porta RMCP. Questo è necessario per gestire i sistemi abilitati IPMI. 
+
+
+| MIP nodo storage | Server DNS | 53 TCP/UDP | Ricerca DNS 
+
+
+| MIP nodo storage | Nodo di gestione | 80 | Aggiornamenti del software Element 
+
+
+| MIP nodo storage | Endpoint S3/Swift | 80 | (Opzionale) comunicazione HTTP con l'endpoint S3/Swift per backup e ripristino 
+
+
+| MIP nodo storage | Server NTP | 123 UDP | NTP 
+
+
+| MIP nodo storage | Nodo di gestione | 162 UDP | (Facoltativo) trap SNMP 
+
+
+| MIP nodo storage | Server SNMP | 162 UDP | (Facoltativo) trap SNMP 
+
+
+| MIP nodo storage | Server LDAP | 389 TCP/UDP | (Facoltativo) Ricerca LDAP 
+
+
+| MIP nodo storage | Nodo di gestione | 443 | Aggiornamenti del software Element 
+
+
+| MIP nodo storage | Cluster di storage remoto MVIP | 443 | Comunicazione di accoppiamento del cluster di replica remota 
+
+
+| MIP nodo storage | MIP nodo storage remoto | 443 | Comunicazione di accoppiamento del cluster di replica remota 
+
+
+| MIP nodo storage | Endpoint S3/Swift | 443 | (Opzionale) comunicazione HTTPS con l'endpoint S3/Swift per backup e ripristino 
+
+
+| MIP nodo storage | Server LDAPS | 636 TCP/UDP | Ricerca LDAPS 
+
+
+| MIP nodo storage | Nodo di gestione | 10514 TCP/UDP, 514 TCP/UDP | Inoltro syslog 
+
+
+| MIP nodo storage | Server syslog | 10514 TCP/UDP, 514 TCP/UDP | Inoltro syslog 
+
+
+| MIP nodo storage | MIP nodo storage remoto | 2181 | Comunicazione tra cluster per la replica remota 
+
+
+| SIP. Nodo storage | Endpoint S3/Swift | 80 | (Opzionale) comunicazione HTTP con l'endpoint S3/Swift per backup e ripristino 
+
+
+| SIP. Nodo storage | SIP. Nodo di calcolo | 442 | API del nodo di calcolo, configurazione e convalida e accesso all'inventario software 
+
+
+| SIP. Nodo storage | Endpoint S3/Swift | 443 | (Opzionale) comunicazione HTTPS con l'endpoint S3/Swift per backup e ripristino 
+
+
+| SIP. Nodo storage | SIP. Nodo storage remoto | 2181 | Comunicazione tra cluster per la replica remota 
+
+
+| SIP. Nodo storage | SIP. Nodo storage | 3260 | ISCSI internodo 
+
+
+| SIP. Nodo storage | SIP. Nodo storage remoto | da 4000 a 4020 | Trasferimento dei dati da nodo a nodo per la replica remota 
+
+
+| PC dell'amministratore di sistema | MIP nodo storage | 80 | (Solo NetApp HCI) pagina iniziale del motore di implementazione NetApp 
+
+
+| PC dell'amministratore di sistema | Nodo di gestione | 442 | Accesso dell'interfaccia utente HTTPS al nodo di gestione 
+
+
+| PC dell'amministratore di sistema | MIP nodo storage | 442 | Accesso API e interfaccia utente HTTPS al nodo di storage (solo NetApp HCI) monitoraggio della configurazione e dell'implementazione nel motore di implementazione NetApp 
+
+
+| PC dell'amministratore di sistema | Nodo di calcolo serie BMC/IPMI H410 e H600 | 443 | Accesso API e interfaccia utente HTTPS al controllo remoto del nodo 
+
+
+| PC dell'amministratore di sistema | Nodo di gestione | 443 | Accesso API e interfaccia utente HTTPS al nodo di gestione 
+
+
+| PC dell'amministratore di sistema | Cluster di storage MVIP | 443 | Accesso API e interfaccia utente HTTPS al cluster di storage 
+
+
+| PC dell'amministratore di sistema | Nodo storage serie BMC/IPMI H410 e H600 | 443 | Accesso API e interfaccia utente HTTPS al controllo remoto del nodo 
+
+
+| PC dell'amministratore di sistema | MIP nodo storage | 443 | Creazione di cluster di storage HTTPS, accesso UI post-implementazione al cluster di storage 
+
+
+| PC dell'amministratore di sistema | Nodo di calcolo serie BMC/IPMI H410 e H600 | 623 UDP | Porta RMCP. Questo è necessario per gestire i sistemi abilitati IPMI. 
+
+
+| PC dell'amministratore di sistema | Nodo storage serie BMC/IPMI H410 e H600 | 623 UDP | Porta RMCP. Questo è necessario per gestire i sistemi abilitati IPMI. 
+
+
+| PC dell'amministratore di sistema | Nodo di controllo | 8080 | Interfaccia utente Web nodo di controllo per nodo 
+
+
+| Server vCenter | Cluster di storage MVIP | 443 | Accesso all'API del plug-in vCenter 
+
+
+| Server vCenter | Plug-in remoto | 8333 | Servizio Remote vCenter Plug-in 
+
+
+| Server vCenter | Nodo di gestione | 8443 | (Facoltativo) servizio QoSSIOC vCenter Plug-in. 
+
+
+| Server vCenter | Cluster di storage MVIP | 8444 | Accesso al provider vCenter VASA (solo VVol) 
+
+
+| Server vCenter | Nodo di gestione | 9443 | Registrazione del plug-in vCenter. La porta può essere chiusa al termine della registrazione. 
+|===
+
+
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

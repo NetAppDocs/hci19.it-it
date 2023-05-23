@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_task_validate_config_advisor.html 
+summary: Scopri come convalidare la tua configurazione pre-implementazione con Active IQ Config Advisor. 
+keywords: netapp, hci, element, configuration, validation 
+---
+= Validate il vostro ambiente con Active IQ Config Advisor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, element, configuration, validation
+
+
+[role="lead"]
+Prima di eseguire l'installazione NetApp HCI dell'hardware NetApp HCI su rack, è necessario verificare che l'ambiente soddisfi i requisiti di rete NetApp HCI. Active IQ Config Advisor esegue controlli sull'ambiente convalidando le configurazioni di rete, switch e VMware vSphere. Lo strumento genera un report che può essere utilizzato per risolvere i problemi ed è possibile inoltrare il report al tecnico dei servizi professionali per preparare e pianificare un'installazione.
+
+
+
+== Installare Active IQ Config Advisor
+
+Scaricare e installare Active IQ Config Advisor su un PC che ha accesso alle reti NetApp HCI.
+
+.Fasi
+. In un browser Web, selezionare *Strumenti* dal menu supporto NetApp, cercare Active IQ Config Advisor e scaricare lo strumento.
++
+https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["Tool > NetApp Support Site"^].
+
++
+Dopo aver accettato il Contratto di licenza con l'utente finale (EULA), viene visualizzata la pagina Download. I file binari di Microsoft Windows, Linux e Mac sono disponibili nel riquadro *Client Tool*.
+
+. Eseguire l'eseguibile.
+. Selezionare una lingua e fare clic su *OK*.
+. Fare clic su *Avanti*.
+. Leggere il Contratto di licenza con l'utente finale e fare clic su *Accetto*.
+. Fare clic su *Installa*.
+. Assicurarsi che l'opzione *Esegui Active IQ Config Advisor* sia selezionata e fare clic su *fine*.
++
+Dopo un breve intervallo di tempo, l'interfaccia utente di Active IQ Config Advisor si apre in una nuova finestra o scheda del browser.
+
+
+
+
+
+== USA Active IQ Config Advisor
+
+Active IQ Config Advisor viene eseguito in una finestra del browser, raccoglie informazioni sulla rete e sull'ambiente e genera un report che è possibile utilizzare per risolvere eventuali problemi di rete o di configurazione che potrebbero interferire con l'implementazione di NetApp HCI.
+
+.Prima di iniziare
+Active IQ Config Advisor è stato installato su un dispositivo in grado di accedere alla rete di gestione, alla rete di VMware vCenter Server (se si sta unendo a un'installazione VMware esistente) e agli switch che verranno utilizzati per NetApp HCI.
+
+
+NOTE: Se si utilizzano switch Mellanox e i NetApp Professional Services li configurano come parte dell'implementazione, non è necessario fornire informazioni sullo switch.
+
+.A proposito di questa attività
+Active IQ Config Advisor esegue solo controlli di sola lettura per raccogliere informazioni. Nessuna configurazione viene modificata come parte dell'insieme.
+
+.Fasi
+. Aprire Active IQ Config Advisor.
++
+Config Advisor viene visualizzato con la finestra *Impostazioni di base* in un browser Web. Qui è possibile definire le impostazioni di raccolta globali e crittografare i risultati della raccolta.
+
+. Immettere una passphrase nella sezione *Encryption Settings* per crittografare il progetto di raccolta.
++
+In questo modo, solo l'utente sarà in grado di caricare questo progetto di raccolta dopo la sua creazione.
+
+. Identifica questo report di raccolta come tuo inserendo il tuo nome e indirizzo e-mail nella sezione *verifica utente*.
+. Fare clic su *Save* (Salva).
+. Fare clic su *Crea una nuova raccolta di dati*.
+. Selezionare *basato su soluzione* nel menu a discesa *tipo di raccolta*.
+. Selezionare *Pre-implementazione NetApp HCI* nel menu a discesa *Profilo*.
+. Per ciascun tipo di dispositivo nella colonna *tipo*, selezionare il numero del tipo di dispositivo nella rete NetApp HCI nel menu a discesa *azioni*.
++
+Ad esempio, se si dispone di tre switch Cisco, scegliere 3 dal menu a discesa della colonna *azioni* nella riga. Vengono visualizzate tre righe, una per ogni switch Cisco identificato.
+
++
+
+NOTE: Se si utilizzano switch Mellanox e i NetApp Professional Services li configurano come parte dell'implementazione, non è necessario fornire informazioni sullo switch.
+
+. Per gli switch identificati, inserire l'indirizzo IP di gestione e le credenziali di amministratore.
+. Per i server VMware vCenter identificati, eseguire una delle seguenti operazioni:
++
+** Se si sta implementando un nuovo vCenter Server, fornire l'indirizzo IP o FQDN (Fully Qualified Domain Name) pianificato per il server.
+** Se si sta entrando in un vCenter Server esistente, fornire l'indirizzo IP o FQDN e le credenziali di amministratore per il server.
+
+
+. Facoltativo: Se sono state aggiunte informazioni per gli switch, inserire il numero di nodi di calcolo e storage nella sezione *convalida switch*.
+. Scegliere la configurazione di cablaggio del nodo di calcolo che si desidera utilizzare nella sezione *Compute Node Network*.
+. Inserire le singole porte dello switch e i tag VLAN che si intende utilizzare per le reti di gestione, vMotion e storage per qualsiasi switch nella sezione *Compute Node Network*.
+. Inserire le singole porte dello switch e i tag VLAN che si intende utilizzare per le reti di gestione e storage per qualsiasi switch nella sezione *Storage Node Network*.
+. Nella sezione *verifica delle impostazioni di rete*, immettere gli indirizzi IP e l'indirizzo IP del gateway per la rete di gestione, seguiti da elenchi di server per DNS, NTP e vCenter Server (se si sta implementando un nuovo vCenter Server con NetApp HCI).
++
+Questa sezione consente a Active IQ Config Advisor di garantire che la rete di gestione sia disponibile per l'utilizzo e garantisce inoltre il corretto funzionamento di servizi come DNS e NTP.
+
+. Fare clic su *Validate* (convalida) per verificare che tutte le informazioni e le credenziali dell'indirizzo IP siano valide.
+. Fare clic su *Salva o Raccogli*.
++
+In questo modo, viene avviato il processo di raccolta, che consente di visualizzare l'avanzamento dell'insieme insieme a un registro in tempo reale dei comandi di raccolta. La colonna *Progress* mostra le barre di avanzamento codificate per colore per ciascuna attività di raccolta.
+
++
+image::config_advisor_job_progress_bar.png[Barra di avanzamento del lavoro di Active IQ Config Advisor]
+
++
+Le barre di avanzamento utilizzano i seguenti colori per visualizzare lo stato:
+
++
+** *Verde*: L'insieme è terminato senza errori di comando. Per visualizzare i rischi e i consigli di implementazione, fare clic sull'icona *View & Analyze* (Visualizza e analizza) nel menu *Actions* (azioni).
+** *Yellow*: L'insieme è terminato con alcuni errori di comando. Per visualizzare i rischi e i consigli di implementazione, fare clic sull'icona *View & Analyze* (Visualizza e analizza) nel menu *Actions* (azioni).
+** *Rosso*: L'insieme non è riuscito. È necessario risolvere gli errori ed eseguire nuovamente la raccolta.
+
+
+. Facoltativo: Una volta completata la raccolta, è possibile fare clic sull'icona binoculare di qualsiasi riga di raccolta per visualizzare i comandi eseguiti e i dati raccolti.
+. Selezionare la scheda *View & Analyze* (Visualizza e analizza).
++
+Questa pagina mostra un report generale sullo stato di salute dell'ambiente. È possibile selezionare una sezione del grafico a torta per visualizzare ulteriori dettagli su controlli specifici o descrizioni dei problemi, oltre a consigli sulla risoluzione di eventuali problemi che potrebbero interferire con la corretta implementazione. Puoi risolvere questi problemi da solo o richiedere assistenza ai NetApp Professional Services.
+
+. Fare clic su *Export* (Esporta) per esportare il report della raccolta come documento PDF o Microsoft Word.
++
+
+NOTE: Gli output dei documenti PDF e Microsoft Word includono le informazioni di configurazione dello switch per l'implementazione, utilizzate dai NetApp Professional Services per verificare le impostazioni di rete.
+
+. Inviare il file di report esportato al rappresentante dei NetApp Professional Services.
+
+
+[discrete]
+== Trova ulteriori informazioni
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+

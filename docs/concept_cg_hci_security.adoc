@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_security.html 
+summary: Quando si utilizza NetApp HCI, i dati sono protetti da protocolli di sicurezza standard di settore. 
+keywords: netapp, hci, security 
+---
+= Sicurezza NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si utilizza NetApp HCI, i dati sono protetti da protocolli di sicurezza standard di settore.
+
+
+
+== Crittografia a riposo per i nodi di storage
+
+NetApp HCI consente di crittografare tutti i dati memorizzati nel cluster di storage.
+
+Tutti i dischi nei nodi di storage in grado di crittografare utilizzano la crittografia AES a 256 bit a livello di unità. Ogni disco dispone di una propria chiave di crittografia, che viene creata al momento della prima inizializzazione del disco. Quando si attiva la funzione di crittografia, viene creata una password a livello di cluster di storage e i frammenti di password vengono quindi distribuiti a tutti i nodi del cluster. Nessun nodo singolo memorizza l'intera password. La password viene quindi utilizzata per proteggere con password tutti gli accessi ai dischi. Per sbloccare l'unità è necessaria la password e, poiché l'unità crittografa tutti i dati, i dati sono sempre protetti.
+
+Quando si attiva la crittografia a riposo, le prestazioni e l'efficienza del cluster di storage rimangono inalterate. Inoltre, se si rimuove un disco o nodo abilitato alla crittografia dal cluster di storage con l'API Element o l'interfaccia utente Element, la crittografia a riposo viene disattivata sui dischi e i dischi vengono cancellati in modo sicuro, proteggendo i dati precedentemente memorizzati su tali dischi. Dopo aver rimosso l'unità, è possibile cancellarla in modo sicuro con `SecureEraseDrives` Metodo API. Se si rimuove forzatamente un'unità o un nodo dal cluster di storage, i dati rimangono protetti dalla password a livello di cluster e dalle singole chiavi di crittografia dell'unità.
+
+Per informazioni sull'attivazione e la disattivazione della crittografia a riposo, vedere http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-EE404D52-B621-4DE5-B141-2559768FB1D0.html["Attivazione e disattivazione della crittografia per un cluster"^] Nel centro di documentazione SolidFire ed Element.
+
+
+
+== Crittografia software a riposo
+
+La crittografia software a riposo consente di crittografare tutti i dati scritti negli SSD di un cluster di storage. Questo fornisce un livello primario di crittografia nei nodi SDS aziendali SolidFire che non includono unità con crittografia automatica (SED).
+
+
+
+== Gestione esterna delle chiavi
+
+È possibile configurare Element Software in modo che utilizzi un servizio di gestione delle chiavi (KMS) conforme a KMIP di terze parti per gestire le chiavi di crittografia del cluster di storage. Quando si attiva questa funzione, la chiave di crittografia della password di accesso al disco a livello di cluster dello storage viene gestita da un KMS specificato dall'utente. Element può utilizzare i seguenti servizi di gestione delle chiavi:
+
+* Gemalto SafeNet KeySecure
+* SafeNet IN KeySecure
+* KeyControl HyTrust
+* Vormetric Data Security Manager
+* IBM Security Key Lifecycle Manager
+
+
+Per ulteriori informazioni sulla configurazione di External Key Management, vedere http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-057D852C-9C1C-458A-9161-328EDA349B00.html["Guida introduttiva alla gestione delle chiavi esterne"^] Nel centro di documentazione SolidFire ed Element.
+
+
+
+== Autenticazione a più fattori
+
+L'autenticazione a più fattori (MFA) consente di richiedere agli utenti di presentare diversi tipi di prove per l'autenticazione con l'interfaccia utente Web o l'interfaccia utente del nodo di storage di NetApp Element al momento dell'accesso. È possibile configurare Element in modo che accetti solo l'autenticazione a più fattori per gli accessi che si integrano con il sistema di gestione degli utenti e il provider di identità esistenti. È possibile configurare Element per l'integrazione con un provider di identità SAML 2.0 esistente, in grado di applicare più schemi di autenticazione, ad esempio password e SMS, password e messaggi di posta elettronica o altri metodi.
+
+È possibile associare l'autenticazione a più fattori con i comuni provider di identità compatibili con SAML 2.0 (IDP), come Microsoft Active Directory Federation Services (ADFS) e Shibboleth.
+
+Per configurare MFA, vedere http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-B1C8D8E2-CE95-41FD-9A3E-A0C424EC84F3.html["Attivazione dell'autenticazione a più fattori"^] Nel centro di documentazione SolidFire ed Element.
+
+
+
+== FIPS 140-2 per HTTPS e crittografia dei dati a riposo
+
+I cluster di storage NetApp SolidFire e i sistemi NetApp HCI supportano la crittografia conforme ai requisiti FIPS (Federal Information Processing Standard) 140-2 per i moduli crittografici. È possibile abilitare la conformità FIPS 140-2 sul cluster NetApp HCI o SolidFire per le comunicazioni HTTPS e la crittografia del disco.
+
+Quando si attiva la modalità operativa FIPS 140-2 sul cluster, il cluster attiva il modulo di sicurezza crittografica NetApp (NCSM) e sfrutta la crittografia certificata FIPS 140-2 livello 1 per tutte le comunicazioni via HTTPS all'interfaccia utente e all'API NetApp Element. Si utilizza `EnableFeature` API Element con `fips` Parametro per attivare la crittografia HTTPS FIPS 140-2. Nei cluster di storage con hardware compatibile con FIPS, è anche possibile attivare la crittografia del disco FIPS per i dati inattivi utilizzando `EnableFeature` API Element con `FipsDrives` parametro.
+
+Per ulteriori informazioni sulla preparazione di un nuovo cluster di storage per la crittografia FIPS 140-2, vedere http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-4645FF0D-3FCD-4440-91A9-A47F7BCC5C50.html["Creazione di un cluster che supporti i dischi FIPS"^].
+
+Per ulteriori informazioni sull'attivazione di FIPS 140-2 su un cluster già esistente, vedere http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-api/GUID-F2726BCA-D59C-47EE-B86C-DC465C96563B.html["API dell'elemento EnableFeature"^].

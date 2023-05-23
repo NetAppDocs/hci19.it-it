@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_run_system_utilities.html 
+summary: È possibile creare o eliminare pacchetti di supporto cluster, ripristinare le impostazioni di configurazione dei nodi o riavviare la rete. 
+keywords: netapp, element, management node ui, mnode ui, system utilities 
+---
+= Eseguire le utility di sistema dal nodo di gestione
+:allow-uri-read: 
+
+
+[role="lead"]
+È possibile utilizzare l'interfaccia utente per nodo per il nodo di gestione per creare o eliminare i bundle di supporto del cluster, reimpostare le impostazioni di configurazione del nodo o riavviare la rete.
+
+.Fasi
+. Aprire l'interfaccia utente del nodo di gestione per nodo utilizzando le credenziali admin del nodo di gestione.
+. Fare clic su *Utilità di sistema*.
+. Fare clic sul pulsante dell'utilità che si desidera eseguire:
++
+.. *Control Power* (alimentazione controllo): Riavvia, spegne e riaccende il nodo. Specificare una delle seguenti opzioni.
++
+
+IMPORTANT: Questa operazione causa la perdita temporanea della connettività di rete.
+
++
+*** *Azione*: Le opzioni includono `Restart` e. `Halt` (spegnere).
+*** *Wakeup Delay* (ritardo di attivazione): Qualsiasi tempo aggiuntivo prima che il nodo torni online.
+
+
+.. *Create Cluster Support Bundle*: Crea il bundle di supporto del cluster per assistere le valutazioni diagnostiche del supporto NetApp di uno o più nodi in un cluster. Specificare le seguenti opzioni:
++
+*** *Nome bundle*: Nome univoco per ciascun bundle di supporto creato. Se non viene fornito alcun nome, come nome del file vengono utilizzati "supportbundle" e il nome del nodo.
+*** *MVIP*: L'MVIP del cluster. I bundle vengono raccolti da tutti i nodi del cluster. Questo parametro è obbligatorio se il parametro Nodes non è specificato.
+*** *Nodes*: Gli indirizzi IP dei nodi da cui raccogliere i bundle. Utilizzare nodi o MVIP, ma non entrambi, per specificare i nodi da cui raccogliere i bundle. Questo parametro è obbligatorio se MVIP non è specificato.
+*** *Username*: Il nome utente dell'amministratore del cluster.
+*** *Password*: La password di amministrazione del cluster.
+*** *Allow Incomplete* (Consenti incompleto): Consente di continuare l'esecuzione dello script se non è possibile raccogliere bundle da uno o più nodi.
+*** *Extra args*: Questo parametro viene inviato a. `sf_make_support_bundle` script. Questo parametro deve essere utilizzato solo su richiesta del supporto NetApp.
+
+
+.. *Delete All Support Bundle* (Elimina tutti i pacchetti di supporto): Elimina tutti i pacchetti di supporto correnti sul nodo di gestione.
+.. *Reset Node*: Ripristina il nodo di gestione su una nuova immagine di installazione. In questo modo, tutte le impostazioni, ad eccezione della configurazione di rete, vengono modificate nello stato predefinito. Specificare le seguenti opzioni:
++
+*** *Build*: URL di un'immagine software di elementi remoti in cui il nodo verrà reimpostato.
+*** *Opzioni*: Specifiche per l'esecuzione delle operazioni di ripristino. I dettagli sono forniti dal supporto NetApp, se necessario.
++
+
+IMPORTANT: Questa operazione causa la perdita temporanea della connettività di rete.
+
+
+
+.. *Restart Networking* (Riavvia rete): Riavvia tutti i servizi di rete sul nodo di gestione.
++
+
+IMPORTANT: Questa operazione causa la perdita temporanea della connettività di rete.
+
+
+
+
+
+[discrete]
+== Ulteriori informazioni
+
+* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
+

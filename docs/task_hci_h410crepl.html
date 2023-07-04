@@ -83,7 +83,7 @@
       head.appendChild(onetrustScript);
     }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
     addAdobeLaunch("launch-e9ff3acac59f");
-    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+    addGoogleAnalytics("G-KYN6T440WN");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -2641,21 +2641,21 @@
   </div>
 </div>
 
-      <div class="ie-nmt-disclaimer">
-  <span>
-    <div class="ie-nmt-disclaimer-container">
-      <div class="ie-nmt-disclaimer-icon">
-        <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/it-it/hci19/images/sprite.svg#circle-info">
-        </svg>
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <svg class="luci-icon" aria-hidden="true">
+            <use xlink:href="/it-it/hci19/images/sprite.svg#circle-info">
+          </svg>
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+        </div>
+        <div style="clear:both;"></div>
       </div>
-      <div class="ie-nmt-disclaimer-content">
-        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
-  </span>
-</div><div class="n-doc__component-detail-heading-wrap">
+    </span>
+  </div><div class="n-doc__component-detail-heading-wrap">
   <h1 class="n-doc__component-detail-heading">Sostituire i nodi H410C</h1>
 </div>
 
@@ -2663,7 +2663,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 17:11:22 +0000">05/23/2023</time>
+    <time datetime="2023-07-04 16:16:06 +0000">07/04/2023</time>
     
   
 
@@ -3602,14 +3602,438 @@ La password deve corrispondere a quella configurata nel motore di implementazion
 </div>
 </li>
 <li>
-<p>Aggiungere il nodo (host) al cluster e configurare la rete in modo che il nodo sia sincronizzato con gli altri nodi del cluster come segue:</p>
+<p>Configurare la rete in modo che il nodo sia sincronizzato con gli altri nodi del cluster come segue:</p>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">Plug-in Element per vCenter 5.0 e versioni successive</div>
+<div class="content">
+<div class="paragraph">
+<p>A partire da Element Plug-in per vCenter 5.0, aggiungere il nodo (host) al data center.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In VMware vSphere Web Client, selezionare <strong>Inventory &gt; Hosts and Clusters</strong> (inventario &gt; host e cluster).</p>
+</li>
+<li>
+<p>Fare clic con il pulsante destro del mouse sul data center e selezionare <strong>Add host</strong> (Aggiungi host).</p>
+<div class="paragraph">
+<p>La procedura guidata consente di aggiungere l&#8217;host.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Quando viene richiesto di inserire il nome utente e la password, utilizzare le seguenti credenziali: Nome utente: Password root: La password configurata nel motore di implementazione NetApp al momento della configurazione di NetApp HCI
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>L&#8217;aggiunta del nodo al cluster potrebbe richiedere alcuni minuti. Al termine del processo, il nodo appena aggiunto viene elencato nel cluster.</p>
+</div>
+</li>
+<li>
+<p>Selezionare il nodo, quindi selezionare <strong>Configure &gt; Networking &gt; Virtual switches</strong> (Configura &gt; rete &gt; Switch virtuali) ed eseguire la seguente procedura:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Espandere <strong>vSwitch0</strong>.</p>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare la rete della macchina virtuale <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Rimuovi</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-esxi-vm.PNG" alt="Mostra la schermata per rimuovere la macchina virtuale.">
+</div>
+</div>
+</li>
+<li>
+<p>Confermare l&#8217;azione.</p>
+</li>
+<li>
+<p>Selezionare <strong>EDIT</strong> nell&#8217;intestazione vSwitch0.</p>
+</li>
+<li>
+<p>Nella finestra vSwitch0 - Modifica impostazioni, selezionare <strong>Teaming and failover</strong>.</p>
+</li>
+<li>
+<p>Verificare che vmnic3 sia presente nell&#8217;elenco degli adattatori di standby e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare la rete di gestione <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Modifica impostazioni</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/h410c-esxi-mgmt-network.PNG" alt="Mostra la schermata per modificare la rete di gestione.">
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Nella finestra Management Network - Edit settings (rete di gestione - Modifica impostazioni), selezionare <strong>Teaming and failover</strong> (raggruppamento e failover).</p>
+</li>
+<li>
+<p>Verificare che vmnic3 sia presente nell&#8217;elenco degli adattatori di standby e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Add Networking</strong> (Aggiungi rete) nell&#8217;intestazione vSwitch0 e immettere i seguenti dettagli nella finestra visualizzata:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>Virtual Machine Port Group for a Standard Switch</strong> (Gruppo di porte macchina virtuale per uno switch standard) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare <strong>nuovo switch standard</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Create a Standard Switch (Crea uno switch standard), spostare vmnic0 e vmnic4 su Active adapter (adattatori attivi) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In Connection settings (Impostazioni di connessione), verificare che la rete VM sia l&#8217;etichetta di rete e, se necessario, inserire l&#8217;ID VLAN.</p>
+</li>
+<li>
+<p>Selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Esaminare la schermata Ready to complete (Pronto per il completamento) e selezionare <strong>Finish</strong> (fine).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Espandere vSwitch1 e selezionare <strong>EDIT</strong> per modificare le impostazioni come segue:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In Proprietà, impostare MTU su 9000 e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare la rete della macchina virtuale <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Modifica</strong>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vswitch1_vcp_50.PNG" alt="Mostra le selezioni di sicurezza da effettuare per la rete della macchina virtuale.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic0 sugli adattatori di standby.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>ADD NETWORKING</strong> (AGGIUNGI RETE) nell&#8217;intestazione vSwitch1 e immettere i seguenti dettagli nella finestra Add Networking (Aggiungi rete):</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per utilizzare uno switch standard esistente, selezionare vSwitch1 e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Crea uno switch standard, spostare vmnic1 e vmnic5 su Active adapter e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in vMotion, selezionare la casella di controllo per il traffico vMotion in Enable Services (attiva servizi) e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nel grafico visualizzato, selezionare vMotion <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Modifica</strong>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/vmotion_vcp_50.PNG" alt="Mostra le selezioni di sicurezza per vMotion.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic4 sugli adattatori di standby.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>ADD NETWORKING</strong> (AGGIUNGI RETE) nell&#8217;intestazione vSwitch1 e immettere i seguenti dettagli nella finestra Add Networking (Aggiungi rete):</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare <strong>nuovo switch standard</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Crea uno switch standard, spostare vmnic1 e vmnic5 su Active adapter e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in iSCSI-B e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Espandere <strong>vSwitch2</strong> e selezionare <strong>EDIT</strong>:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In Proprietà, impostare MTU su 9000 e selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare iSCSI-B. <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Modifica</strong>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi-b-vcp-50.PNG" alt="Mostra le selezioni di sicurezza per la rete iSCSI-B.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic1 sugli adattatori inutilizzati.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>ADD NETWORKING</strong> (AGGIUNGI RETE) nell&#8217;intestazione vSwitch1 e immettere i seguenti dettagli nella finestra Add Networking (Aggiungi rete):</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Per il tipo di connessione, selezionare <strong>VMkernel Network Adapter</strong> e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>Per il dispositivo di destinazione, selezionare l&#8217;opzione per utilizzare uno switch standard esistente, selezionare vSwitch2 e selezionare <strong>Avanti</strong>.</p>
+</li>
+<li>
+<p>In Port properties (Proprietà porta), modificare l&#8217;etichetta di rete in iSCSI-A e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare <strong>Next</strong> (Avanti).</p>
+</li>
+<li>
+<p>Se si è pronti per procedere, selezionare <strong>fine</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Nella figura visualizzata, selezionare iSCSI-A. <span class="image"><img src="../media/three_horizontal_dots.PNG" alt="icona del menu"></span> Icona seguita da <strong>Modifica</strong>.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Security</strong> (protezione) ed effettuare le seguenti selezioni:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi-a-vcp-50.PNG" alt="Mostra le selezioni di sicurezza per la rete iSCSI-A.">
+</div>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>Teaming and failover</strong>, quindi selezionare la casella di controllo <strong>Override</strong>.</p>
+</li>
+<li>
+<p>Spostare vmnic5 sugli adattatori inutilizzati utilizzando l&#8217;icona a forma di freccia.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dopo aver selezionato il nodo appena aggiunto e aperto la scheda Configure (Configura), selezionare <strong>Storage &gt; Storage Adapter</strong> (Storage &gt; Storage Adapter) ed eseguire la seguente procedura:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare l&#8217;elenco <strong>ADD SOFTWARE ADAPTER</strong> (AGGIUNGI SCHEDA SOFTWARE).</p>
+</li>
+<li>
+<p>Selezionare <strong>Add iSCSI adapter</strong> (Aggiungi adattatore iSCSI) e selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>In Storage Adapter (adattatori storage), selezionare l&#8217;adattatore iSCSI</p>
+</li>
+<li>
+<p>In Proprietà &gt; Generale, copiare il nome iSCSI.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/iscsi-adapter-name-vcp-50.PNG" alt="Mostra la stringa IQN dell&#8217;adattatore iSCSI.">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Il nome iSCSI è necessario quando si crea l&#8217;iniziatore.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Eseguire le seguenti operazioni nel plug-in NetApp SolidFire vCenter:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare l&#8217;istanza di destinazione.</p>
+</li>
+<li>
+<p>Selezionare <strong>Gestione</strong>.</p>
+</li>
+<li>
+<p>Selezionare il cluster di destinazione.</p>
+</li>
+<li>
+<p>Selezionare <strong>Gestione &gt; iniziatori</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Crea iniziatore</strong>.</p>
+</li>
+<li>
+<p>Inserire l&#8217;indirizzo IQN copiato in precedenza nel campo IQN/WWPN.</p>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Selezionare il nuovo iniziatore.</p>
+</li>
+<li>
+<p>Selezionare <strong>elenco azioni &gt; azioni in blocco</strong> e selezionare <strong>Aggiungi a gruppo di accesso</strong>.</p>
+</li>
+<li>
+<p>Selezionare il gruppo di accesso di destinazione e scegliere <strong>Aggiungi</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In VMware vSphere Web Client, in Storage Adapter, selezionare l&#8217;adattatore iSCSI ed eseguire le seguenti operazioni:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Selezionare <strong>Dynamic Discovery &gt; Add</strong> (rilevamento dinamico &gt; Aggiungi).</p>
+</li>
+<li>
+<p>Inserire l&#8217;indirizzo IP SVIP nel campo Server iSCSI.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/hci19/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per ottenere l&#8217;indirizzo IP SVIP, selezionare <strong>Gestione NetApp Element</strong> e copiare l&#8217;indirizzo IP SVIP. Lasciare il numero di porta predefinito così com&#8217;è. Dovrebbe essere 3260.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>Network Port Binding</strong> e selezionare <strong>ADD</strong>.</p>
+</li>
+<li>
+<p>Selezionare iSCSI-A e iSCSI-B, quindi selezionare <strong>OK</strong></p>
+</li>
+<li>
+<p>Selezionare <strong>RIPETERE LA SCANSIONE DELL&#8217;ADATTATORE</strong>.</p>
+</li>
+<li>
+<p>Selezionare <strong>RIPETERE LA SCANSIONE DELLO STORAGE</strong>. Cercare nuovi volumi VMFS e selezionare <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Una volta completata la nuova scansione, verificare se i volumi nel cluster e negli archivi dati sono visibili sul nuovo nodo di calcolo (host).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">Plug-in Element per vCenter 4.10 e versioni precedenti</div>
+<div class="content">
+<div class="paragraph">
+<p>Per Element Plug-in per vCenter 4.10 e versioni precedenti, aggiungere il nodo (host) al cluster.</p>
+</div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>In VMware vSphere Web Client, selezionare <strong>host e cluster</strong>.</p>
 </li>
 <li>
-<p>Fare clic con il pulsante destro del mouse sul cluster a cui si desidera aggiungere il nodo e selezionare <strong>Add host</strong> (Aggiungi host). La procedura guidata consente di aggiungere l&#8217;host.</p>
+<p>Fare clic con il pulsante destro del mouse sul cluster a cui si desidera aggiungere il nodo e selezionare <strong>Add host</strong> (Aggiungi host).</p>
+<div class="paragraph">
+<p>La procedura guidata consente di aggiungere l&#8217;host.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3906,9 +4330,6 @@ Quando viene richiesto di inserire il nome utente e la password, utilizzare le s
 </li>
 </ol>
 </div>
-</li>
-</ol>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3921,8 +4342,7 @@ Il nome iSCSI è necessario quando si crea l&#8217;iniziatore.
 </tr>
 </table>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>Eseguire le seguenti operazioni nel plug-in NetApp SolidFire vCenter:</p>
 <div class="olist lowerroman">
@@ -3994,6 +4414,10 @@ Per ottenere l&#8217;indirizzo IP SVIP, selezionare <strong>Gestione NetApp Elem
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
 </div>
 </li>
 </ol>

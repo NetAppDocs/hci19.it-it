@@ -4497,9 +4497,7 @@
   <block id="efa8dc8360af08490b01e617cc18cdab" category="list-text">Inserire l'indirizzo IP, la subnet mask e le informazioni del gateway predefinito, quindi premere *Invio*. È possibile riutilizzare le informazioni copiate prima di rimuovere il nodo. L'indirizzo IP immesso corrisponde all'indirizzo IP della rete di gestione precedentemente copiato.</block>
   <block id="7dd7a57b25f3cd76c8b03f1cda9ca15c" category="list-text">Premere *Esc* per uscire dalla sezione Configure Management Network (Configura rete di gestione).</block>
   <block id="f0c303e389f48cbe1544b22e8d37e06a" category="list-text">Selezionare *Sì* per applicare le modifiche.</block>
-  <block id="b6b5cbae15adb7baadb40456ef0634c2" category="list-text">Aggiungere il nodo (host) al cluster e configurare la rete in modo che il nodo sia sincronizzato con gli altri nodi del cluster come segue:</block>
   <block id="02fb3e6c7ff39880b24310a2c60bdc15" category="list-text">In VMware vSphere Web Client, selezionare *host e cluster*.</block>
-  <block id="ccdb65b69df39a19821108c1d1a494e0" category="list-text">Fare clic con il pulsante destro del mouse sul cluster a cui si desidera aggiungere il nodo e selezionare *Add host* (Aggiungi host). La procedura guidata consente di aggiungere l'host.</block>
   <block id="5f36dbaecca1791d115f36a406507e1d" category="admonition">Quando viene richiesto di inserire il nome utente e la password, utilizzare le seguenti credenziali: Nome utente: Password root: La password configurata nel motore di implementazione NetApp al momento della configurazione di NetApp HCI</block>
   <block id="d35ed650bf952b589d141be4c6f788c0" category="paragraph">L'aggiunta del nodo al cluster potrebbe richiedere alcuni minuti. Al termine del processo, il nodo appena aggiunto viene elencato nel cluster.</block>
   <block id="5f70e9eadb4305a05e2697c2f995e8e5" category="list-text">Selezionare il nodo, quindi selezionare *Manage &gt; Networking &gt; Virtual switches* (Gestisci &gt; rete &gt; Switch virtuali) ed eseguire la seguente procedura:</block>
@@ -6536,4 +6534,56 @@
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">Community di NetApp</block>
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">Dove ottenere aiuto</block>
   <block id="389672366ff11f72a82c5c495b9b5159" category="sidebar">Documentazione di NetApp HCI 1.8</block>
+  <block id="036abbfa45963ef13c18174a4e44a2e1" category="list-text">Configurare la rete in modo che il nodo sia sincronizzato con gli altri nodi del cluster come segue:</block>
+  <block id="3d76bb66295b6934cf67dde5bae83ad3" category="paragraph">A partire da Element Plug-in per vCenter 5.0, aggiungere il nodo (host) al data center.</block>
+  <block id="63591c0cc8e2e73c9258b396df08b620" category="list-text">In VMware vSphere Web Client, selezionare *Inventory &gt; Hosts and Clusters* (inventario &gt; host e cluster).</block>
+  <block id="ac660496ea7328cc4535c044159012b6" category="list-text">Fare clic con il pulsante destro del mouse sul data center e selezionare *Add host* (Aggiungi host).</block>
+  <block id="9f5ecfa6b649b1b419c20d8dd264d74e" category="paragraph">La procedura guidata consente di aggiungere l'host.</block>
+  <block id="cb1658a0f24a9492fb03111d8de57a39" category="list-text">Selezionare il nodo, quindi selezionare *Configure &gt; Networking &gt; Virtual switches* (Configura &gt; rete &gt; Switch virtuali) ed eseguire la seguente procedura:</block>
+  <block id="53a674199033a5f26d0e116b778bdcd2" category="list-text">Espandere *vSwitch0*.</block>
+  <block id="9b5ce2fc82e55a2629051893f8d8d4ff" category="inline-image-macro">icona del menu</block>
+  <block id="a698cb8f78d7274715cb8dc15d776ac8" category="list-text">Nella figura visualizzata, selezionare la rete della macchina virtuale <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Rimuovi*.</block>
+  <block id="882aac0ca94947ea665b596320e49f2a" category="image-alt">Mostra la schermata per rimuovere la macchina virtuale.</block>
+  <block id="fd27c346ccbc1eec4eeb78d8de71580c" category="list-text">Selezionare *EDIT* nell'intestazione vSwitch0.</block>
+  <block id="8781b9e18af90e14da4fe27799c3165f" category="list-text">Verificare che vmnic3 sia presente nell'elenco degli adattatori di standby e selezionare *OK*.</block>
+  <block id="bc17da63fca20f45a5d20a429c99f190" category="list-text">Nella figura visualizzata, selezionare la rete di gestione <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Modifica impostazioni*.</block>
+  <block id="c305f6f744366080640d1eb249562143" category="image-alt">Mostra la schermata per modificare la rete di gestione.</block>
+  <block id="ba10ab5bcd1e235eefc907ce4f06edba" category="list-text">Selezionare *Add Networking* (Aggiungi rete) nell'intestazione vSwitch0 e immettere i seguenti dettagli nella finestra visualizzata:</block>
+  <block id="a30d98dbf0217882984a02160769e0f1" category="list-text">Per il dispositivo di destinazione, selezionare *nuovo switch standard* e selezionare *Avanti*.</block>
+  <block id="8671f0a8199a0283f4398218123fb82e" category="list-text">In Create a Standard Switch (Crea uno switch standard), spostare vmnic0 e vmnic4 su Active adapter (adattatori attivi) e selezionare *Next* (Avanti).</block>
+  <block id="fec3d5b6be656397a3c7874010b1a1d6" category="list-text">In Connection settings (Impostazioni di connessione), verificare che la rete VM sia l'etichetta di rete e, se necessario, inserire l'ID VLAN.</block>
+  <block id="b8028ca58a0ffdc315fe1a0daaf42691" category="list-text">Esaminare la schermata Ready to complete (Pronto per il completamento) e selezionare *Finish* (fine).</block>
+  <block id="9a99c86bbadc8d9087512e9ac1441321" category="list-text">Espandere vSwitch1 e selezionare *EDIT* per modificare le impostazioni come segue:</block>
+  <block id="a839db2a162d055d0427c6f5ee743c4f" category="list-text">Nella figura visualizzata, selezionare la rete della macchina virtuale <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Modifica*.</block>
+  <block id="f975200c0fde9091513de823f8382a0b" category="list-text">Spostare vmnic0 sugli adattatori di standby.</block>
+  <block id="c6d2ce42fe36bfb199a2360edb7c5029" category="list-text">Selezionare *ADD NETWORKING* (AGGIUNGI RETE) nell'intestazione vSwitch1 e immettere i seguenti dettagli nella finestra Add Networking (Aggiungi rete):</block>
+  <block id="c4cf1413e57d3256209b4154d9b5178e" category="list-text">In Crea uno switch standard, spostare vmnic1 e vmnic5 su Active adapter e selezionare *Avanti*.</block>
+  <block id="1d59948c86cc47108b28d89a1cdef5ca" category="list-text">In IPv4 settings (Impostazioni IPv4), fornire le informazioni IPv4 e selezionare *Next* (Avanti).</block>
+  <block id="54691a122e4111b03dbfc011c91e6ce4" category="list-text">Nel grafico visualizzato, selezionare vMotion <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Modifica*.</block>
+  <block id="0f5d411a2e1fcb4f4e434722bd3f79ed" category="list-text">Spostare vmnic4 sugli adattatori di standby.</block>
+  <block id="5d1fd538b976142fe02b836c9b5d8f60" category="list-text">Espandere *vSwitch2* e selezionare *EDIT*:</block>
+  <block id="597eb71768962b3956b5793f98447cfc" category="list-text">Nella figura visualizzata, selezionare iSCSI-B. <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Modifica*.</block>
+  <block id="97017ed07259726b32cf4283092219d6" category="list-text">Spostare vmnic1 sugli adattatori inutilizzati.</block>
+  <block id="7244c9af677a700c90e3ec90d8676bdc" category="list-text">Nella figura visualizzata, selezionare iSCSI-A. <block ref="fefd4e06d12eaaa2e0937984b0093c4c" category="inline-image-macro-rx" type="image"></block> Icona seguita da *Modifica*.</block>
+  <block id="4c7e2ed9a1f23a00223c9c8c0edc66cd" category="list-text">Dopo aver selezionato il nodo appena aggiunto e aperto la scheda Configure (Configura), selezionare *Storage &gt; Storage Adapter* (Storage &gt; Storage Adapter) ed eseguire la seguente procedura:</block>
+  <block id="e4f82379863daecd77fb3c8d90ebfa60" category="list-text">Selezionare l'elenco *ADD SOFTWARE ADAPTER* (AGGIUNGI SCHEDA SOFTWARE).</block>
+  <block id="ec8fe5ffb26c1667f78058271051f7a9" category="list-text">Selezionare *Add iSCSI adapter* (Aggiungi adattatore iSCSI) e selezionare *OK*.</block>
+  <block id="f22178ace11ea87c7d59f75c261a8458" category="list-text">In Storage Adapter (adattatori storage), selezionare l'adattatore iSCSI</block>
+  <block id="9439600543d005cdd1dc468e27ed0ef7" category="list-text">In Proprietà &gt; Generale, copiare il nome iSCSI.</block>
+  <block id="e6ef8efef826617531911029f3094999" category="list-text">Selezionare l'istanza di destinazione.</block>
+  <block id="db69ad9381aeaae67846d9dfee971cde" category="list-text">Selezionare *Gestione*.</block>
+  <block id="4cf1bee9d4da2cfd83c720264ecf95a9" category="list-text">Selezionare il cluster di destinazione.</block>
+  <block id="b4978ef52bb77b70f01c739d12f2035c" category="list-text">Selezionare *Gestione &gt; iniziatori*.</block>
+  <block id="ce5b397637ff33b276925ed4801de384" category="list-text">Selezionare *Crea iniziatore*.</block>
+  <block id="0724c8cf0d32ac22dba8f08f2546c725" category="list-text">Selezionare il nuovo iniziatore.</block>
+  <block id="deb3e04bcff0ba49c84aebd575a577fd" category="list-text">Selezionare *elenco azioni &gt; azioni in blocco* e selezionare *Aggiungi a gruppo di accesso*.</block>
+  <block id="98949fae581882fa05ca711731127258" category="list-text">Selezionare il gruppo di accesso di destinazione e scegliere *Aggiungi*.</block>
+  <block id="fe2a5ee2a2b397b15ed5c1b7f60b6c41" category="list-text">Selezionare *Dynamic Discovery &gt; Add* (rilevamento dinamico &gt; Aggiungi).</block>
+  <block id="e5b06ada59c18deba03f29c6ac86983f" category="list-text">Selezionare *Network Port Binding* e selezionare *ADD*.</block>
+  <block id="15dc75908330af084a79ea2ada24a934" category="list-text">Selezionare iSCSI-A e iSCSI-B, quindi selezionare *OK*</block>
+  <block id="166771a382a5d846482a26dbe5c7b9e3" category="list-text">Selezionare *RIPETERE LA SCANSIONE DELL'ADATTATORE*.</block>
+  <block id="73849a27a526b230f59a20c776064eb9" category="list-text">Selezionare *RIPETERE LA SCANSIONE DELLO STORAGE*. Cercare nuovi volumi VMFS e selezionare *OK*.</block>
+  <block id="bc1db729f0157876d24fd3c55560294c" category="list-text">Una volta completata la nuova scansione, verificare se i volumi nel cluster e negli archivi dati sono visibili sul nuovo nodo di calcolo (host).</block>
+  <block id="f096b63658cb95d8f43a07e2d68c70b3" category="paragraph">Per Element Plug-in per vCenter 4.10 e versioni precedenti, aggiungere il nodo (host) al cluster.</block>
+  <block id="fc4dbbaeabdf5700f373a65d12b45108" category="list-text">Fare clic con il pulsante destro del mouse sul cluster a cui si desidera aggiungere il nodo e selezionare *Add host* (Aggiungi host).</block>
 </blocks>

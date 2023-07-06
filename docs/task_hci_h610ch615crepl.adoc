@@ -39,10 +39,7 @@ Di seguito viene riportata una panoramica generale delle fasi di questa procedur
 
 == Prepararsi a sostituire il nodo
 
-Prima di sostituire il nodo, è necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo dal cluster. Si dovrebbero ottenere dettagli sul nodo, come il numero di serie e le informazioni di rete.
-
-
-NOTE: In caso di guasti ai componenti in cui il nodo è ancora in linea e funzionante, ad esempio un errore del modulo DIMM (Dual Inline Memory Module), è necessario rimuovere le unità dal cluster prima di rimuovere il nodo guasto.
+Prima di sostituire il nodo, è necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo dal cluster. È necessario registrare i dettagli del nodo, ad esempio il numero di serie e le informazioni di rete. La migrazione delle macchine virtuali e la registrazione dei dettagli del nodo si applicano anche in caso di guasti ai componenti in cui il nodo è ancora in linea e funzionante, ad esempio un guasto del modulo DIMM (Dual Inline Memory Module).
 
 .Fasi
 . In VMware vSphere Web Client, eseguire la procedura per migrare le macchine virtuali su un altro host disponibile.

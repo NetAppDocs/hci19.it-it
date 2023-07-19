@@ -42,18 +42,6 @@ NOTE: Un trattino (*-*) nella tabella seguente indica che il componente hardware
 | Rilasciare il veicolo | Data di rilascio | BIOS | BMC | CPLD | NIC CX4 da 10/25 GbE | NIC CX5 da 10/25 GbE | Cache NVDIMM modulo NVDIMM Smart (Gen1) | Cache NVDIMM Energy Source (BPM) Smart (Gen1) | Cache NVDIMM modulo NVDIMM Smart (Gen2) | Cache NVDIMM Energy Source (BPM) Smart (Gen2) | Modulo NVDIMM della cache micron (Gen1) | Cache NVDIMM Energy Source (PGEM) Agigatech (Gen1) | Modulo NVDIMM della cache micron (Gen2) | Cache NVDIMM Energy Source (PGEM) Agigatech (Gen2) | Cache NVDIMM Energy Source (PGEM) Agigatech (Gen3) | Disco Samsung PM963 (SED) | Disco Samsung PM963 (N-SED) | Disco Samsung PM983 (SED) | Disco Samsung PM983 (N-SED) | Disco Kioxia CD5 (SED) | Disco Kioxia CD5 (N-SED) | Disco CD5 (FIPS) | Disco Samsung PM9A3 (SED) | Disco SK Hynix PE8010 (SED) | Disco SK Hynix PE8010 (N-SED) 
 
 
-| *Storage firmware Bundle 2.164.0* | 10/20/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109 | 0109 | 0108 | GDC5602Q | 11092A10 | 110B2A10 
-
-
-| *Bundle firmware storage da 2.164.0 a NetApp Element 12.7* | 10/20/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109 | 0109 | 0108 | GDC5602Q | 11092A10 | 110B2A10 
-
-
-| *Storage firmware Bundle 2.150.4* | 06/08/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109 | 0109 | 0108 | GDC502Q | 11092A10 | 110B2A10 
-
-
-| *Bundle firmware storage da 2.150.4 a NetApp Element 12.5* | 06/08/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109 | 0109 | 0108 | GDC502Q | 11092A10 | 110B2A10 
-
-
 | *Storage firmware Bundle 2.146.2* | 02/22/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EDA5900Q | 0109 | 0109 | 0108 | GDC502Q | 11092A10 | 110B2A10 
 
 
@@ -152,15 +140,6 @@ Firmware dei componenti gestito da un bundle di firmware per lo storage.
 | Rilasciare il veicolo | Data di rilascio | BIOS | BMC | NIC 10/25 GbE SMCI Mellanox | Cache NVDIMM RMS200 | Cache NVDIMM RMS300 | Disco Samsung PM863 (SED) | Disco Samsung PM863 (N-SED) | Drive Toshiba Hawk-4 (SED) | Drive Toshiba Hawk-4 (N-SED) | Disco Samsung PM883 (SED) 
 
 
-| *Storage firmware Bundle 2.164.0* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
-| *Bundle firmware storage da 2.164.0 a NetApp Element 12.7* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
-| *Bundle firmware storage da 2.150.4 a NetApp Element 12.5* | 06/08/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
 | *Bundle firmware storage da 2.99 a NetApp Element 12.3* | 04/15/2021 | NA2.1 | 6.84.00 | 14.25.1020 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7904Q 
 
 
@@ -257,15 +236,6 @@ NOTE: Un trattino (*-*) nella tabella seguente indica che il componente hardware
 
 
 | *Storage firmware Bundle 2.164.0* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
-| *Bundle firmware storage da 2.164.0 a NetApp Element 12.7* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
-| *Storage firmware Bundle 2.150.4* | 06/08/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
-| *Bundle firmware storage da 2.150.4 a NetApp Element 12.5* | 06/08/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
 
 
 | *Storage firmware Bundle 2.146.2* | 02/22/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 

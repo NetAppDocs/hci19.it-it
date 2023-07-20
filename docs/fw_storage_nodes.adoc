@@ -235,9 +235,6 @@ NOTE: Un trattino (*-*) nella tabella seguente indica che il componente hardware
 | Rilasciare il veicolo | Data di rilascio | NIC | CACHE NVDIMM RMS200 (RMS200) | CACHE NVDIMM RMS200 (RMS300) | Disco Samsung PM863 (SED) | Disco Samsung PM863 (N-SED) | Drive Toshiba Hawk-4 (SED) | Drive Toshiba Hawk-4 (N-SED) | Disco Samsung PM883 (SED) 
 
 
-| *Storage firmware Bundle 2.164.0* | 10/20/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
-
-
 | *Storage firmware Bundle 2.146.2* | 02/22/2022 | 7.10.18 | ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ITP7101 | 8ITP6101 | HXT7A04Q 
 
 

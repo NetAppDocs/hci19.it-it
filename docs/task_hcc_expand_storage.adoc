@@ -49,7 +49,11 @@ https://<ManagementNodeIP>
 +
 Il browser apre NetApp Deployment Engine.
 
-. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
++
+
+NOTE: Non è possibile accedere utilizzando le credenziali Lightweight Directory Access Protocol.
+
 . Nella pagina *Benvenuto*, fare clic su *No* e fare clic su *continua*.
 . Nella pagina *Available Inventory* (inventario disponibile), selezionare i nodi di storage che si desidera aggiungere e fare clic su *Continue* (continua).
 . Nella pagina *Impostazioni di rete*, alcune informazioni di rete sono state rilevate dalla distribuzione iniziale. Ogni nuovo nodo di storage viene elencato in base al numero di serie ed è necessario assegnarvi le nuove informazioni di rete. Per ogni nuovo nodo di storage, attenersi alla seguente procedura:

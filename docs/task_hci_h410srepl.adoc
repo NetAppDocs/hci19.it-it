@@ -157,7 +157,11 @@ https://<ManagementNodeIP>/manager/login
 ----
 . Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
 . Nel riquadro di espansione dell'installazione, selezionare *Espandi*.
-. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
++
+
+NOTE: Non è possibile accedere utilizzando le credenziali Lightweight Directory Access Protocol.
+
 . Nella pagina di benvenuto, selezionare *No*.
 . Selezionare *continua*.
 . Nella pagina inventario disponibile, selezionare il nodo di storage che si desidera aggiungere all'installazione di NetApp HCI esistente.
@@ -194,7 +198,11 @@ Se l'installazione di NetApp HCI esegue la versione 1.4P2, 1.4 o 1.3, è possibi
 .Fasi
 . Individuare l'indirizzo IP di gestione di uno dei nodi di storage esistenti:
 `http://<storage_node_management_IP_address>/`
-. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
++
+
+NOTE: Non è possibile accedere utilizzando le credenziali Lightweight Directory Access Protocol.
+
 . Selezionare *espandere l'installazione*.
 . Nella pagina di benvenuto, selezionare *No*.
 . Fare clic su *continua*.

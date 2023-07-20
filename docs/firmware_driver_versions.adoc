@@ -17,6 +17,16 @@ summary: Versioni di firmware e driver supportate nei software NetApp HCI e NetA
 [role="lead"]
 Versioni del firmware e dei driver ESXi supportate per NetApp HCI e versioni del firmware per i nodi di storage NetApp HCI.
 
-link:fw_storage_nodes.html["Nodi di storage"]* H610S * H410S
+link:fw_storage_nodes.html["Nodi di storage"]
 
-link:fw_compute_nodes.html["Nodi di calcolo"]* H615C * H610C * H410C * H300E/H500E/H700E
+* H610S
+* H410S
+
+
+link:fw_compute_nodes.html["Nodi di calcolo"]
+
+* H615C
+* H610C
+* H410C
+* H300E/H500E/H700E
+

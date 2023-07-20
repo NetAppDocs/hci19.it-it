@@ -116,7 +116,11 @@ https://<ManagementNodeIP>
 ----
 . Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
 . Nel riquadro di espansione dell'installazione, selezionare *Espandi*. Il browser apre NetApp Deployment Engine.
-. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
++
+
+NOTE: Non è possibile accedere utilizzando le credenziali Lightweight Directory Access Protocol.
+
 . Nella pagina di benvenuto, selezionare *Sì*.
 . Nella pagina End User License (licenza per l'utente finale), eseguire le seguenti operazioni:
 +

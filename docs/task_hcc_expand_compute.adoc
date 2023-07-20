@@ -42,7 +42,11 @@ https://<ManagementNodeIP>
 +
 Il browser apre NetApp Deployment Engine.
 
-. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
+. Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
++
+
+NOTE: Non è possibile accedere utilizzando le credenziali Lightweight Directory Access Protocol.
+
 . Nella pagina *Benvenuto*, fare clic su *Sì* e fare clic su *continua*.
 . Nella pagina *licenza per l'utente finale*, leggere il contratto di licenza per l'utente finale VMware e fare clic su *Accetto* per accettare i termini e fare clic su *continua*.
 . Nella pagina *vCenter*, completare la seguente procedura:

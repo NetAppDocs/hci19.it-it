@@ -27,12 +27,12 @@ NOTE: Management Services 2.22.7 include Element Plug-in per vCenter Server 5.0 
 --
 Questa procedura di aggiornamento riguarda i seguenti scenari di aggiornamento:
 
-* Si sta eseguendo l'aggiornamento a Element Plug-in per vCenter Server 5.1 o 5.0.
+* Stai effettuando l'aggiornamento a Element Plug-in per vCenter Server 5,2, 5,1 o 5,0.
 * Si sta eseguendo l'aggiornamento a 8.0 o 7.0 HTML5 vSphere Web Client.
 
 
 
-IMPORTANT: Element Plug-in per vCenter 5.0 e versioni successive non è compatibile con vCenter Server 6.7 e 6.5.
+IMPORTANT: Il plug-in Element per vCenter 5,0 o versioni successive non è compatibile con vCenter Server 6,7 e 6,5.
 
 
 NOTE: Quando si esegue l'aggiornamento da Element Plug-in per vCenter Server 4.x a 5.x, i cluster già configurati con il plug-in vengono persi perché i dati non possono essere copiati da un'istanza di vCenter a un plug-in remoto. È necessario aggiungere nuovamente i cluster al plug-in remoto. Si tratta di un'attività singola durante l'aggiornamento da un plug-in locale a un plug-in remoto.
@@ -139,11 +139,11 @@ NOTE: Questa azione crea un nuovo database e completa l'installazione in vSphere
 +
 ** A partire dal plug-in Element per vCenter Server 5.0, viene visualizzato il punto di estensione del plug-in remoto NetApp Element:
 +
-image::vcp_remote_plugin_icons_home_page.png[Mostra il punto di estensione del plug-in dopo un aggiornamento o un'installazione riusciti per Element Plug-in 5.0 o versioni successive]
+image::vcp_remote_plugin_icons_home_page.png[Descrive il punto di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 5,0 o versioni successive]
 
 ** Per il plug-in Element per vCenter Server 4.10 o versioni precedenti, vengono visualizzati i punti di estensione per la configurazione e la gestione di NetApp Element:
 +
-image::vcp_shortcuts_page_accessing_plugin.png[Mostra i punti di estensione del plug-in dopo un aggiornamento o un'installazione riusciti per Element Plug-in 4.10 o versioni precedenti]
+image::vcp_shortcuts_page_accessing_plugin.png[Descrive i punti di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 4,10 o versioni precedenti]
 
 +
 [NOTE]
@@ -162,7 +162,7 @@ Dovrebbero essere visualizzati i seguenti dettagli di versione o dettagli di una
 +
 [listing]
 ----
-NetApp Element Plug-in Version: 5.1
+NetApp Element Plug-in Version: 5.2
 NetApp Element Plug-in Build Number: 12
 ----
 

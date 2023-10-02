@@ -3437,9 +3437,7 @@
   <block id="ea52eab386a36623963eee64d8468c76" category="admonition">Management Services 2.22.7 include Element Plug-in per vCenter Server 5.0 che contiene il plug-in remoto. Se si utilizza il plug-in Element, è necessario eseguire l'aggiornamento ai servizi di gestione 2.22.7 o versioni successive per rispettare la direttiva VMware che rimuove il supporto per i plug-in locali.<block ref="3eff1b8505d27ff6caa23fbbb1b7b25c" category="inline-link-rx"></block>.</block>
   <block id="04e630ae5e9700f09b6ca3715246283d" category="open-title">Plug-in Element per vCenter 5.0 e versioni successive</block>
   <block id="badb045d93b6de2fe8d2a1a664b92d6f" category="paragraph">Questa procedura di aggiornamento riguarda i seguenti scenari di aggiornamento:</block>
-  <block id="3a2bbd221f9a6d667af34b16ef1c1a32" category="list-text">Si sta eseguendo l'aggiornamento a Element Plug-in per vCenter Server 5.1 o 5.0.</block>
   <block id="61517793d4523320c7cd75e303ad36ff" category="list-text">Si sta eseguendo l'aggiornamento a 8.0 o 7.0 HTML5 vSphere Web Client.</block>
-  <block id="787e0e54cc17d9dd6bbd7cf4c4fbc14d" category="admonition">Element Plug-in per vCenter 5.0 e versioni successive non è compatibile con vCenter Server 6.7 e 6.5.</block>
   <block id="609cfd925544c2aaccb703dcb95eed4d" category="admonition">Quando si esegue l'aggiornamento da Element Plug-in per vCenter Server 4.x a 5.x, i cluster già configurati con il plug-in vengono persi perché i dati non possono essere copiati da un'istanza di vCenter a un plug-in remoto. È necessario aggiungere nuovamente i cluster al plug-in remoto. Si tratta di un'attività singola durante l'aggiornamento da un plug-in locale a un plug-in remoto.</block>
   <block id="f156e2c2564d8d92e0cea1d77dbc95aa" category="open-title">Plug-in Element per vCenter 4.10 e versioni precedenti</block>
   <block id="b829058e02635e31c81abf49f37e64d2" category="list-text">Si sta eseguendo l'aggiornamento a Element Plug-in per VMware vCenter Server 4.10, 4.9, 4.8, 4.7, 4.6, 4.5 o 4.4.</block>
@@ -3486,9 +3484,7 @@
   <block id="9b572df8237d34b7c32142ac15f1325f" category="list-text">In vSphere Web Client, cercare le seguenti attività completate nel task monitor per assicurarsi che l'installazione sia stata completata:<block ref="ec6215521ab965944e6a3eeb6b9ab6f1" prefix=" " category="inline-code"></block> e.<block ref="0f5814fb45e88fb5a7d984788675e425" prefix=" " category="inline-code"></block>.</block>
   <block id="d471727ba1fb423986701d5307906d08" category="list-text">Verificare che i punti di estensione del plug-in siano visualizzati nella scheda *Shortcuts* di vSphere Web Client e nel pannello laterale.</block>
   <block id="1993643c12bb4ee547f04d8d85f8c4bf" category="list-text">A partire dal plug-in Element per vCenter Server 5.0, viene visualizzato il punto di estensione del plug-in remoto NetApp Element:</block>
-  <block id="a59c1c8488703068757c713fc8a225be" category="image-alt">Mostra il punto di estensione del plug-in dopo un aggiornamento o un'installazione riusciti per Element Plug-in 5.0 o versioni successive</block>
   <block id="1c63b3cd9a6d3bdf8b9b31aca68672d7" category="list-text">Per il plug-in Element per vCenter Server 4.10 o versioni precedenti, vengono visualizzati i punti di estensione per la configurazione e la gestione di NetApp Element:</block>
-  <block id="85406fb94df2ff523b7477f229b1c9c8" category="image-alt">Mostra i punti di estensione del plug-in dopo un aggiornamento o un'installazione riusciti per Element Plug-in 4.10 o versioni precedenti</block>
   <block id="a0abd6db969f497b63a29f8fbd1771df" category="inline-link-macro">Plug-in Element per vCenter Server</block>
   <block id="5e98629f8afe2eee1c27355eb45a80e0" category="paragraph">Se le icone del plug-in vCenter non sono visibili, vedere <block ref="ab9b282dbdbe327f4195d1f5d71c406f" category="inline-link-macro-rx"></block> documentazione sulla risoluzione dei problemi del plug-in.</block>
   <block id="726e3510e2c172eed6861f3e6d271360" category="paragraph">Dopo aver eseguito l'aggiornamento al plug-in NetApp Element per vCenter Server 4.8 o versioni successive con VMware vCenter Server 6.7U1, se i cluster di storage non sono elencati o viene visualizzato un errore del server nelle sezioni *Clusters* e *QoSSIOC Settings* della configurazione NetApp Element, vedere <block ref="c907b125bbc711015f83b735f4697e97" category="inline-link-macro-rx"></block> documentazione sulla risoluzione di questi errori.</block>
@@ -4336,7 +4332,6 @@
   <block id="3e6c92d2b92c58fc4bfb9dd99511b0d9" category="section-title">Servizi di gestione</block>
   <block id="3b79e75f8bb7342984eec3a3fd95ccf6" category="list-text"><block ref="3b79e75f8bb7342984eec3a3fd95ccf6" category="inline-link-rx"></block></block>
   <block id="54db42757b5d75d2f660dc70f35850cf" category="inline-link">Note sulla versione di vCenter Plug-in 5.1</block>
-  <block id="61ad36f15eb6ab7927cdc50f6e089a98" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block> _NUOVO_</block>
   <block id="6b777567daa827d5b0665b94c630539f" category="inline-link">Note sulla versione di vCenter Plug-in 5.0</block>
   <block id="0e051271241f0648ba45a8ad135d030c" category="list-text"><block ref="0e051271241f0648ba45a8ad135d030c" category="inline-link-rx"></block></block>
   <block id="90e7c2277ee69a3d3ecf30fa1fe61ab1" category="inline-link">Note sulla versione di vCenter Plug-in 4.10</block>
@@ -4362,7 +4357,6 @@
   <block id="8b8c8134b91716e60636957418102f63" category="list-text"><block ref="8b8c8134b91716e60636957418102f63" category="inline-link-macro-rx"></block></block>
   <block id="44ab09772a6239d5bf2ccd62556619aa" category="list-text"><block ref="44ab09772a6239d5bf2ccd62556619aa" category="inline-link-macro-rx"></block></block>
   <block id="4b8861a11346d673205d074f862db70a" category="inline-link-macro">Versioni del firmware e dei driver ESXi supportate</block>
-  <block id="e5f0019a70375a2e883b7840f439118a" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block> _NUOVO_</block>
   <block id="002e74c06881f6eef90f201bb310bbfa" category="section-title">Firmware dello storage</block>
   <block id="67a13cf9dcb3321b59f28def3726ce13" category="list-text"><block ref="67a13cf9dcb3321b59f28def3726ce13" category="inline-link-macro-rx"></block></block>
   <block id="176d9ae1b8e18dc2cedc534e1da45e7c" category="inline-link-macro">Note sulla versione di Storage firmware Bundle 2.99.2</block>
@@ -6573,4 +6567,14 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="eea7cb3a63edf642e1f15162351dfce7" category="list-text">Stai effettuando l'aggiornamento a Element Plug-in per vCenter Server 5,2, 5,1 o 5,0.</block>
+  <block id="474ed7ffbbc0fc1d58ad983e7ef700f6" category="admonition">Il plug-in Element per vCenter 5,0 o versioni successive non è compatibile con vCenter Server 6,7 e 6,5.</block>
+  <block id="2553e35e4b345db1c1e3175a10539fdf" category="image-alt">Descrive il punto di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 5,0 o versioni successive</block>
+  <block id="f35f89119a6374d18bd89e0103590c61" category="image-alt">Descrive i punti di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 4,10 o versioni precedenti</block>
+  <block id="faf6c38631911f7840c3498b4ec9f746" category="inline-link-macro">Avviso per i servizi di gestione 2.24.40 (plug-in NetApp Element per VMware vCenter Server 5,2.12)</block>
+  <block id="1f3c662e49f317f7c70a24adc13870a1" category="list-text"><block ref="1f3c662e49f317f7c70a24adc13870a1" category="inline-link-macro-rx"></block></block>
+  <block id="ce397f79b5032c3e327db3efe5a6048a" category="inline-link">VCenter Plug-in 5,2 - Note sulla versione</block>
+  <block id="4718467fa890cd0dcf159b3d461cedbe" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block> _NUOVO_</block>
+  <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
+  <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
 </blocks>

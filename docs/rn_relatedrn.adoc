@@ -59,7 +59,8 @@ NOTE: Ti verrà richiesto di effettuare l'accesso utilizzando le credenziali del
 
 == Plug-in NetApp Element per server vCenter
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Note sulla versione di vCenter Plug-in 5.1"^] _NUOVO_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["VCenter Plug-in 5,2 - Note sulla versione"^] _NUOVO_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Note sulla versione di vCenter Plug-in 5.1"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["Note sulla versione di vCenter Plug-in 5.0"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["Note sulla versione di vCenter Plug-in 4.10"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["Note sulla versione di vCenter Plug-in 4.9"^]
@@ -79,7 +80,7 @@ NOTE: Ti verrà richiesto di effettuare l'accesso utilizzando le credenziali del
 * link:rn_compute_firmware_2.76.html["Note sulla versione di Compute firmware Bundle 2.76"]
 * link:rn_compute_firmware_2.27.html["Note sulla versione di Compute firmware Bundle 2.27"]
 * link:rn_firmware_12.2.109.html["Note sulla versione di Compute firmware Bundle 12.2.109"]
-* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate"] _NUOVO_
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate"]
 
 
 
@@ -91,5 +92,5 @@ NOTE: Ti verrà richiesto di effettuare l'accesso utilizzando le credenziali del
 * link:rn_storage_firmware_2.76.html["Note sulla versione di Storage firmware Bundle 2.76"]
 * link:rn_storage_firmware_2.27.html["Note sulla versione di Storage firmware Bundle 2.27"]
 * link:rn_H610S_BMC_3.84.07.html["H610S BMC 3.84.07 Release Notes"]
-* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate"] _NUOVO_
+* link:firmware_driver_versions.html["Versioni del firmware e dei driver ESXi supportate"]
 

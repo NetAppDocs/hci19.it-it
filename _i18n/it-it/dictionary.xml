@@ -849,13 +849,11 @@
   <block id="bc218e71c18c2f809dffb10d3bc2a6e8" category="list-text"><block ref="bc218e71c18c2f809dffb10d3bc2a6e8" category="inline-link-rx"></block></block>
   <block id="8838c26820c2bdc7ab11f616de8739d6" category="summary">Porte TCP e UDP utilizzate da NetApp HCI.</block>
   <block id="7375651611f00991b648b4a9ae04736e" category="doc">Requisiti delle porte di rete</block>
-  <block id="ba05be2241c302ce19b7534dcd611775" category="paragraph">Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema. Tutte le porte sono TCP, se non diversamente specificato.</block>
   <block id="15a1051d03ca55ab79226f44fa683bbe" category="paragraph">Nella tabella vengono utilizzate le seguenti abbreviazioni:</block>
   <block id="60175d30ed8f8459b2f835b923bb4ee5" category="list-text">MIP: Indirizzo IP di gestione, un indirizzo per nodo</block>
   <block id="b41c14a062a4854e04d459016f1eae73" category="list-text">SIP: Indirizzo IP dello storage, un indirizzo per nodo</block>
   <block id="416d6ad49d8853217a6bb321dc6df5aa" category="list-text">MVIP: Indirizzo IP virtuale di gestione</block>
   <block id="c51558c5b0e3376ab979005c0eadcc9e" category="list-text">SVIP: Indirizzo IP virtuale dello storage</block>
-  <block id="96d2b8e68e9f540a05073cf66ebfb8fb" category="paragraph">Tutte le porte della tabella sono TCP, salvo diversamente specificato.</block>
   <block id="f31bbdd1b3e85bccd652680e16935819" category="cell">Origine</block>
   <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">Destinazione</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">Porta</block>
@@ -3739,7 +3737,6 @@
   <block id="9a9946a3520a86dd148888587675f525" category="list-text"><block ref="9a9946a3520a86dd148888587675f525" category="inline-link-macro-rx"></block></block>
   <block id="1684a001fdc92bf11adbffa7d65e54ef" category="list-text"><block ref="1684a001fdc92bf11adbffa7d65e54ef" category="inline-link-macro-rx"></block></block>
   <block id="38d2bb23849f828628a170b7814a5b48" category="summary">Scopri come disattivare<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> Comando sugli switch configurati dopo l'implementazione di NetApp HCI.</block>
-  <block id="f51859c5296df69766701d38fc7c8859" category="doc">Disattivare il comando lacp-Individual sugli switch configurati</block>
   <block id="8b8fcd904806ca441f07a09ee921db7c" category="paragraph">Per impostazione predefinita, lo switch Mellanox<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> E lo switch Cisco<block ref="4a00365b8de9edd749d6f2ef23017ee8" prefix=" " category="inline-code"></block> il comando rimane configurato dopo l'implementazione. Questo comando non è richiesto dopo l'installazione; se rimane configurato, può causare problemi di accesso al volume durante la risoluzione dei problemi o il riavvio di uno switch. Dopo l'implementazione, controllare la configurazione di ciascuno switch Mellanox e Cisco e rimuovere<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> oppure<block ref="4a00365b8de9edd749d6f2ef23017ee8" prefix=" " category="inline-code"></block> comando.</block>
   <block id="7230032f9e3f3d80f5d464534044fa7e" category="list-text">Utilizzando SSH, aprire una sessione per lo switch.</block>
   <block id="ea81d6b9aaa9ef63fd80d7044e4a7dae" category="list-text">Mostra la configurazione in esecuzione:</block>
@@ -6433,7 +6430,6 @@
   <block id="9f9cc94477333eb0fb7b09a53f7bda17" category="cell">*3.91.07*</block>
   <block id="dea6f0f4bf83a3af0eb8a63eb0de7c2d" category="cell">H610S BMC 3.91.07</block>
   <block id="0400038e3cce41a0680914fdbddac771" category="list-text">Migliorare l'utilizzo dell'usura della flash BMC</block>
-  <block id="baac2557431cefc749efdd1d5a826b20" category="sidebar">Documentazione di NetApp HCI 1.9</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Note di rilascio</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">Concetti</block>
   <block id="4b983fff716674f120176e09551dd445" category="sidebar">Panoramica del prodotto</block>
@@ -6577,4 +6573,6 @@
   <block id="4718467fa890cd0dcf159b3d461cedbe" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block> _NUOVO_</block>
   <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
   <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
+  <block id="7149d03eb62017e7cc5192a67ff56c1c" category="paragraph">Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema.</block>
+  <block id="331d6d490990c63b2cee0dc04fe2589b" category="paragraph">Tutte le porte sono TCP, se non diversamente specificato, e tutte le porte TCP devono supportare la comunicazione handshake a tre vie tra il server di supporto NetApp, il nodo di gestione e i nodi che eseguono il software Element. Ad esempio, l'host su un'origine del nodo di gestione comunica con l'host su una destinazione MVIP del cluster di storage attraverso la porta TCP 443, e l'host di destinazione comunica nuovamente con l'host di origine attraverso qualsiasi porta.</block>
 </blocks>

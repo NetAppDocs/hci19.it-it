@@ -15,7 +15,9 @@ keywords: netapp, hci, ports, tcp, udp
 
 
 [role="lead"]
-Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema. Tutte le porte sono TCP, se non diversamente specificato.
+Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema.
+
+Tutte le porte sono TCP, se non diversamente specificato, e tutte le porte TCP devono supportare la comunicazione handshake a tre vie tra il server di supporto NetApp, il nodo di gestione e i nodi che eseguono il software Element. Ad esempio, l'host su un'origine del nodo di gestione comunica con l'host su una destinazione MVIP del cluster di storage attraverso la porta TCP 443, e l'host di destinazione comunica nuovamente con l'host di origine attraverso qualsiasi porta.
 
 Nella tabella vengono utilizzate le seguenti abbreviazioni:
 
@@ -24,8 +26,6 @@ Nella tabella vengono utilizzate le seguenti abbreviazioni:
 * MVIP: Indirizzo IP virtuale di gestione
 * SVIP: Indirizzo IP virtuale dello storage
 
-
-Tutte le porte della tabella sono TCP, salvo diversamente specificato.
 
 |===
 | Origine | Destinazione | Porta | Descrizione 

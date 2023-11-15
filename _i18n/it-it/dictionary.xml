@@ -3241,8 +3241,6 @@
   <block id="9e08f10312f3eaa134087c34ad076d92" category="paragraph">Questo<block ref="f76e21c4f97e9ef2eb0114383d271ddf" category="inline-link-rx"></block> Rimuove il certificato SSL e la chiave privata attualmente installati. Il cluster genera quindi un nuovo certificato autofirmato e una nuova chiave privata.</block>
   <block id="f056eadecebc58790da8eb91b5211492" category="inline-link">Quali sono i requisiti relativi all'impostazione di certificati SSL personalizzati in Element Software?</block>
   <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
-  <block id="631923a687ff82d68973d99b95597b47" category="inline-link">Pagina SolidFire and Element Resources</block>
-  <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
   <block id="675d896ff4fd6c84e6b48f1bb67de9f8" category="summary">Scopri come creare un volume e associarlo a un determinato account.</block>
   <block id="ab25945de4e1b322e51d67719ecd58e1" category="doc">Crea e gestisci i volumi utilizzando NetApp Hybrid Cloud Control</block>
   <block id="3827185ea08dc72170f30a87035c52fb" category="paragraph">È possibile creare un volume e associarlo a un determinato account. L'associazione di un volume a un account consente all'account di accedere al volume tramite gli iniziatori iSCSI e le credenziali CHAP.</block>
@@ -3782,11 +3780,6 @@
   <block id="c75441b3cca2c155de3eee605d34aeb4" category="list-text">È stato verificato che il nodo non funziona correttamente.</block>
   <block id="9763adab877e2500e5eb1d0be45a24a3" category="list-text">Si dispone di uno chassis sostitutivo. Per ordinare un prodotto sostitutivo, contattare il supporto NetApp.</block>
   <block id="4177894d92f9956a6f7250cb8b52d834" category="list-text">Ciascun cavo collegato al telaio è etichettato.</block>
-  <block id="b1579568b723cfa21964d9882eb934fb" category="paragraph">Di seguito viene riportata una panoramica generale delle fasi di questa procedura:<block ref="8b400d38091051616c1c5cc1808de640" category="inline-xref-macro-rx"></block>
-<block ref="3bbd6094cc077cc68f8084464864b066" category="inline-xref-macro-rx"></block>
-<block ref="85d7ff8f1e3fd6efa440dcd74d3d3e02" category="inline-xref-macro-rx"></block>
-<block ref="74302f10271a48c9df46742d43d08db8" category="inline-xref-macro-rx"></block></block>
-  <block id="d7f6ba0367c50b236e879580284dfabe" category="section-title">Prepararsi a sostituire il nodo</block>
   <block id="d8d7c90a9eba54aa51121a64132d7c53" category="list-text">In VMware vSphere Web Client, eseguire la procedura per migrare le macchine virtuali su un altro host disponibile.</block>
   <block id="e2477b6b77307705f07f9d4a9bce00f5" category="admonition">Consultare la documentazione VMware per le fasi della migrazione.</block>
   <block id="ec222debbf462515211b8a9dbc83ea5a" category="list-text">Selezionare il nodo guasto e selezionare *Monitor &gt; hardware Status &gt; Sensors*.</block>
@@ -3797,7 +3790,6 @@
   <block id="33e9288e89d9611e1ac5260b3d7e8f48" category="list-text">Selezionare *Sì* per confermare l'azione.</block>
   <block id="bb0e93ea56d61e6329bf2642673cf735" category="list-text">Fare clic con il pulsante destro del mouse sul nodo guasto e selezionare *Rimuovi dall'inventario*.</block>
   <block id="7ab682c31b3906d62159c2f9d858b798" category="list-text">Fare clic su *Sì* per confermare l'azione.</block>
-  <block id="4bf11adaae89a783a7925f82b81963ee" category="section-title">Sostituire il nodo</block>
   <block id="0284c3c24e20ba25bd655bfa5902da86" category="paragraph">Dopo aver rimosso il nodo guasto dal cluster, è possibile rimuovere lo chassis guasto e installare lo chassis sostitutivo.</block>
   <block id="ef3f79bdcf9f4d42d419e2b9c45d5393" category="list-text">Disimballare il nuovo chassis e impostarlo su una superficie piana. Conservare il materiale di imballaggio per quando si restituisce lo chassis guasto a NetApp.</block>
   <block id="bfc31a5b7c0c06e46b597db93cca8594" category="list-text">Etichettare ciascun cavo inserito nella parte posteriore dello chassis che si desidera rimuovere. Dopo aver installato il nuovo chassis, inserire nuovamente i cavi nelle porte originali.</block>
@@ -3810,13 +3802,11 @@
   <block id="8daca91d830ace0c305c774cb41e9ecd" category="list-text">Rimuovere le due unità di alimentazione su entrambi i lati dello chassis guasto e inserirle nello chassis sostitutivo.</block>
   <block id="48609f85b6f3b162f84d5b7d5d7677ae" category="list-text">Ricollegare i cavi alle porte da cui sono stati precedentemente scollegati. Le etichette aggiunte ai cavi quando vengono scollegati saranno di aiuto.</block>
   <block id="8d0dad879dbd06ad1f5f1f5acf51f28b" category="list-text">Accendere lo chassis.</block>
-  <block id="ff29627b32e07511ae92253ec85e9e61" category="section-title">Aggiungere il nodo al cluster</block>
   <block id="1f2c6dfe21555b473dc802e5b22a343a" category="paragraph">È necessario configurare NetApp HCI in modo che utilizzi il nuovo nodo di calcolo.</block>
   <block id="c056c0bf5b425a395761cd37de9ac4e3" category="list-text">L'istanza vSphere in uso da NetApp HCI dispone di licenze vSphere Enterprise Plus se si aggiunge il nodo a un'implementazione con Virtual Distributed Switch.</block>
   <block id="d57d6d6a586f9c13fbd97a299e3dfe3a" category="list-text">Nessuna delle istanze vCenter o vSphere in uso con NetApp HCI dispone di licenze scadute.</block>
   <block id="9a0e16aaba5fc23029c3fe1684661ae2" category="list-text">Gli indirizzi IPv4 liberi e inutilizzati si trovano sullo stesso segmento di rete dei nodi esistenti (il nuovo nodo deve essere installato sulla stessa rete dei nodi esistenti del suo tipo).</block>
   <block id="94220c63d490d69862d0b6bd8c55bc36" category="list-text">Le credenziali dell'account amministratore vCenter sono pronte.</block>
-  <block id="81dc4810c71d7b8507b965d26011ef81" category="list-text">Nel riquadro di espansione dell'installazione, selezionare *Espandi*. Il browser apre NetApp Deployment Engine.</block>
   <block id="f325a8632fd080a5f3548693673f42c7" category="list-text">Nella pagina di benvenuto, selezionare *Sì*.</block>
   <block id="131a2da3d2e15dfbc9e1264add2b347d" category="list-text">Nella pagina End User License (licenza per l'utente finale), eseguire le seguenti operazioni:</block>
   <block id="3333434aef715c225d6b54676b5e88a3" category="list-text">Se si accettano i termini, selezionare *Accetto* alla fine del testo del contratto.</block>
@@ -3839,7 +3829,6 @@
   <block id="bdbca9155105fa70b02878fe37dcd59d" category="list-text">Nella pagina Review della sezione Network Settings (Impostazioni di rete), il nuovo nodo viene visualizzato in grassetto. Se è necessario apportare modifiche alle informazioni contenute in qualsiasi sezione, attenersi alla seguente procedura:</block>
   <block id="bbf4838d1335d01314d62bc07ab7bf9a" category="list-text">Facoltativo: Se non si desidera inviare statistiche del cluster e informazioni di supporto ai server SolidFire Active IQ ospitati da NetApp, deselezionare la casella di controllo finale. In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute in tempo reale per NetApp HCI. La disattivazione di questa funzione elimina la possibilità per NetApp di supportare e monitorare in modo proattivo NetApp HCI per rilevare e risolvere i problemi prima che la produzione venga compromessa.</block>
   <block id="e8972e60e4ed1d76df0feffb68866e46" category="list-text">Facoltativo: Verificare che i nuovi nodi di calcolo siano visibili in vCenter.</block>
-  <block id="e8ddb30cd234af505251fddfe210e770" category="section-title">Installare i driver della GPU</block>
   <block id="34a9fb6a8c162efa753bd66e9b87e554" category="paragraph">I nodi di calcolo con unità di elaborazione grafica NVIDIA (GPU), come il nodo H610C, necessitano dei driver software NVIDIA installati in VMware ESXi per poter sfruttare la maggiore potenza di elaborazione. Per installare i driver della GPU, il nodo di calcolo deve disporre di una scheda GPU.</block>
   <block id="d7dc44e401260dbcb4fba3e3f12c02e3" category="list-text">Aprire un browser e accedere al portale delle licenze NVIDIA al seguente URL:<block ref="03481d49de4b71271c82055400407083" prefix=" " category="inline-code"></block></block>
   <block id="c8d7d8b784ab1d748bdb0f7f739baeb7" category="cell">VSphere 6.0</block>
@@ -3847,7 +3836,6 @@
   <block id="77b0f9ffcb30a7f70c02e260497b2e1b" category="paragraph">NVIDIA-GRID-vSphere-6.5-410.92-410.91-412.16.zip</block>
   <block id="ba2a9a549d747a47e02e9b887742d185" category="paragraph">NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip</block>
   <block id="b9e90fd8805746049212e3a607805ca8" category="list-text">Estrarre il pacchetto di driver sul computer. Il file .VIB risultante è il file del driver non compresso.</block>
-  <block id="69e7c0efe52761dba85359c9648bc4c6" category="list-text">Copiare il file del driver .VIB dal computer a ESXi in esecuzione sul nodo di calcolo. I seguenti comandi di esempio per ciascuna versione presuppongono che il driver si trovi nella directory €HOME/NVIDIA/ESX6.x/ sull'host di gestione. L'utility SCP è facilmente disponibile nella maggior parte delle distribuzioni Linux o è disponibile come utility scaricabile per tutte le versioni di Windows:</block>
   <block id="2b66f3a1e27f17f479018be59a0cc7d7" category="cell">ESXi 6.0</block>
   <block id="f0d858488904d8587f0a9f9286dceb97" category="paragraph">scp@HOME/NVIDIA/ESX6.0/NVIDIA**.vib root &lt;ESXi_IP_ADDR&gt;:/.</block>
   <block id="0ed362e4083b699313b65c8fddda4541" category="paragraph">casa/NVIDIA/ESX6.5/NVIDIA**.vib root@&lt;ESXi_IP_ADDR&gt;:/.</block>
@@ -4374,16 +4362,7 @@
   <block id="51345fe1ab5e7f7efb63a32d183cdda9" category="paragraph">Quando si sostituisce un nodo di calcolo H410C, considerare quanto segue:</block>
   <block id="6182ee348cc973ea327f0df387e2207f" category="list-text">È possibile combinare il nodo di calcolo H410C con i nodi di calcolo e storage NetApp HCI esistenti nello stesso chassis e cluster.</block>
   <block id="5d6b6b077cfdeafcbe028bddcb655d4d" category="list-text">Il nodo di calcolo H410C funziona solo con tensione di linea elevata (200-240 VCA). Quando si aggiungono nodi H410C a un sistema NetApp HCI esistente, è necessario assicurarsi che i requisiti di alimentazione siano soddisfatti.</block>
-  <block id="9726e8dc43a3741dbccc204feb2a9dda" category="paragraph">Di seguito viene riportata una panoramica generale delle fasi di questa procedura:<block ref="417a9ef94ddd6fb6079bf181e8da50c6" category="inline-xref-macro-rx"></block>
-<block ref="450dee795ede92f968238358045ee72c" category="inline-xref-macro-rx"></block>
-<block ref="302025b37ed9a655d26cb02c1523b2a4" category="inline-xref-macro-rx"></block>
-<block ref="133c0f35bcfb7bec627508ed13eaf913" category="inline-xref-macro-rx"></block>
-<block ref="3e9667909114056c0816cabcad3091ec" category="inline-xref-macro-rx"></block></block>
   <block id="cd4a531fb438950b1b12718c24e3a003" category="inline-link-macro">Rimuovere i nodi di controllo per liberare le risorse di calcolo</block>
-  <block id="693ac156676e30f319b9cd3e020727f7" category="paragraph">Di seguito sono riportate alcune attività aggiuntive che potrebbero essere necessarie se il sistema dispone delle condizioni specifiche a cui sono applicabili:<block ref="6f2e0dd9461f023001b32f634a66ca39" category="inline-link-macro-rx"></block>
-<block ref="96458e97c135f9cdca1845fd2743e79f" category="inline-xref-macro-rx"></block>
-<block ref="d095c71c5d51f56f74c0c624a25acdfc" category="inline-xref-macro-rx"></block></block>
-  <block id="bdf21dc543b5ab0b0d4037a3b86f500e" category="section-title">Prepararsi a sostituire il nodo di calcolo</block>
   <block id="49de3917417cb7a9d4c88a097084490f" category="paragraph">È necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo guasto dal cluster. Si dovrebbero ottenere dettagli sul nodo guasto, come il numero di serie e le informazioni di rete.</block>
   <block id="3fabab9b6cb1e87fc93159f208c29e60" category="list-text">Eseguire la procedura per rimuovere il nodo dall'inventario. La procedura dipende dalla versione di NetApp HCI installata:</block>
   <block id="1fb164c998d60aaf7600a4699029e6ff" category="cell">Numero di versione di NetApp HCI</block>
@@ -4393,7 +4372,6 @@
   <block id="030be96a2580787247ec3061b2771b9c" category="list-text">Fare clic con il pulsante destro del mouse sul nodo e selezionare *Rimuovi dall'inventario*.</block>
   <block id="99795f9ed04c0bb6ca3b66f13bde3f1d" category="list-text">Notare il numero di serie del nodo 0, che è il numero di serie del nodo guasto. In questo modo, è possibile identificare il nodo nello chassis facendo corrispondere il numero di serie riportato sull'etichetta sul retro del nodo con il numero di serie annotato.</block>
   <block id="7a323f53d4e64c45f636ac4a7040e243" category="list-text">Con il nodo guasto selezionato, selezionare *Manage &gt; Networking &gt; VMkernel adapter* (Gestisci &gt; rete &gt; adattatori VMkernel) e copiare i quattro indirizzi IP elencati. È possibile riutilizzare queste informazioni quando si eseguono le fasi iniziali della configurazione di rete in VMware ESXi.</block>
-  <block id="c4aee125828819cff98e36e2ce8cb1a1" category="section-title">Sostituire il nodo di calcolo nello chassis</block>
   <block id="cf9dd3afde945016d53ec0a6ee2b2237" category="paragraph">Dopo aver rimosso il nodo guasto dal cluster, è possibile rimuovere il nodo dallo chassis e installare il nodo sostitutivo.</block>
   <block id="9391763b95ed4f6ddcc3a77cdbc0f247" category="list-text">Disimballare il nuovo nodo e impostarlo su una superficie piana vicino allo chassis. Conservare il materiale di imballaggio per quando si restituisce il nodo guasto a NetApp.</block>
   <block id="a5bbd5ec6d3243587b13c9136cc3b7eb" category="list-text">Etichettare ciascun cavo inserito nella parte posteriore del nodo che si desidera rimuovere. Dopo aver installato il nuovo nodo, inserire nuovamente i cavi nelle porte originali.</block>
@@ -4403,7 +4381,6 @@
   <block id="b8c64f9d6365a16ee348b8be6dc88946" category="admonition">Assicurarsi che il nodo si accenda. Se non si accende automaticamente, premere il pulsante di accensione nella parte anteriore del nodo.</block>
   <block id="4721f9e0782a50025b6fcdc7c281e2e9" category="list-text">Se in precedenza sono stati rimossi i DIMM dal nodo guasto, inserirli nel nodo sostitutivo.</block>
   <block id="092ca6225b68d75823f18626f2ef0dec" category="admonition">È necessario sostituire i DIMM negli stessi slot da cui sono stati rimossi nel nodo guasto.</block>
-  <block id="3611828f40bf631c043f2a1f9b7d8d80" category="section-title">Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1.7 e versioni successive</block>
   <block id="fd3ac6bf15d6190cc923c4eac0662f3a" category="paragraph">In NetApp HCI 1.7 e versioni successive, dopo aver sostituito fisicamente il nodo, è necessario rimuovere la risorsa del nodo di calcolo utilizzando le API del nodo di gestione. Per utilizzare le API REST, il cluster di storage deve eseguire il software NetApp Element 11.5 o versione successiva e dovrebbe essere stato implementato un nodo di gestione con versione 11.5 o successiva.</block>
   <block id="65a4d29cbb5e1c44baa414f5cf2dc489" category="list-text">Inserire l'indirizzo IP del nodo di gestione seguito da /mnode:<block ref="11c432671376fce97dca37986bfc6be6" prefix=" " category="inline-code"></block></block>
   <block id="49de61ab68074de5da296d48ffde4acb" category="list-text">Selezionare *autorizzare* o qualsiasi icona a forma di lucchetto e immettere le credenziali di amministratore del cluster per le autorizzazioni per l'utilizzo delle API.</block>
@@ -4415,7 +4392,6 @@
   <block id="b9bc6e4f464a0c8b1538f9995b92a895" category="list-text">Selezionare *Esegui*. Scorrere verso il basso nel corpo della risposta fino alla sezione Compute (calcolo) e copiare i valori padre e id per il nodo di calcolo guasto.</block>
   <block id="149ab1533be009942aca64f58c4e6d19" category="list-text">Selezionare *DELETE/assets/{asset_id}/compute-nodes/{compute_id}*.</block>
   <block id="79ec8a7988ef4e63af167fe84122742f" category="list-text">Selezionare *Provalo*. Inserire i valori di origine e id ottenuti al punto 7.</block>
-  <block id="4cf099434af6b1eb3de3a02c4d7343f4" category="section-title">Aggiungere il nodo di calcolo al cluster</block>
   <block id="39b2525fb75e02c64814c90f2cbf3407" category="paragraph">È necessario aggiungere nuovamente il nodo di calcolo al cluster. La procedura varia a seconda della versione di NetApp HCI in esecuzione.</block>
   <block id="2c111a0fdc76875d754c1dba15adb4c8" category="list-text">Assicurarsi che l'istanza di vSphere utilizzata da NetApp HCI disponga di licenze vSphere Enterprise Plus se si sta espandendo un'implementazione con Virtual Distributed Switch.</block>
   <block id="2797d21d72c04e7d29225422f3460348" category="inline-link-macro">Gestire gli iniziatori e i gruppi di accesso ai volumi</block>
@@ -4546,7 +4522,6 @@
   <block id="2d7b1bce570cfad61bcea75e56445e4c" category="list-text">In Dettagli scheda di rete, selezionare *Network Port Binding* e selezionare *+*.</block>
   <block id="09814996c945834d0173335b143561ec" category="list-text">Selezionare le caselle di controllo iSCSI-B e iSCSI-A, quindi fare clic su OK. Viene visualizzato un messaggio che consiglia di eseguire una nuova scansione dell'adattatore di storage.</block>
   <block id="aeffbcab16d409629a6f42a11f66bf51" category="list-text">Selezionare l'icona di riscan (scansione). Una volta completata la riscan, verificare se i volumi nel cluster sono visibili sul nuovo nodo di calcolo (host).</block>
-  <block id="9c9a41bc801502e6500c79ea7586ba95" category="section-title">Ridistribuire i nodi di controllo per cluster di storage a due e tre nodi</block>
   <block id="cec682e94e3f77f9a4e97bcc8d93f2c4" category="paragraph">Dopo aver sostituito fisicamente il nodo di calcolo guasto, è necessario ridistribuire la VM del nodo di controllo NetApp HCI se il nodo di calcolo guasto ospitava il nodo di controllo. Queste istruzioni si applicano solo ai nodi di calcolo che fanno parte di un'installazione NetApp HCI con cluster di storage a due o tre nodi.</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="list-text">Raccogliere le seguenti informazioni:</block>
   <block id="0b579df7695c3410f10a561f05959978" category="list-text">Nome del cluster di storage</block>
@@ -6575,4 +6550,29 @@
   <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
   <block id="7149d03eb62017e7cc5192a67ff56c1c" category="paragraph">Potrebbe essere necessario consentire le seguenti porte attraverso il firewall edge del data center in modo da poter gestire il sistema in remoto, consentire ai client esterni al data center di connettersi alle risorse e garantire il corretto funzionamento dei servizi interni. Alcune di queste porte, URL o indirizzi IP potrebbero non essere necessari, a seconda delle modalità di utilizzo del sistema.</block>
   <block id="331d6d490990c63b2cee0dc04fe2589b" category="paragraph">Tutte le porte sono TCP, se non diversamente specificato, e tutte le porte TCP devono supportare la comunicazione handshake a tre vie tra il server di supporto NetApp, il nodo di gestione e i nodi che eseguono il software Element. Ad esempio, l'host su un'origine del nodo di gestione comunica con l'host su una destinazione MVIP del cluster di storage attraverso la porta TCP 443, e l'host di destinazione comunica nuovamente con l'host di origine attraverso qualsiasi porta.</block>
+  <block id="b0c85ded726a3c8e46cbaafa60707f98" category="inline-link">Come installare ESXi sul nodo di calcolo NetApp HCI manualmente</block>
+  <block id="280e8a9497f3d56d4812b7ef2ce31fc6" category="paragraph">NetApp consiglia di utilizzare il motore di implementazione NetApp per aggiungere un nodo di calcolo sostitutivo. Se non è possibile utilizzare il motore di distribuzione NetApp per l'installazione ESXi, consultare l'articolo della Knowledge base di NetApp<block ref="d673ea2f9a1bf5256cf7dd0779becf21" category="inline-link-rx"></block>.</block>
+  <block id="4e5f0133d50930ab8acffdd21544c950" category="section-title">Fase 1: Preparare la sostituzione del nodo</block>
+  <block id="9385a8fdfdd5ec6a7a983c13d83b5d55" category="section-title">Fase 2: Sostituire il nodo</block>
+  <block id="bf96948cb523bea2d786273b1d9e3726" category="section-title">Passaggio 3: Aggiungere il nodo al cluster</block>
+  <block id="667494acc646db65248acfcbfe2a10ab" category="section-title">Fase 4: Installare i driver della GPU</block>
+  <block id="524202cb16f1d9b45d55ae3cf01846a9" category="list-text">Scaricare la versione del pacchetto di driver sul computer, a seconda dell'ambiente in uso.</block>
+  <block id="cdf9b80a781028cfcd33975c9b549a66" category="paragraph">L'esempio seguente mostra la versione del pacchetto di driver per vSphere 6,0, 6,5 e 6,7:</block>
+  <block id="42531de91f94d49640c00256e0aa3ceb" category="list-text">Copiare il file del driver .VIB dal computer a ESXi in esecuzione sul nodo di calcolo. L'utility SCP (Secure Copy Protocol) è disponibile nella maggior parte delle distribuzioni Linux o come utility scaricabile per tutte le versioni di Windows.</block>
+  <block id="7a144dd231d33708e9980e0a26cb3083" category="paragraph">Nell'esempio seguente vengono illustrati i comandi per ESXi 6,0, 6,5 e 6,7. I comandi presuppongono che il driver si trovi nella directory $HOME/NVIDIA/ESX6.x/ sull'host di gestione:</block>
+  <block id="d908683c495cc5cc655f7cd09695c523" category="paragraph">Di seguito viene riportata una panoramica generale delle fasi di questa procedura:
+<block ref="b3fddefb8533cc7fc260062e1b11797b" category="inline-xref-macro-rx"></block>
+<block ref="7fbd89059403f3c320101b5b73d264e9" category="inline-xref-macro-rx"></block>
+<block ref="a1a1a48df94086d036719fc33e283f5e" category="inline-xref-macro-rx"></block>
+<block ref="e2315890dcab7fdfd216149d3ebc535d" category="inline-xref-macro-rx"></block>
+<block ref="f15458d9685a9671cd038c3a408d2679" category="inline-xref-macro-rx"></block></block>
+  <block id="6a1419cffec796a0cf9688c584b108e5" category="paragraph">Di seguito sono riportate alcune attività aggiuntive che potrebbero essere necessarie se il sistema dispone delle condizioni specifiche a cui sono applicabili:</block>
+  <block id="6f2e0dd9461f023001b32f634a66ca39" category="list-text"><block ref="6f2e0dd9461f023001b32f634a66ca39" category="inline-link-macro-rx"></block></block>
+  <block id="d5e0ed137993fa47f6c52eaba475f986" category="list-text"><block ref="96458e97c135f9cdca1845fd2743e79f" category="inline-xref-macro-rx"></block></block>
+  <block id="27e4d3a5ce33dd22d6512ac546804968" category="list-text"><block ref="d095c71c5d51f56f74c0c624a25acdfc" category="inline-xref-macro-rx"></block></block>
+  <block id="fefc802a17eb78beb3791d194d57c778" category="section-title">Fase 1: Prepararsi a sostituire il nodo di calcolo</block>
+  <block id="c5fe75a9a5a9f7b0e4279644ad5bba34" category="section-title">Fase 2: Sostituire il nodo di calcolo nel telaio</block>
+  <block id="527e6719cbc58f7527999477eaac0dd2" category="section-title">Passaggio 3: Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1,7 e versioni successive</block>
+  <block id="714f787cf5a78abe3413cd3fa33c6c6b" category="section-title">Fase 4: Aggiungere il nodo di calcolo al cluster</block>
+  <block id="4b07d1c342b03364f7120990720b53ef" category="section-title">Fase 5: Implementare nuovamente i nodi di controllo per cluster storage a due e tre nodi</block>
 </blocks>

@@ -16,9 +16,13 @@ keywords: netapp, hci, H410C nodes, replacement, node replacement
 [role="lead"]
 È necessario sostituire un nodo di calcolo in caso di guasto della CPU, altri problemi della scheda madre o in caso di mancata accensione. Le istruzioni si applicano ai nodi H410C. Se si dispone di un nodo di calcolo H410C che esegue il sistema operativo Bootstrap NetApp HCI versione 1.6P1 o successiva, non è necessario sostituire il nodo in caso di guasto del DIMM di memoria; è necessario sostituire solo il DIMM guasto. Se i DIMM nel nodo non presentano guasti, è possibile utilizzarli nel nodo sostitutivo.
 
+[NOTE]
+====
+Il nodo sostitutivo deve avere la stessa versione del sistema operativo NetApp HCI Bootstrap degli altri nodi di calcolo nell'installazione di NetApp HCI.
 
-NOTE: Il nodo sostitutivo deve avere la stessa versione del sistema operativo NetApp HCI Bootstrap degli altri nodi di calcolo nell'installazione di NetApp HCI.
+NetApp consiglia di utilizzare il motore di implementazione NetApp per aggiungere un nodo di calcolo sostitutivo. Se non è possibile utilizzare il motore di distribuzione NetApp per l'installazione ESXi, consultare l'articolo della Knowledge base di NetApp https://kb.netapp.com/Legacy/NetApp_HCI/OS/How_to_install_ESXi_on_NetApp_HCI_compute_node_manually["Come installare ESXi sul nodo di calcolo NetApp HCI manualmente"^].
 
+====
 .Di cosa hai bisogno
 * Hai determinato che il nodo di calcolo deve essere sostituito.
 * Si dispone di un nodo di calcolo sostitutivo. Per ordinare un nodo sostitutivo, contattare il supporto NetApp. Il nodo di calcolo viene spedito con il sistema operativo Bootstrap installato. I nodi vengono spediti dalla fabbrica con la versione più recente del sistema operativo Bootstrap. Potrebbe essere necessario eseguire il processo di ripristino dell'immagine di fabbrica (RTFI) sul nodo nei seguenti scenari:
@@ -41,19 +45,23 @@ Quando si sostituisce un nodo di calcolo H410C, considerare quanto segue:
 
 
 .Panoramica dei passaggi
-Di seguito viene riportata una panoramica generale delle fasi di questa procedura:<<Prepararsi a sostituire il nodo di calcolo>>
-<<Sostituire il nodo di calcolo nello chassis>>
-<<Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1.7 e versioni successive>>
-<<Aggiungere il nodo di calcolo al cluster>>
-<<Ridistribuire i nodi di controllo per cluster di storage a due e tre nodi>>
+Di seguito viene riportata una panoramica generale delle fasi di questa procedura:
+<<Fase 1: Prepararsi a sostituire il nodo di calcolo>>
+<<Fase 2: Sostituire il nodo di calcolo nel telaio>>
+<<Passaggio 3: Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1,7 e versioni successive>>
+<<Fase 4: Aggiungere il nodo di calcolo al cluster>>
+<<Fase 5: Implementare nuovamente i nodi di controllo per cluster storage a due e tre nodi>>
 
-Di seguito sono riportate alcune attività aggiuntive che potrebbero essere necessarie se il sistema dispone delle condizioni specifiche a cui sono applicabili:link:task_hci_removewn.html["Rimuovere i nodi di controllo per liberare le risorse di calcolo"]
-<<Modificare la password se si riceve un nodo sostitutivo con una password BMC non standard>>
-<<Aggiornare il firmware BMC sul nodo>>
+Di seguito sono riportate alcune attività aggiuntive che potrebbero essere necessarie se il sistema dispone delle condizioni specifiche a cui sono applicabili:
+
+* link:task_hci_removewn.html["Rimuovere i nodi di controllo per liberare le risorse di calcolo"]
+* <<Modificare la password se si riceve un nodo sostitutivo con una password BMC non standard>>
+* <<Aggiornare il firmware BMC sul nodo>>
 
 
 
-== Prepararsi a sostituire il nodo di calcolo
+
+== Fase 1: Prepararsi a sostituire il nodo di calcolo
 
 È necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo guasto dal cluster. Si dovrebbero ottenere dettagli sul nodo guasto, come il numero di serie e le informazioni di rete.
 
@@ -93,7 +101,7 @@ NOTE: Consultare la documentazione VMware per le fasi della migrazione.
 
 
 
-== Sostituire il nodo di calcolo nello chassis
+== Fase 2: Sostituire il nodo di calcolo nel telaio
 
 Dopo aver rimosso il nodo guasto dal cluster, è possibile rimuovere il nodo dallo chassis e installare il nodo sostitutivo.
 
@@ -140,7 +148,7 @@ TIP: Assicurarsi che il nodo sostitutivo sia cablato nello stesso modo degli alt
 
 
 
-== Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1.7 e versioni successive
+== Passaggio 3: Rimuovere la risorsa del nodo di calcolo in NetApp HCI 1,7 e versioni successive
 
 In NetApp HCI 1.7 e versioni successive, dopo aver sostituito fisicamente il nodo, è necessario rimuovere la risorsa del nodo di calcolo utilizzando le API del nodo di gestione. Per utilizzare le API REST, il cluster di storage deve eseguire il software NetApp Element 11.5 o versione successiva e dovrebbe essere stato implementato un nodo di gestione con versione 11.5 o successiva.
 
@@ -170,7 +178,7 @@ NOTE: Se si ottiene il `Auth Error TypeError: Failed to fetch` Messaggio di erro
 
 
 
-== Aggiungere il nodo di calcolo al cluster
+== Fase 4: Aggiungere il nodo di calcolo al cluster
 
 È necessario aggiungere nuovamente il nodo di calcolo al cluster. La procedura varia a seconda della versione di NetApp HCI in esecuzione.
 
@@ -774,7 +782,7 @@ image::rescan.gif[Mostra l'icona di nuova scansione degli adattatori di storage.
 
 
 
-== Ridistribuire i nodi di controllo per cluster di storage a due e tre nodi
+== Fase 5: Implementare nuovamente i nodi di controllo per cluster storage a due e tre nodi
 
 Dopo aver sostituito fisicamente il nodo di calcolo guasto, è necessario ridistribuire la VM del nodo di controllo NetApp HCI se il nodo di calcolo guasto ospitava il nodo di controllo. Queste istruzioni si applicano solo ai nodi di calcolo che fanno parte di un'installazione NetApp HCI con cluster di storage a due o tre nodi.
 

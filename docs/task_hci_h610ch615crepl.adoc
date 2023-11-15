@@ -16,9 +16,13 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 [role="lead"]
 È necessario sostituire uno chassis per riparare i guasti dei nodi di calcolo relativi alla CPU, alla scheda madre o se non si accende. Se nel nodo di calcolo H610C è presente un modulo DIMM guasto che esegue il sistema operativo NetApp HCI Bootstrap versione 1.6 o successiva, è possibile sostituire il modulo DIMM senza sostituire lo chassis. Per i nodi H615C, non è necessario sostituire lo chassis in caso di guasto di un DIMM; è possibile sostituire solo il DIMM guasto.
 
+[NOTE]
+====
+Per H610C e H615C, i termini "nodo" e "chassis" sono utilizzati in modo intercambiabile, perché il nodo e lo chassis non sono componenti separati.
 
-NOTE: Per H610C e H615C, i termini "nodo" e "chassis" sono utilizzati in modo intercambiabile, perché il nodo e lo chassis non sono componenti separati.
+NetApp consiglia di utilizzare il motore di implementazione NetApp per aggiungere un nodo di calcolo sostitutivo. Se non è possibile utilizzare il motore di distribuzione NetApp per l'installazione ESXi, consultare l'articolo della Knowledge base di NetApp https://kb.netapp.com/Legacy/NetApp_HCI/OS/How_to_install_ESXi_on_NetApp_HCI_compute_node_manually["Come installare ESXi sul nodo di calcolo NetApp HCI manualmente"^].
 
+====
 .Di cosa hai bisogno
 * È stato verificato che il nodo non funziona correttamente.
 * Si dispone di uno chassis sostitutivo. Per ordinare un prodotto sostitutivo, contattare il supporto NetApp.
@@ -29,15 +33,9 @@ NOTE: Per H610C e H615C, i termini "nodo" e "chassis" sono utilizzati in modo in
 .A proposito di questa attività
 Gli allarmi di VMware vSphere Web Client avvisano l'utente in caso di guasto di un host. Il numero di serie dell'host guasto di VMware vSphere Web Client deve corrispondere al numero di serie riportato sull'etichetta sul retro del nodo.
 
-.Panoramica dei passaggi
-Di seguito viene riportata una panoramica generale delle fasi di questa procedura:<<Prepararsi a sostituire il nodo>>
-<<Sostituire il nodo>>
-<<Aggiungere il nodo al cluster>>
-<<Installare i driver della GPU>>
 
 
-
-== Prepararsi a sostituire il nodo
+== Fase 1: Preparare la sostituzione del nodo
 
 Prima di sostituire il nodo, è necessario migrare le macchine virtuali (VM) ospitate sul nodo in un host disponibile e rimuovere il nodo dal cluster. È necessario registrare i dettagli del nodo, ad esempio il numero di serie e le informazioni di rete. La migrazione delle macchine virtuali e la registrazione dei dettagli del nodo si applicano anche in caso di guasti ai componenti in cui il nodo è ancora in linea e funzionante, ad esempio un guasto del modulo DIMM (Dual Inline Memory Module).
 
@@ -63,7 +61,7 @@ Per identificare lo chassis, è necessario disporre del numero di serie corrispo
 
 
 
-== Sostituire il nodo
+== Fase 2: Sostituire il nodo
 
 Dopo aver rimosso il nodo guasto dal cluster, è possibile rimuovere lo chassis guasto e installare lo chassis sostitutivo.
 
@@ -96,7 +94,7 @@ CAUTION: Se le prese d'aria sul retro del telaio sono bloccate da cavi o etichet
 
 
 
-== Aggiungere il nodo al cluster
+== Passaggio 3: Aggiungere il nodo al cluster
 
 È necessario configurare NetApp HCI in modo che utilizzi il nuovo nodo di calcolo.
 
@@ -115,7 +113,10 @@ CAUTION: Se le prese d'aria sul retro del telaio sono bloccate da cavi o etichet
 https://<ManagementNodeIP>
 ----
 . Accedi al controllo del cloud ibrido NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI.
-. Nel riquadro di espansione dell'installazione, selezionare *Espandi*. Il browser apre NetApp Deployment Engine.
+. Nel riquadro di espansione dell'installazione, selezionare *Espandi*.
++
+Il browser apre NetApp Deployment Engine.
+
 . Accedere al motore di implementazione NetApp fornendo le credenziali di amministratore del cluster di storage NetApp HCI locale.
 +
 
@@ -183,14 +184,17 @@ TIP: Per alcuni nodi di calcolo, potrebbe essere necessario abilitare EVC al liv
 
 
 
-== Installare i driver della GPU
+== Fase 4: Installare i driver della GPU
 
 I nodi di calcolo con unità di elaborazione grafica NVIDIA (GPU), come il nodo H610C, necessitano dei driver software NVIDIA installati in VMware ESXi per poter sfruttare la maggiore potenza di elaborazione. Per installare i driver della GPU, il nodo di calcolo deve disporre di una scheda GPU.
 
 .Fasi
 . Aprire un browser e accedere al portale delle licenze NVIDIA al seguente URL:
 `https://nvid.nvidia.com/dashboard/`
-. Scaricare uno dei seguenti pacchetti di driver sul computer, a seconda dell'ambiente in uso:
+. Scaricare la versione del pacchetto di driver sul computer, a seconda dell'ambiente in uso.
++
+L'esempio seguente mostra la versione del pacchetto di driver per vSphere 6,0, 6,5 e 6,7:
+
 +
 [cols="2*"]
 |===
@@ -212,7 +216,10 @@ NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip
 
 |===
 . Estrarre il pacchetto di driver sul computer. Il file .VIB risultante è il file del driver non compresso.
-. Copiare il file del driver .VIB dal computer a ESXi in esecuzione sul nodo di calcolo. I seguenti comandi di esempio per ciascuna versione presuppongono che il driver si trovi nella directory €HOME/NVIDIA/ESX6.x/ sull'host di gestione. L'utility SCP è facilmente disponibile nella maggior parte delle distribuzioni Linux o è disponibile come utility scaricabile per tutte le versioni di Windows:
+. Copiare il file del driver .VIB dal computer a ESXi in esecuzione sul nodo di calcolo. L'utility SCP (Secure Copy Protocol) è disponibile nella maggior parte delle distribuzioni Linux o come utility scaricabile per tutte le versioni di Windows.
++
+Nell'esempio seguente vengono illustrati i comandi per ESXi 6,0, 6,5 e 6,7. I comandi presuppongono che il driver si trovi nella directory $HOME/NVIDIA/ESX6.x/ sull'host di gestione:
+
 +
 [cols="2*"]
 |===

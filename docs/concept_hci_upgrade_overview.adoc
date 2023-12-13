@@ -18,6 +18,9 @@ keywords: netapp, hci, on premise, cluster, upgrade, element
 
 Questi componenti includono servizi di gestione, HealthTools, NetApp Hybrid Cloud Control, software Element, nodo di gestione, firmware di calcolo, driver di calcolo, E il plug-in Element per vCenter Server.​
 
+
+NOTE: A partire dal 2023 novembre, non puoi avviare un aggiornamento dei componenti utilizzando il controllo cloud ibrido di NetApp o l'API REST perché i certificati delle chiavi di firma (privati e pubblici) sono scaduti il 5 novembre 2023. Per risolvere questo problema, seguire la soluzione alternativa descritta nell'articolo della Knowledge base https://kb.netapp.com/onprem/solidfire/Element_OS/SolidFire_and_HCI_upgrades_unable_to_start_due_to_upgrade_package_upload_error["Impossibile avviare gli aggiornamenti di SolidFire e HCI a causa di un errore di caricamento del pacchetto di aggiornamento"^].
+
 Il <<sys_upgrade_seq,sequenza di aggiornamento del sistema>> Il contenuto descrive le attività necessarie per completare un aggiornamento del sistema NetApp HCI. Idealmente, queste procedure vengono eseguite come parte di una sequenza di aggiornamento più ampia e non in maniera isolata. Se è necessario un aggiornamento o un aggiornamento basato su componenti, consultare i prerequisiti della procedura per assicurarsi che vengano risolte ulteriori complessità.
 
 Il xref:task_hci_upgrade_all_vsphere.adoc[Sequenza di aggiornamento di vSphere] L'inclusione del contenuto di Element Plug-in per vCenter Server descrive le fasi aggiuntive di pre e post-aggiornamento necessarie per reinstallare Element Plug-in per vCenter Server.

@@ -30,7 +30,7 @@ Con Element Plug-in per vCenter Server 4.x, quando si esegue l'aggiornamento a V
 ====
 +
 
-NOTE: Durante l'aggiornamento di ESXi per nodi di calcolo per a. https://www.netapp.com/us/media/tr-4823.pdf["cluster a due nodi"^], aggiornare solo un nodo di calcolo alla volta in modo che un solo nodo di controllo sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.
+NOTE: Quando si aggiorna ESXi per i nodi di calcolo per un https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["cluster a due nodi"^], aggiornare solo un nodo di calcolo alla volta in modo che solo un nodo testimone sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.
 
 . https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#register-the-plug-in-with-vcenter["Registrati"^] Il plug-in Element per vCenter Server con vCenter.
 . https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["Aggiungere cluster"^] utilizzando il plug-in.
@@ -44,5 +44,5 @@ NOTE: Durante l'aggiornamento di ESXi per nodi di calcolo per a. https://www.net
 
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://www.netapp.com/us/media/tr-4823.pdf["Report tecnico sul cluster di storage a due nodi NetApp HCI"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Report tecnico sul cluster di storage a due nodi NetApp HCI"^]
 

@@ -87,7 +87,7 @@ L'espansione da due nodi di storage a tre nodi di storage rende il cluster più 
 
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/us/media/tr-4823.pdf["Cluster di storage a due nodi NetApp HCI | TR-4823"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Cluster di storage a due nodi NetApp HCI | TR-4823"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
 * http://docs.netapp.com/sfe-122/index.jsp["Centro di documentazione software SolidFire ed Element"^]
 

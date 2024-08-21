@@ -1687,7 +1687,6 @@
   <block id="6b2019a31feeec476725deff1e79ed78" category="doc">Requisiti ambientali</block>
   <block id="11144d4ff9f1c8879c32b13d1fe55516" category="paragraph">Assicurarsi che l'alimentazione per il rack utilizzato per installare NetApp HCI sia fornita da prese di alimentazione CA e che il data center fornisca un raffreddamento adeguato alle dimensioni dell'installazione NetApp HCI.</block>
   <block id="05a04100a1c10fafc9e93be86bb13553" category="inline-link">scheda informativa</block>
-  <block id="6c16ead3b4e36b80345f1e68a56b5630" category="paragraph">Per informazioni dettagliate sulle funzionalità di ciascun componente di NetApp HCI, consultare la NetApp HCI<block ref="3893914a6d59fe23537d16c9f9b61af3" category="inline-link-rx"></block>.</block>
   <block id="ac54e75ab9caed383d040ca6a1ec8507" category="admonition">Il nodo di calcolo H410C funziona solo con tensione di linea elevata (200-240 VCA). Quando si aggiungono nodi H410C a un'installazione NetApp HCI esistente, è necessario assicurarsi che i requisiti di alimentazione siano soddisfatti.</block>
   <block id="c257e7a6dddf50db3c2f28af6454d5ab" category="summary">Se un alimentatore è difettoso, sostituirlo il prima possibile per assicurarsi che lo chassis disponga di una fonte di alimentazione ridondante.</block>
   <block id="b84a36d5b117ccbcc8079334d25bd5e1" category="doc">Sostituire le unità di alimentazione</block>
@@ -1904,7 +1903,6 @@
   <block id="2558aa1c4b088a01ebbd23c6a72472a3" category="admonition">Scopri di più <block ref="0614c1798bfcf6fa1dd2b630cd83d6d6" category="inline-link-macro-rx"></block> e. <block ref="9f9f24cd869308f40f7cad49c3f42972" category="inline-link-macro-rx"></block>.</block>
   <block id="88b68b205e674e3025849d8b5b19d8d0" category="admonition">In un cluster di storage a due nodi, vengono implementati almeno due nodi di controllo per la ridondanza in caso di guasto di un nodo di controllo. Quando il processo di installazione di NetApp HCI installa i nodi di controllo, in VMware vCenter viene memorizzato un modello di macchina virtuale che è possibile utilizzare per ridistribuire un nodo di controllo nel caso in cui venga accidentalmente rimosso, perso o danneggiato. È inoltre possibile utilizzare il modello per ridistribuire un nodo di controllo se è necessario sostituire un nodo di calcolo guasto che ospitava il nodo di controllo. Per istruzioni, vedere la sezione *ridistribuire i nodi di controllo per cluster di storage a due e tre nodi* <block ref="29ec30455b40779461eab8434f6212ca" category="inline-link-macro-rx"></block>.</block>
   <block id="1886c33029d6a5f67a53baeb16356d18" category="inline-link">Cluster di storage a due nodi NetApp HCI | TR-4823</block>
-  <block id="23d36a99e35a6625ac76fe1f034e722a" category="list-text"><block ref="23d36a99e35a6625ac76fe1f034e722a" category="inline-link-rx"></block></block>
   <block id="7c4a6e26b432f1ad131564bc6dc6e32d" category="doc">Note sulla versione di Storage firmware Bundle 2.27</block>
   <block id="95354607013474f8df935e1d60dac05d" category="admonition">Per i nodi di storage H610S che eseguono il software Element versione 12.0, applicare D-patch SUST-909 prima di eseguire l'aggiornamento al bundle firmware di storage 2.27. Contattare il supporto NetApp per ottenere la D-patch prima di eseguire l'aggiornamento.</block>
   <block id="bedc681918a3dad446ad93d7cca9b145" category="paragraph">Il bundle di firmware di storage versione 2.27 contiene varie correzioni di bug e nuove funzionalità, tra cui correzioni delle vulnerabilità di sicurezza. È possibile aggiornare il firmware dello storage seguendo le istruzioni riportate in <block ref="7b278358318478c3f88cee9434341a35" category="inline-link-macro-rx"></block>.</block>
@@ -4016,7 +4014,6 @@
   <block id="25ded102bd7108bf2ad7ccdfb451169c" category="list-text">Dalla schermata di gestione dei nodi, accedere a *Impostazioni &gt; Impostazioni di rete* e configurare i parametri di rete per la porta di gestione fuori banda.</block>
   <block id="56e2546f6d8d4f46bdb3d14153ad92ee" category="paragraph">Se nel nodo H615C sono presenti GPU, installare i driver GPU in ESXi per ciascun nodo H615C installato e validarne la funzionalità.</block>
   <block id="c94f753aa1baf797e0eea49696404564" category="inline-link">_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_</block>
-  <block id="42f1d5fbe05e1bdd25e119b9262b7dbd" category="list-text"><block ref="42f1d5fbe05e1bdd25e119b9262b7dbd" category="inline-link-rx"></block></block>
   <block id="61ef7316fec99b866e4908a20af06e08" category="inline-link">NetApp Configuration Advisor</block>
   <block id="0f60bab2e5199a2a170f3a2a45c881a6" category="list-text"><block ref="6e3eeeb26eacee460355bd5f8c854330" category="inline-link-rx"></block> 5.8.1 o successivo tool di convalida della rete</block>
   <block id="5950c53f8d241e1e95440d518521b075" category="summary">È possibile utilizzare il nodo di gestione (mNode) per abilitare la telemetria NetApp Active IQ e NetApp HCI.</block>
@@ -5094,7 +5091,6 @@
   <block id="f77430f8b3c4f14f1dcd175dca1d54cf" category="paragraph">È necessario eseguire l'aggiornamento al plug-in NetApp Element per vCenter Server 5.0 o versioni successive per consentire di implementare il plug-in con VMware vCenter 7.0 Update 3 senza applicare una soluzione alternativa.</block>
   <block id="3e15463df093d30427e71f517fbcb0b0" category="paragraph">Con Element Plug-in per vCenter Server 4.x, quando si esegue l'aggiornamento a VMware vCenter Server 7.0 Update 3, il plug-in 4.x non riesce a implementarlo. Per risolvere questo problema utilizzando Spring Framework 4, vedere<block ref="770c119932f7fa962a47dc0795db1af6" category="inline-link-rx"></block>.</block>
   <block id="42baa5e1ef15c663eada13ad52636d31" category="inline-link">cluster a due nodi</block>
-  <block id="4fc3110ffa80f16c08c41963de559312" category="admonition">Durante l'aggiornamento di ESXi per nodi di calcolo per a.<block ref="c40679731a13cea0e8ba16410d87ab2b" category="inline-link-rx"></block>, aggiornare solo un nodo di calcolo alla volta in modo che un solo nodo di controllo sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.</block>
   <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">Registrati</block>
   <block id="81750b82d55f7148c9a0001ed71e7dd4" category="list-text"><block ref="670ccc28c8c6a3ae1c020a0fa12ec195" category="inline-link-rx"></block> Il plug-in Element per vCenter Server con vCenter.</block>
   <block id="2984cab36bd51d5446963e671e808f5d" category="inline-link">Aggiungere cluster</block>
@@ -5104,7 +5100,6 @@
   <block id="b4c5d7523b472861778f2afd883b2b2b" category="inline-link">Abilitare QoSSIOC</block>
   <block id="e9649f789dba33069d65dd43f646890f" category="list-text"><block ref="ab3ca5933bb57bf5671eabef88a511cb" category="inline-link-rx"></block> per tutti i datastore controllati dal plug-in.</block>
   <block id="c238cdf4d684fe1ceb6e88d6f4b60ebe" category="inline-link">Report tecnico sul cluster di storage a due nodi NetApp HCI</block>
-  <block id="6a718d1cc3413213dbf56882de72ccb2" category="list-text"><block ref="6a718d1cc3413213dbf56882de72ccb2" category="inline-link-rx"></block></block>
   <block id="620f7ee656b33c2240cf7a78ccac13ae" category="summary">Scopri come accedere al NetApp Deployment Engine in ambienti senza DHCP.</block>
   <block id="a406955fbdda282fd8c77d471122756f" category="paragraph">Quando DHCP non è in uso sulla rete, è necessario impostare un indirizzo IPv4 statico sull'interfaccia Bond1G di uno dei nodi di storage (noto anche come nodo di storage di controllo) che si utilizzerà per accedere a NetApp Deployment Engine. Il NetApp Deployment Engine sul nodo storage di controllo rileverà e comunicherà con altri nodi di calcolo e storage utilizzando indirizzi IPv4 configurati automaticamente sulle interfacce Bond10G di tutti i nodi. Utilizzare questo metodo a meno che la rete non presenti requisiti speciali.</block>
   <block id="cb3af97b1c1a21325a8ff19928ceda77" category="list-text">DHCP non è abilitato per le reti NetApp HCI e i nodi NetApp HCI non hanno ottenuto indirizzi IP dai server DHCP.</block>
@@ -5307,9 +5302,7 @@
   <block id="6b42784c557c3f5a1a952c899f760b43" category="paragraph">Leggi queste risorse:</block>
   <block id="2fbd4cfd16900b4f22e7f4097fc857d1" category="list-text">Utilizzare la _Guida al rilevamento dell'installazione di NetApp HCI_ per configurare la rete prima dell'installazione.</block>
   <block id="886bc05c9156ba9a0ef0e59bbe922cc0" category="inline-link">_Istruzioni per l'installazione e la configurazione di NetApp HCI_</block>
-  <block id="82fd08126fae06d6277e6d275f22adee" category="list-text">Per informazioni dettagliate e altre configurazioni supportate, vedere<block ref="6bea819619d5f9270163ce0543e87e1e" category="inline-link-rx"></block> e a.<block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block>.</block>
   <block id="edeed001a7f09dfe7e394923f01fabcb" category="inline-link">_TR-4823: Cluster di storage a 2 nodi NetApp HCI_</block>
-  <block id="800b3008a6000b89c3546a67908cb985" category="list-text">Per informazioni sulle configurazioni NetApp HCI più piccole di quattro nodi di storage, vedere<block ref="1f9877144b35a10963cfdabe34a39b35" category="inline-link-rx"></block>.</block>
   <block id="2ddcd8d0a81226eb8f35042ac6c6e593" category="inline-link-macro">Configurare LCAP per ottenere performance di storage ottimali</block>
   <block id="405abbf068b60685bf7c22dc59b5838a" category="list-text">Per ulteriori informazioni sulla configurazione del protocollo LACP (link Aggregation Control Protocol) sulle porte dello switch utilizzate per ciascuno dei nodi di storage, vedere <block ref="ca38e0bcccdbd590268fcccffc4dab9a" category="inline-link-macro-rx"></block>.</block>
   <block id="192476cda33667b77205e5378299fce7" category="paragraph">Questa configurazione consolida tutto il traffico su due porte fisiche ridondanti, riducendo il cablaggio e ottimizzando la configurazione di rete. Questa configurazione richiede che i segmenti di rete di storage, vMotion e qualsiasi macchina virtuale utilizzino il tagging VLAN. Il segmento della rete di gestione può utilizzare VLAN native o taggate; tuttavia, la VLAN nativa è la modalità preferita in modo che NetApp Deployment Engine (NDE) possa assegnare le risorse di rete in modo automatizzato (Zero Conf).</block>
@@ -5417,7 +5410,6 @@
   <block id="3664bb4df59eca4395d94a7c6384dfc0" category="inline-link-macro">Istruzioni per l'installazione e la configurazione di NetApp HCI</block>
   <block id="07b021dc180c131c18c2e77e5fa1150f" category="list-text"><block ref="07b021dc180c131c18c2e77e5fa1150f" category="inline-link-macro-rx"></block></block>
   <block id="f62052d22b7c5c8f9a15b0afff504755" category="inline-link">TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI</block>
-  <block id="85dcef363aee58216fb5391e1fe35922" category="list-text"><block ref="85dcef363aee58216fb5391e1fe35922" category="inline-link-rx"></block></block>
   <block id="da3eb0bd8c882a21931739ac39ce915a" category="inline-link">Plug-in NetApp Element per la documentazione del server vCenter</block>
   <block id="412377cf78b07a27c835e112fdfa7507" category="list-text"><block ref="412377cf78b07a27c835e112fdfa7507" category="inline-link-rx"></block></block>
   <block id="d5147898f653b5500d1ba07c4204c743" category="list-text"><block ref="9d6606ad3ff5278801234da0e6746362" category="inline-link-rx"></block> 5.8.1 o successivo tool di convalida della rete</block>
@@ -6175,7 +6167,6 @@
   <block id="99494896be55aff6e412f1ef0dd3ca4c" category="list-text"><block ref="1f3c51825f286c5250086b5376a2ce29" category="inline-xref-macro-rx"></block></block>
   <block id="e56841e919b23e1af6ae192bcf82f545" category="list-text"><block ref="b85ef421159ab16d832d7cee8cebee71" category="inline-xref-macro-rx"></block></block>
   <block id="e73fbad1f8418c19025f40cdb1b36fc8" category="inline-link">TR-4741: Replica remota del software NetApp Element</block>
-  <block id="4295c2c146dffb0e501aa5660faa08a6" category="paragraph">Vedere<block ref="248edd64302142b459fba4dec31bdb70" category="inline-link-rx"></block>.</block>
   <block id="ff5dd3355a0a16a7f2fc734ab2229851" category="section-title">Replica sincrona e asincrona tra cluster</block>
   <block id="697cef1ff0b4e36164796a8a21f78548" category="paragraph">Per i cluster che eseguono il software NetApp Element, la replica in tempo reale consente la creazione rapida di copie remote dei dati dei volumi.</block>
   <block id="0389e516b3bf2b6b34e9309ede779a02" category="paragraph">È possibile associare un cluster di storage a un massimo di quattro altri cluster di storage. È possibile replicare i dati del volume in modo sincrono o asincrono da uno dei cluster di una coppia di cluster per scenari di failover e failback.</block>
@@ -6582,4 +6573,13 @@
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">Community di NetApp</block>
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">Dove ottenere aiuto</block>
   <block id="389672366ff11f72a82c5c495b9b5159" category="sidebar">Documentazione di NetApp HCI 1.8</block>
+  <block id="de9f9af3b709ace792d8704d5d9b105f" category="list-text"><block ref="de9f9af3b709ace792d8704d5d9b105f" category="inline-link-rx"></block></block>
+  <block id="68f63921fdce687db3c7510ea1f63df3" category="paragraph">Vedere<block ref="5fe7d084aafda4fb5c53715a85948ffe" category="inline-link-rx"></block>.</block>
+  <block id="75f97cab9e9de14d25c05846e421361a" category="paragraph">Per informazioni dettagliate sulle funzionalità di ciascun componente di NetApp HCI, vedere NetApp HCI<block ref="cf48105a0f3c2479f34bbdfad268bcc0" category="inline-link-rx"></block> .</block>
+  <block id="5824ec67f2e84250bfcd931d8f2d6a16" category="list-text">Per informazioni dettagliate e altre configurazioni supportate, vedere<block ref="be0a1633f05f833fc37598e3b5d7e95e" category="inline-link-rx"></block> e<block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block> .</block>
+  <block id="8a91fe255efcffde80021047735fd330" category="list-text">Per informazioni sulle configurazioni NetApp HCI inferiori a quattro nodi di storage, vedere<block ref="54d37355d9369a629af27e51f6998cd4" category="inline-link-rx"></block>.</block>
+  <block id="1e4bf851d18462d626029f69f75339e4" category="list-text"><block ref="1e4bf851d18462d626029f69f75339e4" category="inline-link-rx"></block></block>
+  <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
+  <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">Quando si aggiorna ESXi per i nodi di calcolo per un<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block>, aggiornare solo un nodo di calcolo alla volta in modo che solo un nodo testimone sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.</block>
+  <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
 </blocks>

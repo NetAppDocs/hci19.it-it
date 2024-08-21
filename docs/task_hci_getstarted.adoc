@@ -52,8 +52,8 @@ Questa configurazione utilizza due cavi di rete sui nodi di calcolo per la conne
 Leggi queste risorse:
 
 * Utilizzare la _Guida al rilevamento dell'installazione di NetApp HCI_ per configurare la rete prima dell'installazione.
-* Per informazioni dettagliate e altre configurazioni supportate, vedere https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_"^] e a. https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Istruzioni per l'installazione e la configurazione di NetApp HCI_"^].
-* Per informazioni sulle configurazioni NetApp HCI più piccole di quattro nodi di storage, vedere https://www.netapp.com/us/media/tr-4823.pdf["_TR-4823: Cluster di storage a 2 nodi NetApp HCI_"^].
+* Per informazioni dettagliate e altre configurazioni supportate, vedere https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_"^] e https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Istruzioni per l'installazione e la configurazione di NetApp HCI_"^] .
+* Per informazioni sulle configurazioni NetApp HCI inferiori a quattro nodi di storage, vedere https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["_TR-4823: Cluster di storage a 2 nodi NetApp HCI_"^].
 * Per ulteriori informazioni sulla configurazione del protocollo LACP (link Aggregation Control Protocol) sulle porte dello switch utilizzate per ciascuno dei nodi di storage, vedere link:hci_prereqs_LACP_configuration.html["Configurare LCAP per ottenere performance di storage ottimali"].
 
 
@@ -276,7 +276,7 @@ Viene visualizzata l'interfaccia NetApp Hybrid Cloud Control.
 
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * link:../media/hseries-isi.pdf["Istruzioni per l'installazione e la configurazione di NetApp HCI"^]
-* https://www.netapp.com/us/media/tr-4820.pdf["TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI"^]
+* https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per la documentazione del server vCenter"^]
 * https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp Configuration Advisor"^] 5.8.1 o successivo tool di convalida della rete
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione NetApp SolidFire Active IQ"^]

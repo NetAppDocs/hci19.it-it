@@ -17,7 +17,7 @@ settings:
   langs: it-it,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr
 sidebar:
   entries:
-  - title: Documentazione NetApp HCI
+  - title: Documentazione NetApp HCI 1,9
     url: "/index.html"
   - title: Soluzioni NetApp HCI
     url: "/docs/hci_solutions_index.html"

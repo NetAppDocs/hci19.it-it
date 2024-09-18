@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="db035ffffac30b1a95fd497625c55167" category="summary">Scopri di più utilizzando la documentazione di configurazione e gestione di NetApp HCI e le informazioni sulle soluzioni NetApp HCI.</block>
-  <block id="ad0a505756223d68dc11afeae3459351" category="doc">Documentazione NetApp HCI</block>
   <block id="5811ba335dcab989a02c99d050dfaf48" category="summary">Scopri i preparativi finali e la configurazione da completare prima di implementare NetApp HCI.</block>
   <block id="dbc5138622178ce7615472b5400dcb94" category="doc">Configurare IPMI per ciascun nodo</block>
   <block id="4c266ce01ba95422660c9b1bd8d70711" category="paragraph">Dopo aver eseguito il racking, il cabling e l'accensione dell'hardware NetApp HCI, è possibile configurare l'accesso all'interfaccia di gestione della piattaforma intelligente (IPMI) per ciascun nodo. Assegnare a ciascuna porta IPMI un indirizzo IP e modificare la password di amministratore IPMI predefinita non appena si dispone dell'accesso remoto IPMI al nodo.</block>
@@ -6582,4 +6581,5 @@
   <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
   <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">Quando si aggiorna ESXi per i nodi di calcolo per un<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block>, aggiornare solo un nodo di calcolo alla volta in modo che solo un nodo testimone sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.</block>
   <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
+  <block id="846572971d410f1d04ff53e7bfc8a84b" category="sidebar">Documentazione NetApp HCI 1,9</block>
 </blocks>

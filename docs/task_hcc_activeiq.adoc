@@ -54,10 +54,10 @@ Il link:https://activeiq.solidfire.com["Dashboard di SolidFire Active IQ"^] vien
 
 TIP: Per visualizzare il numero di risorse di storage e calcolo, consulta la dashboard di controllo del cloud ibrido (HCC). Vedere link:task_hcc_dashboard.html["Monitorate le risorse di storage e di calcolo con HCC Dashboard"].
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione NetApp SolidFire Active IQ"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

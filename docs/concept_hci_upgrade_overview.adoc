@@ -77,10 +77,10 @@ NOTE: L'aggiornamento del sistema operativo del nodo di gestione non è più nec
 . link:task_hcc_upgrade_compute_node_firmware.html["Aggiorna il firmware del tuo nodo di calcolo utilizzando NetApp Hybrid Cloud Control"] oppure link:task_hcc_upgrade_compute_firmware_ansible.html["Automatizza gli aggiornamenti del firmware di calcolo con Ansible"].
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/upgrade/concept_element_upgrade_overview.html["Aggiorna un sistema storage all-flash NetApp SolidFire"^]
 

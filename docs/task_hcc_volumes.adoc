@@ -75,10 +75,10 @@ Vedere le informazioni su link:concept_hci_performance#qos-performance.html["Pol
 
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/element-software/index.html["SolidFire e documentazione degli elementi"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

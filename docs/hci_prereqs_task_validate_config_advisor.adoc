@@ -123,9 +123,8 @@ NOTE: Gli output dei documenti PDF e Microsoft Word includono le informazioni di
 . Inviare il file di report esportato al rappresentante dei NetApp Professional Services.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

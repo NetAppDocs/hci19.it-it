@@ -96,10 +96,10 @@ L'API restituisce informazioni aggiornate sul controller.
 
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:task_mnode_add_assets.html["Aggiungere risorse di calcolo e controller al nodo di gestione"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

@@ -113,10 +113,10 @@ In questo modo si disattiva il monitoraggio diagnostico e dello stato di salute 
 . *Opzionale*: Verificare che i nuovi nodi di calcolo siano visibili in VMware vSphere Web Client.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["Istruzioni per l'installazione e la configurazione dei nodi di calcolo e storage NetApp HCI"^]
 * https://kb.vmware.com/s/article/1003212["VMware Knowledge base: Supporto avanzato del processore vMotion Compatibility (EVC)"^]
 

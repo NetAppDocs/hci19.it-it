@@ -52,9 +52,8 @@ NetApp HCI ha i seguenti requisiti di switch:
 
 Tutti i nodi NetApp HCI offrono funzionalità di gestione out-of-band aggiuntive tramite una porta di gestione dedicata. NETAPP H300S, H300E, H500S, H500E, H700S, I nodi H700E e H410C consentono anche l'accesso IPMI tramite la porta A. Come Best practice, dovresti semplificare la gestione remota di NetApp HCI configurando la gestione out-of-band per tutti i nodi del tuo ambiente.
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

@@ -89,9 +89,9 @@ NOTE: Se si è espanso un cluster di storage a due nodi a quattro o più nodi, l
 
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

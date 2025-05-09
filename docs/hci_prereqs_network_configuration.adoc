@@ -88,9 +88,8 @@ Se il NetApp Deployment Engine si guasta perché la rete non supporta i frame ju
 * link:hci_prereqs_network_configuration_option_C.html["Opzione di configurazione di rete C"]
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

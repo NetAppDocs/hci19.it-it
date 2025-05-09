@@ -181,10 +181,10 @@ image::hcc_dashboard_compute_util_cpu.png[Riquadri di utilizzo del calcolo]
 . Per ulteriori analisi sulle informazioni di calcolo, vedere https://activeiq.solidfire.com["NetApp SolidFire Active IQ per i dati storici"^].
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione di NetApp SolidFire Active IQ"^]
 

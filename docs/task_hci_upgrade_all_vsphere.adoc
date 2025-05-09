@@ -43,6 +43,5 @@ NOTE: Quando si aggiorna ESXi per i nodi di calcolo per un https://www.netapp.co
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Report tecnico sul cluster di storage a due nodi NetApp HCI"^]
 

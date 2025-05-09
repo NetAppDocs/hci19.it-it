@@ -195,6 +195,4 @@ Se si verificano errori durante l'attivazione o la disattivazione della modalit√
 
 == Trova ulteriori informazioni
 
-* link:task_mnode_manage_storage_cluster_assets.html["Creare e gestire le risorse del cluster di storage"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+link:task_mnode_manage_storage_cluster_assets.html["Creare e gestire le risorse del cluster di storage"]

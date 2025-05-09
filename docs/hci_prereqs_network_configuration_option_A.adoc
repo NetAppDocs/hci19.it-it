@@ -95,9 +95,8 @@ image::hci_networking_config_scenario_1.png[Immagine dell'opzione di configurazi
 
 NOTE: Alcuni switch potrebbero richiedere l'inclusione della VLAN nativa nell'elenco delle VLAN consentite. Consultare la documentazione relativa al modello e alla versione software dello switch in uso.
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

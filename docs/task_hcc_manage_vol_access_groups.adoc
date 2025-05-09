@@ -73,11 +73,11 @@ Se si associa un iniziatore al gruppo di accesso al volume, tale iniziatore può
 . Confermare l'operazione di eliminazione selezionando *Sì*.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:concept_hci_volume_access_groups.html["Informazioni sui gruppi di accesso ai volumi"]
 * link:task_hcc_manage_initiators.html#add-initiators-to-a-volume-access-group["Aggiungere l'iniziatore a un gruppo di accesso al volume"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

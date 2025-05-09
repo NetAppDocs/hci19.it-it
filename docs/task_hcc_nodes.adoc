@@ -66,9 +66,8 @@ TIP: Per visualizzare il numero di risorse di storage e calcolo, consulta la das
 
 NOTE: Per gestire un nodo di calcolo in NetApp Hybrid Cloud Control, è necessario https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Aggiungere il nodo di calcolo a un cluster host vCenter"^].
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

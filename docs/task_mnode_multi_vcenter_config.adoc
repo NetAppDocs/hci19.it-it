@@ -63,9 +63,8 @@ NOTE: In alternativa, è possibile attendere 2 minuti per l'aggiornamento dell'i
 . Aggiorna il browser NetApp Hybrid Cloud Control per vedere le modifiche.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

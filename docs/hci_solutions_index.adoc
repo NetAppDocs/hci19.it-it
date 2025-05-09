@@ -19,9 +19,3 @@ Le soluzioni NetApp HCI possono aiutarti a ottenere performance su larga scala c
 NetApp HCI ti consente di implementare servizi cloud in più cloud provider pubblici e on-premise. Puoi utilizzare NetApp HCI per implementare servizi simili a quelli che potresti fare con un cloud provider, il tutto in una modalità self-service senza il coinvolgimento DELL'IT.
 
 Per ulteriori informazioni sulle soluzioni NetApp HCI, consultare https://docs.netapp.com/us-en/hci-solutions/index.html["Documentazione sulle soluzioni NetApp HCI"^].
-
-[discrete]
-== Trova ulteriori informazioni
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-

@@ -128,11 +128,11 @@ Il formato accettato di un iniziatore Fibre Channel WWPN è `:Aa:bB:CC:dd:11:22:
 
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:concept_hci_initiators.html["Scopri di più sugli iniziatori"]
 * link:concept_hci_volume_access_groups.html["Informazioni sui gruppi di accesso ai volumi"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

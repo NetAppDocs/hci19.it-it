@@ -19,9 +19,8 @@ Con NetApp HCI, puoi gestire queste risorse di storage utilizzando il controllo 
 * link:task_hcc_qos_policies.html["Creare e gestire policy di QoS per volumi"]
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

@@ -36,12 +36,12 @@ Nelle seguenti situazioni, potrebbe essere necessario modificare manualmente le 
 
 NOTE: Quando si espandono le risorse di calcolo o storage NetApp HCI nel motore di implementazione NetApp, è necessario connettersi all'istanza di vCenter che gestisce i nodi di calcolo NetApp HCI esistenti.
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:task_hcc_expand_compute.html["Espandere le risorse di calcolo di NetApp HCI"]
 * link:task_hcc_expand_storage.html["Espandere le risorse di storage NetApp HCI"]
 * link:task_hcc_expand_compute_and_storage.html["Espandere le risorse di calcolo e storage NetApp HCI contemporaneamente"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
 

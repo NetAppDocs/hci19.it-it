@@ -256,10 +256,10 @@ Di seguito sono riportate le vulnerabilità di sicurezza risolte in questa versi
 * CVE-2019-0151, CVE-2019-0123, CVE-2019-0117
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/hci/index.jsp["Centro di documentazione NetApp HCI"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/How_to_update_iDRAC%2F%2FBIOS_firmware_on_SF_Series_nodes["KB: Come aggiornare il firmware iDRAC/BIOS sui nodi della serie SF"^]
 

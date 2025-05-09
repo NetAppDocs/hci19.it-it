@@ -281,9 +281,8 @@ I controlli di stato del calcolo, eseguiti con i metodi API o con NetApp Hybrid 
 
 | Qual è lo stato dei nodi di controllo nel cluster? Il nodo testimone è attivo e in esecuzione su questo host ESXi e il nodo testimone alternativo è attivo e in esecuzione su un altro host ESXi. | Nodo | Un nodo di controllo è in esecuzione localmente su questo host ESXi. Quando si è pronti ad aggiornare questo host ESXi, arrestare il nodo di controllo solo su questo host ESXi ed eseguire nuovamente il controllo dello stato di salute. *Un nodo di controllo deve essere sempre in esecuzione nell'installazione HCI*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Consulta questa KB"^] 
 |===
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

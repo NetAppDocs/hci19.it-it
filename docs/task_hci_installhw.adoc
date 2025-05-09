@@ -418,10 +418,10 @@ Installare i driver GPU in ESXi per ciascun nodo H610C installato e convalidarne
 
 Se nel nodo H615C sono presenti GPU, installare i driver GPU in ESXi per ciascun nodo H615C installato e validarne la funzionalità.
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
 * https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Guida rapida alla pianificazione delle reti NetApp HCI_"^]
 * https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 o successivo tool di convalida della rete

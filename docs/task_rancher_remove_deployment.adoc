@@ -87,10 +87,10 @@ Dopo alcuni minuti, le macchine virtuali del server Rancher non dovrebbero più 
 
 
 
-[discrete]
+
+
 == Ulteriori informazioni
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Risoluzione dei problemi di implementazione del rancher"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

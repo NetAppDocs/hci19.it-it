@@ -32,9 +32,3 @@ In un ambiente di produzione, è necessario aggiornare i nodi di calcolo in un c
 
 .Inizia a utilizzare l'automazione dell'aggiornamento del firmware
 Per iniziare, accedere a. https://github.com/NetApp-Automation/nar_compute_firmware_upgrade["Repository NetApp Ansible su GitHub"^] e scaricare `nar_compute_nodes_firmware_upgrades` ruolo e documentazione.
-
-[discrete]
-== Trova ulteriori informazioni
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-

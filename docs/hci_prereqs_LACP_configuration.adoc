@@ -27,9 +27,8 @@ Per ottenere prestazioni ottimali del cluster di storage NetApp HCI, è necessar
 . Modificare la modalità bond su tutti i nodi di storage in LACP nell'interfaccia utente on-node (nota anche come interfaccia utente terminale o TUI) prima di implementare NetApp HCI.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

@@ -60,10 +60,10 @@ image::mnode_swagger_ui.png[Interfaccia utente REST API del nodo di gestione]
 . Fare clic su *autorizzare* o su un'icona a forma di lucchetto e immettere le credenziali di amministratore del cluster per le autorizzazioni per l'utilizzo delle API.
 
 
-[discrete]
+
+
 == Ulteriori informazioni
 
 * link:task_mnode_enable_activeIQ.html["Abilitare il monitoraggio Active IQ e NetApp HCI"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

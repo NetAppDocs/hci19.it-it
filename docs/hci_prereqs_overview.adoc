@@ -31,9 +31,8 @@ Di seguito sono riportati i collegamenti ai requisiti e alle attività di pre-im
 * link:hci_prereqs_witness_nodes.html["Requisiti di risorse di Witness Node per cluster di storage a due nodi"]
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

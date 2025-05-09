@@ -53,6 +53,5 @@ Una volta soddisfatti questi criteri, il nodo esce dalla modalità di manutenzio
 * https://docs.netapp.com/us-en/element-software/api/reference_element_api_enablemaintenancemode.html["Abilitare la modalità di manutenzione con l'API Element"^]
 * https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablemaintenancemode.html["Disattivare la modalità di manutenzione con l'API Element"^]
 * https://docs.netapp.com/us-en/element-software/api/concept_element_api_about_the_api.html["Documentazione API NetApp Element"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
 

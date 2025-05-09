@@ -75,9 +75,8 @@ Le opzioni sono le seguenti:
 NOTE: Se è stata disattivata l'opzione *Send data to AIQ* (Invia dati ad AIQ*) utilizzando NetApp Deployment Engine, è necessario link:task_mnode_enable_activeIQ.html["abilitare la telemetria"] Utilizzando nuovamente l'API REST del nodo di gestione per configurare il servizio da questa pagina.
 
 |===
-[discrete]
+
+
 == Ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

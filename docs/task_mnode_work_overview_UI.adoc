@@ -18,10 +18,10 @@ Attività che è possibile eseguire con l'interfaccia utente del nodo di gestion
 * link:task_mnode_run_system_utilities.html["Eseguire le utility di sistema dal nodo di gestione"]
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:task_mnode_access_ui.html["Accedere al nodo di gestione"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

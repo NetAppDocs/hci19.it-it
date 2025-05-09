@@ -243,10 +243,10 @@ All'esito positivo, l'API restituisce una risposta vuota.
 
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * link:concept_hci_clusters.html#authoritative-storage-clusters["Cluster autorevole"]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

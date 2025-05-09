@@ -20,9 +20,3 @@ Di seguito sono riportati gli elementi che è possibile utilizzare:
 * link:task_mnode_work_overview.html["Lavorare con il nodo di gestione"]
 * link:concept_nde_hci_power_off_on.html["Spegnere e riaccendere il sistema NetApp HCI"]
 
-
-[discrete]
-== Trova ulteriori informazioni
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-

@@ -128,9 +128,8 @@ NOTE: Assicurarsi di aver disattivato la casella di controllo *Preserve All Conf
 . Eseguire questa procedura per i restanti nodi di storage H610S nel cluster.
 
 
-[discrete]
+
+
 == Ulteriori informazioni
 
-* https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]

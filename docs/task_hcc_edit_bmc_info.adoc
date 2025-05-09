@@ -177,10 +177,10 @@ Payload di esempio:
 ----
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["Problemi noti e soluzioni per gli aggiornamenti dei nodi di calcolo"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

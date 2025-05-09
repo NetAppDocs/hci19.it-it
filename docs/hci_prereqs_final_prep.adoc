@@ -100,10 +100,10 @@ L'indirizzo IP IPMI è stato configurato per ciascun nodo di calcolo e storage.
 . Ripetere questa procedura per tutti gli altri nodi NetApp HCI H610C, H615C o H610S con password IPMI predefinite.
 
 
-[discrete]
+
+
 == Trova ulteriori informazioni
 
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["Documentazione NetApp SolidFire Active IQ"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Plug-in NetApp Element per server vCenter"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Pagina delle risorse NetApp HCI"^]
 

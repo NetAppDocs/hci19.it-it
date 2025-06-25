@@ -56,8 +56,6 @@
   <block id="d70c282924b717571aef1cee7fb90bda" category="list-text"><block ref="d70c282924b717571aef1cee7fb90bda" category="inline-link-rx"></block></block>
   <block id="a881a0468246e93ae6e2c5bccd78758e" category="inline-link">Plug-in NetApp Element per server vCenter</block>
   <block id="7cf5cffc3745b8348cdcfb1c3d0d472f" category="list-text"><block ref="7cf5cffc3745b8348cdcfb1c3d0d472f" category="inline-link-rx"></block></block>
-  <block id="a83404b3b2ca8b3c39459b719d7844d7" category="inline-link">Pagina delle risorse NetApp HCI</block>
-  <block id="efb3497df51898324a04d1329dc9b9ae" category="list-text"><block ref="efb3497df51898324a04d1329dc9b9ae" category="inline-link-rx"></block></block>
   <block id="df65f5c1d0a5896f87e664b9add16f32" category="summary">Scopri i requisiti di DNS e di conservazione dei tempi per NetApp HCI.</block>
   <block id="910bc6aecf05f95f12c1b61bfdeb180d" category="doc">DNS e requisiti di conservazione dei tempi</block>
   <block id="a37125410851f68e5cc89a60c957a863" category="paragraph">Prima dell'implementazione, è necessario preparare i record DNS (Domain Name System) per il sistema NetApp HCI e raccogliere le informazioni sul server NTP. NetApp HCI richiede un server DNS con le voci DNS corrette e un server NTP per una corretta implementazione.</block>
@@ -68,7 +66,6 @@
   <block id="cef30eda4c0b7af9b31a5d98cc9a55e8" category="list-text">NetApp HCI richiede un server NTP valido per la conservazione dei tempi. Se non si dispone di un server di riferimento orario, è possibile utilizzare un server di riferimento orario pubblico.</block>
   <block id="37aa99a448ecdc70dac167f71e6faaac" category="list-text">Assicurarsi che tutti i clock dei nodi di calcolo e di storage siano sincronizzati tra loro e che gli orologi dei dispositivi utilizzati per accedere a NetApp HCI siano sincronizzati con i nodi NetApp HCI.</block>
   <block id="c93817bbfc3fab71f5f7ca740a11c847" category="inline-link">Pagina delle risorse NetApp HCI</block>
-  <block id="acc25bb29912a0eb99591d6397d5e11d" category="list-text"><block ref="acc25bb29912a0eb99591d6397d5e11d" category="inline-link-rx"></block></block>
   <block id="62403656f60d86891c7c9ad1ffa2f44f" category="summary">È possibile disattivare e attivare la funzionalità SSH sul nodo di gestione utilizzando l'interfaccia utente NetApp Hybrid Cloud Control o L'interfaccia utente REST API o determinare lo stato della funzionalità di connessione del supporto SSH utilizzando l'interfaccia utente REST API.</block>
   <block id="d6ffeb2fc4f82d1d17f906502ee07d86" category="doc">Gestire la funzionalità SSH sul nodo di gestione</block>
   <block id="1ff95dcbc18b37a5ced1333dc80463dc" category="inline-link-macro">Accesso alla sessione del NetApp Support Remote Support Tunnel (RST)</block>
@@ -1133,61 +1130,33 @@
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">Open source</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">I file di avviso forniscono informazioni sul copyright e sulle licenze di terze parti utilizzate nel software NetApp.</block>
   <block id="4ba16aa779bc8ad075658a848d8a534f" category="inline-link-macro">Avviso per Ansible role for Compute Upgrades</block>
-  <block id="92650cf5badd89aace1461d0525236fd" category="list-text"><block ref="92650cf5badd89aace1461d0525236fd" category="inline-link-macro-rx"></block></block>
   <block id="24e9da091f15f10b8da793e19b340302" category="inline-link-macro">Avviso per Ember OS 12.3.1</block>
-  <block id="7c37ff93ea224cdfb5fcc8ad277d67ef" category="list-text"><block ref="7c37ff93ea224cdfb5fcc8ad277d67ef" category="inline-link-macro-rx"></block></block>
   <block id="fbcc1cb0e2a70eff701965a5f3e0d76b" category="inline-link-macro">Avviso per Ember OS 12.3</block>
-  <block id="b155ed748bc74699fbb05db3502ed3a6" category="list-text"><block ref="b155ed748bc74699fbb05db3502ed3a6" category="inline-link-macro-rx"></block></block>
   <block id="26c74f7a8ac6a7c8cdb0def0e876263d" category="inline-link-macro">Avviso per il nodo di gestione 12.3.1</block>
-  <block id="cf6217d0b70c3e9e193eb51bdc471aab" category="list-text"><block ref="cf6217d0b70c3e9e193eb51bdc471aab" category="inline-link-macro-rx"></block></block>
   <block id="43551c29e9ac231743a69c265f5ef85c" category="inline-link-macro">Avviso per il nodo di gestione 12.3</block>
-  <block id="6927fa09b89de9365631c15a2e8a8758" category="list-text"><block ref="6927fa09b89de9365631c15a2e8a8758" category="inline-link-macro-rx"></block></block>
   <block id="8824580064fbf037016d45df0afe1c64" category="inline-link-macro">Avviso per NetApp HCI 1.9P1</block>
-  <block id="c98c104489f4e60f30b087bb51b053ed" category="list-text"><block ref="c98c104489f4e60f30b087bb51b053ed" category="inline-link-macro-rx"></block></block>
   <block id="a994c7955992607e240e906376c847ea" category="inline-link-macro">Avviso per NetApp HCI 1.9</block>
-  <block id="fad7d8ef106d72300d9ae8dca0665982" category="list-text"><block ref="fad7d8ef106d72300d9ae8dca0665982" category="inline-link-macro-rx"></block></block>
   <block id="a4f0b4cd8ed43da899bf23d0cc006ec8" category="inline-link-macro">Avviso per Storage firmware Bundle 2.146</block>
-  <block id="976f425b451919895bc3cde2d81dd6c3" category="list-text"><block ref="976f425b451919895bc3cde2d81dd6c3" category="inline-link-macro-rx"></block></block>
   <block id="7ca92aa55af86adcb8e4f02055e5d1f3" category="inline-link-macro">Avviso per Compute firmware Bundle 2.146</block>
-  <block id="070e6ce33f7ff2e60a2783c8ebb93cce" category="list-text"><block ref="070e6ce33f7ff2e60a2783c8ebb93cce" category="inline-link-macro-rx"></block></block>
   <block id="2e5993f9d970daebf225967bb1e45acc" category="inline-link-macro">Avviso per Storage firmware Bundle 2.99.2</block>
-  <block id="9b66050651411f30ce4e4e60cd49154f" category="list-text"><block ref="9b66050651411f30ce4e4e60cd49154f" category="inline-link-macro-rx"></block></block>
   <block id="4b07ee081088aae3fb4d0eecd6d5e33c" category="inline-link-macro">Avviso per Compute firmware Bundle 2.76</block>
-  <block id="620e2d12cdf5e08b9753be70962af1c2" category="list-text"><block ref="620e2d12cdf5e08b9753be70962af1c2" category="inline-link-macro-rx"></block></block>
   <block id="927feedbfb9bbc4a93e285ba9504ab0b" category="inline-link-macro">Avviso per Storage firmware Bundle 2.76</block>
-  <block id="8ef06865130f39fba4f2f1bd57b10db9" category="list-text"><block ref="8ef06865130f39fba4f2f1bd57b10db9" category="inline-link-macro-rx"></block></block>
   <block id="15eb0cb82eab0a91d0477b28cedc9e6d" category="inline-link-macro">Avviso per Compute firmware Bundle 2.27</block>
-  <block id="fc252c43c5ce275603b4d02a0185de6e" category="list-text"><block ref="fc252c43c5ce275603b4d02a0185de6e" category="inline-link-macro-rx"></block></block>
   <block id="30624e21224d847e1b829641269ffe3c" category="inline-link-macro">Avviso per Storage firmware Bundle 2.27</block>
-  <block id="628635daa878466322430a063a3be8a2" category="list-text"><block ref="628635daa878466322430a063a3be8a2" category="inline-link-macro-rx"></block></block>
   <block id="4ecde2684e69acd5d2c24072d2d87431" category="inline-link-macro">Avviso per l'ISO del firmware di calcolo</block>
-  <block id="d20a53f0f6934177e690e38a85903142" category="list-text"><block ref="d20a53f0f6934177e690e38a85903142" category="inline-link-macro-rx"></block></block>
   <block id="a04e943dbcdb750d041999712b0c3468" category="inline-link-macro">Avviso per H610S BMC</block>
-  <block id="c0897cc71834939a3e05ac01145a60a3" category="list-text"><block ref="c0897cc71834939a3e05ac01145a60a3" category="inline-link-macro-rx"></block></block>
   <block id="bddb591f0b60efba3de48f954b55f287" category="inline-link-macro">Avviso per i servizi di gestione 2.23.64 (plug-in NetApp Element per VMware vCenter Server 5.1.12)</block>
-  <block id="adb27ccd96e9d86f5b808b75377f9b5d" category="list-text"><block ref="adb27ccd96e9d86f5b808b75377f9b5d" category="inline-link-macro-rx"></block></block>
   <block id="ef9b7df717b4686a8e22f66328c36013" category="inline-link-macro">Avviso per i servizi di gestione 2.22.7 (plug-in NetApp Element per vCenter Server 5.0.37)</block>
-  <block id="3406af7644403433d96ffd8c5eb7691b" category="list-text"><block ref="3406af7644403433d96ffd8c5eb7691b" category="inline-link-macro-rx"></block></block>
   <block id="6802ee2e6d325852973924be55003180" category="inline-link-macro">Avviso per i servizi di gestione 2.21.61 (plug-in NetApp Element per vCenter Server 4.10.12)</block>
-  <block id="ca9239bf570791b1b05bcb88781e4290" category="list-text"><block ref="ca9239bf570791b1b05bcb88781e4290" category="inline-link-macro-rx"></block></block>
   <block id="91973e8fa965f2bdba61e9b8919b4ee5" category="inline-link-macro">Avviso per i servizi di gestione 2.20.69 (plug-in NetApp Element per vCenter Server 4.9.14)</block>
-  <block id="55e4360e9b62728478e508dd54c47f2e" category="list-text"><block ref="55e4360e9b62728478e508dd54c47f2e" category="inline-link-macro-rx"></block></block>
   <block id="c6df14aa71e88712620087ef3c0051b8" category="inline-link-macro">Avviso per i servizi di gestione 2.19.48 (plug-in NetApp Element per vCenter Server 4.8.34)</block>
-  <block id="9d3d776c7146d1b002c55948105f2248" category="list-text"><block ref="9d3d776c7146d1b002c55948105f2248" category="inline-link-macro-rx"></block></block>
   <block id="e9ddfae2256b1bb9c9a0f68ff44e48e4" category="inline-link-macro">Avviso per i servizi di gestione 2.18.91 (plug-in NetApp Element per vCenter Server 4.7.10)</block>
-  <block id="06b9516dcd92ed07013c1b7a7a44c596" category="list-text"><block ref="06b9516dcd92ed07013c1b7a7a44c596" category="inline-link-macro-rx"></block></block>
   <block id="30d92c8789efab57b790dee431c18297" category="inline-link-macro">Avviso per i servizi di gestione 2.17.56 (plug-in NetApp Element per vCenter Server 4.6.32)</block>
-  <block id="24f90eb232d3a3878f274d7c771d888e" category="list-text"><block ref="24f90eb232d3a3878f274d7c771d888e" category="inline-link-macro-rx"></block></block>
   <block id="87a0fdd7b9534808231b4d6ab471ebf1" category="inline-link-macro">Avviso per i servizi di gestione 2.17.52 (plug-in NetApp Element per vCenter Server 4.6.29)</block>
-  <block id="1a0a40b3f99e65011c8e8fe0481ee7d6" category="list-text"><block ref="1a0a40b3f99e65011c8e8fe0481ee7d6" category="inline-link-macro-rx"></block></block>
   <block id="770994475f57b3ce3e40618e8d3e1705" category="inline-link-macro">Avviso per i servizi di gestione 2.16 (plug-in NetApp Element per vCenter Server 4.6.29)</block>
-  <block id="07b9c90552a4651d5faf56bc6eca9135" category="list-text"><block ref="07b9c90552a4651d5faf56bc6eca9135" category="inline-link-macro-rx"></block></block>
   <block id="1cb251dcf63c7c6b0f0f032152675c8b" category="inline-link-macro">Avviso per i servizi di gestione 2.14 (plug-in NetApp Element per vCenter Server 4.5.42)</block>
-  <block id="900584851315b10b766296f6df002e93" category="list-text"><block ref="900584851315b10b766296f6df002e93" category="inline-link-macro-rx"></block></block>
   <block id="a945e669932fbbe48d4794d770411d05" category="inline-link-macro">Avviso per i servizi di gestione 2.13 (plug-in NetApp Element per vCenter Server 4.5.42)</block>
-  <block id="d22ae1e66e46d1cfb632ed3078f04704" category="list-text"><block ref="d22ae1e66e46d1cfb632ed3078f04704" category="inline-link-macro-rx"></block></block>
   <block id="d9f3c0c9eb340c8261bfa8b95bd04b9a" category="inline-link-macro">Avviso per i servizi di gestione 2.11 (plug-in NetApp Element per vCenter Server 4.4.72)</block>
-  <block id="2a457438beda60d5fb52e68ed7488fc0" category="list-text"><block ref="2a457438beda60d5fb52e68ed7488fc0" category="inline-link-macro-rx"></block></block>
   <block id="6878153064f983e50fe1538332b04875" category="inline-link">Avviso per NetApp HCI 1.8</block>
   <block id="1b5e451286af92db851650172906487b" category="list-text"><block ref="1b5e451286af92db851650172906487b" category="inline-link-rx"></block></block>
   <block id="6a06383dae58d38fc5f43108b245ada6" category="summary">Se si utilizza una scheda NIC aggiuntiva per lo storage, è necessario impostare un'interfaccia di rete senza tag o con tag.</block>
@@ -6504,7 +6473,6 @@
   <block id="2553e35e4b345db1c1e3175a10539fdf" category="image-alt">Descrive il punto di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 5,0 o versioni successive</block>
   <block id="f35f89119a6374d18bd89e0103590c61" category="image-alt">Descrive i punti di estensione del plug-in dopo un aggiornamento o un'installazione corretti per Element Plug-in 4,10 o versioni precedenti</block>
   <block id="faf6c38631911f7840c3498b4ec9f746" category="inline-link-macro">Avviso per i servizi di gestione 2.24.40 (plug-in NetApp Element per VMware vCenter Server 5,2.12)</block>
-  <block id="1f3c662e49f317f7c70a24adc13870a1" category="list-text"><block ref="1f3c662e49f317f7c70a24adc13870a1" category="inline-link-macro-rx"></block></block>
   <block id="ce397f79b5032c3e327db3efe5a6048a" category="inline-link">VCenter Plug-in 5,2 - Note sulla versione</block>
   <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
   <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
@@ -6541,7 +6509,6 @@
   <block id="0c21440ced3ddae10d1eea32870fdf02" category="list-text"><block ref="ce90fd614158a5c7e0a42a5908fa1cd7" category="inline-link-rx"></block> _NUOVO_</block>
   <block id="6bd87cf3d55c2ead3ab585e965bea4db" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block></block>
   <block id="976b368b923346c8ea4ccc71e72749f5" category="inline-link-macro">Avviso per i servizi di gestione 2.25.42 (plug-in NetApp Element per VMware vCenter Server 5,3.9)</block>
-  <block id="f7e890b0a90e234e4df04fc0c6b8c6a7" category="list-text"><block ref="f7e890b0a90e234e4df04fc0c6b8c6a7" category="inline-link-macro-rx"></block></block>
   <block id="bef71f962ff7a233f3e8439eeb8dac70" category="list-text">Stai effettuando l'aggiornamento a Element Plug-in per vCenter Server 5,3, 5,2, 5,1 o 5,0.</block>
   <block id="ac58cb3a49a7142c7e9ce40e8d7f2c4d" category="sidebar">NetApp HCI è un'infrastruttura iperconvergente on-premise scalabile per i cloud ibridi. Scopri di più utilizzando la documentazione di configurazione e gestione di NetApp HCI e le informazioni sulle soluzioni NetApp HCI. Questo sito contiene la documentazione di NetApp HCI 1,9.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Inizia subito</block>
@@ -6581,5 +6548,36 @@
   <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
   <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">Quando si aggiorna ESXi per i nodi di calcolo per un<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block>, aggiornare solo un nodo di calcolo alla volta in modo che solo un nodo testimone sia temporaneamente non disponibile e che sia possibile mantenere il quorum del cluster.</block>
   <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
-  <block id="846572971d410f1d04ff53e7bfc8a84b" category="sidebar">Documentazione NetApp HCI 1,9</block>
+  <block id="b691b91f1208379346de4d69f8c840f1" category="list-text"><block ref="b691b91f1208379346de4d69f8c840f1" category="inline-link-macro-rx"></block></block>
+  <block id="8b74eb38e990a669c117dfc07c60e057" category="list-text"><block ref="8b74eb38e990a669c117dfc07c60e057" category="inline-link-macro-rx"></block></block>
+  <block id="78dbd8c1ef048a06f03d1d7955165cbb" category="list-text"><block ref="78dbd8c1ef048a06f03d1d7955165cbb" category="inline-link-macro-rx"></block></block>
+  <block id="2c90719f5e85c29f2af28343febac40c" category="list-text"><block ref="2c90719f5e85c29f2af28343febac40c" category="inline-link-macro-rx"></block></block>
+  <block id="8b79de8b3b1446d9f1643c5fb66dc6fe" category="list-text"><block ref="8b79de8b3b1446d9f1643c5fb66dc6fe" category="inline-link-macro-rx"></block></block>
+  <block id="d559e64ae71faed5783e366face37603" category="list-text"><block ref="d559e64ae71faed5783e366face37603" category="inline-link-macro-rx"></block></block>
+  <block id="384b3d0806f919cd1b28678f080b83f4" category="list-text"><block ref="384b3d0806f919cd1b28678f080b83f4" category="inline-link-macro-rx"></block></block>
+  <block id="7a0a6b8351b186d782f2b5b12a09f9d1" category="list-text"><block ref="7a0a6b8351b186d782f2b5b12a09f9d1" category="inline-link-macro-rx"></block></block>
+  <block id="e0a2b3604cb7980931b047c5b79b7334" category="list-text"><block ref="e0a2b3604cb7980931b047c5b79b7334" category="inline-link-macro-rx"></block></block>
+  <block id="96d39df4d07a61aada740f0716155f51" category="list-text"><block ref="96d39df4d07a61aada740f0716155f51" category="inline-link-macro-rx"></block></block>
+  <block id="f77a37db2275406d3d7de2688fdf5293" category="list-text"><block ref="f77a37db2275406d3d7de2688fdf5293" category="inline-link-macro-rx"></block></block>
+  <block id="69b7535618573fd609dc8b4663c8b8c0" category="list-text"><block ref="69b7535618573fd609dc8b4663c8b8c0" category="inline-link-macro-rx"></block></block>
+  <block id="f1a0148c13871b8d939879c1fe67614a" category="list-text"><block ref="f1a0148c13871b8d939879c1fe67614a" category="inline-link-macro-rx"></block></block>
+  <block id="656e3f29cbe522931c455a5e233d1c6f" category="list-text"><block ref="656e3f29cbe522931c455a5e233d1c6f" category="inline-link-macro-rx"></block></block>
+  <block id="aa5c9a89f196e514e1fafba2ea4fe274" category="list-text"><block ref="aa5c9a89f196e514e1fafba2ea4fe274" category="inline-link-macro-rx"></block></block>
+  <block id="782279fa2517c048d3f08897e94b8e22" category="list-text"><block ref="782279fa2517c048d3f08897e94b8e22" category="inline-link-macro-rx"></block></block>
+  <block id="4d67cefe38dafa645f353279e4fbc37b" category="list-text"><block ref="4d67cefe38dafa645f353279e4fbc37b" category="inline-link-macro-rx"></block></block>
+  <block id="db3a980db6ffcc2055052c6c4a453020" category="list-text"><block ref="db3a980db6ffcc2055052c6c4a453020" category="inline-link-macro-rx"></block></block>
+  <block id="2926dc5780f42141aca045c0001024a5" category="list-text"><block ref="2926dc5780f42141aca045c0001024a5" category="inline-link-macro-rx"></block></block>
+  <block id="06a46768bfa91171a5396b8bcdc5d6eb" category="list-text"><block ref="06a46768bfa91171a5396b8bcdc5d6eb" category="inline-link-macro-rx"></block></block>
+  <block id="19436b0bc37e63a280dc38b80395a21d" category="list-text"><block ref="19436b0bc37e63a280dc38b80395a21d" category="inline-link-macro-rx"></block></block>
+  <block id="f0fe2934aa8d8cec985fef2e0c464532" category="list-text"><block ref="f0fe2934aa8d8cec985fef2e0c464532" category="inline-link-macro-rx"></block></block>
+  <block id="08c1b18f2bce38d2bceb61af5b8c4c6e" category="list-text"><block ref="08c1b18f2bce38d2bceb61af5b8c4c6e" category="inline-link-macro-rx"></block></block>
+  <block id="c1f2aa244c34463b7aea4f2b566f9420" category="list-text"><block ref="c1f2aa244c34463b7aea4f2b566f9420" category="inline-link-macro-rx"></block></block>
+  <block id="7e9ccbf8b1b0c9563c86eb27b32e3e73" category="list-text"><block ref="7e9ccbf8b1b0c9563c86eb27b32e3e73" category="inline-link-macro-rx"></block></block>
+  <block id="f208337694859dc09b22d6c921ec69c3" category="list-text"><block ref="f208337694859dc09b22d6c921ec69c3" category="inline-link-macro-rx"></block></block>
+  <block id="842266b8873383455019c1a1caa31921" category="list-text"><block ref="842266b8873383455019c1a1caa31921" category="inline-link-macro-rx"></block></block>
+  <block id="09445f34cd5729442e7b2de72fb58d64" category="list-text"><block ref="09445f34cd5729442e7b2de72fb58d64" category="inline-link-macro-rx"></block></block>
+  <block id="36da361c4ac55f014f982e3621e4b133" category="list-text"><block ref="36da361c4ac55f014f982e3621e4b133" category="inline-link-macro-rx"></block></block>
+  <block id="5e447c4788a02133d94738f6ce42f213" category="list-text"><block ref="5e447c4788a02133d94738f6ce42f213" category="inline-link-macro-rx"></block></block>
+  <block id="46e87a91de6f38f3b1344d05a59270dd" category="sidebar">Documentazione di NetApp HCI 1.9</block>
+  <block id="4fdd77772a3c8c75f3f83d76694106d1" category="sidebar">Documentazione di NetApp HCI 1,9</block>
 </blocks>
